@@ -40,7 +40,6 @@ module RegApi2
       req = Net::HTTP::Post.new(
         category.nil? ? "#{API_URI.path}/#{name}" : "#{API_URI.path}/#{category}/#{name}"
       )
-      p req.path
       req['username'] = user
       req['password'] = password
       req['io_encoding'] = io_encoding
