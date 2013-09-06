@@ -23,4 +23,13 @@ describe RegApi2 do
       RegApi2.common.reseller_nop['login'].should == RegApi2.user
     end
   end
+
+  describe :get_user_id do
+    it "should raise nothing" do
+      lambda { RegApi2.common.get_user_id }.should_not raise_error
+    end
+    it "should return user id" do
+      RegApi2.common.get_user_id['user_id'].should be_kind_of(Fixnum)
+    end
+  end
 end
