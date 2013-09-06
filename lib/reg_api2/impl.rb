@@ -4,8 +4,10 @@ require 'net/https'
 require 'yajl'
 
 module RegApi2
+  # Networking Error
   class NetError < Exception
   end
+  # API Error
   class ApiError < Exception
     attr_reader :description
     def initialize code,  description
