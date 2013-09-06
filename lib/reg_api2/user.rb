@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 module RegApi2
+  # REG.API user category
   module User
 
     include RegApi2::Builder

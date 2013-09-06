@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 module RegApi2
 
-  # Common functions
+  # REG.API common category
   module Common
 
     include RegApi2::Builder
