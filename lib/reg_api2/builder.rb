@@ -8,14 +8,14 @@ module RegApi2
       mod.module_eval do
 
         class << self
-          # Sets method category
+          # @!method Sets method category
           # @param category [String or NilClass] Category of methods
           # @see define 
           def category category
             @cat = category
           end
 
-          # Defines API method.
+          # @!method Defines API method.
           # @param name Name of specified method.
           def define name
             define_method name do |opts = {}|

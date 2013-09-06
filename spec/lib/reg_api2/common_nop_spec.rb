@@ -32,4 +32,13 @@ describe RegApi2 do
       RegApi2.common.get_user_id['user_id'].should be_kind_of(Fixnum)
     end
   end
+
+  describe :get_service_id do
+    it "should raise nothing" do
+      lambda { RegApi2.common.get_service_id(service_id: 123456) }.should_not raise_error
+    end
+    it "should return user id" do
+      RegApi2.common.get_service_id(service_id: 123456)['service_id'] == 123456
+    end
+  end
 end
