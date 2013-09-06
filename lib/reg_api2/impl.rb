@@ -40,19 +40,23 @@ module RegApi2
       req = Net::HTTP::Post.new(
         category.nil? ? "#{API_URI.path}/#{name}" : "#{API_URI.path}/#{category}/#{name}"
       )
-      req['username'] = user
-      req['password'] = password
-      req['io_encoding'] = io_encoding
-      req['lang'] = lang
-      req['output_format'] = 'json'
-      req['input_format'] = 'json'
-      req['show_input_params'] = 0;
-      req['input_data'] = Yajl::Encoder.encode(opts)
+
+      form = {
+        'username' => user,
+        'password' => password,
+        'io_encoding' => io_encoding,
+        'lang' => lang,
+        'output_format' => 'json',
+        'input_format' => 'json',
+        'show_input_params' => 0,
+        'input_data' => Yajl::Encoder.encode(opts)
+      }
+      req.set_form_data(form)
       res = http.request(req)
       raise NetError.new(res.body)  unless res.code == '200'
       json = Yajl::Parser.parse(res.body)
       raise ApiError.new(json['error_code'], json['error_text'])  if json['result'] == 'error'
-      json
+      json['answer']
     end
 
   end
