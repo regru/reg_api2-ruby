@@ -6,7 +6,7 @@ module RegApi2
 
     category :user
 
-    # nop
+    # @!method nop
     # @param None
     # Accessibility testing.
     # @return [NilClass] nil
