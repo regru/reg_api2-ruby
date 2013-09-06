@@ -14,4 +14,13 @@ describe RegApi2 do
       RegApi2.common.nop['login'].should == RegApi2.user
     end
   end
+
+  describe :reseller_nop do
+    it "should raise nothing" do
+      lambda { RegApi2.common.reseller_nop }.should_not raise_error
+    end
+    it "should return login" do
+      RegApi2.common.reseller_nop['login'].should == RegApi2.user
+    end
+  end
 end
