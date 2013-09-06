@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 describe RegApi2 do
   before(:all) do
-    RegApi2.user = 'test'
+    RegApi2.username = 'test'
     RegApi2.password = 'test'
     RegApi2.lang = 'ru'
   end
@@ -11,7 +11,7 @@ describe RegApi2 do
       lambda { RegApi2.common.nop }.should_not raise_error
     end
     it "should return login" do
-      RegApi2.common.nop['login'].should == RegApi2.user
+      RegApi2.common.nop['login'].should == RegApi2.username
     end
   end
 
@@ -20,7 +20,7 @@ describe RegApi2 do
       lambda { RegApi2.common.reseller_nop }.should_not raise_error
     end
     it "should return login" do
-      RegApi2.common.reseller_nop['login'].should == RegApi2.user
+      RegApi2.common.reseller_nop['login'].should == RegApi2.username
     end
   end
 
