@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'reg.api2/version'
+require 'reg_api2/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "reg.api2"
-  spec.version       = Reg.api2::VERSION
+  spec.version       = RegApi2::VERSION
   spec.authors       = ["Akzhan Abdulin"]
   spec.email         = ["akzhan.abdulin@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{REG.API v2 Implementation}
+  spec.summary       = %q{REG.API v2 Implementation}
   spec.homepage      = ""
   spec.license       = "MIT"
 
