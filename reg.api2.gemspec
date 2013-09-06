@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["akzhan.abdulin@gmail.com"]
   spec.description   = %q{REG.API v2 Implementation}
   spec.summary       = %q{REG.API v2 Implementation}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/regru/reg_api2-ruby"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
