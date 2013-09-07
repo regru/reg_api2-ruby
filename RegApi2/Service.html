@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Module: RegApi2::Clients
+  Module: RegApi2::Service
   
     &mdash; 'reg.api2 '
   
@@ -31,10 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (C)</a> &raquo;
+    <a href="../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../RegApi2.html" title="RegApi2 (module)">RegApi2</a></span></span>
      &raquo; 
-    <span class="title">Clients</span>
+    <span class="title">Service</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -63,7 +63,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Module: RegApi2::Clients
+    <div id="content"><h1>Module: RegApi2::Service
   
   
   
@@ -74,7 +74,7 @@
   
     
       <dt class="r1">Extended by:</dt>
-      <dd class="r1"><span class='object_link'><a href="" title="RegApi2::Clients (module)">Clients</a></span></dd>
+      <dd class="r1"><span class='object_link'><a href="" title="RegApi2::Service (module)">Service</a></span></dd>
       
     
   
@@ -86,19 +86,19 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="" title="RegApi2::Clients (module)">Clients</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="" title="RegApi2::Service (module)">Service</a></span></dd>
     
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/reg_api2/clients.rb</dd>
+    <dd class="r2 last">lib/reg_api2/service.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>REG.API clients category</p>
+    <p>REG.API service category</p>
 
 
   </div>
@@ -113,6 +113,40 @@
 
 
 
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nop-instance_method" title="#nop (instance method)">- (Hash(&quot;login&quot;, &quot;user_id&quot;)) <strong>nop</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>For testing purposes (do nothing + get the login and identifier of the user logged into the system).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
 
   
   
@@ -120,11 +154,81 @@
   
   
   
-  <h2>Method Summary</h2>
+  
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Builder.html" title="RegApi2::Builder (module)">Builder</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Builder.html#included-class_method" title="RegApi2::Builder.included (method)">included</a></span></p>
 
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="nop-instance_method">
+  
+    - (<tt>Hash("login", "user_id")</tt>) <strong>nop</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>For testing purposes (do nothing + get the login and identifier of the user logged into the system).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>None</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash("login", "user_id")</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 14</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:nop</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 

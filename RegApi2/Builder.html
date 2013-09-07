@@ -6,7 +6,7 @@
 <title>
   Module: RegApi2::Builder
   
-    &mdash; 'git-commit-notifier '
+    &mdash; 'reg.api2 '
   
 </title>
 
@@ -78,7 +78,7 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="Clients.html" title="RegApi2::Clients (module)">Clients</a></span>, <span class='object_link'><a href="Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="Domains.html" title="RegApi2::Domains (module)">Domains</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="Clients.html" title="RegApi2::Clients (module)">Clients</a></span>, <span class='object_link'><a href="Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="Domains.html" title="RegApi2::Domains (module)">Domains</a></span>, <span class='object_link'><a href="Service.html" title="RegApi2::Service (module)">Service</a></span>, <span class='object_link'><a href="User.html" title="RegApi2::User (module)">User</a></span></dd>
     
   
   
@@ -208,9 +208,9 @@
 
       <span class='comment'># @!method Defines API method.
 </span>      <span class='comment'># @param name Name of specified method.
-</span>      <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span> <span class='id identifier rubyid_name'>name</span>
+</span>      <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_defopts'>defopts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> 
         <span class='id identifier rubyid_define_method'>define_method</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='op'>|</span>
-          <span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_make_action'>make_action</span><span class='lparen'>(</span><span class='ivar'>@cat</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+          <span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_make_action'>make_action</span><span class='lparen'>(</span><span class='ivar'>@cat</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
@@ -226,7 +226,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Sep  6 20:46:31 2013 by
+  Generated on Sat Sep  7 13:19:26 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>
