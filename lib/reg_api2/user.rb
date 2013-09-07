@@ -24,7 +24,7 @@ module RegApi2
     # @option opts [String] :user_country_code User country code like 'RU'.
     # @return [String] user_id of new user.
 
-    define :create, required: %w[ user_login user_password user_email user_country_code ], field: 'user_id', result: :SingleField
+    define :create, required: %w[ user_login user_password user_email user_country_code ], field: 'user_id', result: :single_field
 
     extend self
   end

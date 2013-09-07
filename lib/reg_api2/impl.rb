@@ -3,6 +3,8 @@ require 'net/http'
 require 'net/https'
 require 'yajl'
 
+require 'reg_api2/util'
+
 module RegApi2
   # Networking Error
   class NetError < Exception
@@ -84,7 +86,7 @@ module RegApi2
     def get_request_contract_by_name name
       return DEFAULT_REQUEST_CONTRACT  unless name
       return name  if name.kind_of?(Class)
-      RegApi2::RequestContract.const_get(name)
+      RegApi2::RequestContract.const_get(RegApi2::Util.constantize name)
     end
 
 
@@ -94,7 +96,7 @@ module RegApi2
     def get_result_contract_by_name name
       return DEFAULT_RESULT_CONTRACT  unless name
       return name  if name.kind_of?(Class)
-      RegApi2::ResultContract.const_get(name)
+      RegApi2::ResultContract.const_get(RegApi2::Util.constantize name)
     end
 
     # Gets form data for POST request
