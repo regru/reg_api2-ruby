@@ -7,10 +7,11 @@ module RegApi2
 
     category :service
 
-    # @!method nop
-    # @param None
-    # For testing purposes (do nothing + get the login and identifier of the user logged into the system).
-    # @return [Hash("login", "user_id")]
+    # @!method nop(opts = {})
+    # @param opts
+    # @option opts [Array] services
+    # Return list of specified services with its stats if specified.
+    # @return [Hash("services" => [])]
     define :nop
 
     extend self
