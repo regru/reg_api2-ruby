@@ -63,6 +63,10 @@
 
     <div id="content"><div id='filecontents'><h1>Reg.api2</h1>
 
+<p><a href="https://travis-ci.org/regru/reg_api2-ruby"><img src="https://secure.travis-ci.org/regru/reg_api2-ruby.png" alt="build status"></a>
+<a href="https://codeclimate.com/github/regru/reg_api2-ruby"><img src="https://codeclimate.com/github/regru/reg_api2-ruby.png" alt="Code Climate"></a>
+<a href="https://coveralls.io/r/regru/reg_api2-ruby"><img src="https://coveralls.io/repos/regru/reg_api2-ruby/badge.png?branch=master" alt="Coverage Status"></a></p>
+
 <p>REG.API v2 Implementation.</p>
 
 <h2>Installation</h2>
@@ -84,6 +88,27 @@
 
 <h2>Usage</h2>
 
+<h3>List of services by specified identifiers</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>reg_api2</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_nop'>nop</span><span class='lparen'>(</span><span class='label'>services:</span> <span class='lbracket'>[</span>
+  <span class='lbrace'>{</span> <span class='label'>dname:</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.su</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>servtype:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>srv_hosting_ispmgr</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='lbrace'>{</span> <span class='label'>service_id:</span> <span class='int'>111111</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='lbrace'>{</span> <span class='label'>service_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>22bug22</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='lbrace'>{</span> <span class='label'>surprise:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>surprise.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='rbracket'>]</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2>Documentation</h2>
+
+<p>Simply do</p>
+
+<pre class="code bash"><code class="bash">bundle exec rake yard
+open doc/index.html
+</code></pre>
+
 <h2>Contributing</h2>
 
 <ol>
@@ -96,7 +121,7 @@
 </div></div>
 
     <div id="footer">
-  Generated on Sat Sep  7 13:19:26 2013 by
+  Generated on Sat Sep  7 15:49:04 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>
