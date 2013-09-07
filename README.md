@@ -18,6 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
+## Documentation
+
+Simply do
+
+```bash
+bundle exec rake yard
+open doc/index.html
+```
 
 ## Contributing
 
