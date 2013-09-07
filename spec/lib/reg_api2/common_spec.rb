@@ -38,7 +38,7 @@ describe RegApi2 do
       lambda { RegApi2.common.get_service_id(service_id: 123456) }.should_not raise_error
     end
     it "should return user id" do
-      RegApi2.common.get_service_id(service_id: 123456)['service_id'] == 123456
+      RegApi2.common.get_service_id(service_id: 123456) == 123456
     end
   end
 end

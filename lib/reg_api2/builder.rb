@@ -17,9 +17,9 @@ module RegApi2
 
           # @!method Defines API method.
           # @param name Name of specified method.
-          def define name
+          def define name, defopts = {} 
             define_method name do |opts = {}|
-              RegApi2.make_action(@cat, name, opts)
+              RegApi2.make_action(@cat, name, defopts, opts)
             end
           end
         end

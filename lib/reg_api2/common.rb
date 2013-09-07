@@ -1,4 +1,7 @@
 # -*- encoding : utf-8 -*-
+
+require 'reg_api2/contract/get_service_id'
+
 module RegApi2
 
   # REG.API common category
@@ -34,8 +37,8 @@ module RegApi2
     # @param [Hash] opts The options.
     # @option opts [FixNum] :service_id Service identifier.
     # Gets service/domain identifier
-    # @return [Hash("service_id", ...)]
-    define :get_service_id
+    # @return [FixNum] service_id
+    define :get_service_id, :contract => RegApi2::Contract::GetServiceId
 
     extend self
   end
