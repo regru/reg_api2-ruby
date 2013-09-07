@@ -23,5 +23,15 @@ describe RegApi2 do
       lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_password)) }.should raise_error RegApi2::ContractError
       lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_password)) }.should raise_error /user_password/
     end
+
+    it "should raise ContractError unless user_email provided." do
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_email)) }.should raise_error RegApi2::ContractError
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_email)) }.should raise_error /user_email/
+    end
+  
+    it "should raise ContractError unless user_country_code provided." do
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_country_code)) }.should raise_error RegApi2::ContractError
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_country_code)) }.should raise_error /user_country_code/
+    end
   end
 end

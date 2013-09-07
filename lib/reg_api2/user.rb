@@ -19,7 +19,7 @@ module RegApi2
     # @!method create(opts = {})
     # @param opts
     # @option opts :user_login Login of the new user in the REG.API system. Allowed symbols: Latin lower-case letters (a-z), digits (0 -9) and the symbols "-" and "_".
-    define :create, required: %w[ user_login user_password ]
+    define :create, required: %w[ user_login user_password user_email user_country_code ]
 
     extend self
   end
