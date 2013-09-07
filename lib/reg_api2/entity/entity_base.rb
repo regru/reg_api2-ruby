@@ -23,7 +23,8 @@ module RegApi2
           methods.detect { |n2| "#{n}=" == n2 } &&
           true
         end.each do |n|
-          h[n.to_sym] = self.send n.to_sym
+          v = self.send n.to_sym
+          h[n.to_sym] = v  unless v.nil?
         end
         h
       end

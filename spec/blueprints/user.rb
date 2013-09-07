@@ -31,6 +31,9 @@ end
 RegApi2::Entity::User.blueprint(:good_user) do
   user_login { 'autotestlogin4532' }
   user_password { Faker::Internet.password }
-  user_email { Faker::Internet.email }
+  user_email { Faker::Name.first_name + '@mail.ru' }
   user_country_code { 'RU' }
+  user_first_name { Faker::Name.first_name }
+  user_last_name { Faker::Name.last_name }
+  check_only { 1 }
 end
