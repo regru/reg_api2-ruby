@@ -36,6 +36,7 @@ describe RegApi2 do
 
     it "should create user with valid data." do
       lambda { RegApi2.user.create(RegApi2::Entity::User.make(:good_user)) }.should_not raise_error
+      RegApi2.user.create(RegApi2::Entity::User.make(:good_user)).should == "777"
     end
   end
 end
