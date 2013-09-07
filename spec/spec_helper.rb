@@ -7,6 +7,9 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'rubygems'
+require 'coveralls'
+Coveralls.wear!
+
 require 'faker'
 require 'rspec/core'
 
