@@ -8,4 +8,18 @@ describe RegApi2::ResultContract::Default do
       contract.opts.should == { a: 1, b: 4 }
     end
   end
+
+  describe :handle_result do
+    it "should return handle_answer" do
+      expected = 'OOLOLLO'
+      mock(contract).handle_answer({}) { expected } 
+      contract.handle_result({ "answer" => {} }).should == expected
+    end
+  end
+
+  describe :handle_answer do
+    it "shoulfd return specified value" do
+      contract.handle_answer("FX").should == "FX"
+    end
+  end
 end
