@@ -13,10 +13,11 @@ module RegApi2
   # API Error
   class ApiError < Exception
     # @!attribute [r] Localized error description.
-    attr_reader :description
-    def initialize code,  description
+    attr_reader :description, :params
+    def initialize code,  description, params
       super code
       @description = description
+      @params = params
     end
   end
 
@@ -86,7 +87,7 @@ module RegApi2
       res = http.request(req)
       raise NetError.new(res.body)  unless res.code == '200'
       json = Yajl::Parser.parse(res.body)
-      raise ApiError.new(json['error_code'], json['error_text'])  if json['result'] == 'error'
+      raise ApiError.new(json['error_code'], json['error_text'], json['error_params'])  if json['result'] == 'error'
       (defopts[:contract] || DEFAULT_CONTRACT).new(defopts).handle_result(json)
     end
 
