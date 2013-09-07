@@ -4,6 +4,8 @@ module RegApi2
   # Take a look at {RegApi2::DEFAULT_REQUEST_CONTRACT} for defaults.
   module RequestContract
     # Checks for specified `required` fields.
+    # Also checks for `optional` fields.
+    # Take in care :re option.
     class Default
       attr_reader :opts
 
@@ -12,7 +14,8 @@ module RegApi2
       end
 
       def to_hash arr
-        return arr  if arr.nil? || arr.kind_of?(Hash)
+        return {}   if arr.nil?
+        return arr  if arr.kind_of?(Hash)
         arr = [ arr ]  unless arr.kind_of?(Array)
         ret = {}
         arr.each { |key| ret[key] = {} }
@@ -21,12 +24,24 @@ module RegApi2
 
       def validate(form)
         required_fields = to_hash opts[:required]
-        return  unless required_fields
+        optional_fields = to_hash opts[:optional]
+        required_fields.keys.each { |key| required_fields[key][:required] = true }
+        optional_fields.merge!(required_fields)
+        return  if optional_fields.empty?
         absent_fields = []
-        required_fields.each_pair do |key, opts|
+        optional_fields.each_pair do |key, opts|
           unless form.has_key?(key)
-            absent_fields << key
+            if opts[:required]
+              absent_fields << key
+            end
             next
+          end
+          if opts[:re]
+            if form[key] !~ opts[:re]
+              raise RegApi2::ContractError.new(
+                "Field #{key} mismatch regular expression: #{form[key]}"
+              )
+            end
           end
         end
         unless absent_fields.empty?
