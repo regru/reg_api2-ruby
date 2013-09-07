@@ -14,7 +14,7 @@ describe RegApi2::ResultContract::SingleField do
       contract.handle_answer({ "one" => "FX" }).should == "FX"
     end
 
-    it "should raise ContractError nil unless exists" do
+    it "should raise ContractError on field unless exists" do
       lambda { contract.handle_answer({}) }.should raise_error RegApi2::ContractError
       lambda { contract.handle_answer({}) }.should raise_error /one/
     end
