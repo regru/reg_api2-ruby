@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require "reg_api2/version"
 
+require "reg_api2/request_contract/default"
 require "reg_api2/result_contract/default"
 
 require "reg_api2/impl"

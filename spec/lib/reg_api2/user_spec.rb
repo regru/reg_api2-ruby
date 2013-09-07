@@ -15,4 +15,11 @@ describe RegApi2 do
       RegApi2.user.nop.should be_nil
     end
   end
+
+  describe :create do
+    it "should raise ContractError unless user_login provided." do
+      lambda { RegApi2.user.create() }.should raise_error RegApi2::ContractError
+      lambda { RegApi2.user.create() }.should raise_error /user_login/
+    end
+  end
 end

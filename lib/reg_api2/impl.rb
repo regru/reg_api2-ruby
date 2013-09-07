@@ -39,6 +39,8 @@ module RegApi2
     DEFAULT_IO_ENCODING = 'utf-8'
     # Default lang.
     DEFAULT_LANG = 'en'
+    # Default API contract for requests
+    DEFAULT_REQUEST_CONTRACT = RegApi2::RequestContract::Default
     # Default API contract for results
     DEFAULT_RESULT_CONTRACT = RegApi2::ResultContract::Default
 
@@ -83,6 +85,7 @@ module RegApi2
         'show_input_params' => 0,
         'input_data' => Yajl::Encoder.encode(opts)
       }
+      (defopts[:request] || DEFAULT_REQUEST_CONTRACT).new(defopts).validate(form)
       req.set_form_data(form)
       res = http.request(req)
       raise NetError.new(res.body)  unless res.code == '200'
