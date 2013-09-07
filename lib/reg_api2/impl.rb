@@ -78,20 +78,11 @@ module RegApi2
     def got_response(response)
     end
 
-    # Do actual call to REG.API using POST/JSON convention.
-    # @param [Symbol] category
-    # @param [Symbol] name
+    # get_form_data
     # @param [Hash] defopts
     # @param [Hash] opts
-    # @return [Hash] Result answer field.
-    # @raise [NetError]
-    # @raise [ApiError]
-    # @raise [ContractError]
-    def make_action category, name, defopts, opts = {}
-      req = Net::HTTP::Post.new(
-        category.nil? ? "#{API_URI.path}/#{name}" : "#{API_URI.path}/#{category}/#{name}"
-      )
-
+    # @return [Hash] Form data to be sent.
+    def get_form_data(defopts, opts)
       # HACK: REG.API doesn't know about utf-8.
       io_encoding = 'utf8'  if !io_encoding || io_encoding == DEFAULT_IO_ENCODING
       form = {
@@ -105,13 +96,34 @@ module RegApi2
         'input_data' => Yajl::Encoder.encode(opts)
       }
       (defopts[:request] || DEFAULT_REQUEST_CONTRACT).new(defopts).validate(form)
+      form
+    end
+
+    # Do actual call to REG.API using POST/JSON convention.
+    # @param [Symbol] category
+    # @param [Symbol] name
+    # @param [Hash] defopts
+    # @param [Hash] opts
+    # @return [Hash] Result answer field.
+    # @raise [NetError]
+    # @raise [ApiError]
+    # @raise [ContractError]
+    def make_action category, name, defopts, opts = {}
+      req = Net::HTTP::Post.new(
+        category.nil? ? "#{API_URI.path}/#{name}" : "#{API_URI.path}/#{category}/#{name}"
+      )
+      form = get_form_data(defopts, opts)
       form_to_be_sent(req.path, form)
+
       req.set_form_data(form)
       res = http.request(req)
       got_response(res)
+
       raise NetError.new(res.body)  unless res.code == '200'
+
       json = Yajl::Parser.parse(res.body)
       raise ApiError.new(json['error_code'], json['error_text'], json['error_params'])  if json['result'] == 'error'
+
       (defopts[:result] || DEFAULT_RESULT_CONTRACT).new(defopts).handle_result(json)
     end
 
