@@ -33,5 +33,9 @@ describe RegApi2 do
       lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_country_code)) }.should raise_error RegApi2::ContractError
       lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_country_code)) }.should raise_error /user_country_code/
     end
+
+    it "should create user with valid data." do
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:good_user)) }.should_not raise_error
+    end
   end
 end

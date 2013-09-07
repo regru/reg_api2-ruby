@@ -29,7 +29,7 @@ RegApi2::Entity::User.blueprint(:bad_country_code) do
 end
 
 RegApi2::Entity::User.blueprint(:good_user) do
-  user_login { Faker::Name.first_name }
+  user_login { 'autotestlogin4532' }
   user_password { Faker::Internet.password }
   user_email { Faker::Internet.email }
   user_country_code { 'RU' }
