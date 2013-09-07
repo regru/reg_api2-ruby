@@ -6,13 +6,22 @@ module RegApi2
     # Base entity class.
     class EntityBase
 
+      # Skipped property names.
+      SKIPPED_MEMBERS = [
+        "taguri" # from YAML mixin
+      ].freeze
+
       # All r/w properties interpreted as symbol hash.
       # @return [Hash] properties as hash.
       def to_hash
         h = {}
         methods = self.class.public_instance_methods(true).map(&:to_s)
         methods.select do |n|
-          n =~ /^[^=\?!]+$/ && methods.detect { |n2| "#{n}=" == n2 }
+          true &&
+          !SKIPPED_MEMBERS.detect { |n3| n3 == n } &&
+          n =~ /^[^=\?!]+$/ &&
+          methods.detect { |n2| "#{n}=" == n2 } &&
+          true
         end.each do |n|
           h[n.to_sym] = self.send n.to_sym
         end
