@@ -17,4 +17,6 @@ describe RegApi2::RequestContract::Default do
     end
   end
 
+  # TODO: specs
+
 end
