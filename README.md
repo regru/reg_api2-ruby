@@ -22,6 +22,20 @@ Or install it yourself as:
 
 ## Usage
 
+### List of services by specified identifiers
+
+```ruby
+require "reg_api2"
+
+RegApi2.service.nop(services: [
+  { dname:"test.ru" },
+  { dname: "test.su", servtype: "srv_hosting_ispmgr" },
+  { service_id: 111111 },
+  { service_id: "22bug22" },
+  { surprise: "surprise.ru" }
+])
+```
+
 ## Documentation
 
 Simply do
