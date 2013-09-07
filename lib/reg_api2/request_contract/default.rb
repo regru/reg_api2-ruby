@@ -24,7 +24,7 @@ module RegApi2
         ret
       end
 
-      # Validated specified `form` with `required` and `optional` fields.
+      # Validates specified `form` with `required` and `optional` fields.
       # @param [Hash] form Form to validate.
       # @raise ContractError
       def validate(form)
