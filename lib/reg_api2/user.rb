@@ -17,9 +17,11 @@ module RegApi2
     define :nop
 
     # @!method create(opts = {})
-    # @param opts
+    # @param opts Opts or {RegApi2::Entity::User}
     # @option opts :user_login Login of the new user in the REG.API system. Allowed symbols: Latin lower-case letters (a-z), digits (0 -9) and the symbols "-" and "_".
+    # @option opts :user_password Password of the new user.
     # @return [String] user_id of new user.
+
     define :create, required: %w[ user_login user_password user_email user_country_code ], field: 'user_id', result: :SingleField
 
     extend self
