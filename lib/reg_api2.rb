@@ -10,6 +10,7 @@ require 'reg_api2/common'
 require 'reg_api2/domains'
 require 'reg_api2/clients'
 require 'reg_api2/user'
+require 'reg_api2/service'
 
 #  REG.API v2
 module RegApi2
@@ -29,5 +30,9 @@ module RegApi2
   # Shortcut for {RegApi2::User} methods.
   def user; RegApi2::User; end
   module_function :user
+
+  # Shortcut for {RegApi2::Service} methods.
+  def service; RegApi2::Service; end
+  module_function :service
 
 end
