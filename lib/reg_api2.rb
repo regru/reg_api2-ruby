@@ -17,22 +17,27 @@ require 'reg_api2/service'
 module RegApi2
 
   # Shortcut for {RegApi2::Common} methods
+  # @return [Module]
   def common; RegApi2::Common; end
   module_function :common
 
   # Shortcut for {RegApi2::Domains} methods.
+  # @return [Module]
   def domains; RegApi2::Domains; end
   module_function :domains
 
   # Shortcut for {RegApi2::Clients} methods.
+  # @return [Module]
   def clients; RegApi2::Clients; end
   module_function :clients
 
   # Shortcut for {RegApi2::User} methods.
+  # @return [Module]
   def user; RegApi2::User; end
   module_function :user
 
   # Shortcut for {RegApi2::Service} methods.
+  # @return [Module]
   def service; RegApi2::Service; end
   module_function :service
 
