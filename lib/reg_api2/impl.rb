@@ -78,6 +78,25 @@ module RegApi2
     def got_response(response)
     end
 
+    # Gets {RegApi2::RequestContract} by its name.
+    # @param [NilClass, Class, String] name
+    # @return [Class] {RegApi2::RequestContract}
+    def get_request_contract_by_name name
+      return DEFAULT_REQUEST_CONTRACT  unless name
+      return name  if name.kind_of?(Class)
+      RegApi2::RequestContract.const_get(name)
+    end
+
+
+    # Gets {RegApi2::ResultContract} by its name.
+    # @param [NilClass, Class, String] name
+    # @return [Class] {RegApi2::ResultContract}
+    def get_result_contract_by_name name
+      return DEFAULT_RESULT_CONTRACT  unless name
+      return name  if name.kind_of?(Class)
+      RegApi2::ResultContract.const_get(name)
+    end
+
     # Gets form data for POST request
     # @param [Hash] defopts
     # @param [Hash] opts
@@ -87,7 +106,7 @@ module RegApi2
       # HACK: REG.API doesn't know about utf-8.
       io_encoding = 'utf8'  if !io_encoding || io_encoding == DEFAULT_IO_ENCODING
       opts = opts.to_hash  if opts.respond_to?(:to_hash)
-      (defopts[:request] || DEFAULT_REQUEST_CONTRACT).new(defopts).validate(opts)
+      get_request_contract_by_name(defopts[:request]).new(defopts).validate(opts)
       form = {
         'username' => username,
         'password' => password,
@@ -118,7 +137,7 @@ module RegApi2
         json['error_params']
       )  if json['result'] == 'error'
 
-      (defopts[:result] || DEFAULT_RESULT_CONTRACT).new(defopts).handle_result(json)
+      get_result_contract_by_name(defopts[:result]).new(defopts).handle_result(json)
     end
 
     # Do actual call to REG.API using POST/JSON convention.
