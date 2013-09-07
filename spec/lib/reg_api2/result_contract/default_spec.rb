@@ -18,7 +18,7 @@ describe RegApi2::ResultContract::Default do
   end
 
   describe :handle_answer do
-    it "shoulfd return specified value" do
+    it "should return specified value" do
       contract.handle_answer("FX").should == "FX"
     end
   end
