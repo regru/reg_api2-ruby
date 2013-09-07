@@ -7,6 +7,9 @@ module RegApi2
   # Networking Error
   class NetError < Exception
   end
+  # API Contract Error
+  class ContractError < Exception
+  end
   # API Error
   class ApiError < Exception
     # @!attribute [r] Localized error description.
@@ -84,7 +87,7 @@ module RegApi2
       raise NetError.new(res.body)  unless res.code == '200'
       json = Yajl::Parser.parse(res.body)
       raise ApiError.new(json['error_code'], json['error_text'])  if json['result'] == 'error'
-      (defopts[:contract] || DEFAULT_CONTRACT).new(opts).handle_result(json)
+      (defopts[:contract] || DEFAULT_CONTRACT).new(defopts).handle_result(json)
     end
 
     end
