@@ -26,4 +26,10 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+
+  config.before(:all) do
+    RegApi2.username = 'test'
+    RegApi2.password = 'test'
+    RegApi2.lang = 'ru'
+  end
 end
