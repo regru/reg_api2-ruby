@@ -1,8 +1,8 @@
 # Reg.api2
 
-[![build status](https://secure.travis-ci.org/regru/reg.api2.png)](https://travis-ci.org/regru/reg.api2)
-[![Code Climate](https://codeclimate.com/github/regru/reg.api2.png)](https://codeclimate.com/github/regru/reg.api2)
-[![Coverage Status](https://coveralls.io/repos/regru/reg.api2/badge.png?branch=master)](https://coveralls.io/r/regru/reg.api2)
+[![build status](https://secure.travis-ci.org/regru/reg_api2-ruby.png)](https://travis-ci.org/regru/reg_api2-ruby)
+[![Code Climate](https://codeclimate.com/github/regru/reg_api2-ruby.png)](https://codeclimate.com/github/regru/reg_api2-ruby)
+[![Coverage Status](https://coveralls.io/repos/regru/reg_api2-ruby/badge.png?branch=master)](https://coveralls.io/r/regru/reg_api2-ruby)
 
 REG.API v2 Implementation.
 
