@@ -13,7 +13,16 @@ require 'reg_api2/clients'
 require 'reg_api2/user'
 require 'reg_api2/service'
 
-#  REG.API v2
+# REG.API v2
+# @example List of services by specified identifiers
+#  RegApi2.service.nop(services: [
+#    { dname:"test.ru" },
+#    { dname: "test.su", servtype: "srv_hosting_ispmgr" },
+#    { service_id: 111111 },
+#    { service_id: "22bug22" },
+#    { surprise: "surprise.ru" }
+#  ])
+
 module RegApi2
 
   # Shortcut for {RegApi2::Common} methods
