@@ -15,7 +15,7 @@ module RegApi2
       # @return [Hash] properties as hash.
       def to_hash
         h = {}
-        methods = self.class.public_instance_methods(true).map(&:to_s)
+        methods = self.class.public_instance_methods(false).map(&:to_s)
         methods.select do |n|
           true &&
           !SKIPPED_MEMBERS.detect { |n3| n3 == n } &&
