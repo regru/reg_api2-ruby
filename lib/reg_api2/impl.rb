@@ -39,8 +39,8 @@ module RegApi2
     DEFAULT_IO_ENCODING = 'utf-8'
     # Default lang.
     DEFAULT_LANG = 'en'
-    # Default API contract
-    DEFAULT_CONTRACT = RegApi2::Contract::Default
+    # Default API contract for results
+    DEFAULT_RESULT_CONTRACT = RegApi2::ResultContract::Default
 
     # REG.API base URI
     API_URI = URI.parse("https://api.reg.ru/api/regru2")
@@ -88,7 +88,7 @@ module RegApi2
       raise NetError.new(res.body)  unless res.code == '200'
       json = Yajl::Parser.parse(res.body)
       raise ApiError.new(json['error_code'], json['error_text'], json['error_params'])  if json['result'] == 'error'
-      (defopts[:contract] || DEFAULT_CONTRACT).new(defopts).handle_result(json)
+      (defopts[:result] || DEFAULT_RESULT_CONTRACT).new(defopts).handle_result(json)
     end
 
     end

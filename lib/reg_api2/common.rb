@@ -31,14 +31,14 @@ module RegApi2
     # @param None
     # For testing purposes (returns the identifier of the user logged into the system).
     # @return [String] user_id
-    define :get_user_id, :contract => RegApi2::Contract::SingleField, :field => 'user_id'
+    define :get_user_id, :result => RegApi2::ResultContract::SingleField, :field => 'user_id'
 
     # @!method get_service_id(opts = {})
     # @param [Hash] opts The options.
     # @option opts [FixNum] :service_id Service identifier.
     # Gets service/domain identifier
     # @return [String] service_id
-    define :get_service_id, :contract => RegApi2::Contract::SingleField, :field => 'service_id'
+    define :get_service_id, :result => RegApi2::ResultContract::SingleField, :field => 'service_id'
 
     extend self
   end

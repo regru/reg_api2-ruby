@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 
-require 'reg_api2/contract/default'
+require 'reg_api2/result_contract/default'
 
-class RegApi2::Contract::SingleField < RegApi2::Contract::Default
+# Waits for single field in answer field and returns it only.
+class RegApi2::ResultContract::SingleField < RegApi2::ResultContract::Default
   def handle_answer answer
     field = opts[:field]
     unless answer[field]
