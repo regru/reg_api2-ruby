@@ -78,10 +78,11 @@ module RegApi2
     def got_response(response)
     end
 
-    # get_form_data
+    # Gets form data for POST request
     # @param [Hash] defopts
     # @param [Hash] opts
     # @return [Hash] Form data to be sent.
+    # @raise [ContractError]
     def get_form_data(defopts, opts)
       # HACK: REG.API doesn't know about utf-8.
       io_encoding = 'utf8'  if !io_encoding || io_encoding == DEFAULT_IO_ENCODING
@@ -97,6 +98,26 @@ module RegApi2
       }
       (defopts[:request] || DEFAULT_REQUEST_CONTRACT).new(defopts).validate(form)
       form
+    end
+
+    # Handles response
+    # @param [Hash] defopts
+    # @param [Net::HTTPResponse] res HTTP Response
+    # @return [Object] Contracted response.
+    # @raise [NetError]
+    # @raise [ApiError]
+    # @raise [ContractError]
+    def handle_response(defopts, res)
+      raise NetError.new(res.body)  unless res.code == '200'
+
+      json = Yajl::Parser.parse(res.body)
+      raise ApiError.new(
+        json['error_code'],
+        json['error_text'],
+        json['error_params']
+      )  if json['result'] == 'error'
+
+      (defopts[:result] || DEFAULT_RESULT_CONTRACT).new(defopts).handle_result(json)
     end
 
     # Do actual call to REG.API using POST/JSON convention.
@@ -119,12 +140,7 @@ module RegApi2
       res = http.request(req)
       got_response(res)
 
-      raise NetError.new(res.body)  unless res.code == '200'
-
-      json = Yajl::Parser.parse(res.body)
-      raise ApiError.new(json['error_code'], json['error_text'], json['error_params'])  if json['result'] == 'error'
-
-      (defopts[:result] || DEFAULT_RESULT_CONTRACT).new(defopts).handle_result(json)
+      handle_response(defopts, res)
     end
 
     end
