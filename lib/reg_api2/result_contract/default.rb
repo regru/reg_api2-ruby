@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 module RegApi2
-  # Cobtracts for API results.
+  # Contracts for API results.
   # Take a look at {RegApi2::DEFAULT_RESULT_CONTRACT} for defaults.
   module ResultContract
     # Waits for answer field and returns it only.
