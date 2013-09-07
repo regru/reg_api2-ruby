@@ -12,11 +12,13 @@ module RegApi2
   end
   # API Error
   class ApiError < Exception
-    # @!attribute [r] Localized error description.
-    attr_reader :description, :params
-    # @!attribute [r] Optional error params.
+    # @!attribute [r] description
+    # Localized error description.
+    attr_reader :description
+    # @!attribute [r] params
+    # Optional error params.
     attr_reader :params
-    
+
     def initialize code,  description, params
       super code
       @description = description
@@ -84,6 +86,7 @@ module RegApi2
     # @return [Hash] Result answer field.
     # @raise [NetError]
     # @raise [ApiError]
+    # @raise [ContractError]
     def make_action category, name, defopts, opts = {}
       req = Net::HTTP::Post.new(
         category.nil? ? "#{API_URI.path}/#{name}" : "#{API_URI.path}/#{category}/#{name}"
