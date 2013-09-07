@@ -40,8 +40,9 @@ module RegApi2
       # opts values are assigned to properties if exist.
       # @param [Hash] opts
       def initialize opts = {}
+        methods = self.class.public_instance_methods(false).map(&:to_s)
         opts.keys.each do |key|
-          next  unless respond_to?("#{key}=")
+          next  unless methods.detect { |m| m == "#{key}=" }
           send("#{key}=", opts[key])
         end
       end
