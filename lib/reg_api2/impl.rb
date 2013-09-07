@@ -14,6 +14,9 @@ module RegApi2
   class ApiError < Exception
     # @!attribute [r] Localized error description.
     attr_reader :description, :params
+    # @!attribute [r] Optional error params.
+    attr_reader :params
+    
     def initialize code,  description, params
       super code
       @description = description
@@ -60,6 +63,19 @@ module RegApi2
       end
     end
 
+    # Placeholder to inspect sent form
+    # @param [String] path
+    # @param [Hash] form
+    # @return Doesn't matter
+    def form_to_be_sent(path, form)
+    end
+
+    # Placeholder to inspect got response.
+    # @param [Net::HTTPResponse] response
+    # @return Doesn't matter
+    def got_response(response)
+    end
+
     # Do actual call to REG.API using POST/JSON convention.
     # @param [Symbol] category
     # @param [Symbol] name
@@ -86,8 +102,10 @@ module RegApi2
         'input_data' => Yajl::Encoder.encode(opts)
       }
       (defopts[:request] || DEFAULT_REQUEST_CONTRACT).new(defopts).validate(form)
+      form_to_be_sent(req.path, form)
       req.set_form_data(form)
       res = http.request(req)
+      got_response(res)
       raise NetError.new(res.body)  unless res.code == '200'
       json = Yajl::Parser.parse(res.body)
       raise ApiError.new(json['error_code'], json['error_text'], json['error_params'])  if json['result'] == 'error'

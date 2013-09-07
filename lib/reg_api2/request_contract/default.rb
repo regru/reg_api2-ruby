@@ -13,6 +13,8 @@ module RegApi2
         @opts = opts
       end
 
+      # Normalizes `required` and `optional` fields to the form of Hash with options.
+      # @param [NilClass,Hash,Array, etc.] arr Something to normalize.
       def to_hash arr
         return {}   if arr.nil?
         return arr  if arr.kind_of?(Hash)
@@ -22,6 +24,9 @@ module RegApi2
         ret
       end
 
+      # Validated specified `form` with `required` and `optional` fields.
+      # @param [Hash] form Form to validate.
+      # @raise ContractError
       def validate(form)
         required_fields = to_hash opts[:required]
         optional_fields = to_hash opts[:optional]
