@@ -86,6 +86,8 @@ module RegApi2
     def get_form_data(defopts, opts)
       # HACK: REG.API doesn't know about utf-8.
       io_encoding = 'utf8'  if !io_encoding || io_encoding == DEFAULT_IO_ENCODING
+      opts = opts.to_hash  if opts.respond_to?(:to_hash)
+      (defopts[:request] || DEFAULT_REQUEST_CONTRACT).new(defopts).validate(opts)
       form = {
         'username' => username,
         'password' => password,
@@ -96,7 +98,6 @@ module RegApi2
         'show_input_params' => 0,
         'input_data' => Yajl::Encoder.encode(opts)
       }
-      (defopts[:request] || DEFAULT_REQUEST_CONTRACT).new(defopts).validate(form)
       form
     end
 

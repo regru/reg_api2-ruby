@@ -18,9 +18,9 @@ module RegApi2
       def to_hash arr
         return {}   if arr.nil?
         return arr  if arr.kind_of?(Hash)
-        arr = [ arr ]  unless arr.kind_of?(Array)
+        arr = [ arr.to_sym ]  unless arr.kind_of?(Array)
         ret = {}
-        arr.each { |key| ret[key] = {} }
+        arr.each { |key| ret[key.to_sym] = {} }
         ret
       end
 
@@ -35,7 +35,7 @@ module RegApi2
         return  if optional_fields.empty?
         absent_fields = []
         optional_fields.each_pair do |key, opts|
-          unless form.has_key?(key)
+          if !form.has_key?(key) || form[key].nil?
             if opts[:required]
               absent_fields << key
             end

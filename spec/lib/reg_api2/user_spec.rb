@@ -1,11 +1,8 @@
 # -*- encoding : utf-8 -*-
-describe RegApi2 do
-  before(:all) do
-    RegApi2.username = 'test'
-    RegApi2.password = 'test'
-    RegApi2.lang = 'ru'
-  end
 
+require 'blueprints/user'
+
+describe RegApi2 do
   describe :nop do
     it "should raise nothing" do
       lambda { RegApi2.user.nop }.should_not raise_error
@@ -18,8 +15,13 @@ describe RegApi2 do
 
   describe :create do
     it "should raise ContractError unless user_login provided." do
-      lambda { RegApi2.user.create() }.should raise_error RegApi2::ContractError
-      lambda { RegApi2.user.create() }.should raise_error /user_login/
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_login)) }.should raise_error RegApi2::ContractError
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_login)) }.should raise_error /user_login/
+    end
+
+    it "should raise ContractError unless user_password provided." do
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_password)) }.should raise_error RegApi2::ContractError
+      lambda { RegApi2.user.create(RegApi2::Entity::User.make(:bad_password)) }.should raise_error /user_password/
     end
   end
 end

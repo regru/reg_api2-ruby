@@ -11,9 +11,14 @@ require 'coveralls'
 Coveralls.wear!
 
 require 'faker'
+require 'machinist'
 require 'rspec/core'
 
 require 'reg_api2'
+
+class RegApi2::Entity::EntityBase
+  extend Machinist::Machinable
+end
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
