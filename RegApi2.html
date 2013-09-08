@@ -80,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/reg_api2.rb<span class="defines">,<br />
-  lib/reg_api2/impl.rb,<br /> lib/reg_api2/user.rb,<br /> lib/reg_api2/common.rb,<br /> lib/reg_api2/version.rb,<br /> lib/reg_api2/domains.rb,<br /> lib/reg_api2/clients.rb,<br /> lib/reg_api2/service.rb,<br /> lib/reg_api2/builder.rb,<br /> lib/reg_api2/entity/user.rb,<br /> lib/reg_api2/entity/entity_base.rb,<br /> lib/reg_api2/result_contract/default.rb,<br /> lib/reg_api2/request_contract/default.rb</span>
+  lib/reg_api2/impl.rb,<br /> lib/reg_api2/util.rb,<br /> lib/reg_api2/user.rb,<br /> lib/reg_api2/common.rb,<br /> lib/reg_api2/clients.rb,<br /> lib/reg_api2/domains.rb,<br /> lib/reg_api2/service.rb,<br /> lib/reg_api2/version.rb,<br /> lib/reg_api2/builder.rb,<br /> lib/reg_api2/entity/user.rb,<br /> lib/reg_api2/entity/entity_base.rb,<br /> lib/reg_api2/result_contract/default.rb,<br /> lib/reg_api2/request_contract/default.rb</span>
 </dd>
   
 </dl>
@@ -117,7 +117,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RegApi2/Builder.html" title="RegApi2::Builder (module)">Builder</a></span>, <span class='object_link'><a href="RegApi2/Clients.html" title="RegApi2::Clients (module)">Clients</a></span>, <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="RegApi2/Domains.html" title="RegApi2::Domains (module)">Domains</a></span>, <span class='object_link'><a href="RegApi2/Entity.html" title="RegApi2::Entity (module)">Entity</a></span>, <span class='object_link'><a href="RegApi2/RequestContract.html" title="RegApi2::RequestContract (module)">RequestContract</a></span>, <span class='object_link'><a href="RegApi2/ResultContract.html" title="RegApi2::ResultContract (module)">ResultContract</a></span>, <span class='object_link'><a href="RegApi2/Service.html" title="RegApi2::Service (module)">Service</a></span>, <span class='object_link'><a href="RegApi2/User.html" title="RegApi2::User (module)">User</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RegApi2/Builder.html" title="RegApi2::Builder (module)">Builder</a></span>, <span class='object_link'><a href="RegApi2/Clients.html" title="RegApi2::Clients (module)">Clients</a></span>, <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="RegApi2/Domains.html" title="RegApi2::Domains (module)">Domains</a></span>, <span class='object_link'><a href="RegApi2/Entity.html" title="RegApi2::Entity (module)">Entity</a></span>, <span class='object_link'><a href="RegApi2/RequestContract.html" title="RegApi2::RequestContract (module)">RequestContract</a></span>, <span class='object_link'><a href="RegApi2/ResultContract.html" title="RegApi2::ResultContract (module)">ResultContract</a></span>, <span class='object_link'><a href="RegApi2/Service.html" title="RegApi2::Service (module)">Service</a></span>, <span class='object_link'><a href="RegApi2/User.html" title="RegApi2::User (module)">User</a></span>, <span class='object_link'><a href="RegApi2/Util.html" title="RegApi2::Util (module)">Util</a></span>
     
   
     
@@ -696,12 +696,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_io_encoding'>io_encoding</span>
   <span class='ivar'>@io_encoding</span>
@@ -755,12 +755,12 @@
       <pre class="lines">
 
 
-41
-42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lang'>lang</span>
   <span class='ivar'>@lang</span>
@@ -814,12 +814,12 @@
       <pre class="lines">
 
 
-35
-36
-37</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_password'>password</span>
   <span class='ivar'>@password</span>
@@ -873,12 +873,12 @@
       <pre class="lines">
 
 
-32
-33
-34</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_username'>username</span>
   <span class='ivar'>@username</span>
@@ -1110,11 +1110,11 @@
       <pre class="lines">
 
 
-72
-73</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_form_to_be_sent'>form_to_be_sent</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1204,8 +1204,6 @@
       <pre class="lines">
 
 
-105
-106
 107
 108
 109
@@ -1220,10 +1218,12 @@
 118
 119
 120
-121</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_form_data'>get_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='comment'># HACK: REG.API doesn't know about utf-8.
@@ -1304,19 +1304,19 @@
       <pre class="lines">
 
 
-84
-85
 86
 87
-88</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_request_contract_by_name'>get_request_contract_by_name</span> <span class='id identifier rubyid_name'>name</span>
   <span class='kw'>return</span> <span class='const'>DEFAULT_REQUEST_CONTRACT</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_name'>name</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_name'>name</span>  <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Class</span><span class='rparen'>)</span>
-  <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>RequestContract</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>RequestContract</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Util</span><span class='period'>.</span><span class='id identifier rubyid_constantize'>constantize</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1380,19 +1380,19 @@
       <pre class="lines">
 
 
-94
-95
 96
 97
-98</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_result_contract_by_name'>get_result_contract_by_name</span> <span class='id identifier rubyid_name'>name</span>
   <span class='kw'>return</span> <span class='const'>DEFAULT_RESULT_CONTRACT</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_name'>name</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_name'>name</span>  <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Class</span><span class='rparen'>)</span>
-  <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>ResultContract</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>ResultContract</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Util</span><span class='period'>.</span><span class='id identifier rubyid_constantize'>constantize</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1456,11 +1456,11 @@
       <pre class="lines">
 
 
-78
-79</pre>
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_got_response'>got_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1572,8 +1572,6 @@
       <pre class="lines">
 
 
-130
-131
 132
 133
 134
@@ -1583,10 +1581,12 @@
 138
 139
 140
-141</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NetError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>200</span><span class='tstring_end'>'</span></span>
@@ -1647,8 +1647,6 @@
       <pre class="lines">
 
 
-57
-58
 59
 60
 61
@@ -1656,10 +1654,12 @@
 63
 64
 65
-66</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_http'>http</span>
   <span class='ivar'>@http</span> <span class='op'>||=</span> <span class='kw'>begin</span>
@@ -1799,8 +1799,6 @@
       <pre class="lines">
 
 
-152
-153
 154
 155
 156
@@ -1811,10 +1809,12 @@
 161
 162
 163
-164</pre>
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 154</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_make_action'>make_action</span> <span class='id identifier rubyid_category'>category</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1937,7 +1937,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sat Sep  7 20:08:07 2013 by
+  Generated on Sun Sep  8 15:06:17 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
