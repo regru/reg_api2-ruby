@@ -37,6 +37,15 @@ module RegApi2
     # @return [Hash(costs_for_period, active_domains_cnt, active_domains_get_ctrl_cnt, renew_domains_cnt, ...)] User statistics
     define :get_statistics, optional: %w[ date_till date_from ]
 
+    # @!method get_balance(opts = {})
+    # @param opts Opts
+    # @option opts [String] :currency Define the currency in which the balance is presented. Conversion is performed automatically in accordance with the current exchange rates. Available options: RUR (default), USD, EUR, UAH.
+    # @note Accessability: clients
+    # @note Support of service lists: no
+    # View current balance.
+    # @return [Hash(currency, prepay, blocked, credit)] User balance
+    define :get_balance, required: %w[ currency ]
+
     extend self
   end
 end

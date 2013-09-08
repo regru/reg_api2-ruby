@@ -53,4 +53,13 @@ describe RegApi2 do
       ]
     end
   end
+
+  describe :get_balance do
+    it "should return user balance" do
+      RegApi2.user.get_balance(currency: "USD").keys.sort.should == %w[
+        currency
+        prepay
+      ]
+    end
+  end
 end
