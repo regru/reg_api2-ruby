@@ -39,4 +39,18 @@ describe RegApi2 do
       RegApi2.user.create(RegApi2::Entity::User.make(:good_user)).should == "777"
     end
   end
+
+  describe :get_statistics do
+    it "should return user statistics" do
+      RegApi2.user.get_statistics.keys.sort.should == %w[
+        active_domains_cnt 
+        active_domains_get_ctrl_cnt 
+        balance_total 
+        domain_folders_cnt 
+        renew_domains_cnt 
+        renew_domains_get_ctrl_cnt 
+        undelegated_domains_cnt 
+      ]
+    end
+  end
 end
