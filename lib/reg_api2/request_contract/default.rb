@@ -24,17 +24,23 @@ module RegApi2
         ret
       end
 
+      # Gets fields to validate
+      # @return [Hash] Fields to validate.
+      def fields_to_validate
+        required_fields = to_hash opts[:required]
+        optional_fields = to_hash opts[:optional]
+        required_fields.keys.each { |key| required_fields[key][:required] = true }
+        optional_fields.merge(required_fields)
+      end
+
       # Validates specified `form` with `required` and `optional` fields.
       # @param [Hash] form Form to validate.
       # @raise ContractError
       def validate(form)
-        required_fields = to_hash opts[:required]
-        optional_fields = to_hash opts[:optional]
-        required_fields.keys.each { |key| required_fields[key][:required] = true }
-        optional_fields.merge!(required_fields)
-        return  if optional_fields.empty?
+        fields = fields_to_validate
+        return  if fields.empty?
         absent_fields = []
-        optional_fields.each_pair do |key, opts|
+        fields.each_pair do |key, opts|
           if !form.has_key?(key) || form[key].nil?
             if opts[:required]
               absent_fields << key
