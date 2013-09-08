@@ -80,23 +80,29 @@ module RegApi2
     def got_response(response)
     end
 
+    # Gets {Class} by its name.
+    # @param [Class] ancestor
+    # @param [NilClass, Class, String] name
+    # @param [Class] default_value
+    # @return [Class] {RegApi2::RequestContract}
+    def get_contract ancestor, name, default_value
+      return default_value  unless name
+      return name  if name.kind_of?(Class)
+      ancestor.const_get(RegApi2::Util.constantize name)
+    end
+
     # Gets {RegApi2::RequestContract} by its name.
     # @param [NilClass, Class, String] name
     # @return [Class] {RegApi2::RequestContract}
     def get_request_contract_by_name name
-      return DEFAULT_REQUEST_CONTRACT  unless name
-      return name  if name.kind_of?(Class)
-      RegApi2::RequestContract.const_get(RegApi2::Util.constantize name)
+      get_contract(RegApi2::RequestContract, name, DEFAULT_REQUEST_CONTRACT)
     end
-
 
     # Gets {RegApi2::ResultContract} by its name.
     # @param [NilClass, Class, String] name
     # @return [Class] {RegApi2::ResultContract}
     def get_result_contract_by_name name
-      return DEFAULT_RESULT_CONTRACT  unless name
-      return name  if name.kind_of?(Class)
-      RegApi2::ResultContract.const_get(RegApi2::Util.constantize name)
+      get_contract(RegApi2::ResultContract, name, DEFAULT_RESULT_CONTRACT)
     end
 
     # Gets form data for POST request
