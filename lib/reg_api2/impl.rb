@@ -9,9 +9,11 @@ module RegApi2
   # Networking Error
   class NetError < Exception
   end
+
   # API Contract Error
   class ContractError < Exception
   end
+
   # API Error
   class ApiError < Exception
     # @!attribute [r] description
@@ -84,7 +86,7 @@ module RegApi2
     # @param [Class] ancestor
     # @param [NilClass, Class, String] name
     # @param [Class] default_value
-    # @return [Class] {RegApi2::RequestContract}
+    # @return [Class] contract
     def get_contract ancestor, name, default_value
       return default_value  unless name
       return name  if name.kind_of?(Class)
@@ -171,5 +173,5 @@ module RegApi2
       handle_response(defopts, res)
     end
 
-    end
   end
+end
