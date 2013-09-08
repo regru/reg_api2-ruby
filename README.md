@@ -45,6 +45,8 @@ bundle exec rake yard
 open doc/index.html
 ```
 
+Also documentation available at https://www.reg.com/support/help/API-version2
+
 ## Contributing
 
 1. Fork it
