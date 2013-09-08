@@ -11,10 +11,9 @@ module RegApi2
         "taguri" # from YAML mixin
       ].freeze
 
-      # All r/w properties interpreted as symbol hash.
-      # @return [Hash] properties as hash.
-      def to_hash
-        h = {}
+      # Gets instance property names
+      # @return [Array(String)]
+      def property_names
         methods = self.class.public_instance_methods(false).map(&:to_s)
         methods.select do |n|
           true &&
@@ -22,7 +21,14 @@ module RegApi2
           n =~ /^[^=\?!]+$/ &&
           methods.detect { |n2| "#{n}=" == n2 } &&
           true
-        end.each do |n|
+        end
+      end
+
+      # All r/w properties interpreted as symbol hash.
+      # @return [Hash] properties as hash.
+      def to_hash
+        h = {}
+        property_names.each do |n|
           v = self.send n.to_sym
           h[n.to_sym] = v  unless v.nil?
         end
