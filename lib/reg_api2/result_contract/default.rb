@@ -1,4 +1,7 @@
 # -*- encoding : utf-8 -*-
+
+require 'reg_api2/sym_hash'
+
 module RegApi2
   # Contracts for API results.
   # Take a look at {RegApi2::DEFAULT_RESULT_CONTRACT} for defaults.
@@ -13,7 +16,8 @@ module RegApi2
 
       # Extracts answer field and returns it wrapped by {#handle_answer}.
       def handle_result(result)
-        handle_answer(result['answer'])
+        result = SymHash.from(result)
+        handle_answer(result[:answer])
       end
    
       # Return passed argument by default.
