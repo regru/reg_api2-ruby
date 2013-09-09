@@ -6,6 +6,11 @@ module RegApi2
     include RegApi2::Builder
 
     category :domain
+
+    # @!method nop
+    # @param None
+    # Accessibility testing.
+    # @return [NilClass] nil
     define :nop
 
     extend self
