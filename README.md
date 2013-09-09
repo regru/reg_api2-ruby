@@ -27,6 +27,10 @@ Or install it yourself as:
 ```ruby
 require "reg_api2"
 
+RegApi2.username = 'test'
+RegApi2.password = 'test'
+RegApi2.lang     = 'ru'
+
 RegApi2.service.nop(services: [
   { dname:"test.ru" },
   { dname: "test.su", servtype: "srv_hosting_ispmgr" },

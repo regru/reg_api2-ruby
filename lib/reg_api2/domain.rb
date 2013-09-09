@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
 module RegApi2
-  # REG.API domains category
-  module Domains
+  # REG.API domain category
+  module Domain
 
     include RegApi2::Builder
 
-    category :domains
+    category :domain
     define :nop
 
     extend self
