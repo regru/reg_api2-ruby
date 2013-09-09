@@ -18,7 +18,7 @@ module RegApi2
     end
 
     def has_key?(key)
-      key.kind_of?(Symbol) ? super.has_key?(key.to_s) : super(key)
+      key.kind_of?(Symbol) ? self.has_key?(key.to_s) : super(key)
     end
 
     def [](key)
