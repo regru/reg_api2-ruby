@@ -162,6 +162,29 @@ Take in care :re option.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#fields_to_validate-instance_method" title="#fields_to_validate (instance method)">- (Hash) <strong>fields_to_validate</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Gets fields to validate.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Default) <strong>initialize</strong>(opts = {}) </a>
     
 
@@ -331,7 +354,70 @@ Take in care :re option.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="to_hash-instance_method">
+  <h3 class="signature first" id="fields_to_validate-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>fields_to_validate</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Gets fields to validate</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Fields to validate.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/request_contract/default.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fields_to_validate'>fields_to_validate</span>
+  <span class='id identifier rubyid_required_fields'>required_fields</span> <span class='op'>=</span> <span class='id identifier rubyid_to_hash'>to_hash</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:required</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_optional_fields'>optional_fields</span> <span class='op'>=</span> <span class='id identifier rubyid_to_hash'>to_hash</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:optional</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_required_fields'>required_fields</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='op'>|</span> <span class='id identifier rubyid_required_fields'>required_fields</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:required</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_optional_fields'>optional_fields</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_required_fields'>required_fields</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_hash-instance_method">
   
     - (<tt>Object</tt>) <strong>to_hash</strong>(arr) 
   
@@ -460,15 +546,6 @@ Take in care :re option.</p>
       <pre class="lines">
 
 
-30
-31
-32
-33
-34
-35
-36
-37
-38
 39
 40
 41
@@ -487,19 +564,22 @@ Take in care :re option.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/request_contract/default.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/request_contract/default.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_required_fields'>required_fields</span> <span class='op'>=</span> <span class='id identifier rubyid_to_hash'>to_hash</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:required</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_optional_fields'>optional_fields</span> <span class='op'>=</span> <span class='id identifier rubyid_to_hash'>to_hash</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:optional</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_required_fields'>required_fields</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='op'>|</span> <span class='id identifier rubyid_required_fields'>required_fields</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:required</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_optional_fields'>optional_fields</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_required_fields'>required_fields</span><span class='rparen'>)</span>
-  <span class='kw'>return</span>  <span class='kw'>if</span> <span class='id identifier rubyid_optional_fields'>optional_fields</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_fields'>fields</span> <span class='op'>=</span> <span class='id identifier rubyid_fields_to_validate'>fields_to_validate</span>
+  <span class='kw'>return</span>  <span class='kw'>if</span> <span class='id identifier rubyid_fields'>fields</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
   <span class='id identifier rubyid_absent_fields'>absent_fields</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_optional_fields'>optional_fields</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>|</span>
+  <span class='id identifier rubyid_fields'>fields</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_form'>form</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_form'>form</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
       <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:required</span><span class='rbracket'>]</span>
         <span class='id identifier rubyid_absent_fields'>absent_fields</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_key'>key</span>
@@ -530,7 +610,7 @@ Take in care :re option.</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Sep  8 15:06:17 2013 by
+  Generated on Tue Sep 10 20:29:38 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
