@@ -55,10 +55,10 @@ module RegApi2
     # @option opts [String] :amount Amount of the invoice.
     # @note Accessability: clients
     # @note Support of service lists: no
-    # @return [Hash(bill_id, ...)] Result of operation.
+    # @return [Hash(total_payment, ...)] Result of operation.
     # @example Add funds though WebMoney
     #   RegApi2.user.refill_balance(pay_type: 'WM', wmid: 123456789012, currency: 'RUR', amount: 1000)
-    define :refill_balance, require: %w[ pay_type wmid currency amount ]
+    define :refill_balance, required: %w[ pay_type wmid currency amount ]
 
     extend self
   end
