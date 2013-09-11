@@ -5,7 +5,7 @@ require 'reg_api2/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "reg.api2"
-  spec.version       = RegApi2::VERSION
+  spec.version       = RegApi2::VERSION.dup
   spec.authors       = ["Akzhan Abdulin"]
   spec.email         = ["akzhan.abdulin@gmail.com"]
   spec.description   = %q{REG.API v2 Implementation}

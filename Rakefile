@@ -4,6 +4,10 @@ require "bundler/gem_tasks"
 
 APP_ROOT = File.dirname(__FILE__).freeze
 
+lib = File.expand_path('lib', APP_ROOT)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'reg_api2/version'
+
 begin
   require 'rspec/core/rake_task'
 
@@ -24,7 +28,8 @@ begin
   require 'yard'
 
   YARD::Rake::YardocTask.new do |yard|
-    version = File.exists?('VERSION') ? IO.read('VERSION') : ""
+
+    version = RegApi2::VERSION
     yard.options << "--title='reg.api2 #{version}'"
   end
 rescue LoadError
