@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'reg_api2/console'
+rescue LoadError # local run
+  APP_ROOT = File.expand_path('..', File.dirname(__FILE__)).freeze
+  lib = File.expand_path('lib', APP_ROOT)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'reg_api2/console'
+end
