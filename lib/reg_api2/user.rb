@@ -46,6 +46,20 @@ module RegApi2
     # @return [Hash(currency, prepay, blocked, credit)] User balance
     define :get_balance, required: %w[ currency ]
 
+    # @!method refill_balance(opts = {})
+    # Add funds to the account. Allows sending invoices to WebMoney and Yandex.Dengi.
+    # @param opts Opts
+    # @option opts [String] :pay_type Payment method. Available options: WM — WebMoney, requires specifying of WMID; ymbill - Yandex.Dengi (the invoice receipt function should be enabled).
+    # @option opts [String] :wmid WebMoney ID
+    # @option opts [String] :currency Currency of the transfer. RUR only for Yandex.Dengi; USD, EUR and UAH for WebMoney.
+    # @option opts [String] :amount Amount of the invoice.
+    # @note Accessability: clients
+    # @note Support of service lists: no
+    # @return [Hash(bill_id, ...)] Result of operation.
+    # @example Add funds though WebMoney
+    #   RegApi2.user.refill_balance(pay_type: 'WM', wmid: 123456789012, currency: 'RUR', amount: 1000)
+    define :refill_balance, require: %w[ pay_type wmid currency amount ]
+
     extend self
   end
 end

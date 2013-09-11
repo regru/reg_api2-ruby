@@ -2,7 +2,7 @@
 
 require 'blueprints/user'
 
-describe RegApi2 do
+describe RegApi2::User do
   describe :nop do
     it "should raise nothing" do
       lambda { RegApi2.user.nop }.should_not raise_error
@@ -60,6 +60,17 @@ describe RegApi2 do
         currency
         prepay
       ]
+    end
+  end
+
+  describe :refill_balance do
+    it "should fill balance" do
+      ans = RegApi2.user.refill_balance(pay_type: 'WM', wmid: 123456789012, currency: 'RUR', amount: 1000)
+      ans.currency.should == 'RUR'
+      ans.pay_type.should == 'WM'
+      ans.payment.should == '1000'
+      ans.total_payment == '1000'
+      ans.should have_key :wm_invid
     end
   end
 end
