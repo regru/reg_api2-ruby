@@ -6,7 +6,7 @@
 <title>
   Module: RegApi2
   
-    &mdash; 'reg.api2 '
+    &mdash; 'reg.api2 0.0.1'
   
 </title>
 
@@ -80,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/reg_api2.rb<span class="defines">,<br />
-  lib/reg_api2/user.rb,<br /> lib/reg_api2/impl.rb,<br /> lib/reg_api2/util.rb,<br /> lib/reg_api2/common.rb,<br /> lib/reg_api2/domain.rb,<br /> lib/reg_api2/version.rb,<br /> lib/reg_api2/clients.rb,<br /> lib/reg_api2/service.rb,<br /> lib/reg_api2/builder.rb,<br /> lib/reg_api2/sym_hash.rb,<br /> lib/reg_api2/entity/user.rb,<br /> lib/reg_api2/entity/entity_base.rb,<br /> lib/reg_api2/result_contract/default.rb,<br /> lib/reg_api2/request_contract/default.rb</span>
+  lib/reg_api2/util.rb,<br /> lib/reg_api2/user.rb,<br /> lib/reg_api2/impl.rb,<br /> lib/reg_api2/bill.rb,<br /> lib/reg_api2/domain.rb,<br /> lib/reg_api2/common.rb,<br /> lib/reg_api2/service.rb,<br /> lib/reg_api2/clients.rb,<br /> lib/reg_api2/builder.rb,<br /> lib/reg_api2/version.rb,<br /> lib/reg_api2/sym_hash.rb,<br /> lib/reg_api2/entity/user.rb,<br /> lib/reg_api2/entity/entity_base.rb,<br /> lib/reg_api2/result_contract/default.rb,<br /> lib/reg_api2/request_contract/default.rb</span>
 </dd>
   
 </dl>
@@ -117,7 +117,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RegApi2/Builder.html" title="RegApi2::Builder (module)">Builder</a></span>, <span class='object_link'><a href="RegApi2/Clients.html" title="RegApi2::Clients (module)">Clients</a></span>, <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="RegApi2/Domain.html" title="RegApi2::Domain (module)">Domain</a></span>, <span class='object_link'><a href="RegApi2/Entity.html" title="RegApi2::Entity (module)">Entity</a></span>, <span class='object_link'><a href="RegApi2/RequestContract.html" title="RegApi2::RequestContract (module)">RequestContract</a></span>, <span class='object_link'><a href="RegApi2/ResultContract.html" title="RegApi2::ResultContract (module)">ResultContract</a></span>, <span class='object_link'><a href="RegApi2/Service.html" title="RegApi2::Service (module)">Service</a></span>, <span class='object_link'><a href="RegApi2/User.html" title="RegApi2::User (module)">User</a></span>, <span class='object_link'><a href="RegApi2/Util.html" title="RegApi2::Util (module)">Util</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span>, <span class='object_link'><a href="RegApi2/Builder.html" title="RegApi2::Builder (module)">Builder</a></span>, <span class='object_link'><a href="RegApi2/Clients.html" title="RegApi2::Clients (module)">Clients</a></span>, <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="RegApi2/Domain.html" title="RegApi2::Domain (module)">Domain</a></span>, <span class='object_link'><a href="RegApi2/Entity.html" title="RegApi2::Entity (module)">Entity</a></span>, <span class='object_link'><a href="RegApi2/RequestContract.html" title="RegApi2::RequestContract (module)">RequestContract</a></span>, <span class='object_link'><a href="RegApi2/ResultContract.html" title="RegApi2::ResultContract (module)">ResultContract</a></span>, <span class='object_link'><a href="RegApi2/Service.html" title="RegApi2::Service (module)">Service</a></span>, <span class='object_link'><a href="RegApi2/User.html" title="RegApi2::User (module)">User</a></span>, <span class='object_link'><a href="RegApi2/Util.html" title="RegApi2::Util (module)">Util</a></span>
     
   
     
@@ -218,7 +218,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.1</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -345,6 +345,29 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bill-class_method" title="bill (class method)">+ (Module) <strong>bill</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Shortcut for <span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span> methods.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -919,7 +942,60 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="clients-class_method">
+  <h3 class="signature first" id="bill-class_method">
+  
+    + (<tt>Module</tt>) <strong>bill</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Shortcut for <span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span> methods.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Module</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bill'>bill</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Bill</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clients-class_method">
   
     + (<tt>Module</tt>) <strong>clients</strong> 
   
@@ -960,10 +1036,10 @@
       <pre class="lines">
 
 
-40</pre>
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clients'>clients</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Clients</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1013,10 +1089,10 @@
       <pre class="lines">
 
 
-30</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_common'>common</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Common</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1066,10 +1142,10 @@
       <pre class="lines">
 
 
-35</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_domain'>domain</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Domain</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2001,10 +2077,10 @@
       <pre class="lines">
 
 
-50</pre>
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Service</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2054,10 +2130,10 @@
       <pre class="lines">
 
 
-45</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user'>user</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>User</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2070,7 +2146,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep 11 20:03:04 2013 by
+  Generated on Wed Sep 11 21:03:02 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

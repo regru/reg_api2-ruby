@@ -6,7 +6,7 @@
 <title>
   Module: RegApi2::User
   
-    &mdash; 'reg.api2 '
+    &mdash; 'reg.api2 0.0.1'
   
 </title>
 
@@ -216,7 +216,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#refill_balance-instance_method" title="#refill_balance (instance method)">- (Hash(bill_id, ...)) <strong>refill_balance</strong>(opts = {}) </a>
+      <a href="#refill_balance-instance_method" title="#refill_balance (instance method)">- (Hash(total_payment, ...)) <strong>refill_balance</strong>(opts = {}) </a>
     
 
     
@@ -693,7 +693,7 @@
       <div class="method_details ">
   <h3 class="signature " id="refill_balance-instance_method">
   
-    - (<tt>Hash(bill_id, ...)</tt>) <strong>refill_balance</strong>(opts = {}) 
+    - (<tt>Hash(total_payment, ...)</tt>) <strong>refill_balance</strong>(opts = {}) 
   
 
   
@@ -816,7 +816,7 @@
     <li>
       
       
-        <span class='type'>(<tt>Hash(bill_id, ...)</tt>)</span>
+        <span class='type'>(<tt>Hash(total_payment, ...)</tt>)</span>
       
       
       
@@ -839,7 +839,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/reg_api2/user.rb', line 61</span>
 
-<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:refill_balance</span><span class='comma'>,</span> <span class='label'>require:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>pay_type</span><span class='words_sep'> </span><span class='tstring_content'>wmid</span><span class='words_sep'> </span><span class='tstring_content'>currency</span><span class='words_sep'> </span><span class='tstring_content'>amount</span><span class='words_sep'> ]</span></pre>
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:refill_balance</span><span class='comma'>,</span> <span class='label'>required:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>pay_type</span><span class='words_sep'> </span><span class='tstring_content'>wmid</span><span class='words_sep'> </span><span class='tstring_content'>currency</span><span class='words_sep'> </span><span class='tstring_content'>amount</span><span class='words_sep'> ]</span></pre>
     </td>
   </tr>
 </table>
@@ -850,7 +850,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep 11 20:03:04 2013 by
+  Generated on Wed Sep 11 21:03:02 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
