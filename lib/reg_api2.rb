@@ -13,6 +13,7 @@ require 'reg_api2/clients'
 require 'reg_api2/user'
 require 'reg_api2/service'
 require 'reg_api2/bill'
+require 'reg_api2/folder'
 
 # REG.API v2
 # @example List of services by specified identifiers
@@ -55,5 +56,10 @@ module RegApi2
   # @return [Module] {RegApi2::Bill}
   def bill; RegApi2::Bill; end
   module_function :bill
+
+  # Shortcut for {RegApi2::Folder} methods.
+  # @return [Module] {RegApi2::Folder}
+  def folder; RegApi2::Folder; end
+  module_function :folder
 
 end
