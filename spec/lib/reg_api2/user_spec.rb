@@ -69,7 +69,7 @@ describe RegApi2::User do
       ans.currency.should == 'RUR'
       ans.pay_type.should == 'WM'
       ans.payment.should == '1000'
-      ans.total_payment == '1000'
+      ans.total_payment.should == '1000'
       ans.should have_key :wm_invid
     end
   end
