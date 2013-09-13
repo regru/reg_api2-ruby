@@ -10,12 +10,12 @@ describe RegApi2::Folder do
       RegApi2.folder.nop.should == { "name" => "test_folder_name", "id" => "-1" }
     end
 
-    it "should return bill if specified" do
-      RegApi2.folder.nop(folder_id: 12345).should have_key :id
+    it "should return folder data if folder_id specified" do
+      RegApi2.folder.nop(folder_id: 12345).should == { "name" => "test_folder_name", "id" => "-1" }
     end
-
-    it "should return bills if specified" do
-      RegApi2.folder.nop(folder_name: "test_folder_name").should have_key :name
+    
+    it "should return folder data if test_folder_name specified" do
+      RegApi2.folder.nop(folder_name: "test_folder_name").should == { "name" => "test_folder_name", "id" => "-1" }
     end  
   end
 
