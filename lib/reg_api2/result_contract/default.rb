@@ -8,6 +8,25 @@ module RegApi2
   module ResultContract
     # Waits for answer field and returns it only.
     class Default
+      INT_FIELDS = %w[
+        active_domains_cnt
+        active_domains_get_ctrl_cnt
+        domain_folders_cnt
+        renew_domains_cnt
+        renew_domains_get_ctrl_cnt
+        undelegated_domains_cnt
+      ].freeze
+
+      FLOAT_FIELDS = %w[
+        amount
+        total_amount
+        payment
+        total_payment
+      ].freeze
+
+      BOOL_FIELDS = %w[
+        ].freeze
+
       attr_reader :opts
 
       def initialize(opts = {})
@@ -19,10 +38,54 @@ module RegApi2
         result = SymHash.from(result)
         handle_answer(result[:answer])
       end
+
+      def convert_hash(answer)
+        answer.each_pair do |key, value|
+          case value
+          when String
+            if INT_FIELDS.include?(key.to_s)
+              answer[key] = value.to_i
+            elsif FLOAT_FIELDS.include?(key.to_s)
+              answer[key] = value.to_f
+            elsif BOOL_FIELDS.include?(key.to_s)
+              answer[key] = !!value.to_i
+            end
+          when Hash
+            answer[key] = convert_hash(value)
+          when Array
+            answer[key] = convert_array(value)
+          end
+        end
+        answer
+      end
+
+      def convert_array(answer)
+        answer.map do |value|
+          case value
+          when Hash
+            convert_hash(value)
+          when Array
+            convert_array(value)
+          else
+            value
+          end
+        end
+      end
+
+      def convert(answer)
+        case answer
+        when Hash
+          convert_hash(answer)
+        when Array
+          convert_array(answer)
+        else
+          answer
+        end
+      end
    
       # Return passed argument by default.
       def handle_answer(answer)
-        answer
+        answer = convert(answer)
       end
     end
   end

@@ -68,8 +68,8 @@ describe RegApi2::User do
       ans = RegApi2.user.refill_balance(pay_type: 'WM', wmid: 123456789012, currency: 'RUR', amount: 1000)
       ans.currency.should == 'RUR'
       ans.pay_type.should == 'WM'
-      ans.payment.should == '1000'
-      ans.total_payment.should == '1000'
+      ans.payment.should == 1000
+      ans.total_payment.should == 1000
       ans.should have_key :wm_invid
     end
   end
