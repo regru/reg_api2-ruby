@@ -55,7 +55,7 @@ module RegApi2
     # @option opts [Fixnum] :wmid WebMoney ID
     # @note Support of invoice lists: yes
     # @example Example of request
-    #    bill.change_pay_type(currency: 'RUR', pay_type: 'prepay', bills: [ 123456 ])
+    #    bill.change_pay_type(currency: :RUR, pay_type: :prepay, bills: [ 123456 ])
     define :change_pay_type, required: %w[ currency pay_type ]
 
     extend self
