@@ -46,6 +46,18 @@ module RegApi2
             )
           end
         end
+        value
+      end
+
+      # Validates specified `value` with `re` field.
+      # @param [Object] key Value to validate.
+      # @param [Object] value Value to validate.
+      # @param [Hash] opts opts with optional re field.
+      def validate_iso_date key, value, opts
+        if opts[:iso_date]
+          return value.strftime("%Y-%m-%d")  if value.respond_to?(:strftime)
+        end
+        value
       end
 
       # Validates specified `form` with `required` and `optional` fields.
@@ -63,11 +75,8 @@ module RegApi2
             next
           end
 
-          validate_re key, form[key], opts
-
-          if opts[:iso_date]
-            form[key] = form[key].strftime("%Y-%m-%d")  if form[key].respond_to?(:strftime)
-          end
+          form[key] = validate_re key, form[key], opts
+          form[key] = validate_iso_date key, form[key], opts
         end
         unless absent_fields.empty?
           raise RegApi2::ContractError.new(
