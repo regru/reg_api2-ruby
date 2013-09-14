@@ -33,6 +33,21 @@ module RegApi2
         optional_fields.merge(required_fields)
       end
 
+      # Validates specified `value` with `re` field.
+      # @param [Object] key Value to validate.
+      # @param [Object] value Value to validate.
+      # @param [Hash] opts opts with optional re field.
+      # @raise ContractError
+      def validate_re key, value, opts
+        if opts[:re]
+          if value !~ opts[:re]
+            raise RegApi2::ContractError.new(
+              "Field #{key} mismatch regular expression: #{value}"
+            )
+          end
+        end
+      end
+
       # Validates specified `form` with `required` and `optional` fields.
       # @param [Hash] form Form to validate.
       # @raise ContractError
@@ -48,13 +63,8 @@ module RegApi2
             next
           end
 
-          if opts[:re]
-            if form[key] !~ opts[:re]
-              raise RegApi2::ContractError.new(
-                "Field #{key} mismatch regular expression: #{form[key]}"
-              )
-            end
-          end
+          validate_re key, form[key], opts
+
           if opts[:iso_date]
             form[key] = form[key].strftime("%Y-%m-%d")  if form[key].respond_to?(:strftime)
           end
