@@ -114,6 +114,41 @@
   <p class="children"><span class='object_link'><a href="SingleField.html" title="RegApi2::ResultContract::SingleField (class)">SingleField</a></span></p>
 </div>
 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="INT_FIELDS-constant" class="">INT_FIELDS =
+          
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w[
+</span><span class='tstring_content'>  active_domains_cnt</span><span class='words_sep'>
+</span><span class='tstring_content'>  active_domains_get_ctrl_cnt</span><span class='words_sep'>
+</span><span class='tstring_content'>  domain_folders_cnt</span><span class='words_sep'>
+</span><span class='tstring_content'>  renew_domains_cnt</span><span class='words_sep'>
+</span><span class='tstring_content'>  renew_domains_get_ctrl_cnt</span><span class='words_sep'>
+</span><span class='tstring_content'>  undelegated_domains_cnt</span><span class='words_sep'>
+</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="FLOAT_FIELDS-constant" class="">FLOAT_FIELDS =
+          
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w[
+</span><span class='tstring_content'>  amount</span><span class='words_sep'>
+</span><span class='tstring_content'>  total_amount</span><span class='words_sep'>
+</span><span class='tstring_content'>  payment</span><span class='words_sep'>
+</span><span class='tstring_content'>  total_payment</span><span class='words_sep'>
+</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="BOOL_FIELDS-constant" class="">BOOL_FIELDS =
+          
+        </dt>
+        <dd><pre class="code"><span class='qwords_beg'>%w[
+</span><span class='words_sep'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -160,6 +195,72 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert-instance_method" title="#convert (instance method)">- (Object) <strong>convert</strong>(answer) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_array-instance_method" title="#convert_array (instance method)">- (Object) <strong>convert_array</strong>(answer) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_hash-instance_method" title="#convert_hash (instance method)">- (Object) <strong>convert_hash</strong>(answer) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -263,12 +364,12 @@
       <pre class="lines">
 
 
-13
-14
-15</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@opts</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span>
@@ -310,12 +411,12 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_opts'>opts</span>
   <span class='ivar'>@opts</span>
@@ -333,7 +434,161 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="handle_answer-instance_method">
+  <h3 class="signature first" id="convert-instance_method">
+  
+    - (<tt>Object</tt>) <strong>convert</strong>(answer) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_answer'>answer</span>
+  <span class='kw'>when</span> <span class='const'>Hash</span>
+    <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Array</span>
+    <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_answer'>answer</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="convert_array-instance_method">
+  
+    - (<tt>Object</tt>) <strong>convert_array</strong>(answer) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_value'>value</span>
+    <span class='kw'>when</span> <span class='const'>Hash</span>
+      <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='const'>Array</span>
+      <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_value'>value</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="convert_hash-instance_method">
+  
+    - (<tt>Object</tt>) <strong>convert_hash</strong>(answer) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_value'>value</span>
+    <span class='kw'>when</span> <span class='const'>String</span>
+      <span class='kw'>if</span> <span class='const'>INT_FIELDS</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+      <span class='kw'>elsif</span> <span class='const'>FLOAT_FIELDS</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+      <span class='kw'>elsif</span> <span class='const'>BOOL_FIELDS</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+      <span class='kw'>end</span>
+    <span class='kw'>when</span> <span class='const'>Hash</span>
+      <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='const'>Array</span>
+      <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_answer'>answer</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_answer-instance_method">
   
     - (<tt>Object</tt>) <strong>handle_answer</strong>(answer) 
   
@@ -357,15 +612,15 @@
       <pre class="lines">
 
 
-24
-25
-26</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_answer'>handle_answer</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_answer'>answer</span>
+  <span class='id identifier rubyid_answer'>answer</span> <span class='op'>=</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -397,13 +652,13 @@
       <pre class="lines">
 
 
-18
-19
-20
-21</pre>
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_result'>handle_result</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>SymHash</span><span class='period'>.</span><span class='id identifier rubyid_from'>from</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
@@ -419,7 +674,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep 11 21:03:02 2013 by
+  Generated on Sun Sep 15 01:01:13 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

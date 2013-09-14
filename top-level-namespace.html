@@ -75,6 +75,10 @@
     
   
     
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="RegApi2.html" title="RegApi2 (module)">RegApi2</a></span></dd>
+      
+    
   
   
   
@@ -92,18 +96,144 @@
   
 </p>
 
+  <h2>Constant Summary</h2>
+  
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="RegApi2.html" title="RegApi2 (module)">RegApi2</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="RegApi2.html#API_URI-constant" title="RegApi2::API_URI (constant)">RegApi2::API_URI</a></span>, <span class='object_link'><a href="RegApi2.html#DEFAULT_IO_ENCODING-constant" title="RegApi2::DEFAULT_IO_ENCODING (constant)">RegApi2::DEFAULT_IO_ENCODING</a></span>, <span class='object_link'><a href="RegApi2.html#DEFAULT_LANG-constant" title="RegApi2::DEFAULT_LANG (constant)">RegApi2::DEFAULT_LANG</a></span>, <span class='object_link'><a href="RegApi2.html#DEFAULT_REQUEST_CONTRACT-constant" title="RegApi2::DEFAULT_REQUEST_CONTRACT (constant)">RegApi2::DEFAULT_REQUEST_CONTRACT</a></span>, <span class='object_link'><a href="RegApi2.html#DEFAULT_RESULT_CONTRACT-constant" title="RegApi2::DEFAULT_RESULT_CONTRACT (constant)">RegApi2::DEFAULT_RESULT_CONTRACT</a></span>, <span class='object_link'><a href="RegApi2.html#VERSION-constant" title="RegApi2::VERSION (constant)">RegApi2::VERSION</a></span></p>
 
 
 
 
 
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#try_lo_load_defaults-instance_method" title="#try_lo_load_defaults (instance method)">- (Object) <strong>try_lo_load_defaults</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>try to load defaults from ~/.regapi2.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="RegApi2.html" title="RegApi2 (module)">RegApi2</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="RegApi2.html#bill-class_method" title="RegApi2.bill (method)">bill</a></span>, <span class='object_link'><a href="RegApi2.html#clients-class_method" title="RegApi2.clients (method)">clients</a></span>, <span class='object_link'><a href="RegApi2.html#common-class_method" title="RegApi2.common (method)">common</a></span>, <span class='object_link'><a href="RegApi2.html#domain-class_method" title="RegApi2.domain (method)">domain</a></span>, <span class='object_link'><a href="RegApi2.html#folder-class_method" title="RegApi2.folder (method)">folder</a></span>, <span class='object_link'><a href="RegApi2.html#form_to_be_sent-class_method" title="RegApi2.form_to_be_sent (method)">form_to_be_sent</a></span>, <span class='object_link'><a href="RegApi2.html#get_contract-class_method" title="RegApi2.get_contract (method)">get_contract</a></span>, <span class='object_link'><a href="RegApi2.html#get_form_data-class_method" title="RegApi2.get_form_data (method)">get_form_data</a></span>, <span class='object_link'><a href="RegApi2.html#get_request_contract_by_name-class_method" title="RegApi2.get_request_contract_by_name (method)">get_request_contract_by_name</a></span>, <span class='object_link'><a href="RegApi2.html#get_result_contract_by_name-class_method" title="RegApi2.get_result_contract_by_name (method)">get_result_contract_by_name</a></span>, <span class='object_link'><a href="RegApi2.html#got_response-class_method" title="RegApi2.got_response (method)">got_response</a></span>, <span class='object_link'><a href="RegApi2.html#handle_response-class_method" title="RegApi2.handle_response (method)">handle_response</a></span>, <span class='object_link'><a href="RegApi2.html#http-class_method" title="RegApi2.http (method)">http</a></span>, <span class='object_link'><a href="RegApi2.html#make_action-class_method" title="RegApi2.make_action (method)">make_action</a></span>, <span class='object_link'><a href="RegApi2.html#service-class_method" title="RegApi2.service (method)">service</a></span>, <span class='object_link'><a href="RegApi2.html#user-class_method" title="RegApi2.user (method)">user</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="try_lo_load_defaults-instance_method">
+  
+    - (<tt>Object</tt>) <strong>try_lo_load_defaults</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>try to load defaults from ~/.regapi2</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/console_helpers.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_try_lo_load_defaults'>try_lo_load_defaults</span>
+  <span class='id identifier rubyid_filename'>filename</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HOME</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>/.regapi2</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>test</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>test</span><span class='tstring_end'>'</span></span>
+
+  <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_readable?'>readable?</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+    <span class='const'>IO</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
+      <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='backref'>$1</span>  <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s*username\s*\=(.+)\s*$</span><span class='regexp_end'>/</span></span><span class='semicolon'>;</span>
+      <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='backref'>$1</span>  <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s*password\s*\=(.+)\s*$</span><span class='regexp_end'>/</span></span><span class='semicolon'>;</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
+  <span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='id identifier rubyid_password'>password</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your default username: \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_username'>username</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;, and You can change it with \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
     <div id="footer">
-  Generated on Wed Sep 11 21:03:01 2013 by
+  Generated on Sun Sep 15 01:01:12 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
