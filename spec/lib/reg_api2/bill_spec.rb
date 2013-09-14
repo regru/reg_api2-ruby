@@ -41,4 +41,15 @@ describe RegApi2::Bill do
     end
   end
 
+  describe :change_pay_type do
+    it "should raise if no currency given" do
+      lambda { RegApi2.bill.change_pay_type(pay_type: :prepay, bills: [ 123456 ] ) }.should raise_error RegApi2::ContractError
+    end
+    it "should raise if no pay_type given" do
+      lambda { RegApi2.bill.change_pay_type(currency: :RUR, bills: [ 123456 ] ) }.should raise_error RegApi2::ContractError
+    end
+    it "should raise nothing if ok" do
+      RegApi2.bill.change_pay_type(pay_type: :prepay, currency: :RUR, bills: [ 123456 ] ).bills.should have(1).bill
+    end
+  end
 end
