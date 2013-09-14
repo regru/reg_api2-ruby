@@ -19,4 +19,14 @@ describe RegApi2::Bill do
     end  
   end
 
+  describe :get_not_payed do
+    it "should raise nothing" do
+      lambda { RegApi2.bill.get_not_payed }.should_not raise_error
+    end
+
+    it "should return something real" do
+      RegApi2.bill.get_not_payed.bills.should have(1).bill
+    end
+  end
+
 end
