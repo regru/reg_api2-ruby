@@ -29,4 +29,14 @@ describe RegApi2::Bill do
     end
   end
 
+  describe :get_for_period do
+    it "should raise ContractError without dates" do
+      lambda { RegApi2.bill.get_for_period }.should raise_error RegApi2::ContractError
+    end
+
+    it "should return something real" do
+      RegApi2.bill.get_for_period(start_date: '2000-01-01', end_date: '2015-01-01').bills.should have(1).bill
+    end
+  end
+
 end
