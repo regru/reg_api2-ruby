@@ -38,7 +38,7 @@ module RegApi2
       # @raise ContractError
       def validate(form)
         fields = fields_to_validate
-        return  if fields.empty?
+        return form  if fields.empty?
         absent_fields = []
         fields.each_pair do |key, opts|
           if !form.has_key?(key) || form[key].nil?
@@ -47,6 +47,7 @@ module RegApi2
             end
             next
           end
+
           if opts[:re]
             if form[key] !~ opts[:re]
               raise RegApi2::ContractError.new(
@@ -54,12 +55,16 @@ module RegApi2
               )
             end
           end
+          if opts[:iso_date]
+            form[key] = form[key].strftime("%Y-%m-%d")  if form[key].respond_to?(:strftime)
+          end
         end
         unless absent_fields.empty?
           raise RegApi2::ContractError.new(
             "Required fields missed: #{absent_fields.join(', ')}"
           )
         end
+        form
       end
     end
   end

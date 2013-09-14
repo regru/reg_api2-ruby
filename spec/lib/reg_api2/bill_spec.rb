@@ -35,7 +35,9 @@ describe RegApi2::Bill do
     end
 
     it "should return something real" do
-      RegApi2.bill.get_for_period(start_date: '2000-01-01', end_date: '2015-01-01').bills.should have(1).bill
+      RegApi2.bill.get_for_period(
+        start_date: Date.new(2000, 1, 1), end_date: Date.new(2015, 1, 1)
+      ).bills.should have(1).bill
     end
   end
 

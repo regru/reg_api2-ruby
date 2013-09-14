@@ -116,7 +116,8 @@ module RegApi2
       # HACK: REG.API doesn't know about utf-8.
       io_encoding = 'utf8'  if !io_encoding || io_encoding == DEFAULT_IO_ENCODING
       opts = opts.to_hash  if opts.respond_to?(:to_hash)
-      get_request_contract_by_name(defopts[:request]).new(defopts).validate(opts)
+      opts = get_request_contract_by_name(defopts[:request]).new(defopts).validate(opts)
+
       form = {
         'username' => username,
         'password' => password,
@@ -127,6 +128,7 @@ module RegApi2
         'show_input_params' => 0,
         'input_data' => Yajl::Encoder.encode(opts)
       }
+
       form
     end
 
@@ -147,7 +149,8 @@ module RegApi2
         json['error_params']
       )  if json['result'] == 'error'
 
-      get_result_contract_by_name(defopts[:result]).new(defopts).handle_result(json)
+      res_contract = get_result_contract_by_name(defopts[:result]).new(defopts)
+      res_contract.handle_result(json)
     end
 
     # Do actual call to REG.API using POST/JSON convention.

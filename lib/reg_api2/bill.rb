@@ -42,7 +42,7 @@ module RegApi2
     # @return [Hash(bills)] Bills.
     # @note Accessibility: partners
     # @note Support of invoice lists: yes
-    define :get_for_period, required: %w[ start_date end_date ]
+    define :get_for_period, required: { start_date: { iso_date: true }, end_date: { iso_date: true } }
 
     extend self
   end
