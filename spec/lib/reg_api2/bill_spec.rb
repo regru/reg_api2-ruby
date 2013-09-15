@@ -57,8 +57,8 @@ describe RegApi2::Bill do
     it "should remove three bills if specified" do
       ans = RegApi2.bill.delete(bills: [ { bill_id: 12345 }, { bill_id: 12346 }, { bill_id: 12347 } ]).bills
       ans.map { |b| b.bill_id }.should == [ 12345, 12346, 12347 ]
-      ans.each { |b| b.result == 'success' }
-      ans.each { |b| b.status == 'deleted' }
+      ans.each { |b| b.result.should == 'success' }
+      ans.each { |b| b.status.should == 'deleted' }
     end
   end
 end
