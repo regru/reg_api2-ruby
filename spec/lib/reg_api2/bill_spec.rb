@@ -52,4 +52,13 @@ describe RegApi2::Bill do
       RegApi2.bill.change_pay_type(pay_type: :prepay, currency: :RUR, bills: [ 123456 ] ).bills.should have(1).bill
     end
   end
+
+  describe :delete do
+    it "should remove three bills if specified" do
+      ans = RegApi2.bill.delete(bills: [ { bill_id: 12345 }, { bill_id: 12346 }, { bill_id: 12347 } ]).bills
+      ans.map { |b| b.bill_id }.should == [ 12345, 12346, 12347 ]
+      ans.each { |b| b.result == 'success' }
+      ans.each { |b| b.status == 'deleted' }
+    end
+  end
 end

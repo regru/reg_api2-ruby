@@ -15,6 +15,7 @@ module RegApi2
         renew_domains_cnt
         renew_domains_get_ctrl_cnt
         undelegated_domains_cnt
+        bill_id
       ].freeze
 
       FLOAT_FIELDS = %w[
