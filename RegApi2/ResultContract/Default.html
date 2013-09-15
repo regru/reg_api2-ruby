@@ -128,6 +128,7 @@
 </span><span class='tstring_content'>  renew_domains_cnt</span><span class='words_sep'>
 </span><span class='tstring_content'>  renew_domains_get_ctrl_cnt</span><span class='words_sep'>
 </span><span class='tstring_content'>  undelegated_domains_cnt</span><span class='words_sep'>
+</span><span class='tstring_content'>  bill_id</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="FLOAT_FIELDS-constant" class="">FLOAT_FIELDS =
@@ -364,12 +365,12 @@
       <pre class="lines">
 
 
-32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@opts</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span>
@@ -411,12 +412,12 @@
       <pre class="lines">
 
 
-30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_opts'>opts</span>
   <span class='ivar'>@opts</span>
@@ -448,7 +449,6 @@
       <pre class="lines">
 
 
-75
 76
 77
 78
@@ -457,10 +457,11 @@
 81
 82
 83
-84</pre>
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_answer'>answer</span>
@@ -492,7 +493,6 @@
       <pre class="lines">
 
 
-62
 63
 64
 65
@@ -503,10 +503,11 @@
 70
 71
 72
-73</pre>
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
@@ -540,7 +541,6 @@
       <pre class="lines">
 
 
-42
 43
 44
 45
@@ -558,10 +558,11 @@
 57
 58
 59
-60</pre>
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
@@ -612,12 +613,12 @@
       <pre class="lines">
 
 
-87
 88
-89</pre>
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_answer'>handle_answer</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_answer'>answer</span> <span class='op'>=</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
@@ -652,13 +653,13 @@
       <pre class="lines">
 
 
-37
 38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract/default.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_result'>handle_result</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>SymHash</span><span class='period'>.</span><span class='id identifier rubyid_from'>from</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
@@ -674,7 +675,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Sep 15 01:01:13 2013 by
+  Generated on Sun Sep 15 05:38:57 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

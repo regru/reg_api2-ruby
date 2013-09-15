@@ -124,6 +124,52 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#change_pay_type-instance_method" title="#change_pay_type (instance method)">- (Object) <strong>change_pay_type</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>You can use this function to change payment methods.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Deletion of unpaid invoices.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_for_period-instance_method" title="#get_for_period (instance method)">- (Hash(bills)) <strong>get_for_period</strong>(opts = {}) </a>
     
 
@@ -211,7 +257,263 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="get_for_period-instance_method">
+  <h3 class="signature first" id="change_pay_type-instance_method">
+  
+    - (<tt>Object</tt>) <strong>change_pay_type</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of invoice lists: yes</p>
+</div>
+  </div>
+
+<p>You can use this function to change payment methods. Some of the methods allow issue of invoices in the defined payment systems, advance payments are made immediately.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Example of request</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='id identifier rubyid_bill'>bill</span><span class='period'>.</span><span class='id identifier rubyid_change_pay_type'>change_pay_type</span><span class='lparen'>(</span><span class='label'>currency:</span> <span class='symbol'>:RUR</span><span class='comma'>,</span> <span class='label'>pay_type:</span> <span class='symbol'>:prepay</span><span class='comma'>,</span> <span class='label'>bills:</span> <span class='lbracket'>[</span> <span class='int'>123456</span> <span class='rbracket'>]</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:bill_id</span>
+          <span class="type">(<tt>Fixnum</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Invoice ID (in case of single invoice request).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:bills</span>
+          <span class="type">(<tt>Array(Fixnum)</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>A list of invoice IDs.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pay_type</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>New payment type. Mandatory field. Valid values: prepay — advance payment (to be made immediately); WM — WebMoney. With the WMID defined, the invoices are issued to the customer’s WM account; yamoney, ymbill — Yandex.Dengi. To issue an invoice, define ymbill and in advance allow the receipt of invoices from REG.; bank — bank transfer</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:currency</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Currency. Mandatory field. «Yandex.Dengi» allows RUR only, «bank» and «prepay» – RUR and USD, «WebMoney» also allows EUR and UAH.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:wmid</span>
+          <span class="type">(<tt>Fixnum</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>WebMoney ID</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/bill.rb', line 60</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:change_pay_type</span><span class='comma'>,</span> <span class='label'>required:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>currency</span><span class='words_sep'> </span><span class='tstring_content'>pay_type</span><span class='words_sep'> ]</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of invoice lists: yes</p>
+</div>
+  </div>
+
+<p>Deletion of unpaid invoices.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Delete three bills.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='id identifier rubyid_bill'>bill</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>bills:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>bill_id:</span> <span class='int'>12345</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>bill_id:</span> <span class='int'>12346</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>bill_id:</span> <span class='int'>12347</span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='rparen'>)</span>    </code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:bill_id</span>
+          <span class="type">(<tt>Fixnum</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Invoice ID (in case of single invoice request).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:bills</span>
+          <span class="type">(<tt>Array(Fixnum)</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>A list of invoice IDs.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/bill.rb', line 72</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:delete</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_for_period-instance_method">
   
     - (<tt>Hash(bills)</tt>) <strong>get_for_period</strong>(opts = {}) 
   
@@ -266,7 +568,7 @@
       
         <li>
           <span class="name">:start_date</span>
-          <span class="type">(<tt>String</tt>)</span>
+          <span class="type">(<tt>String</tt>, <tt>Date</tt>)</span>
           <span class="default">
             
           </span>
@@ -278,7 +580,7 @@
       
         <li>
           <span class="name">:end_date</span>
-          <span class="type">(<tt>String</tt>)</span>
+          <span class="type">(<tt>String</tt>, <tt>Date</tt>)</span>
           <span class="default">
             
           </span>
@@ -622,7 +924,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Sep 15 01:01:13 2013 by
+  Generated on Sun Sep 15 05:38:56 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
