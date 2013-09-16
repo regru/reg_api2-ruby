@@ -26,8 +26,10 @@ module RegApi2
     # @return [Hash(domains)] A list of domains with results.
     # @note Support of service lists: yes
     # @note Accessibility: clients
-    # @example Example of a request
+    # @example Assign the IP address 111.111.111.111 to the domains test.ru and test.com.
     #    RegApi2.zone.add_alias domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', ipaddr: IPAddr.new("111.111.111.111")
+    # @example Same with ip addresses as strings.
+    #    RegApi2.zone.add_alias domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', ipaddr: "111.111.111.111"
     define :add_alias, required: { ipaddr: { ipaddr: true }, subdomain: {} }
 
     extend self
