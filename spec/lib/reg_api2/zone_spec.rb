@@ -24,5 +24,14 @@ describe RegApi2::Zone do
       )
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
+
+    it "should understood ip addresses as strings too" do
+      ans = RegApi2.zone.add_alias(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '*',
+        ipaddr: "111.111.111.111"
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
   end
 end
