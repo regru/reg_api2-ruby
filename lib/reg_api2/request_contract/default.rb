@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+require 'ipaddr'
+
 module RegApi2
   # Contracts for API requests.
   # Take a look at {RegApi2::DEFAULT_REQUEST_CONTRACT} for defaults.
@@ -60,6 +62,17 @@ module RegApi2
         value
       end
 
+      # Validates specified `value` with `ipaddr` field.
+      # @param [Object] key Value to validate.
+      # @param [Object] value Value to validate.
+      # @param [Hash] opts opts with optional ipaddr field.
+      def validate_ipaddr key, value, opts
+        if opts[:ipaddr] && value.kind_of?(String)
+          value = IPAddr.new(value)
+        end
+        value.to_s
+      end
+
       # Validates specified `form` with `required` and `optional` fields.
       # @param [Hash] form Form to validate.
       # @raise ContractError
@@ -77,6 +90,7 @@ module RegApi2
 
           form[key] = validate_re key, form[key], opts
           form[key] = validate_iso_date key, form[key], opts
+          form[key] = validate_ipaddr key, form[key], opts
         end
         unless absent_fields.empty?
           raise RegApi2::ContractError.new(

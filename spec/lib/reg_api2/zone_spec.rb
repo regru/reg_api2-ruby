@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 
+require 'ipaddr'
+
 describe RegApi2::Zone do
   describe :nop do
     it "should raise when no args" do
@@ -13,4 +15,14 @@ describe RegApi2::Zone do
     end  
   end
 
+  describe :add_alias do
+    it "should understood IPAddr's" do
+      ans = RegApi2.zone.add_alias(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '@',
+        ipaddr: IPAddr.new("111.111.111.111")
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end
