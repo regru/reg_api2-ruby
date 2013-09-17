@@ -34,4 +34,25 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :add_aaaa do
+    it "should understood IPAddr's" do
+      ans = RegApi2.zone.add_aaaa(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '@',
+        ipaddr: IPAddr.new("aa11::a111:11aa:aaa1:aa1a")
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+
+    it "should understood ipv6 addresses as strings too" do
+      ans = RegApi2.zone.add_aaaa(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '*',
+        ipaddr: "aa11::a111:11aa:aaa1:aa1a"
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
+
 end
