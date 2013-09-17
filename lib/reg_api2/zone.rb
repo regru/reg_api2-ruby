@@ -42,7 +42,7 @@ module RegApi2
     # @note Accessibility: clients
     # @example Assign the IPv6 address aa11::a111:11aa:aaa1:aa1a to the domains test.ru and test.com.
     #    RegApi2.zone.add_aaaa domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', ipaddr: IPAddr.new("aa11::a111:11aa:aaa1:aa1a")
-    # @example Same with ip addresses as strings.
+    # @example Same with ipv6 addresses as strings.
     #    RegApi2.zone.add_aaaa domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', ipaddr: "aa11::a111:11aa:aaa1:aa1a"
     define :add_aaaa, required: { ipaddr: { ipaddr: true }, subdomain: {} }
 
