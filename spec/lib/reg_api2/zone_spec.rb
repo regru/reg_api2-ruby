@@ -55,4 +55,14 @@ describe RegApi2::Zone do
     end
   end
 
+  describe :add_cname do
+    it "should assign mail subsomains to mx10.test.ru if specified" do
+      ans = RegApi2.zone.add_cname(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: "mail",
+        canonical_name: "mx10.test.ru"
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end

@@ -46,6 +46,19 @@ module RegApi2
     #    RegApi2.zone.add_aaaa domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', ipaddr: "aa11::a111:11aa:aaa1:aa1a"
     define :add_aaaa, required: { ipaddr: { ipaddr: true }, subdomain: {} }
 
+    # @!method add_cname(opts = {})
+    # @param [Hash] opts
+    # @option opts [String] :subdomain Name of the subdomain assigned an IP address. To assign an IP address to a domain, transfer the “@” value. To assign an IP address to all subdomains, which are not explicitly defined in other records, use the “*” value.
+    # @option opts [String] :canonical_name Name of the domain assigned a synonym.
+    # Use this function to tie a subdomain to another’s domain name.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Tie the third-level domains mail.test.ru and mail.test.com to mx10.test.ru.
+    #    RegApi2.zone.add_cname domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", canonical_name: "mx10.test.ru")
+    define :add_cname, required: { canonical_name: {}, subdomain: {} }
+
+
     extend self
   end
 end
