@@ -65,4 +65,27 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+
+  describe :add_mx do
+    it "should understood IPAddr's" do
+      ans = RegApi2.zone.add_mx(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '@',
+        mail_server: IPAddr.new("111.111.111.111")
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+
+    it "should understood ip addresses as domains too" do
+      ans = RegApi2.zone.add_mx(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '@',
+        priority: 1,
+        mail_server: "mail"
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
+
 end

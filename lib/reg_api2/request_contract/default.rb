@@ -67,7 +67,7 @@ module RegApi2
       # @param [Object] value Value to validate.
       # @param [Hash] opts opts with optional ipaddr field.
       def validate_ipaddr key, value, opts
-        if opts[:ipaddr] && value.kind_of?(String)
+        if opts[:ipaddr] == true && value.kind_of?(String)
           value = IPAddr.new(value)
         end
         value.to_s

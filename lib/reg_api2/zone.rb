@@ -59,6 +59,19 @@ module RegApi2
     define :add_cname, required: { canonical_name: {}, subdomain: {} }
 
 
+    # @!method add_mx(opts = {})
+    # @param [Hash] opts
+    # @option opts [String] :subdomain Name of the subdomain assigned an IP address. To assign an IP address to a domain, transfer the “@” value. To assign an IP address to all subdomains, which are not explicitly defined in other records, use the “*” value.
+    # @option opts [Fixnum] :priority Mail server priority: from 0 (highest) through 10 (lowest).
+    # @option opts [String or IPAddr] :mail_server Domain name or IP address of the mail server (domain name is more preferable because not all mail servers admit IP addresses).
+    # Use this function to define the IP address or domain name of the mail server, which will received email destined to your domain.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Tie the the domains test.ru and test.com to the mail servers mail.test.ru and mail.test.com.
+    #    RegApi2.zone.add_mx domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "@", mail_server: "mail")
+    define :add_mx, required: { mail_server: { ipaddr: :optional }, subdomain: {} }
+
     extend self
   end
 end
