@@ -629,7 +629,7 @@
         <p class="example_title"><div class='inline'><p>Tie the third-level domains mail.test.ru and mail.test.com to mx10.test.ru.</p>
 </div></p>
       
-      <pre class="example code"><code>RegApi2.zone.add_cname domains: [ { dname: &quot;test.ru&quot; }, { dname: &quot;test.com&quot; } ], subdomain: &quot;mail&quot;, canonical_name: &quot;mx10.test.ru&quot;)</code></pre>
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_add_cname'>add_cname</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>subdomain:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mail</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>canonical_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mx10.test.ru</span><span class='tstring_end'>&quot;</span></span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -756,7 +756,7 @@
         <p class="example_title"><div class='inline'><p>Tie the the domains test.ru and test.com to the mail servers mail.test.ru and mail.test.com.</p>
 </div></p>
       
-      <pre class="example code"><code>RegApi2.zone.add_mx domains: [ { dname: &quot;test.ru&quot; }, { dname: &quot;test.com&quot; } ], subdomain: &quot;@&quot;, mail_server: &quot;mail&quot;)</code></pre>
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_add_mx'>add_mx</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>subdomain:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>mail_server:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mail</span><span class='tstring_end'>&quot;</span></span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -895,7 +895,7 @@
         <p class="example_title"><div class='inline'><p>Hand over domains tt.test.ru and tt.test.com to the DNS server ns1.test.ru.</p>
 </div></p>
       
-      <pre class="example code"><code>RegApi2.zone.add_ns domains: [ { dname: &quot;test.ru&quot; }, { dname: &quot;test.com&quot; } ], subdomain: &quot;tt&quot;, dns_server: &quot;ns1.test.ru&quot;, record_number: 10)</code></pre>
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_add_ns'>add_ns</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>subdomain:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tt</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>dns_server:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ns1.test.ru</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>record_number:</span> <span class='int'>10</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1034,7 +1034,7 @@
         <p class="example_title"><div class='inline'><p>Make the sip.test.ru server handle SIP calls destined to <a href="mailto:xxx@test.ru">xxx@test.ru</a> and <a href="mailto:xxx@test.com">xxx@test.com</a> on port 5060 over UDP.</p>
 </div></p>
       
-      <pre class="example code"><code>RegApi2.zone.add_srv domains: [ { dname: &quot;test.ru&quot; }, { dname: &quot;test.com&quot; } ], service: &quot;_sip._udp&quot;, priority: 0, port: 5060, target: &quot;sip.test.ru&quot;)</code></pre>
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_add_srv'>add_srv</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>service:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_sip._udp</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>priority:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>port:</span> <span class='int'>5060</span><span class='comma'>,</span> <span class='label'>target:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sip.test.ru</span><span class='tstring_end'>&quot;</span></span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1197,7 +1197,7 @@
         <p class="example_title"><div class='inline'><p>Add notes about the mail.test.ru and mail.test.com domains.</p>
 </div></p>
       
-      <pre class="example code"><code>RegApi2.zone.add_txt domains: [ { dname: &quot;test.ru&quot; }, { dname: &quot;test.com&quot; } ], subdomain: &quot;mail&quot;, text: &quot;testmail&quot;)</code></pre>
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_add_txt'>add_txt</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>subdomain:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mail</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>text:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>testmail</span><span class='tstring_end'>&quot;</span></span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1406,7 +1406,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Sep 18 18:14:57 2013 by
+  Generated on Wed Sep 18 18:26:57 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
