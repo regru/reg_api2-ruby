@@ -110,4 +110,14 @@ describe RegApi2::Zone do
     end
   end
 
+  describe :add_txt do
+    it "should add text records" do
+      ans = RegApi2.zone.add_txt(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: 'mail',
+        text: "testmail"
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end

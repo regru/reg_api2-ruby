@@ -84,6 +84,18 @@ module RegApi2
     #    RegApi2.zone.add_ns domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "tt", dns_server: "ns1.test.ru", record_number: 10)
     define :add_ns, required: { dns_server: {}, subdomain: {}, record_number: { re: /\d\d?/ } }
 
+    # @!method add_txt(opts = {})
+    # @param [Hash] opts
+    # @option opts [String] :subdomain Name of the subdomain, about which the record is added.
+    # @option opts [String] :text Text of the note. Only ASCII alphanumeric characters are allowed.
+    # Add an arbitrary note about the subdomain.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Add notes about the mail.test.ru and mail.test.com domains.
+    #    RegApi2.zone.add_txt domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", text: "testmail")
+    define :add_txt, required: { text: {}, subdomain: {} }
+
     extend self
   end
 end
