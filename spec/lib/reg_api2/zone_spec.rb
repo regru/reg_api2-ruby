@@ -68,7 +68,7 @@ describe RegApi2::Zone do
 
 
   describe :add_mx do
-    it "should understood IPAddr's" do
+    it "should understood mail servers as IPAddr's" do
       ans = RegApi2.zone.add_mx(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
         subdomain: '@',
@@ -77,7 +77,7 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
 
-    it "should understood ip addresses as domains too" do
+    it "should understood mail servers as domains too" do
       ans = RegApi2.zone.add_mx(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
         subdomain: '@',
