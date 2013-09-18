@@ -42,7 +42,7 @@ module RegApi2
       # @raise ContractError
       def validate_re key, value, opts
         if opts[:re]
-          if value !~ opts[:re]
+          if value.to_s !~ opts[:re]
             raise RegApi2::ContractError.new(
               "Field #{key} mismatch regular expression: #{value}"
             )

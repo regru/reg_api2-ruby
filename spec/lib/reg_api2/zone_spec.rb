@@ -66,7 +66,6 @@ describe RegApi2::Zone do
     end
   end
 
-
   describe :add_mx do
     it "should understood mail servers as IPAddr's" do
       ans = RegApi2.zone.add_mx(
@@ -85,6 +84,29 @@ describe RegApi2::Zone do
         mail_server: "mail"
       )
       ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
+
+  describe :add_ns do
+    it "should understood dns servers with record number" do
+      ans = RegApi2.zone.add_ns(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: 'tt',
+        dns_server: "ns.test.ru",
+        record_number: 10
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+
+    it "should check record number" do
+      lambda do
+        RegApi2.zone.add_ns(
+          domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+          subdomain: 'tt',
+          dns_server: "ns.test.ru",
+          record_number: 'fg'
+        )
+      end.should raise_error RegApi2::ContractError
     end
   end
 

@@ -58,10 +58,9 @@ module RegApi2
     #    RegApi2.zone.add_cname domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", canonical_name: "mx10.test.ru")
     define :add_cname, required: { canonical_name: {}, subdomain: {} }
 
-
     # @!method add_mx(opts = {})
     # @param [Hash] opts
-    # @option opts [String] :subdomain Name of the subdomain assigned an IP address. To assign an IP address to a domain, transfer the “@” value. To assign an IP address to all subdomains, which are not explicitly defined in other records, use the “*” value.
+    # @option opts [String] :subdomain Name of the subdomain, to which the address is assigned. The default value is “@”, i.e. the main domain.
     # @option opts [Fixnum] :priority Mail server priority: from 0 (highest) through 10 (lowest).
     # @option opts [String or IPAddr] :mail_server Domain name or IP address of the mail server (domain name is more preferable because not all mail servers admit IP addresses).
     # Use this function to define the IP address or domain name of the mail server, which will received email destined to your domain.
@@ -70,7 +69,20 @@ module RegApi2
     # @note Accessibility: clients
     # @example Tie the the domains test.ru and test.com to the mail servers mail.test.ru and mail.test.com.
     #    RegApi2.zone.add_mx domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "@", mail_server: "mail")
-    define :add_mx, required: { mail_server: { ipaddr: :optional }, subdomain: {} }
+    define :add_mx, required: { mail_server: { ipaddr: :optional } }, optional: %w[ subdomain ]
+
+    # @!method add_ns(opts = {})
+    # @param [Hash] opts
+    # @option opts [String] :subdomain Name of the subdomain that will be handed over to other DNS servers.
+    # @option opts [String] :dns_server Domain name of the DNS-server.
+    # @option opts [Fixnum] :record_number Order number of the NS record that determines relative arrangement of NS records for the subdomain.
+    # You can use this function to hand over a subdomain to other DNS servers.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Hand over domains tt.test.ru and tt.test.com to the DNS server ns1.test.ru.
+    #    RegApi2.zone.add_ns domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "tt", dns_server: "ns1.test.ru", record_number: 10)
+    define :add_ns, required: { dns_server: {}, subdomain: {}, record_number: { re: /\d\d?/ } }
 
     extend self
   end
