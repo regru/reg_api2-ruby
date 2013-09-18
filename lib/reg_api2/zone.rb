@@ -55,7 +55,7 @@ module RegApi2
     # @note Support of service lists: yes
     # @note Accessibility: clients
     # @example Tie the third-level domains mail.test.ru and mail.test.com to mx10.test.ru.
-    #    RegApi2.zone.add_cname domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", canonical_name: "mx10.test.ru")
+    #    RegApi2.zone.add_cname domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", canonical_name: "mx10.test.ru"
     define :add_cname, required: { canonical_name: {}, subdomain: {} }
 
     # @!method add_mx(opts = {})
@@ -68,7 +68,7 @@ module RegApi2
     # @note Support of service lists: yes
     # @note Accessibility: clients
     # @example Tie the the domains test.ru and test.com to the mail servers mail.test.ru and mail.test.com.
-    #    RegApi2.zone.add_mx domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "@", mail_server: "mail")
+    #    RegApi2.zone.add_mx domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "@", mail_server: "mail"
     define :add_mx, required: { mail_server: { ipaddr: :optional } }, optional: %w[ subdomain ]
 
     # @!method add_ns(opts = {})
@@ -81,7 +81,7 @@ module RegApi2
     # @note Support of service lists: yes
     # @note Accessibility: clients
     # @example Hand over domains tt.test.ru and tt.test.com to the DNS server ns1.test.ru.
-    #    RegApi2.zone.add_ns domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "tt", dns_server: "ns1.test.ru", record_number: 10)
+    #    RegApi2.zone.add_ns domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "tt", dns_server: "ns1.test.ru", record_number: 10
     define :add_ns, required: { dns_server: {}, subdomain: {}, record_number: { re: /\d\d?/ } }
 
     # @!method add_txt(opts = {})
@@ -93,7 +93,7 @@ module RegApi2
     # @note Support of service lists: yes
     # @note Accessibility: clients
     # @example Add notes about the mail.test.ru and mail.test.com domains.
-    #    RegApi2.zone.add_txt domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", text: "testmail")
+    #    RegApi2.zone.add_txt domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", text: "testmail"
     define :add_txt, required: { text: {}, subdomain: {} }
 
     # @!method add_srv(opts = {})
@@ -108,7 +108,7 @@ module RegApi2
     # @note Support of service lists: yes
     # @note Accessibility: clients
     # @example Make the sip.test.ru server handle SIP calls destined to xxx@test.ru and xxx@test.com on port 5060 over UDP.
-    #    RegApi2.zone.add_srv domains: [ { dname: "test.ru" }, { dname: "test.com" } ], service: "_sip._udp", priority: 0, port: 5060, target: "sip.test.ru")
+    #    RegApi2.zone.add_srv domains: [ { dname: "test.ru" }, { dname: "test.com" } ], service: "_sip._udp", priority: 0, port: 5060, target: "sip.test.ru"
     define :add_srv, required: { service: {}, priority: { re: /\A\d+\z/ }, target: {}, port: { re: /\A\d+\z/ } }, optional: { weight: { re: /\A\d+\z/ } }
 
     extend self
