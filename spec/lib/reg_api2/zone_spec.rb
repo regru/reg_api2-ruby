@@ -120,4 +120,17 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :add_srv do
+    it "Make the sip.test.ru server handle SIP calls destined to xxx@test.ru and xxx@test.com on port 5060 over UDP." do
+      ans = RegApi2.zone.add_srv(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        service: '_sip._udp',
+        priority: 0,
+        port: 5060,
+        target: "sip.test.ru"
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end

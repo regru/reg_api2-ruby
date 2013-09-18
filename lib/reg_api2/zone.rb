@@ -96,6 +96,21 @@ module RegApi2
     #    RegApi2.zone.add_txt domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "mail", text: "testmail")
     define :add_txt, required: { text: {}, subdomain: {} }
 
+    # @!method add_srv(opts = {})
+    # @param [Hash] opts
+    # @option opts [String] :service The service that will be matched against the defined server. For example, to make the sip.test.ru server handle SIP calls over UDP, you should specify the following string: _sip._udp.
+    # @option opts [Fixnum] :priority Record priority.
+    # @option opts [Fixnum] :weight The load that the servers can handle. Optional field. Default value: 0.
+    # @option opts [String] :target The server used by the service.
+    # @option opts [Fixnum] :port The port used by the service.
+    # Add service record.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Make the sip.test.ru server handle SIP calls destined to xxx@test.ru and xxx@test.com on port 5060 over UDP.
+    #    RegApi2.zone.add_srv domains: [ { dname: "test.ru" }, { dname: "test.com" } ], service: "_sip._udp", priority: 0, port: 5060, target: "sip.test.ru")
+    define :add_srv, required: { service: {}, priority: { re: /\A\d+\z/ }, target: {}, port: { re: /\A\d+\z/ } }, optional: { weight: { re: /\A\d+\z/ } }
+
     extend self
   end
 end
