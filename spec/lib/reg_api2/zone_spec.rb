@@ -133,4 +133,14 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :get_resource_records do
+    it "should get resource records" do
+      ans = RegApi2.zone.get_resource_records(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      ans.domains.map(&:rrs).should be_kind_of(Array)
+    end
+  end
 end

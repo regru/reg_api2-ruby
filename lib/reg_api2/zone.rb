@@ -111,6 +111,16 @@ module RegApi2
     #    RegApi2.zone.add_srv domains: [ { dname: "test.ru" }, { dname: "test.com" } ], service: "_sip._udp", priority: 0, port: 5060, target: "sip.test.ru"
     define :add_srv, required: { service: {}, priority: { re: /\A\d+\z/ }, target: {}, port: { re: /\A\d+\z/ } }, optional: { weight: { re: /\A\d+\z/ } }
 
+    # @!method get_resource_records(opts = {})
+    # Use this fuction to get zone resource records for each domains.
+    # @param [Hash] opts
+    # @option opts [Array(Hash(dname))] :domains A list of domains, where domains that allow zone management will have the “success” value in the “result” field. Otherwise the “result” field will include the error code explaining the reason of error.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Request records for test.ru and test.com.
+    #    RegApi2.zone.get_resource_records domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
+    define :get_resource_records
+
     extend self
   end
 end
