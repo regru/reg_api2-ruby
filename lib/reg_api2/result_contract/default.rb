@@ -8,6 +8,7 @@ module RegApi2
   module ResultContract
     # Waits for answer field and returns it only.
     class Default
+      # Fields that will be converted to {Fixnum}.
       INT_FIELDS = %w[
         active_domains_cnt
         active_domains_get_ctrl_cnt
@@ -18,6 +19,7 @@ module RegApi2
         bill_id
       ].freeze
 
+      # Fields that will be converted to {Float}.
       FLOAT_FIELDS = %w[
         amount
         total_amount
@@ -25,6 +27,7 @@ module RegApi2
         total_payment
       ].freeze
 
+      # Fields that will be converted to {TrueClass or FalseClass}.
       BOOL_FIELDS = %w[
         ].freeze
 
