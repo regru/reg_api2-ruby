@@ -217,7 +217,6 @@ module RegApi2
     # @return [Hash(domains)] A list of domains with results.
     # @note Support of service lists: yes
     # @note Accessibility: clients
-    # @see #tune_parking
     # @example Delete A record with 111.111.111.111 ip from @.
     #     RegApi2.zone.remove_record domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', content: '111.111.111.111', record_type: :A
     define :remove_record, required: %w[ subdomain record_type ]
