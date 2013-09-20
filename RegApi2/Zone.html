@@ -285,6 +285,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#clear-instance_method" title="#clear (instance method)">- (Hash(domains)) <strong>clear</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Delete all resource records.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#clear_forwarding-instance_method" title="#clear_forwarding (instance method)">- (Hash(domains)) <strong>clear_forwarding</strong>(opts = {}) </a>
     
 
@@ -369,6 +392,29 @@
 
   
     <span class="summary_desc"><div class='inline'><p>This function serves for testing purposes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_record-instance_method" title="#remove_record (instance method)">- (Hash(domains)) <strong>remove_record</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this function to delete resource records.</p>
 </div></span>
   
 </li>
@@ -1448,6 +1494,100 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="clear-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>clear</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>Delete all resource records.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Delete all resource records.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 232</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:clear</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="clear_forwarding-instance_method">
   
     - (<tt>Hash(domains)</tt>) <strong>clear_forwarding</strong>(opts = {}) 
@@ -1874,6 +2014,157 @@
       <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 19</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:nop</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_record-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>remove_record</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>Use this function to delete resource records.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Delete A record with 111.111.111.111 ip from @.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_remove_record'>remove_record</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>subdomain:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>@</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='label'>content:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>111.111.111.111</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='label'>record_type:</span> <span class='symbol'>:A</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:subdomain</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The subdomain for which the resource record will be deleted.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:record_type</span>
+          <span class="type">(<tt>String or Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The class/type of the deleted record. Mandatory field.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:priority</span>
+          <span class="type">(<tt>Fixnum</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Optional field. Default value: 0. Not applicable to the request for removal of an A-record (and similar records).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:content</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The content of the record. Optional field. If it is not available, all records satisfying the settings of the rest of parameters will be deleted.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+222</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 222</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:remove_record</span><span class='comma'>,</span> <span class='label'>required:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>subdomain</span><span class='words_sep'> </span><span class='tstring_content'>record_type</span><span class='words_sep'> ]</span></pre>
     </td>
   </tr>
 </table>
@@ -2346,7 +2637,7 @@ action_list =&gt; [
 </div>
 
     <div id="footer">
-  Generated on Fri Sep 20 11:02:11 2013 by
+  Generated on Fri Sep 20 12:44:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
