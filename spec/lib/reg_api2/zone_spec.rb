@@ -201,4 +201,16 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :remove_record do
+    it "Should delete A record with 111.111.111.111 ip from @" do
+      ans = RegApi2.zone.remove_record(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ], 
+        subdomain: '@', 
+        content: '111.111.111.111', 
+        record_type: :A
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end

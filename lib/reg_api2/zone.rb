@@ -207,6 +207,21 @@ module RegApi2
     #     RegApi2.zone.clear_parking domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
     define :clear_parking
 
+    # @!method remove_record(opts = {})
+    # Use this function to delete resource records.
+    # @param [Hash] opts
+    # @option opts [String] :subdomain The subdomain for which the resource record will be deleted.
+    # @option opts [String or Symbol] :record_type The class/type of the deleted record. Mandatory field.
+    # @option opts [Fixnum] :priority Optional field. Default value: 0. Not applicable to the request for removal of an A-record (and similar records).
+    # @option opts [String] :content The content of the record. Optional field. If it is not available, all records satisfying the settings of the rest of parameters will be deleted.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @see #tune_parking
+    # @example Delete A record with 111.111.111.111 ip from @.
+    #     RegApi2.zone.remove_record domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', content: '111.111.111.111', record_type: :A
+    define :remove_record, required: %w[ subdomain record_type ]
+
     extend self
   end
 end
