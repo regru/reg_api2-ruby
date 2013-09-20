@@ -183,4 +183,22 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :tune_parking do
+    it "should add resource records required for domain parking" do
+      ans = RegApi2.zone.tune_parking(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
+
+  describe :clear_parking do
+    it "should delete resource records required for domain parking" do
+      ans = RegApi2.zone.clear_parking(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end

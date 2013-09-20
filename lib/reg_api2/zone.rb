@@ -185,6 +185,28 @@ module RegApi2
     #     RegApi2.zone.clear_forwarding domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
     define :clear_forwarding
 
+    # @!method tune_parking(opts = {})
+    # Use this function to add resource records required for domain parking.
+    # @param [Hash] opts
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @see #clear_parking
+    # @example Add resource records required for domain parking.
+    #     RegApi2.zone.tune_parking domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
+    define :tune_parking
+
+    # @!method clear_parking(opts = {})
+    # Use this function to delete resource records required for domain parking.
+    # @param [Hash] opts
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @see #tune_parking
+    # @example Delete resource records required for domain parking.
+    #     RegApi2.zone.clear_parking domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
+    define :clear_parking
+
     extend self
   end
 end
