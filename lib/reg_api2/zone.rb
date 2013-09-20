@@ -115,11 +115,41 @@ module RegApi2
     # Use this fuction to get zone resource records for each domains.
     # @param [Hash] opts
     # @option opts [Array(Hash(dname))] :domains A list of domains, where domains that allow zone management will have the “success” value in the “result” field. Otherwise the “result” field will include the error code explaining the reason of error.
+    # @return [Hash(domains)] A list of domains with results.
     # @note Support of service lists: yes
     # @note Accessibility: clients
     # @example Request records for test.ru and test.com.
     #    RegApi2.zone.get_resource_records domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
     define :get_resource_records
+
+    # @!method update_records(opts = {})
+    # You can use this function to add and/or delete several resource records by means of a single request. The order of elements in the transferred array is important. Records can interrelate with each other, and if an error is found in one of the records from the action_list fields, the rest of the records will be ignored.
+    # @param [Hash] opts
+    # @option opts [Array(Hash)] :action_list A hash array, where every hash provides parameters for creation/deletion of a resource record. The class/type of the created records is defined in the “action” field, allowed values are: add_alias, add_aaaa, add_cname, add_mx, add_ns, add_txt, add_srv, remove_record. The rest of hash fields depend on the “action” value and correspond to the functions described above.
+    #                                         For the example given below the structure of action_list will look as follows:
+    #                                         ```
+    #                                         action_list => [
+    #                                             {
+    #                                                 action    => 'add_alias',
+    #                                                 subdomain => 'www',
+    #                                                 ipaddr    => '11.22.33.44'
+    #                                             },
+    #                                             {
+    #                                                 action         => 'add_cname',
+    #                                                 subdomain      => '@',
+    #                                                 canonical_name => 'www.test.ru'
+    #                                             }
+    #                                         ]
+    #                                         ```
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: partners
+    # @example Tie the IP address 11.22.33.44 to the www.test.ru domain and assign the test.ru alias to it.
+    #    RegApi2.zone.update_records domain_name: "test.ru", action_list: [
+    #      { action: :add_alias, subdomain: "www", ipaddr: "11.22.33.44" },
+    #      { action: :add_cname, subdomain: "@", canonical_name: "www.test.ru" }
+    #    ]
+    define :update_records
 
     extend self
   end

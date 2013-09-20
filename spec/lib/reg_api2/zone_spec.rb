@@ -143,4 +143,15 @@ describe RegApi2::Zone do
       ans.domains.map(&:rrs).should be_kind_of(Array)
     end
   end
+
+  describe :update_records do
+    it "should update records" do
+      ans = RegApi2.zone.update_records domain_name: "test.ru", action_list: [
+        { action: :add_alias, subdomain: "www", ipaddr: "11.22.33.44" },
+        { action: :add_cname, subdomain: "@", canonical_name: "www.test.ru" }
+      ]
+      ans.domains.map(&:result).should == [ 'success' ]
+      ans.domains.first.action_list.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end
