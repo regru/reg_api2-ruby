@@ -54,7 +54,7 @@ module RegApi2
     # @option opts [String] :currency Currency. Mandatory field. «Yandex.Dengi» allows RUR only, «bank» and «prepay» – RUR and USD, «WebMoney» also allows EUR and UAH.
     # @option opts [Fixnum] :wmid WebMoney ID
     # @note Support of invoice lists: yes
-    # @return Hash(bills) Bills.
+    # @return [Hash(bills)] Bills.
     # @example Example of request
     #    bill.change_pay_type(currency: :RUR, pay_type: :prepay, bills: [ 123456 ])
     define :change_pay_type, required: %w[ currency pay_type ]
@@ -66,7 +66,7 @@ module RegApi2
     # @param [Hash] opts
     # @option opts [Fixnum] :bill_id Invoice ID (in case of single invoice request).
     # @option opts [Array(Fixnum)] :bills A list of invoice IDs.
-    # @return Hash(bills)
+    # @return [Hash(bills)] Bills.
     # @example Delete three bills.
     #    bill.delete(bills: [ { bill_id: 12345 }, { bill_id: 12346 }, { bill_id: 12347 } ])    
     define :delete
