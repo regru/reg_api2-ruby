@@ -41,10 +41,12 @@ module RegApi2
       key.kind_of?(Symbol) ? self[key.to_s]=new_value : super(key, new_value)
     end
 
+    # Always true
     def respond_to?(key)
-      has_key?(key) || true
+      true
     end
 
+    # Sets or gets field in the hash.
     def method_missing(key, *args, &block)
       if key.to_s =~ /^(.+)=$/
         self[$1] = args.first
