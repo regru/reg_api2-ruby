@@ -3,23 +3,23 @@ describe RegApi2 do
 
   describe :nop do
     it "should return list of services if requested" do
-      answer = RegApi2.service.nop(services: [
+      ans = RegApi2.service.nop(services: [
         { dname:"test.ru" },
         { dname: "test.su", servtype: "srv_hosting_ispmgr" },
         { service_id: 111111 },
         { service_id: "22bug22" },
         { surprise: "surprise.ru" }
       ])
-      answer['services'].map do |rec|
-        rec['result'] == 'success' ? rec['dname'] : rec['error_code']
+      ans.services.map do |rec|
+        rec.result == 'success' ? rec['dname'] : rec['error_code']
       end.sort.should == %w[ INVALID_SERVICE_ID NO_DOMAIN test.ru test.su test12347.ru ]
     end
   end
 
   describe :get_prices do
     it "should return prices" do
-      answer = RegApi2.service.get_prices()
-      answer.should have_key :prices
+      ans = RegApi2.service.get_prices show_renew_data: true
+      ans.should have_key :prices
     end
   end
 end
