@@ -154,4 +154,15 @@ describe RegApi2::Zone do
       ans.domains.first.action_list.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :update_soa do
+    it "should update zone TTL" do
+      ans = RegApi2.zone.update_soa(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        ttl: "1d",
+        minimum_ttl: "4h"
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end

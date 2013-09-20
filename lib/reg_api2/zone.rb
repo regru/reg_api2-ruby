@@ -151,6 +151,18 @@ module RegApi2
     #    ]
     define :update_records
 
+    # @!method update_soa(opts = {})
+    # You can use this function to change a zone cache TTL.
+    # @param [Hash] opts
+    # @option opts [Fixnum or String] :ttl Cache TTL of a zone. Valid values: a number for seconds or a number with a suffix (m – for months, w – for weeks, d – for days, h – for hours). Example: 600 (seconds), 5m (months).
+    # @option opts [Fixnum or String] :minimum_ttl Cache TTL for negative responses. The format is the same as for the “ttl” field.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Set TTL.
+    #     RegApi2.zone.update_soa domains: [ { dname: "test.ru" }, { dname: "test.com" } ], ttl: "1d", minimum_ttl: "4h"
+    define :update_soa, required: %w[ ttl minimum_ttl ]
+
     extend self
   end
 end
