@@ -213,4 +213,13 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :clear do
+    it "should delete all resource records" do
+      ans = RegApi2.zone.clear(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end

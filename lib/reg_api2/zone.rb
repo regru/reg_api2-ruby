@@ -221,6 +221,16 @@ module RegApi2
     #     RegApi2.zone.remove_record domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: '@', content: '111.111.111.111', record_type: :A
     define :remove_record, required: %w[ subdomain record_type ]
 
+    # @!method clear(opts = {})
+    # Delete all resource records.
+    # @param [Hash] opts
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Delete all resource records.
+    #     RegApi2.zone.clear domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
+    define :clear
+
     extend self
   end
 end
