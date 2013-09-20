@@ -285,6 +285,75 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#clear_forwarding-instance_method" title="#clear_forwarding (instance method)">- (Hash(domains)) <strong>clear_forwarding</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this function to delete resource records required for web forwarding.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear_parking-instance_method" title="#clear_parking (instance method)">- (Hash(domains)) <strong>clear_parking</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this function to delete resource records required for domain parking.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_resource_records-instance_method" title="#get_resource_records (instance method)">- (Hash(domains)) <strong>get_resource_records</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this fuction to get zone resource records for each domains.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#nop-instance_method" title="#nop (instance method)">- (Hash(domains)) <strong>nop</strong>(opts = {}) </a>
     
 
@@ -300,6 +369,98 @@
 
   
     <span class="summary_desc"><div class='inline'><p>This function serves for testing purposes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tune_forwarding-instance_method" title="#tune_forwarding (instance method)">- (Hash(domains)) <strong>tune_forwarding</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this function to add resource records required for web forwarding.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tune_parking-instance_method" title="#tune_parking (instance method)">- (Hash(domains)) <strong>tune_parking</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this function to add resource records required for domain parking.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_records-instance_method" title="#update_records (instance method)">- (Hash(domains)) <strong>update_records</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>You can use this function to add and/or delete several resource records by means of a single request.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_soa-instance_method" title="#update_soa (instance method)">- (Hash(domains)) <strong>update_soa</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>You can use this function to change a zone cache TTL.</p>
 </div></span>
   
 </li>
@@ -1287,6 +1448,323 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="clear_forwarding-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>clear_forwarding</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>Use this function to delete resource records required for web forwarding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Delete resource records required for web forwarding.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_clear_forwarding'>clear_forwarding</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#tune_forwarding-instance_method" title="RegApi2::Zone#tune_forwarding (method)">#tune_forwarding</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 186</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:clear_forwarding</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clear_parking-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>clear_parking</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>Use this function to delete resource records required for domain parking.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Delete resource records required for domain parking.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_clear_parking'>clear_parking</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#tune_parking-instance_method" title="RegApi2::Zone#tune_parking (method)">#tune_parking</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 208</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:clear_parking</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_resource_records-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>get_resource_records</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>Use this fuction to get zone resource records for each domains.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Request records for test.ru and test.com.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_get_resource_records'>get_resource_records</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:domains</span>
+          <span class="type">(<tt>Array(Hash(dname))</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>A list of domains, where domains that allow zone management will have the “success” value in the “result” field. Otherwise the “result” field will include the error code explaining the reason of error.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 123</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_resource_records</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="nop-instance_method">
   
     - (<tt>Hash(domains)</tt>) <strong>nop</strong>(opts = {}) 
@@ -1401,12 +1879,474 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="tune_forwarding-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>tune_forwarding</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>Use this function to add resource records required for web forwarding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Add resource records required for web forwarding.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_tune_forwarding'>tune_forwarding</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#clear_forwarding-instance_method" title="RegApi2::Zone#clear_forwarding (method)">#clear_forwarding</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 175</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:tune_forwarding</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tune_parking-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>tune_parking</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>Use this function to add resource records required for domain parking.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Add resource records required for domain parking.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_tune_parking'>tune_parking</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#clear_parking-instance_method" title="RegApi2::Zone#clear_parking (method)">#clear_parking</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 197</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:tune_parking</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_records-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>update_records</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: partners</p>
+</div>
+  </div>
+
+<p>You can use this function to add and/or delete several resource records by means of a single request. The order of elements in the transferred array is important. Records can interrelate with each other, and if an error is found in one of the records from the action_list fields, the rest of the records will be ignored.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Tie the IP address 11.22.33.44 to the <a href="http://www.test.ru">www.test.ru</a> domain and assign the test.ru alias to it.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_update_records'>update_records</span> <span class='label'>domain_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>action_list:</span> <span class='lbracket'>[</span>
+  <span class='lbrace'>{</span> <span class='label'>action:</span> <span class='symbol'>:add_alias</span><span class='comma'>,</span> <span class='label'>subdomain:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>www</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>ipaddr:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>11.22.33.44</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='lbrace'>{</span> <span class='label'>action:</span> <span class='symbol'>:add_cname</span><span class='comma'>,</span> <span class='label'>subdomain:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>canonical_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>www.test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='rbracket'>]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:action_list</span>
+          <span class="type">(<tt>Array(Hash)</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>A hash array, where every hash provides parameters for creation/deletion of a resource record. The class/type of the created records is defined in the “action” field, allowed values are: add_alias, add_aaaa, add_cname, add_mx, add_ns, add_txt, add_srv, remove_record. The rest of hash fields depend on the “action” value and correspond to the functions described above.
+For the example given below the structure of action_list will look as follows:
+<code>
+action_list =&gt; [
+    {
+        action    =&gt; &#39;add_alias&#39;,
+        subdomain =&gt; &#39;www&#39;,
+        ipaddr    =&gt; &#39;11.22.33.44&#39;
+    },
+    {
+        action         =&gt; &#39;add_cname&#39;,
+        subdomain      =&gt; &#39;@&#39;,
+        canonical_name =&gt; &#39;www.test.ru&#39;
+    }
+]
+</code></p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 152</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:update_records</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_soa-instance_method">
+  
+    - (<tt>Hash(domains)</tt>) <strong>update_soa</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: yes</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+<p>You can use this function to change a zone cache TTL.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Set TTL.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_update_soa'>update_soa</span> <span class='label'>domains:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test.com</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>ttl:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1d</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>minimum_ttl:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4h</span><span class='tstring_end'>&quot;</span></span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:ttl</span>
+          <span class="type">(<tt>Fixnum or String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Cache TTL of a zone. Valid values: a number for seconds or a number with a suffix (m – for months, w – for weeks, d – for days, h – for hours). Example: 600 (seconds), 5m (months).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:minimum_ttl</span>
+          <span class="type">(<tt>Fixnum or String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Cache TTL for negative responses. The format is the same as for the “ttl” field.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(domains)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of domains with results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/zone.rb', line 164</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:update_soa</span><span class='comma'>,</span> <span class='label'>required:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>ttl</span><span class='words_sep'> </span><span class='tstring_content'>minimum_ttl</span><span class='words_sep'> ]</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Wed Sep 18 18:26:57 2013 by
+  Generated on Fri Sep 20 11:02:11 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
