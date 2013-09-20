@@ -1,9 +1,11 @@
 # -*- encoding : utf-8 -*-
-describe RegApi2 do
+describe RegApi2::Service do
+
+  include RegApi2
 
   describe :nop do
     it "should return list of services if requested" do
-      ans = RegApi2.service.nop(services: [
+      ans = service.nop(services: [
         { dname:"test.ru" },
         { dname: "test.su", servtype: "srv_hosting_ispmgr" },
         { service_id: 111111 },
@@ -18,7 +20,7 @@ describe RegApi2 do
 
   describe :get_prices do
     it "should return prices" do
-      ans = RegApi2.service.get_prices show_renew_data: true
+      ans = service.get_prices show_renew_data: true
       ans.should have_key :prices
     end
   end
