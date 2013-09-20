@@ -169,9 +169,21 @@ module RegApi2
     # @return [Hash(domains)] A list of domains with results.
     # @note Support of service lists: yes
     # @note Accessibility: clients
+    # @see #clear_forwarding
     # @example Add resource records required for web forwarding.
     #     RegApi2.zone.tune_forwarding domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
     define :tune_forwarding
+
+    # @!method clear_forwarding(opts = {})
+    # Use this function to delete resource records required for web forwarding.
+    # @param [Hash] opts
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @see #tune_forwarding
+    # @example Add resource records required for web forwarding.
+    #     RegApi2.zone.clear_forwarding domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
+    define :clear_forwarding
 
     extend self
   end

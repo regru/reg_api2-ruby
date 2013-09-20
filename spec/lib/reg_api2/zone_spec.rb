@@ -174,4 +174,13 @@ describe RegApi2::Zone do
       ans.domains.map(&:result).should == [ 'success', 'success' ]
     end
   end
+
+  describe :clear_forwarding do
+    it "should delete resource records required for web forwarding" do
+      ans = RegApi2.zone.clear_forwarding(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+      )
+      ans.domains.map(&:result).should == [ 'success', 'success' ]
+    end
+  end
 end
