@@ -1,10 +1,5 @@
 # -*- encoding : utf-8 -*-
 describe RegApi2 do
-  before(:all) do
-    RegApi2.username = 'test'
-    RegApi2.password = 'test'
-    RegApi2.lang = 'ru'
-  end
 
   describe :nop do
     it "should return list of services if requested" do
@@ -18,6 +13,13 @@ describe RegApi2 do
       answer['services'].map do |rec|
         rec['result'] == 'success' ? rec['dname'] : rec['error_code']
       end.sort.should == %w[ INVALID_SERVICE_ID NO_DOMAIN test.ru test.su test12347.ru ]
+    end
+  end
+
+  describe :get_prices do
+    it "should return prices" do
+      answer = RegApi2.service.get_prices()
+      answer.should have_key :prices
     end
   end
 end
