@@ -163,6 +163,16 @@ module RegApi2
     #     RegApi2.zone.update_soa domains: [ { dname: "test.ru" }, { dname: "test.com" } ], ttl: "1d", minimum_ttl: "4h"
     define :update_soa, required: %w[ ttl minimum_ttl ]
 
+    # @!method tune_forwarding(opts = {})
+    # Use this function to add resource records required for web forwarding.
+    # @param [Hash] opts
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Add resource records required for web forwarding.
+    #     RegApi2.zone.tune_forwarding domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
+    define :tune_forwarding
+
     extend self
   end
 end
