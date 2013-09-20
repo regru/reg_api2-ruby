@@ -3,7 +3,7 @@ require 'reg_api2'
 
 include RegApi2
 
-# try to load defaults from ~/.regapi2
+# Try to load defaults from ~/.regapi2
 def try_lo_load_defaults
   filename = "#{ENV['HOME']}/.regapi2"
   username = 'test'
