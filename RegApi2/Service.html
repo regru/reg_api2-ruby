@@ -124,6 +124,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_prices-instance_method" title="#get_prices (instance method)">- (Hash(currency, price_group, show_renew_data, prices)) <strong>get_prices</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get services registration/renewal prices.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#nop-instance_method" title="#nop (instance method)">- (Hash(&quot;services&quot; =&gt; [])) <strong>nop</strong>(opts = {}) </a>
     
 
@@ -165,7 +188,121 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="nop-instance_method">
+  <h3 class="signature first" id="get_prices-instance_method">
+  
+    - (<tt>Hash(currency, price_group, show_renew_data, prices)</tt>) <strong>get_prices</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get services registration/renewal prices.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Get prices.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_get_prices'>get_prices</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:show_renew_data</span>
+          <span class="type">(<tt>FalseClass</tt>, <tt>TrueClass</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>With this flag enabled the system will return the price of renewal (1/0). Optional field.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:currency</span>
+          <span class="type">(<tt>String</tt>, <tt>Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Identifier of the currency in which the prices will be quoted: rur (default), uah, usd, eur. Optional field.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(currency, price_group, show_renew_data, prices)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Prices.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 33</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_prices</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="nop-instance_method">
   
     - (<tt>Hash("services" =&gt; [])</tt>) <strong>nop</strong>(opts = {}) 
   
@@ -270,7 +407,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Sep 20 12:44:43 2013 by
+  Generated on Sat Sep 21 18:12:48 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
