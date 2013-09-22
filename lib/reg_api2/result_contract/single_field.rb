@@ -9,7 +9,8 @@ class RegApi2::ResultContract::SingleField < RegApi2::ResultContract::Default
     field = opts[:field]
     unless answer[field]
       raise RegApi2::ContractError.new(
-        "#{field} field should be found in API result."
+        "#{field} field should be found in API result.",
+        [ field ]
       )
     end
     answer[field]

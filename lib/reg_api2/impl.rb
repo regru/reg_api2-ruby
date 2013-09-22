@@ -12,6 +12,14 @@ module RegApi2
 
   # API Contract Error
   class ContractError < Exception
+    # @!attribute [r] fields
+    # Wrong fields.
+    attr_reader :fields
+
+    def initialize message, fields = []
+      super message
+      @fields = fields
+    end
   end
 
   # API Error

@@ -44,7 +44,8 @@ module RegApi2
         if opts[:re]
           if value.to_s !~ opts[:re]
             raise RegApi2::ContractError.new(
-              "Field #{key} mismatch regular expression: #{value}"
+              "Field #{key} mismatch regular expression: #{value}",
+              [ key ]
             )
           end
         end
@@ -94,7 +95,8 @@ module RegApi2
         end
         unless absent_fields.empty?
           raise RegApi2::ContractError.new(
-            "Required fields missed: #{absent_fields.join(', ')}"
+            "Required fields missed: #{absent_fields.join(', ')}",
+            absent_fields
           )
         end
         form
