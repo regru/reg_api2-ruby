@@ -21,5 +21,10 @@ describe RegApi2::ResultContract::Default do
     it "should return specified value" do
       contract.handle_answer("FX").should == "FX"
     end
+
+    it "should return field value if exists" do
+      contract = RegApi2::ResultContract::Default.new(a:1, field: :a)
+      contract.handle_result({ answer: { "a" => "FX" } }).should == "FX"
+    end
   end
 end

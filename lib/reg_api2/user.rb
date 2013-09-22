@@ -25,7 +25,7 @@ module RegApi2
     # @return [String] user_id of new user.
     # @note Accessability: partners
     # New user registration.
-    define :create, required: %w[ user_login user_password user_email user_country_code ], field: 'user_id', result: :single_field
+    define :create, required: %w[ user_login user_password user_email user_country_code ], field: :user_id
 
     # @!method get_statistics(opts = {})
     # @param opts Opts

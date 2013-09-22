@@ -90,6 +90,11 @@ module RegApi2
       # Return passed argument by default.
       def handle_answer(answer)
         answer = convert(answer)
+        field = opts[:field]
+        if field
+          answer = answer[field]
+        end
+        answer
       end
     end
   end
