@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
-describe RegApi2::ResultContract::Default do
+describe RegApi2::ResultContract do
 
-  let!(:contract) { RegApi2::ResultContract::Default.new(a: 1, b: 4) }
+  let!(:contract) { RegApi2::ResultContract.new(a: 1, b: 4) }
 
   describe :initialize do
     it "should assign opts" do
@@ -23,7 +23,7 @@ describe RegApi2::ResultContract::Default do
     end
 
     it "should return field value if exists" do
-      contract = RegApi2::ResultContract::Default.new(a:1, field: :a)
+      contract = RegApi2::ResultContract.new(a:1, field: :a)
       contract.handle_result({ answer: { "a" => "FX" } }).should == "FX"
     end
   end

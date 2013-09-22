@@ -56,10 +56,6 @@ module RegApi2
     DEFAULT_IO_ENCODING = 'utf-8'
     # Default lang.
     DEFAULT_LANG = 'en'
-    # Default API contract for requests
-    DEFAULT_REQUEST_CONTRACT = RegApi2::RequestContract::Default
-    # Default API contract for results
-    DEFAULT_RESULT_CONTRACT = RegApi2::ResultContract::Default
 
     # REG.API base URI
     API_URI = URI.parse("https://api.reg.ru/api/regru2")
@@ -90,31 +86,6 @@ module RegApi2
     def got_response(response)
     end
 
-    # Gets {Class} by its name.
-    # @param [Class] ancestor
-    # @param [NilClass, Class, String] name
-    # @param [Class] default_value
-    # @return [Class] contract
-    def get_contract ancestor, name, default_value
-      return default_value  unless name
-      return name  if name.kind_of?(Class)
-      ancestor.const_get(RegApi2::Util.constantize name)
-    end
-
-    # Gets {RegApi2::RequestContract} by its name.
-    # @param [NilClass, Class, String] name
-    # @return [Class] {RegApi2::RequestContract}
-    def get_request_contract_by_name name
-      get_contract(RegApi2::RequestContract, name, DEFAULT_REQUEST_CONTRACT)
-    end
-
-    # Gets {RegApi2::ResultContract} by its name.
-    # @param [NilClass, Class, String] name
-    # @return [Class] {RegApi2::ResultContract}
-    def get_result_contract_by_name name
-      get_contract(RegApi2::ResultContract, name, DEFAULT_RESULT_CONTRACT)
-    end
-
     # Gets form data for POST request
     # @param [Hash] defopts
     # @param [Hash] opts
@@ -124,7 +95,7 @@ module RegApi2
       # HACK: REG.API doesn't know about utf-8.
       io_encoding = 'utf8'  if !io_encoding || io_encoding == DEFAULT_IO_ENCODING
       opts = opts.to_hash  if opts.respond_to?(:to_hash)
-      opts = get_request_contract_by_name(defopts[:request]).new(defopts).validate(opts)
+      opts = RegApi2::RequestContract.new(defopts).validate(opts)
 
       form = {
         'username' => username,
@@ -157,7 +128,7 @@ module RegApi2
         json['error_params']
       )  if json['result'] == 'error'
 
-      res_contract = get_result_contract_by_name(defopts[:result]).new(defopts)
+      res_contract = RegApi2::ResultContract.new(defopts)
       res_contract.handle_result(json)
     end
 

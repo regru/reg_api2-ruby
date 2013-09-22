@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
-describe RegApi2::RequestContract::Default do
+describe RegApi2::RequestContract do
 
   let!(:contract) {
-    RegApi2::RequestContract::Default.new(
+    RegApi2::RequestContract.new(
       required: %w[ a b ],
       optional: %w[ c d ]
     )
