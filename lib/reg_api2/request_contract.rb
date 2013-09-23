@@ -7,6 +7,9 @@ module RegApi2
   # Also checks for `optional` fields.
   # Take in care :re option.
   class RequestContract
+
+    # Options of contract.
+    # @return [Hash] Options hash.
     attr_reader :opts
 
     def initialize(opts = {})

@@ -8,6 +8,7 @@ module RegApi2
   # @see SymHash
   class ResultContract
     # Fields that will be converted to {Fixnum}.
+    # @see #convert
     INT_FIELDS = %w[
       active_domains_cnt
       active_domains_get_ctrl_cnt
@@ -19,6 +20,7 @@ module RegApi2
     ].freeze
 
     # Fields that will be converted to {Float}.
+    # @see #convert
     FLOAT_FIELDS = %w[
       amount
       total_amount
@@ -27,9 +29,12 @@ module RegApi2
     ].freeze
 
     # Fields that will be converted to {TrueClass} or {FalseClass}.
+    # @see #convert
     BOOL_FIELDS = %w[
       ].freeze
 
+    # Options of contract.
+    # @return [Hash] Options hash.
     attr_reader :opts
 
     def initialize(opts = {})
@@ -38,6 +43,9 @@ module RegApi2
 
     # Extracts answer field and returns it wrapped by {#handle_answer}.
     # Result is unified using {SymHash.from}.
+    # @param [Hash] result API result.
+    # @return Reworked API answer field.
+    # @see SymHash
     def handle_result(result)
       result = SymHash.from(result)
       handle_answer(result[:answer])
@@ -77,6 +85,7 @@ module RegApi2
     end
 
     # Reworks answer to translate {INT_FIELDS}, {FLOAT_FIELDS} and {BOOL_FIELDS}.
+    # @param answer API answer field.
     # @return Translated answer.
     def convert(answer)
       case answer
@@ -89,9 +98,11 @@ module RegApi2
       end
     end
  
-    # Handles API answer. Take in care `field` option.
+    # Handles API answer. Take in care `:field` option.
+    # @param answer API answer field.
     # @return Converted answer by default.
     # @see #convert
+    # @see #opts
     def handle_answer(answer)
       answer = convert(answer)
       field = opts[:field]
