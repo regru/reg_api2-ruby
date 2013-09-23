@@ -5,7 +5,7 @@ require 'reg_api2/sym_hash'
 module RegApi2
   # Contract for API results.
   # Waits for answer field and returns it only by default.
-  # Result is converted using {RegApi2::SymHash#from}.
+  # @see SymHash
   class ResultContract
     # Fields that will be converted to {Fixnum}.
     INT_FIELDS = %w[
@@ -26,7 +26,7 @@ module RegApi2
       total_payment
     ].freeze
 
-    # Fields that will be converted to {TrueClass or FalseClass}.
+    # Fields that will be converted to {TrueClass} or {FalseClass}.
     BOOL_FIELDS = %w[
       ].freeze
 
@@ -37,6 +37,7 @@ module RegApi2
     end
 
     # Extracts answer field and returns it wrapped by {#handle_answer}.
+    # Result is unified using {SymHash.from}.
     def handle_result(result)
       result = SymHash.from(result)
       handle_answer(result[:answer])
@@ -75,6 +76,8 @@ module RegApi2
       end
     end
 
+    # Reworks answer to translate {INT_FIELDS}, {FLOAT_FIELDS} and {BOOL_FIELDS}.
+    # @return Translated answer.
     def convert(answer)
       case answer
       when Hash
@@ -86,7 +89,9 @@ module RegApi2
       end
     end
  
-    # Return passed argument by default.
+    # Handles API answer. Take in care `field` option.
+    # @return Converted answer by default.
+    # @see #convert
     def handle_answer(answer)
       answer = convert(answer)
       field = opts[:field]
@@ -95,5 +100,7 @@ module RegApi2
       end
       answer
     end
+
+    private :convert_array, :convert_hash
   end
 end
