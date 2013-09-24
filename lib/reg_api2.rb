@@ -9,7 +9,6 @@ require 'reg_api2/builder'
 
 require 'reg_api2/common'
 require 'reg_api2/domain'
-require 'reg_api2/clients'
 require 'reg_api2/user'
 require 'reg_api2/service'
 require 'reg_api2/bill'
@@ -37,11 +36,6 @@ module RegApi2
   # @return [Module] {RegApi2::Domain} 
   def domain; RegApi2::Domain; end
   module_function :domain
-
-  # Shortcut for {RegApi2::Clients} methods.
-  # @return [Module] {RegApi2::Clients}
-  def clients; RegApi2::Clients; end
-  module_function :clients
 
   # Shortcut for {RegApi2::User} methods.
   # @return [Module] {RegApi2::User}
