@@ -32,6 +32,18 @@ module RegApi2
     #    RegApi2.service.get_prices
     define :get_prices
 
+    # @!method get_servtype_details(opts = {})
+    # Use this function to get prices for services and general data.
+    # @note To obtain prices for several service types, you can define them in the servtype field delimiting them with commas or include several servtype fields into the request. In this case the field subtype is ignored.
+    # @param opts
+    # @option opts [String, Symbol] :servtype Type of service: srv_webfwd — web forwarding, srv_parking — domain parking, srv_dns_both — DNS support, srv_hosting_ispmgr — hosting, srv_certificate — domain certificate, srv_voucher — domain voucher, srv_kvm — KVM access.
+    # @option opts [String, Symbol] :subtype Service subtype.
+    # @option opts [FalseClass, TrueClass] :unroll_prices Show prices in expanded form.
+    # @return [Array(Hash(commonname, ...))] Service type details.
+    # @example Get service type details.
+    #    RegApi2.service.get_servtype_details servtype: :srv_hosting_ispmgr
+    define :get_servtype_details
+
     extend self
   end
 end

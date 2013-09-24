@@ -24,4 +24,11 @@ describe RegApi2::Service do
       ans.should have_key :prices
     end
   end
+
+  describe :get_servtype_details do
+    it "should return service type details" do
+      ans = service.get_servtype_details servtype: :srv_hosting_ispmgr
+      ans.first.should have_key :commonname
+    end
+  end
 end
