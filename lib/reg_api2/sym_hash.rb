@@ -49,11 +49,11 @@ module RegApi2
 
     # Sets or gets field in the hash.
     def method_missing(key, *args, &block)
-      if key.to_s =~ /^(.+)=$/
+      if key.to_s =~ /\A(.+)=\z/
         self[$1] = args.first
         return args.first
       end
-      if key.to_s =~ /^(.+)\?$/
+      if key.to_s =~ /\A(.+)\?\z/
         return !!self[$1]
       end
       return self[key]  if has_key?(key)
