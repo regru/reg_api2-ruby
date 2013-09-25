@@ -65,4 +65,17 @@ describe RegApi2::SymHash do
       hash.should have_key(:bravo)
     end
   end
+
+  describe "self.from" do
+    it "should deeply clone structures with replacing hashes with SymHash" do
+      res = RegApi2::SymHash.from([{a: 1}, {b: 2}, [ 1, 2, 3 ]])
+      res.should be_kind_of(Array)
+      res.should have(3).elements
+      res.first.should be_kind_of(RegApi2::SymHash)
+      res[1].should be_kind_of(RegApi2::SymHash)
+      res.last.should_not be_kind_of(RegApi2::SymHash)
+      res.last.should be_kind_of(Array)
+      res.last.should == [ 1, 2 , 3 ]
+    end
+  end
 end
