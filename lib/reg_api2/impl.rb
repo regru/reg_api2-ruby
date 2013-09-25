@@ -3,8 +3,6 @@ require 'net/http'
 require 'net/https'
 require 'yajl'
 
-require 'reg_api2/util'
-
 module RegApi2
   # Networking Error
   class NetError < Exception
