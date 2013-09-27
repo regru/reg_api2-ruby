@@ -52,6 +52,23 @@ Services can be identified by:
 
 Identification by numeric service identifiers is the most reliable and quick method. For this reason, we recommend that you save and store domain/service IDs on your side and use them for service identification.
 
+| Parameter   | Description                     |
+| ----------- | ------------------------------- |
+| | **Identification by service ID (recommended)** |
+| service_id  | Numeric service identifier. |
+| | **Identification by service ID passed by the user** |
+| user_servid | Alphanumeric service identifier. To use such an identifier, you should define it during domain/service creation. To learn the pre-defined identifier, use the `RegApi2.service.get_info` function.|
+| | **Domain identification by name** |
+| domain_name | Domain name. Russian domain names should be passed in the punycode or national encoding. |
+| | **Service identification by domain name and type of service (except for VPS)** |
+| domain_name | Name of the domain the service is associated with. Russian domain names should be passed in the punycode or national encoding. |
+| servtype | Service type. For example, «srv_hosting_ispmgr» for hosting or «srv_webfwd» for the web-forwarding service. |
+| | **Service identification by parent service ID, service type or subtype** |
+| uplink_service_id | ID of the parent service with which the required service is associated. |
+| servtype | Service type. For example, «srv_hosting_ispmgr» for hosting or «srv_webfwd» for the web-forwarding service. |
+| subtype | Service subtype. For example, «pro» for the ISP Manger Pro license. | 
+
+
 ## Common payment options
 
 * point_of_sale
