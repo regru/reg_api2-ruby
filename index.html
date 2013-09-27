@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: README
   
@@ -105,6 +105,102 @@
 <span class='rbracket'>]</span><span class='rparen'>)</span>
 </code></pre>
 
+<h2>Service identification parameters</h2>
+
+<p>This group of parameters serves for identification of specific pre-ordered services.</p>
+
+<p>Services can be identified by:</p>
+
+<ul>
+<li>service ID (both domains and services),</li>
+<li>domain name (domains only),</li>
+<li>domain name and service type (services only),</li>
+<li>ID of a parent service, service type or subtype (services only).</li>
+</ul>
+
+<p>Identification by numeric service identifiers is the most reliable and quick method. For this reason, we recommend that you save and store domain/service IDs on your side and use them for service identification.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td></td>
+<td><strong>Identification by service ID (recommended)</strong></td>
+</tr>
+<tr>
+<td>service_id</td>
+<td>Numeric service identifier.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Identification by service ID passed by the user</strong></td>
+</tr>
+<tr>
+<td>user_servid</td>
+<td>Alphanumeric service identifier. To use such an identifier, you should define it during domain/service creation. To learn the pre-defined identifier, use the <code>RegApi2.service.get_info</code> function.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Domain identification by name</strong></td>
+</tr>
+<tr>
+<td>domain_name</td>
+<td>Domain name. Russian domain names should be passed in the punycode or national encoding.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Service identification by domain name and type of service (except for VPS)</strong></td>
+</tr>
+<tr>
+<td>domain_name</td>
+<td>Name of the domain the service is associated with. Russian domain names should be passed in the punycode or national encoding.</td>
+</tr>
+<tr>
+<td>servtype</td>
+<td>Service type. For example, «srv_hosting_ispmgr» for hosting or «srv_webfwd» for the web-forwarding service.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Service identification by parent service ID, service type or subtype</strong></td>
+</tr>
+<tr>
+<td>uplink_service_id</td>
+<td>ID of the parent service with which the required service is associated.</td>
+</tr>
+<tr>
+<td>servtype</td>
+<td>Service type. For example, «srv_hosting_ispmgr» for hosting or «srv_webfwd» for the web-forwarding service.</td>
+</tr>
+<tr>
+<td>subtype</td>
+<td>Service subtype. For example, «pro» for the ISP Manger Pro license.</td>
+</tr>
+</tbody></table>
+
+<h2>Common payment options</h2>
+
+<ul>
+<li>point_of_sale
+
+<ul>
+<li>An arbitrary string that identifies a system/web site used by the customer for placing an order for a domain. Optional field. Example: «regpanel.ru».</li>
+</ul></li>
+<li>pay_type
+
+<ul>
+<li>Payment option. Currently available payment options: (WM, bank, pbank, prepay, yamoney, rapida, robox, paymer, cash, chronopay).</li>
+<li>Default value: prepay. Please note that automatic payments can be done only if the selected payment method is «prepay» and you have enough funds in your account. Otherwise, your order will be marked as unpaid and you will have to arrange the payment manually from your profile page.</li>
+</ul></li>
+<li>ok_if_no_money
+
+<ul>
+<li>Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting &quot;change payment method&quot; request via web interface. Return error if this flag not set and not enough funds to complete the operation.</li>
+</ul></li>
+</ul>
+
 <h2>Documentation</h2>
 
 <p>Simply do</p>
@@ -127,7 +223,7 @@ open doc/index.html
 </div></div>
 
     <div id="footer">
-  Generated on Sun Sep 22 19:41:39 2013 by
+  Generated on Fri Sep 27 18:35:53 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

@@ -102,14 +102,20 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>Contract for API results.
-Waits for answer field and returns it only by default.
-Result is converted using SymHash#from.</p>
+Waits for answer field and returns it only by default.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="SymHash.html" title="RegApi2::SymHash (class)">SymHash</a></span></li>
+    
+  </ul>
 
 </div>
   <h2>Constant Summary</h2>
@@ -126,6 +132,13 @@ Result is converted using SymHash#from.</p>
 </div>
 <div class="tags">
   
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#convert-instance_method" title="RegApi2::ResultContract#convert (method)">#convert</a></span></li>
+    
+  </ul>
 
 </div>
         </dt>
@@ -150,6 +163,13 @@ Result is converted using SymHash#from.</p>
 <div class="tags">
   
 
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#convert-instance_method" title="RegApi2::ResultContract#convert (method)">#convert</a></span></li>
+    
+  </ul>
+
 </div>
         </dt>
         <dd><pre class="code"><span class='qwords_beg'>%w[
@@ -162,13 +182,20 @@ Result is converted using SymHash#from.</p>
         <dt id="BOOL_FIELDS-constant" class="">BOOL_FIELDS =
           <div class="docstring">
   <div class="discussion">
-    <p>Fields that will be converted to or FalseClass.</p>
+    <p>Fields that will be converted to Boolean.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#convert-instance_method" title="RegApi2::ResultContract#convert (method)">#convert</a></span></li>
+    
+  </ul>
 
 </div>
         </dt>
@@ -187,7 +214,7 @@ Result is converted using SymHash#from.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#opts-instance_method" title="#opts (instance method)">- (Object) <strong>opts</strong> </a>
+      <a href="#opts-instance_method" title="#opts (instance method)">- (Hash) <strong>opts</strong> </a>
     
 
     
@@ -206,7 +233,7 @@ Result is converted using SymHash#from.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute opts.</p>
+    <span class="summary_desc"><div class='inline'><p>Options of contract.</p>
 </div></span>
   
 </li>
@@ -242,51 +269,8 @@ Result is converted using SymHash#from.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#convert_array-instance_method" title="#convert_array (instance method)">- (Object) <strong>convert_array</strong>(answer) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#convert_hash-instance_method" title="#convert_hash (instance method)">- (Object) <strong>convert_hash</strong>(answer) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Reworks answer to translate <span class='object_link'><a href="#INT_FIELDS-constant" title="RegApi2::ResultContract::INT_FIELDS (constant)">INT_FIELDS</a></span>, <span class='object_link'><a href="#FLOAT_FIELDS-constant" title="RegApi2::ResultContract::FLOAT_FIELDS (constant)">FLOAT_FIELDS</a></span> and <span class='object_link'><a href="#BOOL_FIELDS-constant" title="RegApi2::ResultContract::BOOL_FIELDS (constant)">BOOL_FIELDS</a></span>.</p>
+</div></span>
   
 </li>
 
@@ -308,7 +292,7 @@ Result is converted using SymHash#from.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Return passed argument by default.</p>
+    <span class="summary_desc"><div class='inline'><p>Handles API answer.</p>
 </div></span>
   
 </li>
@@ -393,12 +377,12 @@ Result is converted using SymHash#from.</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@opts</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span>
@@ -418,7 +402,7 @@ Result is converted using SymHash#from.</p>
       <div class="method_details first">
   <h3 class="signature first" id="opts-instance_method">
   
-    - (<tt>Object</tt>) <strong>opts</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Hash</tt>) <strong>opts</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -426,13 +410,30 @@ Result is converted using SymHash#from.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the value of attribute opts</p>
+    <p>Options of contract.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Options hash.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -440,12 +441,12 @@ Result is converted using SymHash#from.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_opts'>opts</span>
   <span class='ivar'>@opts</span>
@@ -471,25 +472,71 @@ Result is converted using SymHash#from.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Reworks answer to translate <span class='object_link'><a href="#INT_FIELDS-constant" title="RegApi2::ResultContract::INT_FIELDS (constant)">INT_FIELDS</a></span>, <span class='object_link'><a href="#FLOAT_FIELDS-constant" title="RegApi2::ResultContract::FLOAT_FIELDS (constant)">FLOAT_FIELDS</a></span> and <span class='object_link'><a href="#BOOL_FIELDS-constant" title="RegApi2::ResultContract::BOOL_FIELDS (constant)">BOOL_FIELDS</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>answer</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>API answer field.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>Translated answer.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_answer'>answer</span>
@@ -507,116 +554,6 @@ Result is converted using SymHash#from.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="convert_array-instance_method">
-  
-    - (<tt>Object</tt>) <strong>convert_array</strong>(answer) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 65</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
-    <span class='kw'>case</span> <span class='id identifier rubyid_value'>value</span>
-    <span class='kw'>when</span> <span class='const'>Hash</span>
-      <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>Array</span>
-      <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-      <span class='id identifier rubyid_value'>value</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="convert_hash-instance_method">
-  
-    - (<tt>Object</tt>) <strong>convert_hash</strong>(answer) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 45</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
-    <span class='kw'>case</span> <span class='id identifier rubyid_value'>value</span>
-    <span class='kw'>when</span> <span class='const'>String</span>
-      <span class='kw'>if</span> <span class='const'>INT_FIELDS</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-      <span class='kw'>elsif</span> <span class='const'>FLOAT_FIELDS</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
-      <span class='kw'>elsif</span> <span class='const'>BOOL_FIELDS</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-      <span class='kw'>end</span>
-    <span class='kw'>when</span> <span class='const'>Hash</span>
-      <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_convert_hash'>convert_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='const'>Array</span>
-      <span class='id identifier rubyid_answer'>answer</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_convert_array'>convert_array</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_answer'>answer</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="handle_answer-instance_method">
   
     - (<tt>Object</tt>) <strong>handle_answer</strong>(answer) 
@@ -627,13 +564,58 @@ Result is converted using SymHash#from.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Return passed argument by default.</p>
+    <p>Handles API answer. Take in care <code>:field</code> option.</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>answer</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>API answer field.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>Converted answer by default.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#convert-instance_method" title="RegApi2::ResultContract#convert (method)">#convert</a></span></li>
+    
+      <li><span class='object_link'><a href="#opts-instance_method" title="RegApi2::ResultContract#opts (method)">#opts</a></span></li>
+    
+  </ul>
 
 </div><table class="source_code">
   <tr>
@@ -641,17 +623,17 @@ Result is converted using SymHash#from.</p>
       <pre class="lines">
 
 
-90
-91
-92
-93
-94
-95
-96
-97</pre>
+106
+107
+108
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_answer'>handle_answer</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_answer'>answer</span> <span class='op'>=</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
@@ -677,13 +659,57 @@ Result is converted using SymHash#from.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Extracts answer field and returns it wrapped by <span class='object_link'><a href="#handle_answer-instance_method" title="RegApi2::ResultContract#handle_answer (method)">#handle_answer</a></span>.</p>
+    <p>Extracts answer field and returns it wrapped by <span class='object_link'><a href="#handle_answer-instance_method" title="RegApi2::ResultContract#handle_answer (method)">#handle_answer</a></span>.
+Result is unified using <span class='object_link'><a href="SymHash.html#from-class_method" title="RegApi2::SymHash.from (method)">SymHash.from</a></span>.</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>result</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>API result.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>Reworked API answer field.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="SymHash.html" title="RegApi2::SymHash (class)">SymHash</a></span></li>
+    
+  </ul>
 
 </div><table class="source_code">
   <tr>
@@ -691,13 +717,13 @@ Result is converted using SymHash#from.</p>
       <pre class="lines">
 
 
-40
-41
-42
-43</pre>
+49
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_result'>handle_result</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>SymHash</span><span class='period'>.</span><span class='id identifier rubyid_from'>from</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
@@ -713,7 +739,7 @@ Result is converted using SymHash#from.</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Sep 22 19:41:40 2013 by
+  Generated on Fri Sep 27 18:35:53 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

@@ -124,6 +124,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#create-instance_method" title="#create (instance method)">- (Hash(currency, price_group, show_renew_data, prices)) <strong>create</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use the function to order new services.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_prices-instance_method" title="#get_prices (instance method)">- (Hash(currency, price_group, show_renew_data, prices)) <strong>get_prices</strong>(opts = {}) </a>
     
 
@@ -139,6 +162,29 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Get services registration/renewal prices.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_servtype_details-instance_method" title="#get_servtype_details (instance method)">- (Array(Hash(commonname, ...))) <strong>get_servtype_details</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this function to get prices for services and general data.</p>
 </div></span>
   
 </li>
@@ -188,7 +234,158 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="get_prices-instance_method">
+  <h3 class="signature first" id="create-instance_method">
+  
+    - (<tt>Hash(currency, price_group, show_renew_data, prices)</tt>) <strong>create</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use the function to order new services.
+<code>servtype</code> values are supported:</p>
+
+<ul>
+<li>srv_webfwd — web forwarding</li>
+<li>srv_parking — domain parking</li>
+<li>srv_dns_both — DNS support</li>
+<li>srv_hosting_ispmgr — ISPManager hosting</li>
+<li>srv_hosting_cpanel — CPanel hosting</li>
+<li>srv_hosting_plesk — PLesk hosting</li>
+<li>srv_ssl_certificate — SSL certificate</li>
+<li>srv_certificate — Domain certificate</li>
+<li>srv_voucher — Domain voucher</li>
+<li>srv_vps — VPS server</li>
+<li>srv_license_isp — ISP Manager license</li>
+<li>srv_addip — additional IP address</li>
+<li>srv_disk_space — additional disk space,</li>
+<li>srv_antispam — advanced spam protection</li>
+<li>srv_dedicated — dedicated server</li>
+<li>srv_kvm — KVM access</li>
+</ul>
+
+<p>Common payment options are allowed.
+folder_name or folder_id are allowed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Get prices.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span></code></pre>
+    
+  </div>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:domain_name</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Name of the domain, for which the service is ordered.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:servtype</span>
+          <span class="type">(<tt>String</tt>, <tt>Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The type of the ordered service.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:period</span>
+          <span class="type">(<tt>Object</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>The period for which the service is ordered, the unit of measurement (year or month) depends on the type of the service being ordered. To learn about the measurement units used for each service, use the <span class='object_link'><a href="#get_servtype_details-instance_method" title="RegApi2::Service#get_servtype_details (method)">#get_servtype_details</a></span> function.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:user_servid</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Domain ID set by the user. Allowed symbols: digits (from 0 through 9), Latin letters (from a through f). Maximum length: 32 symbols. This ID cannot be generated automatically; if it is not defined upon service ordering, the field will be empty. Optional field.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(currency, price_group, show_renew_data, prices)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Prices.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#get_servtype_details-instance_method" title="RegApi2::Service#get_servtype_details (method)">#get_servtype_details</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 79</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:create</span><span class='comma'>,</span> <span class='label'>required:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>domain_name</span><span class='words_sep'> </span><span class='tstring_content'>servtype</span><span class='words_sep'> ]</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_prices-instance_method">
   
     - (<tt>Hash(currency, price_group, show_renew_data, prices)</tt>) <strong>get_prices</strong>(opts = {}) 
   
@@ -241,7 +438,7 @@
       
         <li>
           <span class="name">:show_renew_data</span>
-          <span class="type">(<tt>FalseClass</tt>, <tt>TrueClass</tt>)</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
           <span class="default">
             
           </span>
@@ -296,6 +493,139 @@
       <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 33</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_prices</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_servtype_details-instance_method">
+  
+    - (<tt>Array(Hash(commonname, ...))</tt>) <strong>get_servtype_details</strong>(opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>To obtain prices for several service types, you can define them in the servtype field delimiting them with commas or include several servtype fields into the request. In this case the field subtype is ignored.</p>
+</div>
+  </div>
+
+<p>Use this function to get prices for services and general data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Get service type details.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_get_servtype_details'>get_servtype_details</span> <span class='label'>servtype:</span> <span class='symbol'>:srv_hosting_ispmgr</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:servtype</span>
+          <span class="type">(<tt>String</tt>, <tt>Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Type of service: srv_webfwd — web forwarding, srv_parking — domain parking, srv_dns_both — DNS support, srv_hosting_ispmgr — hosting, srv_certificate — domain certificate, srv_voucher — domain voucher, srv_kvm — KVM access.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:subtype</span>
+          <span class="type">(<tt>String</tt>, <tt>Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Service subtype.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:unroll_prices</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Show prices in expanded form.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(Hash(commonname, ...))</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Service type details.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 45</span>
+
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_servtype_details</span></pre>
     </td>
   </tr>
 </table>
@@ -407,7 +737,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Sep 22 19:41:40 2013 by
+  Generated on Fri Sep 27 18:35:53 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
