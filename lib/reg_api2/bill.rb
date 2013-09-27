@@ -38,7 +38,7 @@ module RegApi2
     # @option opts [String] :pay_type Payment method. For information about available alternatives refer to the description of response fields.
     # @option opts [Fixnum] :limit Defines the number of invoices to be included in the output at a time. Default value: 100. Maximum value: 1024.
     # @option opts [Fixnum] :offset The offset from the starting point, if the number of invoices exceeds the defined limit.
-    # @option opts [FalseClass, TrueClass] :all Show inactive invoices, i.e. invoices for outdated services and invoices cancelled due to impossibility of order execution.
+    # @option opts [Boolean] :all Show inactive invoices, i.e. invoices for outdated services and invoices cancelled due to impossibility of order execution.
     # @return [Hash(bills)] Bills.
     # @note Accessibility: partners
     # @note Support of invoice lists: yes

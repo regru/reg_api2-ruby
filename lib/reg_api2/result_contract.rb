@@ -28,7 +28,7 @@ module RegApi2
       total_payment
     ].freeze
 
-    # Fields that will be converted to {TrueClass} or {FalseClass}.
+    # Fields that will be converted to {Boolean}.
     # @see #convert
     BOOL_FIELDS = %w[
       ].freeze

@@ -74,13 +74,13 @@ module RegApi2
     # Placeholder to inspect sent form
     # @param [String] path
     # @param [Hash] form
-    # @return Doesn't matter
+    # @return void
     def form_to_be_sent(path, form)
     end
 
     # Placeholder to inspect got response.
     # @param [Net::HTTPResponse] response
-    # @return Doesn't matter
+    # @return void
     def got_response(response)
     end
 
