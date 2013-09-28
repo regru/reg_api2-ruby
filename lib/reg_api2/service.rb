@@ -89,6 +89,44 @@ module RegApi2
     #    RegApi2.service.create dname: 'qqq.ru', servtype: :srv_hosting_ispmgr, period: 1, plan: 'Host-2-1209'
     define :create, required: %w[ servtype ]
 
+    define :delete, required: %w[ servtype ]
+
+    define :get_info
+
+    define :get_list
+
+    define :get_folders
+
+    define :get_details
+
+    define :service_get_details
+
+    define :get_dedicated_server_list
+
+    define :update
+
+    define :renew
+
+    define :get_bills
+
+    define :set_autorenew_flag
+
+    define :suspend
+
+    define :resume
+
+    define :get_depreciated_period
+
+    define :upgrade
+
+    define :partcontrol_grant
+
+    define :partcontrol_revoke
+
+    define :resend_mail
+
+    
+
     extend self
   end
 end
