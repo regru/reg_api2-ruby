@@ -31,4 +31,11 @@ describe RegApi2::Service do
       ans.first.should have_key :commonname
     end
   end
+
+  describe :create do
+    it "should create srv_hosting_ispmgr service" do
+      ans = service.create dname: 'qqq.ru', servtype: :srv_hosting_ispmgr, period: 1, plan: 'Host-2-1209'
+      ans.descr.should =~ /srv_hosting_ispmgr.+ordered/
+    end
+  end
 end
