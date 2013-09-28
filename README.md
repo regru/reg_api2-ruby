@@ -66,7 +66,7 @@ Identification by numeric service identifiers is the most reliable and quick met
 | | **Service identification by parent service ID, service type or subtype** |
 | uplink_service_id | ID of the parent service with which the required service is associated. |
 | servtype | Service type. For example, «srv_hosting_ispmgr» for hosting or «srv_webfwd» for the web-forwarding service. |
-| subtype | Service subtype. For example, «pro» for the ISP Manger Pro license. | 
+| subtype | Service subtype. For example, «pro» for the ISP Manager Pro license. | 
 
 
 ## Common payment options
