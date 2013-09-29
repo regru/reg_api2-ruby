@@ -89,43 +89,59 @@ module RegApi2
     #    RegApi2.service.create dname: 'qqq.ru', servtype: :srv_hosting_ispmgr, period: 1, plan: 'Host-2-1209'
     define :create, required: %w[ servtype ]
 
+    # @!method delete(opts = {})
     define :delete, required: %w[ servtype ]
 
+    # @!method get_info(opts = {})
     define :get_info
 
+    # @!method get_list(opts = {})
     define :get_list
 
+    # @!method get_folders(opts = {})
     define :get_folders
 
+    # @!method get_details(opts = {})
     define :get_details
 
+    # @!method service_get_details(opts = {})
     define :service_get_details
 
+    # @!method get_dedicated_server_list(opts = {})
     define :get_dedicated_server_list
 
+    # @!method update(opts = {})
     define :update
 
+    # @!method renew(opts = {})
     define :renew
 
+    # @!method get_bills(opts = {})
     define :get_bills
 
+    # @!method set_autorenew_flag(opts = {})
     define :set_autorenew_flag
 
+    # @!method suspend(opts = {})
     define :suspend
 
+    # @!method resume(opts = {})
     define :resume
 
+    # @!method get_depreciated_period(opts = {})
     define :get_depreciated_period
 
+    # @!method upgrade(opts = {})
     define :upgrade
 
+    # @!method partcontrol_grant(opts = {})
     define :partcontrol_grant
 
+    # @!method partcontrol_revoke(opts = {})
     define :partcontrol_revoke
 
+    # @!method resend_mail(opts = {})
     define :resend_mail
-
-    
 
     extend self
   end

@@ -25,6 +25,72 @@ module RegApi2
     # @note Support of service lists: no
     define :get_prices
 
+    # @!method get_suggest(opts = {})
+    define :get_suggest
+
+    # @!method get_premium(opts = {})
+    define :get_premium
+
+    # @!method check(opts = {})
+    define :check
+
+    # @!method create(opts = {})
+    define :create
+
+    # @!method transfer(opts = {})
+    define :transfer
+
+    # @!method get_rereg_data(opts = {})
+    define :get_rereg_data
+
+    # @!method set_rereg_bids(opts = {})
+    define :set_rereg_bids
+
+    # @!method get_user_rereg_bids(opts = {})
+    define :get_user_rereg_bids
+
+    # @!method get_docs_upload_uri(opts = {})
+    define :get_docs_upload_uri
+
+    # @!method update_contacts(opts = {})
+    define :update_contacts
+
+    # @!method update_private_person_flag(opts = {})
+    define :update_private_person_flag
+
+    # @!method register_ns(opts = {})
+    define :register_ns
+
+    # @!method delete_ns(opts = {})
+    define :delete_ns
+
+    # @!method get_nss(opts = {})
+    define :get_nss
+
+    # @!method update_nss(opts = {})
+    define :update_nss
+
+    # @!method delegate(opts = {})
+    define :delegate
+
+    # @!method undelegate(opts = {})
+    define :undelegate
+
+    # @!method transfer_to_another_account(opts = {})
+    define :transfer_to_another_account
+
+    # @!method look_at_entering_list(opts = {})
+    define :look_at_entering_list
+
+    # @!method accept_or_refuse_entering_list(opts = {})
+    define :accept_or_refuse_entering_list
+
+    # @!method cancel_transfer(opts = {})
+    define :cancel_transfer
+
+    # @!method request_to_transfer(opts = {})
+    define :request_to_transfer
+
     extend self
   end
 end
