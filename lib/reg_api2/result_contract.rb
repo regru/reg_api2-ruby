@@ -31,7 +31,8 @@ module RegApi2
     # Fields that will be converted to {Boolean}.
     # @see #convert
     BOOL_FIELDS = %w[
-      ].freeze
+      success
+    ].freeze
 
     # Options of contract.
     # @return [Hash] Options hash.
@@ -60,7 +61,7 @@ module RegApi2
           elsif FLOAT_FIELDS.include?(key.to_s)
             answer[key] = value.to_f
           elsif BOOL_FIELDS.include?(key.to_s)
-            answer[key] = !!value.to_i
+            answer[key] = value.to_i.nonzero? ? true : false
           end
         when Hash
           answer[key] = convert_hash(value)

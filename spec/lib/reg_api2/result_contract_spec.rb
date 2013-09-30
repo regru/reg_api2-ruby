@@ -27,4 +27,27 @@ describe RegApi2::ResultContract do
       contract.handle_result({ answer: { "a" => "FX" } }).should == "FX"
     end
   end
+
+  describe :convert do
+    it "should convert field of some types" do
+      ans = contract.convert({
+        active_domains_cnt: "6",
+        success: "0",
+        amount: "15",
+        text: "2323" 
+      })
+      ans.should == {
+        active_domains_cnt: 6,
+        success: false,
+        amount: 15.0,
+        text: "2323"
+      }
+      ans = contract.convert({
+        success: "1",
+      })
+      ans.should == {
+        success: true,
+      }
+    end
+  end
 end
