@@ -51,8 +51,8 @@ describe RegApi2::ResultContract do
     end
 
     it "should proceed arrays too" do
-      ans = contract.convert([ 1, 2, { a: 2 } ])
-      ans.should == [ 1, 2, { a: 2} ]
+      ans = contract.convert([ 1, 2, [ 1 ], { amount: "4543" } ])
+      ans.should == [ 1, 2, [ 1 ], { amount: 4543.0} ]
     end
   end
 end
