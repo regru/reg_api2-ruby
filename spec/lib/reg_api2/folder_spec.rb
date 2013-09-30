@@ -24,4 +24,9 @@ describe RegApi2::Folder do
     end  
   end
 
+  describe :create do
+    it "should create a folder" do
+      folder.create(folder_name: 'test_folder_name').should be_nil
+    end
+  end
 end

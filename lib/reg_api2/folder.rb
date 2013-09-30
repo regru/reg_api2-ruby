@@ -20,6 +20,16 @@ module RegApi2
     #    RegApi2.folder.nop folder_name: "test_folder_name"
     define :nop
 
+    # @!method create(opts = {})
+    # Creates a folder.
+    # @param [Hash] opts
+    # @option opts [String] :folder_name The name of the new folder.
+    # @return [nil] nil.
+    # @note Support of service lists: no
+    # @example Creation of folder
+    #    RegApi2.folder.create folder_name: 'test_folder_name'
+    define :create, required: %w[ folder_name ]
+
     extend self
   end
 end
