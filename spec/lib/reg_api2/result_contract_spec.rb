@@ -29,7 +29,7 @@ describe RegApi2::ResultContract do
   end
 
   describe :convert do
-    it "should convert field of some types" do
+    it "should convert fields of some types for hashes" do
       ans = contract.convert({
         active_domains_cnt: "6",
         success: "0",
@@ -48,6 +48,11 @@ describe RegApi2::ResultContract do
       ans.should == {
         success: true,
       }
+    end
+
+    it "should proceed arrays too" do
+      ans = contract.convert([ 1, 2, { a: 2 } ])
+      ans.should == [ 1, 2, { a: 2} ]
     end
   end
 end
