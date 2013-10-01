@@ -90,41 +90,30 @@
   <div class="discussion">
     <h1>REG.API v2</h1>
 
-<h2>Service identification parameters</h2>
+<h2>RegApi2 module</h2>
 
-<p>This group of parameters serves for identification of specific pre-ordered services.</p>
-
-<p>Services can be identified by:</p>
+<p>Provides r/w settings for API connection:</p>
 
 <ul>
-<li>service ID (both domains and services),</li>
-<li>domain name (domains only),</li>
-<li>domain name and service type (services only),</li>
-<li>ID of a parent service, service type or subtype (services only).</li>
+<li><span class='object_link'><a href="#username-class_method" title="RegApi2.username (method)">RegApi2.username</a></span> - Your user name. <code>test</code> by default.</li>
+<li><span class='object_link'><a href="#password-class_method" title="RegApi2.password (method)">RegApi2.password</a></span> - Your password. <code>test</code> by default.</li>
+<li><span class='object_link'><a href="#io_encoding-class_method" title="RegApi2.io_encoding (method)">RegApi2.io_encoding</a></span> - Input/ouput encoding. <code>utf-8</code> by default.</li>
+<li><span class='object_link'><a href="#lang-class_method" title="RegApi2.lang (method)">RegApi2.lang</a></span> - Language of API answers. <code>en</code> by default.</li>
 </ul>
 
-<p>Identification by numeric service identifiers is the most reliable and quick method. For this reason, we recommend that you save and store domain/service IDs on your side and use them for service identification.</p>
-
-<h2>Common payment options</h2>
+<p>Provides shortcuts for API categories:</p>
 
 <ul>
-<li>point_of_sale
-
-<ul>
-<li>An arbitrary string that identifies a system/web site used by the customer for placing an order for a domain. Optional field. Example: «regpanel.ru».</li>
-</ul></li>
-<li>pay_type
-
-<ul>
-<li>Payment option. Currently available payment options: (WM, bank, pbank, prepay, yamoney, rapida, robox, paymer, cash, chronopay).</li>
-<li>Default value: prepay. Please note that automatic payments can be done only if the selected payment method is «prepay» and you have enough funds in your account. Otherwise, your order will be marked as unpaid and you will have to arrange the payment manually from your profile page.</li>
-</ul></li>
-<li>ok_if_no_money
-
-<ul>
-<li>Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting &quot;change payment method&quot; request via web interface. Return error if this flag not set and not enough funds to complete the operation.</li>
-</ul></li>
+<li><span class='object_link'><a href="#common-class_method" title="RegApi2.common (method)">RegApi2.common</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span> methods.</li>
+<li><span class='object_link'><a href="#domain-class_method" title="RegApi2.domain (method)">RegApi2.domain</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Domain.html" title="RegApi2::Domain (module)">Domain</a></span> methods.</li>
+<li><span class='object_link'><a href="#user-class_method" title="RegApi2.user (method)">RegApi2.user</a></span> API category implemented as <span class='object_link'><a href="RegApi2/User.html" title="RegApi2::User (module)">User</a></span> methods.</li>
+<li><span class='object_link'><a href="#service-class_method" title="RegApi2.service (method)">RegApi2.service</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Service.html" title="RegApi2::Service (module)">Service</a></span> methods.</li>
+<li><span class='object_link'><a href="#bill-class_method" title="RegApi2.bill (method)">RegApi2.bill</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span> methods.</li>
+<li><span class='object_link'><a href="#folder-class_method" title="RegApi2.folder (method)">RegApi2.folder</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Folder.html" title="RegApi2::Folder (module)">Folder</a></span> methods.</li>
+<li><span class='object_link'><a href="#zone-class_method" title="RegApi2.zone (method)">RegApi2.zone</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Zone.html" title="RegApi2::Zone (module)">Zone</a></span> methods.</li>
 </ul>
+
+<p>Please read <a href="index.html" title="README">README</a> for API overview.</p>
 
 
   </div>
@@ -943,10 +932,10 @@
       <pre class="lines">
 
 
-73</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bill'>bill</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Bill</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -996,10 +985,10 @@
       <pre class="lines">
 
 
-53</pre>
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_common'>common</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Common</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1049,10 +1038,10 @@
       <pre class="lines">
 
 
-58</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_domain'>domain</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Domain</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1102,10 +1091,10 @@
       <pre class="lines">
 
 
-78</pre>
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_folder'>folder</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Folder</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1801,10 +1790,10 @@
       <pre class="lines">
 
 
-68</pre>
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Service</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1854,10 +1843,10 @@
       <pre class="lines">
 
 
-63</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user'>user</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>User</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1907,10 +1896,10 @@
       <pre class="lines">
 
 
-83</pre>
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_zone'>zone</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Zone</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1923,7 +1912,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Sep 29 15:33:01 2013 by
+  Generated on Tue Oct  1 14:44:02 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

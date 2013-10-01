@@ -69,6 +69,8 @@
 
 <p>REG.API v2 Implementation.</p>
 
+<p>We want to note that Ruby client uses recommended way to access API: POST requests with JSON input/output in utf-8 encoding over HTTPS protocol.</p>
+
 <h2>Installation</h2>
 
 <p>Add this line to your application&#39;s Gemfile:</p>
@@ -105,7 +107,65 @@
 <span class='rbracket'>]</span><span class='rparen'>)</span>
 </code></pre>
 
-<h2>Service identification parameters</h2>
+<p>Other examples available as examples of concrete method calls.</p>
+
+<h3>Console</h3>
+
+<p>This gem also provides <code>regapi2console</code> utility that allows You
+to query REG.API interactively using <code>irb</code> shell.</p>
+
+<pre class="code ruby"><code class="ruby">$ regapi2console
+Your default username: &quot;test&quot;, and You can change it with &quot;~/.regapi2&quot;.
+1.9.3-p194 :001 &gt; folder.nop
+ =&gt; {&quot;name&quot;=&gt;&quot;test_folder_name&quot;, &quot;id&quot;=&gt;&quot;-1&quot;}
+1.9.3-p194 :002 &gt;
+</code></pre>
+
+<h2>Recommendations for effective use of REG.API</h2>
+
+<p>This section provides information that will help you to make you work with REG.API more productive and convenient.</p>
+
+<p>One of the most frequent problems our partners face when working with REG.API is exceeding the maximum request limit (1,200 requests per hour).</p>
+
+<p>The analysis of such situations showed that in most cases such problems are the results of improper use or misuse of REG.API due to bugs or design faults in the software used by partners.</p>
+
+<p>The recommendations below will, on the one hand, allow you to preclude situations with excessive requests to REG.API leading to temporary blocking of user accounts, and, on the other hand, to reduce the load on RegRuSRS.</p>
+
+<ol>
+<li><p>We recommend you to send WHOIS requests (for the display of WHOIS data on your sites) not to REG.API, but directly to the WHOIS servers of the corresponding domain zones.</p>
+
+<p>The advantages of this approach are as follows:</p>
+
+<ul>
+<li>The responses to WHOIS requests will arriver faster.</li>
+<li>You will get data directly from its source without mediation.</li>
+<li>The overall number of requests will decrease, thus the likelihood of blocking of your account due to excessive requests to REG.API decreases as well.</li>
+</ul>
+
+<p>We can offer you ready-to-use software solutions that will allow you to optimize your procedures of getting WHOIS data.</p></li>
+<li><p>We recommend you to use REG.API for placing orders or changing data rather than for obtaining data. The software employed by some of our partners either do not locally store domain-related data or store incomplete data. As a result this data is dynamically downloaded from our system with the help of such functions domain_list, service/get_info, domain/get_contacts, domain/get_nss, etc.
+We advise you to store all domain- and service-related locally and address to REG.API only when you want to change some data in the registry. This will ensure fast and reliable operation of your applications and minimize your dependency on the availability of our system.</p></li>
+<li><p>All data change requests should be performed asynchronously.</p>
+
+<p>Some applications perform domain/service registration operations, as well as data change operations right at the moment of processing HTTP requests from clients. But if the execution of an API request fails for some reason (connection loss, exceeding of request limit, parallel request blocking), this request will get lost and the client will receive an error message.</p>
+
+<p>This mode of interaction is very unreliable and inconvenient for your customers.</p>
+
+<p>We recommend you to perform all service ordering/data changing requests asynchronously using the queue mechanism. In such a case:</p>
+
+<ul>
+<li>You will exclude the possibility of API request blockings (because only one API request is performed at a time).</li>
+<li>In case of connection failures the request can be repeated until it is executed (this significantly increases the system reliability).</li>
+<li>In case of request processing errors (if REG.RU returned an error code), you can fix the problem and repeat the request, while the customer will not get any error messages. You can solve the major part of your customers’ problems on your own without their participation.</li>
+</ul></li>
+<li><p>It is a good practice to keep logs of all API request and responses. If a problem arises, logs will help you or our support engineers to efficiently locate and solve it.</p></li>
+</ol>
+
+<p>We hope that this information will be useful for you and that it will help you to optimize your work with REG.API.</p>
+
+<h2>REG.API 2.0 overview</h2>
+
+<h3>Service identification parameters</h3>
 
 <p>This group of parameters serves for identification of specific pre-ordered services.</p>
 
@@ -180,42 +240,82 @@
 </tr>
 </tbody></table>
 
-<h2>Common payment options</h2>
+<h3>Service list identification parameters</h3>
 
-<ul>
-<li>point_of_sale
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domains</td>
+<td>A list where each element includes a domain name or its service_ID in compliance with common service identification parameters. You can specify not more than 1000 services in one request.</td>
+</tr>
+<tr>
+<td>services</td>
+<td>A list where each element includes a domain name + service type or service_ID in compliance common service identification parameters.</td>
+</tr>
+</tbody></table>
 
-<ul>
-<li>An arbitrary string that identifies a system/web site used by the customer for placing an order for a domain. Optional field. Example: «regpanel.ru».</li>
-</ul></li>
-<li>pay_type
+<h3>Folder identification parameters</h3>
 
-<ul>
-<li>Payment option. Currently available payment options: (WM, bank, pbank, prepay, yamoney, rapida, robox, paymer, cash, chronopay).</li>
-<li>Default value: prepay. Please note that automatic payments can be done only if the selected payment method is «prepay» and you have enough funds in your account. Otherwise, your order will be marked as unpaid and you will have to arrange the payment manually from your profile page.</li>
-</ul></li>
-<li>ok_if_no_money
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>folder_id</td>
+<td>Numeric folder identifier (recommended).</td>
+</tr>
+<tr>
+<td>folder_name</td>
+<td>Folder name.</td>
+</tr>
+</tbody></table>
 
-<ul>
-<li>Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting &quot;change payment method&quot; request via web interface. Return error if this flag not set and not enough funds to complete the operation.</li>
-</ul></li>
-</ul>
+<h3>Common payment options</h3>
+
+<p>This section describes the parameters common for the functions dealing with service ordering or renewal of services, i.e. the functions that involve payments.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>point_of_sale</td>
+<td>An arbitrary string that identifies a system/web site used by the customer for placing an order for a domain. Optional field. Example: «regpanel.ru».</td>
+</tr>
+<tr>
+<td>pay_type</td>
+<td>Payment option. Currently available payment options: (WM, bank, pbank, prepay, yamoney, rapida, robox, paymer, cash, chronopay). Default value: prepay. Please note that automatic payments can be done only if the selected payment method is «prepay» and you have enough funds in your account. Otherwise, your order will be marked as unpaid and you will have to arrange the payment manually from your profile page.</td>
+</tr>
+<tr>
+<td>ok_if_no_money</td>
+<td>Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting &quot;change payment method&quot; request via web interface. Return error if this flag not set and not enough funds to complete the operation.</td>
+</tr>
+</tbody></table>
 
 <h2>Documentation</h2>
 
-<p>Simply do</p>
+<p>Actual documentation available at <a href="https://www.reg.com/support/help/API-version2">https://www.reg.com/support/help/API-version2</a></p>
+
+<p>For developers: Ruby client documentation can be accessed as:</p>
 
 <pre class="code bash"><code class="bash">bundle exec rake yard
 open doc/index.html
 </code></pre>
-
-<p>Also documentation available at <a href="https://www.reg.com/support/help/API-version2">https://www.reg.com/support/help/API-version2</a></p>
 
 <h2>Contributing</h2>
 
 <ol>
 <li>Fork it</li>
 <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Add your tests and run <code>rake</code>.</li>
 <li>Commit your changes (<code>git commit -am &#39;Add some feature&#39;</code>)</li>
 <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
 <li>Create new Pull Request</li>
@@ -223,7 +323,7 @@ open doc/index.html
 </div></div>
 
     <div id="footer">
-  Generated on Sun Sep 29 15:33:01 2013 by
+  Generated on Tue Oct  1 14:44:02 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
