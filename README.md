@@ -1,5 +1,6 @@
 # REG.API 2 for Ruby
 
+[![Gem Version](https://badge.fury.io/rb/reg.api2.png)](http://badge.fury.io/rb/reg.api2)
 [![build status](https://secure.travis-ci.org/regru/reg_api2-ruby.png)](https://travis-ci.org/regru/reg_api2-ruby)
 [![Code Climate](https://codeclimate.com/github/regru/reg_api2-ruby.png)](https://codeclimate.com/github/regru/reg_api2-ruby)
 [![Coverage Status](https://coveralls.io/repos/regru/reg_api2-ruby/badge.png?branch=master)](https://coveralls.io/r/regru/reg_api2-ruby)
