@@ -136,14 +136,14 @@ This section describes the parameters common for the functions dealing with serv
 
 ## Documentation
 
-Simply do
+Actual documentation available at https://www.reg.com/support/help/API-version2
+
+For developers: Ruby client documentation can be accessed as:
 
 ```bash
 bundle exec rake yard
 open doc/index.html
 ```
-
-Also documentation available at https://www.reg.com/support/help/API-version2
 
 ## Contributing
 
