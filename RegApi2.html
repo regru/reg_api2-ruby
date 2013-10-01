@@ -6,7 +6,7 @@
 <title>
   Module: RegApi2
   
-    &mdash; 'reg.api2 0.0.1'
+    &mdash; 'reg.api2 0.0.3'
   
 </title>
 
@@ -99,6 +99,7 @@
 <li><span class='object_link'><a href="#password-class_method" title="RegApi2.password (method)">RegApi2.password</a></span> - Your password. <code>test</code> by default.</li>
 <li><span class='object_link'><a href="#io_encoding-class_method" title="RegApi2.io_encoding (method)">RegApi2.io_encoding</a></span> - Input/ouput encoding. <code>utf-8</code> by default.</li>
 <li><span class='object_link'><a href="#lang-class_method" title="RegApi2.lang (method)">RegApi2.lang</a></span> - Language of API answers. <code>en</code> by default.</li>
+<li><span class='object_link'><a href="#ca_cert_path-class_method" title="RegApi2.ca_cert_path (method)">RegApi2.ca_cert_path</a></span>, <span class='object_link'><a href="#pem-class_method" title="RegApi2.pem (method)">RegApi2.pem</a></span> and <span class='object_link'><a href="#pem_password-class_method" title="RegApi2.pem_password (method)">RegApi2.pem_password</a></span> - optional certification properties. nils by default.</li>
 </ul>
 
 <p>Provides shortcuts for API categories:</p>
@@ -213,7 +214,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.1</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.3</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -223,6 +224,32 @@
 
   <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
   <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ca_cert_path-class_method" title="ca_cert_path (class method)">+ (String) <strong>ca_cert_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Path to certification authority certificate (nil by default).</p>
+</div></span>
+  
+</li>
+
     
       <li class="public ">
   <span class="summary_signature">
@@ -244,7 +271,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>IO encoding (&#39;utf-8&#39; by default).</p>
+    <span class="summary_desc"><div class='inline'><p>IO encoding (<code>utf-8</code> by default).</p>
 </div></span>
   
 </li>
@@ -270,7 +297,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Language (&#39;en&#39; by default).</p>
+    <span class="summary_desc"><div class='inline'><p>Language (<code>en</code> by default).</p>
 </div></span>
   
 </li>
@@ -296,7 +323,59 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Password.</p>
+    <span class="summary_desc"><div class='inline'><p>Password (<code>test</code> by default).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pem-class_method" title="pem (class method)">+ (String) <strong>pem</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>X.509 certificate (nil by default).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pem_password-class_method" title="pem_password (class method)">+ (String) <strong>pem_password</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>X.509 certificate password (nil by default).</p>
 </div></span>
   
 </li>
@@ -322,7 +401,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>User name.</p>
+    <span class="summary_desc"><div class='inline'><p>User name (<code>test</code> by default).</p>
 </div></span>
   
 </li>
@@ -648,11 +727,11 @@
     <h2>Class Attribute Details</h2>
     
       
-      <span id="io_encoding=-class_method"></span>
+      <span id="ca_cert_path=-class_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="io_encoding-class_method">
+  <h3 class="signature first" id="ca_cert_path-class_method">
   
-    + (<tt>String</tt>) <strong>io_encoding</strong> 
+    + (<tt>String</tt>) <strong>ca_cert_path</strong> 
   
 
   
@@ -660,7 +739,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns IO encoding (&#39;utf-8&#39; by default).</p>
+    <p>Returns Path to certification authority certificate (nil by default).</p>
 
 
   </div>
@@ -678,7 +757,7 @@
       
       
         &mdash;
-        <div class='inline'><p>IO encoding (&#39;utf-8&#39; by default).</p>
+        <div class='inline'><p>Path to certification authority certificate (nil by default).</p>
 </div>
       
     </li>
@@ -691,12 +770,71 @@
       <pre class="lines">
 
 
-48
-49
-50</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ca_cert_path'>ca_cert_path</span>
+  <span class='ivar'>@ca_cert_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="io_encoding=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="io_encoding-class_method">
+  
+    + (<tt>String</tt>) <strong>io_encoding</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns IO encoding (<code>utf-8</code> by default).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>IO encoding (<code>utf-8</code> by default).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_io_encoding'>io_encoding</span>
   <span class='ivar'>@io_encoding</span>
@@ -719,7 +857,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns Language (&#39;en&#39; by default).</p>
+    <p>Returns Language (<code>en</code> by default).</p>
 
 
   </div>
@@ -737,7 +875,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Language (&#39;en&#39; by default).</p>
+        <div class='inline'><p>Language (<code>en</code> by default).</p>
 </div>
       
     </li>
@@ -750,12 +888,12 @@
       <pre class="lines">
 
 
-51
 52
-53</pre>
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lang'>lang</span>
   <span class='ivar'>@lang</span>
@@ -778,7 +916,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns Password.</p>
+    <p>Returns Password (<code>test</code> by default).</p>
 
 
   </div>
@@ -796,7 +934,7 @@
       
       
         &mdash;
-        <div class='inline'><p>Password.</p>
+        <div class='inline'><p>Password (<code>test</code> by default).</p>
 </div>
       
     </li>
@@ -809,15 +947,133 @@
       <pre class="lines">
 
 
-45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_password'>password</span>
   <span class='ivar'>@password</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pem=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pem-class_method">
+  
+    + (<tt>String</tt>) <strong>pem</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns X.509 certificate (nil by default).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>X.509 certificate (nil by default).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pem'>pem</span>
+  <span class='ivar'>@pem</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pem_password=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pem_password-class_method">
+  
+    + (<tt>String</tt>) <strong>pem_password</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns X.509 certificate password (nil by default).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>X.509 certificate password (nil by default).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pem_password'>pem_password</span>
+  <span class='ivar'>@pem_password</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -837,7 +1093,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns User name.</p>
+    <p>Returns User name (<code>test</code> by default).</p>
 
 
   </div>
@@ -855,7 +1111,7 @@
       
       
         &mdash;
-        <div class='inline'><p>User name.</p>
+        <div class='inline'><p>User name (<code>test</code> by default).</p>
 </div>
       
     </li>
@@ -868,12 +1124,12 @@
       <pre class="lines">
 
 
-42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_username'>username</span>
   <span class='ivar'>@username</span>
@@ -932,10 +1188,10 @@
       <pre class="lines">
 
 
-78</pre>
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bill'>bill</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Bill</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -985,10 +1241,10 @@
       <pre class="lines">
 
 
-54</pre>
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_common'>common</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Common</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1038,10 +1294,10 @@
       <pre class="lines">
 
 
-60</pre>
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_domain'>domain</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Domain</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1091,10 +1347,10 @@
       <pre class="lines">
 
 
-84</pre>
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_folder'>folder</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Folder</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1170,11 +1426,11 @@
       <pre class="lines">
 
 
-78
-79</pre>
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_form_to_be_sent'>form_to_be_sent</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1264,28 +1520,28 @@
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110</pre>
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_form_data'>get_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='comment'># HACK: REG.API doesn't know about utf-8.
@@ -1294,14 +1550,14 @@
   <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>RequestContract</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_form'>form</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>username</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_username'>username</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>password</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_password'>password</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>io_encoding</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_io_encoding'>io_encoding</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>lang</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lang'>lang</span> <span class='op'>||</span> <span class='const'>DEFAULT_LANG</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>output_format</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>json</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>input_format</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>json</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>username</span><span class='tstring_end'>'</span></span>          <span class='op'>=&gt;</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>test</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>password</span><span class='tstring_end'>'</span></span>          <span class='op'>=&gt;</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>test</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>io_encoding</span><span class='tstring_end'>'</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_io_encoding'>io_encoding</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>lang</span><span class='tstring_end'>'</span></span>              <span class='op'>=&gt;</span> <span class='id identifier rubyid_lang'>lang</span> <span class='op'>||</span> <span class='const'>DEFAULT_LANG</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>output_format</span><span class='tstring_end'>'</span></span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>json</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>input_format</span><span class='tstring_end'>'</span></span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>json</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
     <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>show_input_params</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>input_data</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='const'>Yajl</span><span class='op'>::</span><span class='const'>Encoder</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>input_data</span><span class='tstring_end'>'</span></span>        <span class='op'>=&gt;</span> <span class='const'>Yajl</span><span class='op'>::</span><span class='const'>Encoder</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='rbrace'>}</span>
 
   <span class='id identifier rubyid_form'>form</span>
@@ -1368,11 +1624,11 @@
       <pre class="lines">
 
 
-84
-85</pre>
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_got_response'>got_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1484,22 +1740,22 @@
       <pre class="lines">
 
 
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131</pre>
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NetError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>200</span><span class='tstring_end'>'</span></span>
@@ -1561,19 +1817,34 @@
       <pre class="lines">
 
 
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72</pre>
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_http'>http</span>
   <span class='ivar'>@http</span> <span class='op'>||=</span> <span class='kw'>begin</span>
@@ -1582,6 +1853,21 @@
       <span class='const'>API_URI</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>
     <span class='rparen'>)</span>
     <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_use_ssl'>use_ssl</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_ca_cert_path'>ca_cert_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_verify_mode'>verify_mode</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>VERIFY_PEER</span>
+      <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_ca_file'>ca_file</span>     <span class='op'>=</span> <span class='id identifier rubyid_ca_cert_path'>ca_cert_path</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_verify_mode'>verify_mode</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>SSL</span><span class='op'>::</span><span class='const'>VERIFY_NONE</span>
+    <span class='kw'>end</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_pem'>pem</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_cert'>cert</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>X509</span><span class='op'>::</span><span class='const'>Certificate</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_pem'>pem</span><span class='rparen'>)</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_pem_password'>pem_password</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The private key requires a password</span><span class='tstring_end'>&quot;</span></span>  <span class='kw'>if</span> <span class='id identifier rubyid_pem_password'>pem_password</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_pem'>pem</span><span class='comma'>,</span> <span class='id identifier rubyid_pem_password'>pem_password</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>PKey</span><span class='op'>::</span><span class='const'>RSA</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_pem'>pem</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
     <span class='id identifier rubyid_http'>http</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -1713,22 +1999,22 @@
       <pre class="lines">
 
 
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154</pre>
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_make_action'>make_action</span> <span class='id identifier rubyid_category'>category</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1790,10 +2076,10 @@
       <pre class="lines">
 
 
-72</pre>
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Service</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1843,10 +2129,10 @@
       <pre class="lines">
 
 
-66</pre>
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user'>user</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>User</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1896,10 +2182,10 @@
       <pre class="lines">
 
 
-90</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_zone'>zone</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Zone</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1912,7 +2198,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Oct  1 14:44:02 2013 by
+  Generated on Tue Oct  1 17:14:34 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
