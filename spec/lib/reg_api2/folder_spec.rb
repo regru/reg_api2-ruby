@@ -39,4 +39,14 @@ describe RegApi2::Folder do
       folder.remove(folder_name: 'test_folder_name').should be_nil
     end
   end
+
+  describe :rename do
+    it "should rename a folder by id" do
+      folder.rename(folder_id: 123456, new_folder_name: 'new_test_folder_name').should have_key(:folder_content)
+    end
+
+    it "should rename a folder by name" do
+      folder.rename(folder_name: 'test_folder_name', new_folder_name: 'new_test_folder_name').should have_key(:folder_content)
+    end
+  end
 end
