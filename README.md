@@ -44,6 +44,19 @@ RegApi2.service.nop(services: [
 
 Other examples available as examples of concrete method calls.
 
+## Console
+
+This gem also provides `regapi2console` utility that allows You
+to query REG.API interactively using `irb` shell.
+
+```
+  reg.api2 git:(master) regapi2console
+Your default username: "test", and You can change it with "~/.regapi2".
+1.9.3-p194 :001 > folder.nop
+ => {"name"=>"test_folder_name", "id"=>"-1"}
+1.9.3-p194 :002 >
+```
+
 ## Recommendations for effective use of REG.API
 This section provides information that will help you to make you work with REG.API more productive and convenient.
 
