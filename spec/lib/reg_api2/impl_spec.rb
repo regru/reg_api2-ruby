@@ -6,6 +6,10 @@ describe RegApi2 do
       RegApi2.clear_http
     end
 
+    after(:all) do
+      RegApi2.clear_http
+    end
+
     it "should #create_http at first call" do
       mock(RegApi2).create_http { 45 }.times(1)
       RegApi2.http.should == 45
