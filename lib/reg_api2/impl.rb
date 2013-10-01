@@ -68,32 +68,50 @@ module RegApi2
     # REG.API base URI
     API_URI = URI.parse("https://api.reg.ru/api/regru2")
 
+    # Creates HTTPS handler.
+    # @return [Net::HTTP] HTTPS handler.
+    # @see #http
+    def create_http
+      _http = Net::HTTP.new(
+        API_URI.host, 
+        API_URI.port
+      )
+      _http.use_ssl = true
+      unless ca_cert_path.nil?
+        _http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+        _http.ca_file     = ca_cert_path
+      else
+        _http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      end
+      unless pem.nil?
+        _http.cert = OpenSSL::X509::Certificate.new(pem)
+        if pem_password
+          raise ArgumentError, "The private key requires a password"  if pem_password.empty?
+          _http.key = OpenSSL::PKey::RSA.new(pem, pem_password)
+        else
+          _http.key = OpenSSL::PKey::RSA.new(pem)
+        end
+      end
+      _http
+    end
+
     # Creates or gets HTTPS handler.
     # @return [Net::HTTP] HTTPS handler.
+    # @see #create_http
+    # @see #clear_http
     def http
-      @http ||= begin
-        http = Net::HTTP.new(
-          API_URI.host, 
-          API_URI.port
-        )
-        http.use_ssl = true
-        unless ca_cert_path.nil?
-          http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-          http.ca_file     = ca_cert_path
-        else
-          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        end
-        unless pem.nil?
-          http.cert = OpenSSL::X509::Certificate.new(pem)
-          if pem_password
-            raise ArgumentError, "The private key requires a password"  if pem_password.empty?
-            http.key = OpenSSL::PKey::RSA.new(pem, pem_password)
-          else
-            http.key = OpenSSL::PKey::RSA.new(pem)
-          end
-        end
-        http
-      end
+      @http ||= create_http
+    end
+
+    # Clears internal `http` singleton.
+    # Also finishes any started HTTP session.
+    # @return nil
+    # @note For testing purposes.
+    # @see #http
+    def clear_http
+      return nil  unless @http
+      @http.finish  if @http.respond_to?(:started) && @http.started
+      @http = nil
     end
 
     # Placeholder to inspect sent form
