@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rr"
   spec.add_development_dependency "faker"
   spec.add_development_dependency "machinist"
-  spec.add_development_dependency "yard"
-  spec.add_development_dependency "redcarpet"
-  spec.add_development_dependency "yard-redcarpet-ext"
+  spec.add_development_dependency "yard", "~> 0.8"
+  spec.add_development_dependency "redcarpet", "~> 3.0"
+  spec.add_development_dependency "yard-redcarpet-ext", "~> 0.0.3"
 end
