@@ -68,6 +68,31 @@ module RegApi2
     # REG.API base URI
     API_URI = URI.parse("https://api.reg.ru/api/regru2")
 
+    def apply_ca_cert_path(http)
+      unless ca_cert_path.nil?
+        http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+        http.ca_file     = ca_cert_path
+      else
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      end
+      http
+    end
+
+    def apply_pem(http)
+      unless pem.nil?
+        http.cert = OpenSSL::X509::Certificate.new(pem)
+        if pem_password
+          raise ArgumentError, "The private key requires a password"  if pem_password.empty?
+          http.key = OpenSSL::PKey::RSA.new(pem, pem_password)
+        else
+          http.key = OpenSSL::PKey::RSA.new(pem)
+        end
+      end
+      http
+    end
+
+    private :apply_pem, :apply_ca_cert_path
+
     # Creates HTTPS handler.
     # @return [Net::HTTP] HTTPS handler.
     # @see #http
@@ -77,21 +102,8 @@ module RegApi2
         API_URI.port
       )
       _http.use_ssl = true
-      unless ca_cert_path.nil?
-        _http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-        _http.ca_file     = ca_cert_path
-      else
-        _http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      end
-      unless pem.nil?
-        _http.cert = OpenSSL::X509::Certificate.new(pem)
-        if pem_password
-          raise ArgumentError, "The private key requires a password"  if pem_password.empty?
-          _http.key = OpenSSL::PKey::RSA.new(pem, pem_password)
-        else
-          _http.key = OpenSSL::PKey::RSA.new(pem)
-        end
-      end
+      apply_ca_cert_path(_http)
+      apply_pem(_http)
       _http
     end
 
@@ -136,7 +148,8 @@ module RegApi2
       # HACK: REG.API doesn't know about utf-8.
       io_encoding = 'utf8'  if !io_encoding || io_encoding == DEFAULT_IO_ENCODING
       opts = opts.to_hash  if opts.respond_to?(:to_hash)
-      opts = RegApi2::RequestContract.new(defopts).validate(opts)
+      req_contract = RegApi2::RequestContract.new(defopts)
+      opts = req_contract.validate(opts)
 
       form = {
         'username'          => username || 'test',
