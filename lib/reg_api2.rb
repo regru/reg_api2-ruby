@@ -33,6 +33,7 @@ require 'reg_api2/zone'
 # * {RegApi2.password} - Your password. `test` by default.
 # * {RegApi2.io_encoding} - Input/ouput encoding. `utf-8` by default.
 # * {RegApi2.lang} - Language of API answers. `en` by default.
+# * {RegApi2.ca_cert_path}, {RegApi2.pem} and {RegApi2.pem_password} - optional certification properties. nils by default.
 #
 # Provides shortcuts for API categories:
 #

@@ -39,25 +39,25 @@ module RegApi2
 
   class << self
     # @!attribute [rw] username
-    # @return [String] User name.
+    # @return [String] User name (`test` by default).
     attr_accessor :username
     # @!attribute [rw] password
-    # @return [String] Password.
+    # @return [String] Password (`test` by default).
     attr_accessor :password
     # @!attribute [rw] io_encoding
-    # @return [String] IO encoding ('utf-8' by default).
+    # @return [String] IO encoding (`utf-8` by default).
     attr_accessor :io_encoding
     # @!attribute [rw] lang
-    # @return [String] Language ('en' by default).
+    # @return [String] Language (`en` by default).
     attr_accessor :lang
     # @!attribute [rw] ca_cert_path
-    # @return [String] Path to certificate (nil by default).
+    # @return [String] Path to certification authority certificate (nil by default).
     attr_accessor :ca_cert_path
     # @!attribute [rw] pem
-    # @return [String] PEM (nil by default).
+    # @return [String] X.509 certificate (nil by default).
     attr_accessor :pem
     # @!attribute [rw] pem_password
-    # @return [String] PEM password (nil by default).
+    # @return [String] X.509 certificate password (nil by default).
     attr_accessor :pem_password
 
     # Default IO encoding
@@ -121,16 +121,15 @@ module RegApi2
       opts = RegApi2::RequestContract.new(defopts).validate(opts)
 
       form = {
-        'io_encoding' => io_encoding,
-        'lang' => lang || DEFAULT_LANG,
-        'output_format' => 'json',
-        'input_format' => 'json',
+        'username'          => username || 'test',
+        'password'          => password || 'test',
+        'io_encoding'       => io_encoding,
+        'lang'              => lang || DEFAULT_LANG,
+        'output_format'     => 'json',
+        'input_format'      => 'json',
         'show_input_params' => 0,
-        'input_data' => Yajl::Encoder.encode(opts)
+        'input_data'        => Yajl::Encoder.encode(opts)
       }
-
-      form['username'] = username  if username
-      form['password'] = password  if password
 
       form
     end
