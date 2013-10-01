@@ -35,6 +35,17 @@ module RegApi2
       @description = description
       @params = params
     end
+
+    # Extracts error arguments from specified json.
+    # @param [Hash] json
+    # @return [ApiError] Initialized error object.
+    def self.from_json json
+      new(
+        json['error_code'],
+        json['error_text'],
+        json['error_params']
+      )
+    end
   end
 
   class << self
@@ -75,20 +86,17 @@ module RegApi2
       else
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
-      http
     end
 
     def apply_pem(http)
-      unless pem.nil?
-        http.cert = OpenSSL::X509::Certificate.new(pem)
-        if pem_password
-          raise ArgumentError, "The private key requires a password"  if pem_password.empty?
-          http.key = OpenSSL::PKey::RSA.new(pem, pem_password)
-        else
-          http.key = OpenSSL::PKey::RSA.new(pem)
-        end
+      return  if pem.nil?
+      http.cert = OpenSSL::X509::Certificate.new(pem)
+      if pem_password
+        raise ArgumentError, "The private key requires a password"  if pem_password.empty?
+        http.key = OpenSSL::PKey::RSA.new(pem, pem_password)
+      else
+        http.key = OpenSSL::PKey::RSA.new(pem)
       end
-      http
     end
 
     private :apply_pem, :apply_ca_cert_path
@@ -176,11 +184,7 @@ module RegApi2
       raise NetError.new(res.body)  unless res.code == '200'
 
       json = Yajl::Parser.parse(res.body)
-      raise ApiError.new(
-        json['error_code'],
-        json['error_text'],
-        json['error_params']
-      )  if json['result'] == 'error'
+      raise ApiError.from_json(json)  if json['result'] == 'error'
 
       res_contract = RegApi2::ResultContract.new(defopts)
       res_contract.handle_result(json)
