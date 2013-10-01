@@ -25,61 +25,68 @@ require 'reg_api2/zone'
 #    { surprise: "surprise.ru" }
 #  ])
 #
-# ## Service identification parameters
-# This group of parameters serves for identification of specific pre-ordered services.
+# ## RegApi2 module
 #
-# Services can be identified by:
+# Provides r/w settings for API connection:
 #
-# * service ID (both domains and services),
-# * domain name (domains only),
-# * domain name and service type (services only),
-# * ID of a parent service, service type or subtype (services only).
+# * {RegApi2.username} - Your user name. `test` by default.
+# * {RegApi2.password} - Your password. `test` by default.
+# * {RegApi2.io_encoding} - Input/ouput encoding. `utf-8` by default.
+# * {RegApi2.lang} - Language of API answers. `en` by default.
 #
-# Identification by numeric service identifiers is the most reliable and quick method. For this reason, we recommend that you save and store domain/service IDs on your side and use them for service identification.
+# Provides shortcuts for API categories:
 #
-# ## Common payment options
-# 
-# * point_of_sale
-#   * An arbitrary string that identifies a system/web site used by the customer for placing an order for a domain. Optional field. Example: «regpanel.ru».
-# * pay_type
-#   * Payment option. Currently available payment options: (WM, bank, pbank, prepay, yamoney, rapida, robox, paymer, cash, chronopay).
-#   * Default value: prepay. Please note that automatic payments can be done only if the selected payment method is «prepay» and you have enough funds in your account. Otherwise, your order will be marked as unpaid and you will have to arrange the payment manually from your profile page.
-# * ok_if_no_money
-#   * Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting "change payment method" request via web interface. Return error if this flag not set and not enough funds to complete the operation.
+# * {RegApi2.common} API category implemented as {RegApi2::Common} methods.
+# * {RegApi2.domain} API category implemented as {RegApi2::Domain} methods.
+# * {RegApi2.user} API category implemented as {RegApi2::User} methods.
+# * {RegApi2.service} API category implemented as {RegApi2::Service} methods.
+# * {RegApi2.bill} API category implemented as {RegApi2::Bill} methods.
+# * {RegApi2.folder} API category implemented as {RegApi2::Folder} methods.
+# * {RegApi2.zone} API category implemented as {RegApi2::Zone} methods.
+#
+# Please read {file:README.md} for API overview.
+
 module RegApi2
 
   # Shortcut for {RegApi2::Common} methods
   # @return [Module] {RegApi2::Common}
+  # @api Shortcuts
   def common; RegApi2::Common; end
   module_function :common
 
   # Shortcut for {RegApi2::Domain} methods.
   # @return [Module] {RegApi2::Domain} 
+  # @api Shortcuts
   def domain; RegApi2::Domain; end
   module_function :domain
 
   # Shortcut for {RegApi2::User} methods.
   # @return [Module] {RegApi2::User}
+  # @api Shortcuts
   def user; RegApi2::User; end
   module_function :user
 
   # Shortcut for {RegApi2::Service} methods.
   # @return [Module] {RegApi2::Service}
+  # @api Shortcuts
   def service; RegApi2::Service; end
   module_function :service
 
   # Shortcut for {RegApi2::Bill} methods.
   # @return [Module] {RegApi2::Bill}
+  # @api Shortcuts
   def bill; RegApi2::Bill; end
   module_function :bill
 
   # Shortcut for {RegApi2::Folder} methods.
   # @return [Module] {RegApi2::Folder}
+  # @api Shortcuts
   def folder; RegApi2::Folder; end
   module_function :folder
 
   # Shortcut for {RegApi2::Zone} methods.
   # @return [Module] {RegApi2::Zone}
+  # @api Shortcuts
   def zone; RegApi2::Zone; end
   module_function :zone
 
