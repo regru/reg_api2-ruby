@@ -57,6 +57,31 @@ module RegApi2
     #    RegApi2.folder.rename folder_name: 'test_folder_name', new_folder_name: 'new_test_folder_name'
     define :rename, required: %w[ new_folder_name ]
 
+    # @!method get_services(opts = {})
+    # Use this function to obtain the list of services available in the folder.
+    # @param [Hash] opts
+    define :get_services
+
+    # @!method add_services(opts = {})
+    # Use this function to add services to folders.
+    # @param [Hash] opts
+    define :add_services
+
+    # @!method remove_services(opts = {})
+    # Use this function to delete services from folders.
+    # @param [Hash] opts
+    define :remove_services
+
+    # @!method replace_services(opts = {})
+    # This function allows replacement of services already available in a folder with other services (deletes the service available in the folder and adds the services defined by the domain_name or service_id parameter).
+    # @param [Hash] opts
+    define :replace_services
+
+    # @!method move_services(opts = {})
+    # Use this function to move service between folders.
+    # @param [Hash] opts
+    define :move_services
+
     extend self
   end
 end
