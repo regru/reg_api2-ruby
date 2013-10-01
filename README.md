@@ -50,7 +50,7 @@ This gem also provides `regapi2console` utility that allows You
 to query REG.API interactively using `irb` shell.
 
 ```
-  reg.api2 git:(master) regapi2console
+$ regapi2console
 Your default username: "test", and You can change it with "~/.regapi2".
 1.9.3-p194 :001 > folder.nop
  => {"name"=>"test_folder_name", "id"=>"-1"}
