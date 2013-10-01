@@ -29,4 +29,14 @@ describe RegApi2::Folder do
       folder.create(folder_name: 'test_folder_name').should be_nil
     end
   end
+
+  describe :remove do
+    it "should remove a folder by id" do
+      folder.remove(folder_id: 123456).should be_nil
+    end
+
+    it "should remove a folder by name" do
+      folder.remove(folder_name: 'test_folder_name').should be_nil
+    end
+  end
 end

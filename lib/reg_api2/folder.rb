@@ -30,6 +30,19 @@ module RegApi2
     #    RegApi2.folder.create folder_name: 'test_folder_name'
     define :create, required: %w[ folder_name ]
 
+    # @!method remove(opts = {})
+    # Removes a folder.
+    # @param [Hash] opts
+    # @option opts [Fixnum] :folder_id Id of folder to remove.
+    # @option opts [String] :folder_name The name of folder to remove.
+    # @return [nil] nil.
+    # @note Support of service lists: no
+    # @example Removing of folder by id
+    #    RegApi2.folder.remove folder_id: 123456
+    # @example Removing of folder by name
+    #    RegApi2.folder.remove folder_name: 'test_folder_name'
+    define :remove
+
     extend self
   end
 end
