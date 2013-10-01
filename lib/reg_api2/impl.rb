@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+require 'uri'
 require 'net/http'
 require 'net/https'
 require 'yajl'
@@ -49,6 +50,15 @@ module RegApi2
     # @!attribute [rw] lang
     # @return [String] Language ('en' by default).
     attr_accessor :lang
+    # @!attribute [rw] ca_cert_path
+    # @return [String] Path to certificate (nil by default).
+    attr_accessor :ca_cert_path
+    # @!attribute [rw] pem
+    # @return [String] PEM (nil by default).
+    attr_accessor :pem
+    # @!attribute [rw] pem_password
+    # @return [String] PEM password (nil by default).
+    attr_accessor :pem_password
 
     # Default IO encoding
     DEFAULT_IO_ENCODING = 'utf-8'
@@ -67,6 +77,21 @@ module RegApi2
           API_URI.port
         )
         http.use_ssl = true
+        unless ca_cert_path.nil?
+          http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+          http.ca_file     = ca_cert_path
+        else
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        end
+        unless pem.nil?
+          http.cert = OpenSSL::X509::Certificate.new(pem)
+          if pem_password
+            raise ArgumentError, "The private key requires a password"  if pem_password.empty?
+            http.key = OpenSSL::PKey::RSA.new(pem, pem_password)
+          else
+            http.key = OpenSSL::PKey::RSA.new(pem)
+          end
+        end
         http
       end
     end
@@ -96,8 +121,6 @@ module RegApi2
       opts = RegApi2::RequestContract.new(defopts).validate(opts)
 
       form = {
-        'username' => username,
-        'password' => password,
         'io_encoding' => io_encoding,
         'lang' => lang || DEFAULT_LANG,
         'output_format' => 'json',
@@ -105,6 +128,9 @@ module RegApi2
         'show_input_params' => 0,
         'input_data' => Yajl::Encoder.encode(opts)
       }
+
+      form['username'] = username  if username
+      form['password'] = password  if password
 
       form
     end
