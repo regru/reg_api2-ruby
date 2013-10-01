@@ -44,7 +44,7 @@ RegApi2.service.nop(services: [
 
 Other examples available as examples of concrete method calls.
 
-## Console
+### Console
 
 This gem also provides `regapi2console` utility that allows You
 to query REG.API interactively using `irb` shell.
