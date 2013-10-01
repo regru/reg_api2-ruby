@@ -9,6 +9,8 @@ REG.API v2 Implementation.
 
 We want to note that Ruby client uses recommended way to access API: POST requests with JSON input/output in utf-8 encoding over HTTPS protocol.
 
+This code hosted on [GitHub](https://github.com/regru/reg_api2-ruby).
+
 ## Installation
 
 Add this line to your application's Gemfile:
