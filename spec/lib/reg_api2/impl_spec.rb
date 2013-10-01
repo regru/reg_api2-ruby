@@ -72,10 +72,10 @@ describe RegApi2 do
 
     it "should raise ApiError with NO_SUCH_COMMAND code on absent command" do
       lambda do
-        RegApi2.make_action("bad", "command", {}, {})
+        RegApi2.make_action(:bad, :command, {}, {})
       end.should raise_error RegApi2::ApiError
       lambda do
-        RegApi2.make_action("bad", "command", {}, {})
+        RegApi2.make_action(:bad, :command, {}, {})
       end.should raise_error /NO_SUCH_COMMAND/
     end
   end
