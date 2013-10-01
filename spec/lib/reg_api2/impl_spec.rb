@@ -65,5 +65,18 @@ describe RegApi2 do
       http = RegApi2.create_http
       http.cert.should == pem
       http.key.should_not  be_nil
-    end  end
+    end
+  end
+
+  describe :make_action do
+
+    it "should raise ApiError with NO_SUCH_COMMAND code on absent command" do
+      lambda do
+        RegApi2.make_action("bad", "command", {}, {})
+      end.should raise_error RegApi2::ApiError
+      lambda do
+        RegApi2.make_action("bad", "command", {}, {})
+      end.should raise_error /NO_SUCH_COMMAND/
+    end
+  end
 end
