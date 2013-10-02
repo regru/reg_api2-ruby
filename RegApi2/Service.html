@@ -161,7 +161,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Removes the service.</p>
+</div></span>
   
 </li>
 
@@ -183,7 +184,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to get a list of invoices associated with the defined services.</p>
+</div></span>
   
 </li>
 
@@ -205,7 +207,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Get the dedicated server list.</p>
+</div></span>
   
 </li>
 
@@ -227,7 +230,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to calculate the number of periods till the service expiration date.</p>
+</div></span>
   
 </li>
 
@@ -249,7 +253,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to get detailed information about the service, including contact data for domains.</p>
+</div></span>
   
 </li>
 
@@ -271,7 +276,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to get the list of folders the service is associated with.</p>
+</div></span>
   
 </li>
 
@@ -293,7 +299,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to obtain information about all services.</p>
+</div></span>
   
 </li>
 
@@ -315,7 +322,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to obtain a list of active services.</p>
+</div></span>
   
 </li>
 
@@ -406,7 +414,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>You can use this function to grant a part of service management rights to other users.</p>
+</div></span>
   
 </li>
 
@@ -428,7 +437,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to stop granting service management rights to other.</p>
+</div></span>
   
 </li>
 
@@ -450,7 +460,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Domain or service renewal.</p>
+</div></span>
   
 </li>
 
@@ -458,7 +469,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#resend_mail-instance_method" title="#resend_mail (instance method)">- (Object) <strong>resend_mail</strong>(opts = {}) </a>
+      <a href="#resend_mail-instance_method" title="#resend_mail (instance method)">- (Hash(service_id, dname)) <strong>resend_mail</strong>(opts = {}) </a>
     
 
     
@@ -472,7 +483,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Resend mail to user.</p>
+</div></span>
   
 </li>
 
@@ -494,12 +506,13 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to resume services (for domains – resume domain delegation).</p>
+</div></span>
   
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#service_get_details-instance_method" title="#service_get_details (instance method)">- (Object) <strong>service_get_details</strong>(opts = {}) </a>
@@ -512,11 +525,12 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#get_info-instance_method" title="RegApi2::Service#get_info (method)">#get_info</a></span> instead.</p>
+</div></span>
   
 </li>
 
@@ -538,7 +552,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Enables or disables automatic service renewal.</p>
+</div></span>
   
 </li>
 
@@ -560,7 +575,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Use this function to suspend services (for domains – suspend delegation).</p>
+</div></span>
   
 </li>
 
@@ -582,7 +598,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>Service configuration.</p>
+</div></span>
   
 </li>
 
@@ -604,7 +621,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>This function upgrades service subtypes (rate plans).</p>
+</div></span>
   
 </li>
 
@@ -734,6 +752,27 @@ TODO: specific options.</p>
       <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span> <span class='label'>dname:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>qqq.ru</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='label'>servtype:</span> <span class='symbol'>:srv_hosting_ispmgr</span><span class='comma'>,</span> <span class='label'>period:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>plan:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Host-2-1209</span><span class='tstring_end'>'</span></span></code></pre>
     
   </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
   
     
@@ -919,10 +958,10 @@ TODO: specific options.</p>
       <pre class="lines">
 
 
-90</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 91</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:create</span><span class='comma'>,</span> <span class='label'>required:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>servtype</span><span class='words_sep'> ]</span></pre>
     </td>
@@ -939,16 +978,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Removes the service.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-93</pre>
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 96</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:delete</span><span class='comma'>,</span> <span class='label'>required:</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>servtype</span><span class='words_sep'> ]</span></pre>
     </td>
@@ -965,16 +1035,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to get a list of invoices associated with the defined services.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-120</pre>
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 142</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_bills</span></pre>
     </td>
@@ -991,16 +1092,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get the dedicated server list.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-111</pre>
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 127</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_dedicated_server_list</span></pre>
     </td>
@@ -1017,16 +1149,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to calculate the number of periods till the service expiration date.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-132</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 162</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_depreciated_period</span></pre>
     </td>
@@ -1043,16 +1206,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to get detailed information about the service, including contact data for domains.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-105</pre>
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 116</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_details</span></pre>
     </td>
@@ -1069,16 +1263,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to get the list of folders the service is associated with.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-102</pre>
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 111</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_folders</span></pre>
     </td>
@@ -1095,16 +1320,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to obtain information about all services.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-96</pre>
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 101</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_info</span></pre>
     </td>
@@ -1121,16 +1377,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to obtain a list of active services.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-99</pre>
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 106</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:get_list</span></pre>
     </td>
@@ -1179,6 +1466,10 @@ TODO: specific options.</p>
       
         <em class="default">(defaults to: <tt>{}</tt>)</em>
       
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
       
     </li>
   
@@ -1300,6 +1591,10 @@ TODO: specific options.</p>
       
         <em class="default">(defaults to: <tt>{}</tt>)</em>
       
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
       
     </li>
   
@@ -1433,6 +1728,10 @@ TODO: specific options.</p>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
     </li>
   
 </ul>
@@ -1495,16 +1794,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>You can use this function to grant a part of service management rights to other users.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-138</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 172</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:partcontrol_grant</span></pre>
     </td>
@@ -1521,16 +1851,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to stop granting service management rights to other.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-141</pre>
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 177</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:partcontrol_revoke</span></pre>
     </td>
@@ -1547,16 +1908,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Domain or service renewal.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-117</pre>
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 137</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:renew</span></pre>
     </td>
@@ -1567,22 +1959,98 @@ TODO: specific options.</p>
       <div class="method_details ">
   <h3 class="signature " id="resend_mail-instance_method">
   
-    - (<tt>Object</tt>) <strong>resend_mail</strong>(opts = {}) 
+    - (<tt>Hash(service_id, dname)</tt>) <strong>resend_mail</strong>(opts = {}) 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Resend mail to user.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Resend mail.</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_resend_mail'>resend_mail</span> <span class='label'>servtype:</span> <span class='symbol'>:srv_ssl_certificate</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">mailtype</span>
+          <span class="type">(<tt>Array</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Email type: <code>approver_email</code> — approve ssl certificate order, <code>certificate_email</code> — certificate email.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(service_id, dname)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-144</pre>
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 186</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:resend_mail</span></pre>
     </td>
@@ -1599,16 +2067,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to resume services (for domains – resume domain delegation).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-129</pre>
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 157</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:resume</span></pre>
     </td>
@@ -1625,16 +2124,49 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#get_info-instance_method" title="RegApi2::Service#get_info (method)">#get_info</a></span> instead.</p>
+</div></div>
+<p>You can use this function to obtain general information about the ordered service, as well as additional data about the hosting and web forwarding services. It is an obsolete function. For the major part of service it is advisable to use the <span class='object_link'><a href="#get_info-instance_method" title="RegApi2::Service#get_info (method)">#get_info</a></span> function instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-108</pre>
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 122</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:service_get_details</span></pre>
     </td>
@@ -1651,16 +2183,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Enables or disables automatic service renewal.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-123</pre>
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 147</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:set_autorenew_flag</span></pre>
     </td>
@@ -1677,16 +2240,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this function to suspend services (for domains – suspend delegation).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-126</pre>
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 152</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:suspend</span></pre>
     </td>
@@ -1703,16 +2297,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Service configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-114</pre>
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 132</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:update</span></pre>
     </td>
@@ -1729,16 +2354,47 @@ TODO: specific options.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>This function upgrades service subtypes (rate plans). It can be used for changes of rate plans for virtual hosting (&quot;srv_hosting_ispmgr&quot;), VPS servers(&quot;srv_vps&quot;) and Additional Disk Space for VPS (&quot;srv_disk_space&quot;).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-135</pre>
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 167</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:upgrade</span></pre>
     </td>
@@ -1751,7 +2407,7 @@ TODO: specific options.</p>
 </div>
 
     <div id="footer">
-  Generated on Tue Oct  1 19:09:09 2013 by
+  Generated on Wed Oct  2 18:18:57 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
