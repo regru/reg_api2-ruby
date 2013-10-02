@@ -168,6 +168,30 @@ We advise you to store all domain- and service-related locally and address to RE
 
 <h2>REG.API 2.0 overview</h2>
 
+<h3>Method accessibility</h3>
+
+<p>All REG.API methods can be divided into categories of accessibility. On Ruby documentation accessibility marked by note. At the moment the following categories of accessibility present:</p>
+
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>everyone</td>
+<td>All methods tagged by this one are accessible to all users. Those methods does not require authentication before call.</td>
+</tr>
+<tr>
+<td>clients</td>
+<td>This tag indicates the methods which accessible only for users registered on REG.API provider. Strongly required an authenticated API request.</td>
+</tr>
+<tr>
+<td>partners</td>
+<td>Group of methods which accessible only for partners (resellers) of the REG.API provider (REG.RU LLC). Actually, partners (resellers) able to execute all methods of the REG.API without any restrictions.</td>
+</tr>
+</tbody></table>
+
 <h3>Service identification parameters</h3>
 
 <p>This group of parameters serves for identification of specific pre-ordered services.</p>
@@ -326,7 +350,7 @@ open doc/index.html
 </div></div>
 
     <div id="footer">
-  Generated on Wed Oct  2 18:18:56 2013 by
+  Generated on Wed Oct  2 19:17:44 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
