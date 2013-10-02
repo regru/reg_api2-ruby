@@ -98,6 +98,16 @@ We hope that this information will be useful for you and that it will help you t
 
 ## REG.API 2.0 overview
 
+### Method accessibility
+
+All REG.API methods can be divided into categories of accessibility. On Ruby documentation accessibility marked by note. At the moment the following categories of accessibility present:
+
+| Category | Description |
+|----------|-------------|
+| everyone | All methods tagged by this one are accessible to all users. Those methods does not require authentication before call. |
+| clients  | This tag indicates the methods which accessible only for users registered on REG.API provider. Strongly required an authenticated API request. |
+| partners | Group of methods which accessible only for partners (resellers) of the REG.API provider (REG.RU LLC). Actually, partners (resellers) able to execute all methods of the REG.API without any restrictions. |
+
 ### Service identification parameters
 This group of parameters serves for identification of specific pre-ordered services.
 
