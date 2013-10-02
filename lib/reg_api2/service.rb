@@ -9,7 +9,7 @@ module RegApi2
 
     # @!method nop(opts = {})
     # Return list of specified services with its stats if specified.
-    # @param opts
+    # @param opts Options.
     # @option opts [Array] services
     # @return [Hash("services" => [])]
     # @example List of services by specified identifiers
@@ -24,7 +24,7 @@ module RegApi2
 
     # @!method get_prices(opts = {})
     # Get services registration/renewal prices.
-    # @param opts
+    # @param opts Options.
     # @option opts [Boolean] :show_renew_data With this flag enabled the system will return the price of renewal (1/0). Optional field.
     # @option opts [String, Symbol] :currency Identifier of the currency in which the prices will be quoted: rur (default), uah, usd, eur. Optional field.
     # @return [Hash(currency, price_group, show_renew_data, prices)] Prices.
@@ -35,7 +35,7 @@ module RegApi2
     # @!method get_servtype_details(opts = {})
     # Use this function to get prices for services and general data.
     # @note To obtain prices for several service types, you can define them in the servtype field delimiting them with commas or include several servtype fields into the request. In this case the field subtype is ignored.
-    # @param opts
+    # @param opts Options.
     # @option opts [String, Symbol] :servtype Type of service: srv_webfwd — web forwarding, srv_parking — domain parking, srv_dns_both — DNS support, srv_hosting_ispmgr — hosting, srv_certificate — domain certificate, srv_voucher — domain voucher, srv_kvm — KVM access.
     # @option opts [String, Symbol] :subtype Service subtype.
     # @option opts [Boolean] :unroll_prices Show prices in expanded form.
@@ -70,6 +70,7 @@ module RegApi2
     #
     # Common payment options are allowed.
     # folder_name or folder_id are allowed.
+    # @param opts Options.
     # @option opts [String] :domain_name Name of the domain, for which the service is ordered.
     # @option opts [String, Symbol] :servtype The type of the ordered service.
     # @option opts [Object] :period The period for which the service is ordered, the unit of measurement (year or month) depends on the type of the service being ordered. To learn about the measurement units used for each service, use the {#get_servtype_details} function.
@@ -90,57 +91,98 @@ module RegApi2
     define :create, required: %w[ servtype ]
 
     # @!method delete(opts = {})
+    # Removes the service.
+    # @param opts Options.
     define :delete, required: %w[ servtype ]
 
     # @!method get_info(opts = {})
+    # Use this function to obtain information about all services.
+    # @param opts Options.
     define :get_info
 
     # @!method get_list(opts = {})
+    # Use this function to obtain a list of active services.
+    # @param opts Options.
     define :get_list
 
     # @!method get_folders(opts = {})
+    # Use this function to get the list of folders the service is associated with.
+    # @param opts Options.
     define :get_folders
 
     # @!method get_details(opts = {})
+    # Use this function to get detailed information about the service, including contact data for domains.
+    # @param opts Options.
     define :get_details
 
     # @!method service_get_details(opts = {})
+    # @deprecated Use {#get_info} instead.
+    # You can use this function to obtain general information about the ordered service, as well as additional data about the hosting and web forwarding services. It is an obsolete function. For the major part of service it is advisable to use the {#get_info} function instead.
+    # @param opts Options.
     define :service_get_details
 
     # @!method get_dedicated_server_list(opts = {})
+    # Get the dedicated server list.
+    # @param opts Options.
     define :get_dedicated_server_list
 
     # @!method update(opts = {})
+    # Service configuration.
+    # @param opts Options.
     define :update
 
     # @!method renew(opts = {})
+    # Domain or service renewal.
+    # @param opts Options.
     define :renew
 
     # @!method get_bills(opts = {})
+    # Use this function to get a list of invoices associated with the defined services.
+    # @param opts Options.
     define :get_bills
 
     # @!method set_autorenew_flag(opts = {})
+    # Enables or disables automatic service renewal.
+    # @param opts Options.
     define :set_autorenew_flag
 
     # @!method suspend(opts = {})
+    # Use this function to suspend services (for domains – suspend delegation).
+    # @param opts Options.
     define :suspend
 
     # @!method resume(opts = {})
+    # Use this function to resume services (for domains – resume domain delegation).
+    # @param opts Options.
     define :resume
 
     # @!method get_depreciated_period(opts = {})
+    # Use this function to calculate the number of periods till the service expiration date.
+    # @param opts Options.
     define :get_depreciated_period
 
     # @!method upgrade(opts = {})
+    # This function upgrades service subtypes (rate plans). It can be used for changes of rate plans for virtual hosting ("srv_hosting_ispmgr"), VPS servers("srv_vps") and Additional Disk Space for VPS ("srv_disk_space").
+    # @param opts Options.
     define :upgrade
 
     # @!method partcontrol_grant(opts = {})
+    # You can use this function to grant a part of service management rights to other users.
+    # @param opts Options.
     define :partcontrol_grant
 
     # @!method partcontrol_revoke(opts = {})
+    # Use this function to stop granting service management rights to other.
+    # @param opts Options.
     define :partcontrol_revoke
 
     # @!method resend_mail(opts = {})
+    # Resend mail to user.
+    # @param opts Options.
+    # @option opts [Array] mailtype Email type: `approver_email` — approve ssl certificate order, `certificate_email` — certificate email.
+    # @return [Hash(service_id, dname)]
+    # @example Resend mail.
+    #    RegApi2.service.resend_mail servtype: :srv_ssl_certificate
     define :resend_mail
 
     extend self
