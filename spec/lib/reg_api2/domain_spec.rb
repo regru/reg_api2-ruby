@@ -23,4 +23,11 @@ describe RegApi2::Domain do
       prices.currency.should == 'USD'
     end
   end
+
+  describe :get_suggest do
+    it "should return suggestions" do
+      ans = domain.get_suggest word: 'house', additional_word: 'new', use_hyphen: false, tlds: [ :ru ]
+      ans.should be_kind_of(Array)
+    end
+  end
 end
