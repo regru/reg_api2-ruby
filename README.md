@@ -98,6 +98,12 @@ We hope that this information will be useful for you and that it will help you t
 
 ## REG.API 2.0 overview
 
+### General interaction principles
+
+Each call of a function is atomic and synchronous, i.e. all requests are independent. All operations are also synchronous: the result of an operation returns immediately, there are no any intermediate stages during execution of operations. The choice in favor of this interaction method was made to simplify the customers’ work flow with REG.API.
+
+Parallel processing of calls is available to requests not changing balance of the client on the account of REG.API provider.
+
 ### Method accessibility
 
 All REG.API methods can be divided into categories of accessibility. On Ruby documentation accessibility marked by note. At the moment the following categories of accessibility present:
