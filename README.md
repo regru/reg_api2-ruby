@@ -169,6 +169,79 @@ This section describes the parameters common for the functions dealing with serv
 | pay_type | Payment option. Currently available payment options: (WM, bank, pbank, prepay, yamoney, rapida, robox, paymer, cash, chronopay). Default value: prepay. Please note that automatic payments can be done only if the selected payment method is «prepay» and you have enough funds in your account. Otherwise, your order will be marked as unpaid and you will have to arrange the payment manually from your profile page. |
 | ok_if_no_money | Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting "change payment method" request via web interface. Return error if this flag not set and not enough funds to complete the operation. |
 
+### Common error codes
+
+Error code from REG.API raised by client as exception of {RegApi2::ApiError} class. Test its `message` or `to_s` to know what happens.
+
+| Error_code | Description |
+|------------|-------------|
+| | **Authorization errors** |
+| NO_USERNAME | Username is not specified. |
+| NO_AUTH | Method of authorization is not determined (probably, the password or signature fields are not found). |
+| PASSWORD_AUTH_FAILED | Password authentification failed. |
+| RESELLER_AUTH_FAILED | This function is available only for the Partners. |
+| ACCESS_DENIED | Your access to the API is blocked, please refer to the technical support. |
+| PURCHASES_DISABLED | Buying/selling is forbidden for the given account. |
+| | **Errors of domains, services, folders identification** |
+| DOMAIN_NOT_FOUND | Domain `domain_name` is not found, or you are not the owner. |
+| SERVICE_NOT_FOUND | Service `servtype` for domain `domain_name` is not found. |
+| SERVICE_NOT_SPECIFIED | Error of the service identification. |
+| SERVICE_ID_NOT_FOUND | Service `service_id` is not found, or you are not the owner. |
+| NO_DOMAIN | domain_name is not specified or blank |
+| INVALID_DOMAIN_NAME_FORMAT | Format domain_name is not valid or domain is in unserviced TLD. |
+| INVALID_SERVICE_ID | Format of service_id is not valid.
+| INVALID_DOMAIN_NAME_PUNYCODE | The value of punycode for domain_name is not valid. |
+| BAD_USER_SERVID | Invalid value for user_servid. |
+| USER_SERVID_IS_NOT_UNIQUE | Non-unique field value user_servid at service/domain order. |
+| TOO_MANY_OBJECTS_IN_ONE_REQUEST | Too many objects are indicated (more than 1000) in one request. |
+| | **Accessibility errors** |
+| SERVICE_UNAVAILABLE | Reg.API is temporarily unavailable |
+| BILLING_LOCK | You have another active connection for financial operation to Reg.API |
+| DOMAIN_BAD_NAME | Not valid name: `domain_name` |
+| DOMAIN_BAD_NAME_ONLYDIGITS | Domain registration, which name contains only numbers is not acceptable for the given TLD |
+| HAVE_MIXED_CODETABLES | It is unacceptable to mix national and Latin letters in the domain name |
+| DOMAIN_BAD_TLD | Domain registration with `tld` extension is not available |
+| TLD_DISABLED | Domain registration with `tld` extension is disabled |
+| DOMAIN_NAME_MUSTBEENG | National letters are unacceptable in the domain name for the given extension (`tld`) |
+| DOMAIN_NAME_MUSTBERUS | Latin letters are unacceptable in the domain name for the given extension (`tld`) |
+| DOMAIN_ALREADY_EXISTS | The domain already exists, check via whois. |
+| DOMAIN_INVALID_LENGTH | Invalid length of the domain name, you have entered either too short or too long name |
+| DOMAIN_STOP_LIST | Unacceptable name, this domain is reserved, or it’s a premium-domain, which is offered at a special price |
+| DOMAIN_STOP_PATTERN | Unfortunately, it’s impossible to register the name (`domain_name`) |
+| FREE_DATE_IN_FUTURE | Domain’s release date of `domain_name` will be in future, AFTER the next date of the mass domain release |
+| NO_DOMAINS_CHECKED | You haven’t selected any domain for registration |
+| NO_CONTRACT | Filing an application for pre-term domain name registration is not possible after release before signing your contract about domain registration |
+| INVALID_PUNYCODE_INPUT | Incorrect punycode name (error at the process of coding into Punycode) |
+| CONNECTION_FAILED | Unable to check status of the domain: Can not connect the server. Please, try again later. |
+| DOMAIN_ALREADY_ORDERED | Domain name `domain_name` has been already ordered by you before, You can pay for it, and the application for registration shall be done. |
+| DOMAIN_EXPIRED | Unfortunately, the period of domain delegation of `domain_name` either has expired or will expire in the nearest future |
+| DOMAIN_TOO_YOUNG | Unfortunately, less than 60 days have passed from the moment of domain `domain_name` registration, try to transfer the domain later |
+| CANT_OBTAIN_EXPDATE | Impossible to determine the date of the domain delegation of `domain_name` |
+| DOMAIN_CLIENT_TRANSFER_PROHIBITED | Domain `domain_name` is prohibited for transfer, contact the previous registrar to unlock the domain |
+| DOMAIN_TRANSFER_PROHIBITED_UNKNOWN | Domain `domain_name` is prohibited for transfer by the upstream registrar, contact Technical Support for details |
+| DOMAIN_REGISTERED_VIA_DIRECTI | Automatic transfer of the domain name `domain_name` within DirectI is prohibited |
+| NOT_FOUND_UNIQUE_REQUIRED_DATA | The data for checking the uniqueness are not found: dname, servtype or user_id |
+| ORDER_ALREADY_PAYED | Order on `dname` `servtype` is already payed |
+| DOUBLE_ORDER | You already have not payed order on `dname` `servtype` |
+| DOMAIN_ORDER_LOCKED | The order of the domain is disabled since processing of other order for the same domain isn't completed yet |
+| UNAVAILABLE_DOMAIN_ZONE | `tld` is unavailable domain zone |
+| | **Errors at working with DNS servers** |
+| DOMAIN_IS_NOT_USE_REGRU_NSS | This domain does not use the DNS-server of REG.RU |
+| REVERSE_ZONE_API_NOT_SUPPORTED | Configuring of reverse zones are currently not supported |
+| ZONES_VARY | The domains in the list have different TLD configurations |
+| IP_INVALID | Error in IP address. |
+| SUBD_INVALID | Invalid subdomain |
+| CONFLICT_CNAME | It’s impossible to indicate CNAME logs for a single subdomain together with other logs |
+| | **Other errors** |
+| NO_SUCH_COMMAND | Command `command_name` is not found |
+| HTTPS_ONLY | Access to API via an unsecured interface (http) is prohibited! Please, use https. |
+| PARAMETER_MISSING | `param`('s) is (are) not found.
+| PARAMETER_INCORRECT | `param` has incorrect format or data. |
+| NOT_ENOUGH_MONEY | Not enough money at account for this operation. |
+| INTERNAL_ERROR | Internal error: `error_details`, inform the developers. |
+| SERVICE_OPERATIONS_DISABLED | Service operations are prohibited |
+| UNSUPPORTED_CURRENCY | Currency is not supported in the given system |
+
 ## Documentation
 
 Actual documentation available at https://www.reg.com/support/help/API-version2
