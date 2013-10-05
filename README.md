@@ -61,9 +61,10 @@ Your default username: "test", and You can change it with "~/.regapi2".
 ```
 
 ## Recommendations for effective use of REG.API
+
 This section provides information that will help you to make you work with REG.API more productive and convenient.
 
-One of the most frequent problems our partners face when working with REG.API is exceeding the maximum request limit (1,200 requests per hour).
+One of the most frequent problems our partners face when working with REG.API is exceeding the maximum request limit (1,200 requests per hour for user/ip). Both limits are acting at the same time. If the limits has exceeded then REG.API sets the error code (depends on kind of) `IP_EXCEEDED_ALLOWED_CONNECTION_RATE` or `ACCOUNT_EXCEEDED_ALLOWED_CONNECTION_RATE`, that raised by client as error of {RegApi2::ApiError} class.
 
 The analysis of such situations showed that in most cases such problems are the results of improper use or misuse of REG.API due to bugs or design faults in the software used by partners.
 
@@ -92,7 +93,9 @@ The recommendations below will, on the one hand, allow you to preclude situation
   * In case of connection failures the request can be repeated until it is executed (this significantly increases the system reliability).
   * In case of request processing errors (if REG.RU returned an error code), you can fix the problem and repeat the request, while the customer will not get any error messages. You can solve the major part of your customers’ problems on your own without their participation.
 
-4. It is a good practice to keep logs of all API request and responses. If a problem arises, logs will help you or our support engineers to efficiently locate and solve it.
+4. Use bulk operations whenever possible. A lot of methods support operations over lists of services and domains at once.
+
+5. It is a good practice to keep logs of all API request and responses. If a problem arises, logs will help you or our support engineers to efficiently locate and solve it.
 
 We hope that this information will be useful for you and that it will help you to optimize your work with REG.API.
 
