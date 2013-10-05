@@ -64,7 +64,7 @@ Your default username: "test", and You can change it with "~/.regapi2".
 
 This section provides information that will help you to make you work with REG.API more productive and convenient.
 
-One of the most frequent problems our partners face when working with REG.API is exceeding the maximum request limit (1,200 requests per hour for user/ip). Both limits are acting at the same time. If the limits has exceeded then REG.API sets the error code (depends on kind of) `IP_EXCEEDED_ALLOWED_CONNECTION_RATE` or `ACCOUNT_EXCEEDED_ALLOWED_CONNECTION_RATE`, that raised by client as exception of {RegApi2::ApiError} class.
+One of the most frequent problems our partners face when working with REG.API is exceeding the maximum request limit (1,200 requests per hour for user/ip). Both limits are acting at the same time. If the limits has exceeded then REG.API sets the error code (depends on kind of) to `IP_EXCEEDED_ALLOWED_CONNECTION_RATE` or `ACCOUNT_EXCEEDED_ALLOWED_CONNECTION_RATE`, that raised by client as exception of {RegApi2::ApiError} class.
 
 The analysis of such situations showed that in most cases such problems are the results of improper use or misuse of REG.API due to bugs or design faults in the software used by partners.
 
