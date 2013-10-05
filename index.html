@@ -334,6 +334,282 @@ We advise you to store all domain- and service-related locally and address to RE
 </tr>
 </tbody></table>
 
+<h3>Common error codes</h3>
+
+<p>Error code from REG.API raised by client as exception of <span class='object_link'><a href="RegApi2/ApiError.html" title="RegApi2::ApiError (class)">RegApi2::ApiError</a></span> class. Test its <code>message</code> or <code>to_s</code> to know what happens.</p>
+
+<table><thead>
+<tr>
+<th>Error_code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td></td>
+<td><strong>Authorization errors</strong></td>
+</tr>
+<tr>
+<td>NO_USERNAME</td>
+<td>Username is not specified.</td>
+</tr>
+<tr>
+<td>NO_AUTH</td>
+<td>Method of authorization is not determined (probably, the password or signature fields are not found).</td>
+</tr>
+<tr>
+<td>PASSWORD_AUTH_FAILED</td>
+<td>Password authentification failed.</td>
+</tr>
+<tr>
+<td>RESELLER_AUTH_FAILED</td>
+<td>This function is available only for the Partners.</td>
+</tr>
+<tr>
+<td>ACCESS_DENIED</td>
+<td>Your access to the API is blocked, please refer to the technical support.</td>
+</tr>
+<tr>
+<td>PURCHASES_DISABLED</td>
+<td>Buying/selling is forbidden for the given account.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Errors of domains, services, folders identification</strong></td>
+</tr>
+<tr>
+<td>DOMAIN_NOT_FOUND</td>
+<td>Domain <code>domain_name</code> is not found, or you are not the owner.</td>
+</tr>
+<tr>
+<td>SERVICE_NOT_FOUND</td>
+<td>Service <code>servtype</code> for domain <code>domain_name</code> is not found.</td>
+</tr>
+<tr>
+<td>SERVICE_NOT_SPECIFIED</td>
+<td>Error of the service identification.</td>
+</tr>
+<tr>
+<td>SERVICE_ID_NOT_FOUND</td>
+<td>Service <code>service_id</code> is not found, or you are not the owner.</td>
+</tr>
+<tr>
+<td>NO_DOMAIN</td>
+<td>domain_name is not specified or blank</td>
+</tr>
+<tr>
+<td>INVALID_DOMAIN_NAME_FORMAT</td>
+<td>Format domain_name is not valid or domain is in unserviced TLD.</td>
+</tr>
+<tr>
+<td>INVALID_SERVICE_ID</td>
+<td>Format of service_id is not valid.</td>
+</tr>
+<tr>
+<td>INVALID_DOMAIN_NAME_PUNYCODE</td>
+<td>The value of punycode for domain_name is not valid.</td>
+</tr>
+<tr>
+<td>BAD_USER_SERVID</td>
+<td>Invalid value for user_servid.</td>
+</tr>
+<tr>
+<td>USER_SERVID_IS_NOT_UNIQUE</td>
+<td>Non-unique field value user_servid at service/domain order.</td>
+</tr>
+<tr>
+<td>TOO_MANY_OBJECTS_IN_ONE_REQUEST</td>
+<td>Too many objects are indicated (more than 1000) in one request.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Accessibility errors</strong></td>
+</tr>
+<tr>
+<td>SERVICE_UNAVAILABLE</td>
+<td>Reg.API is temporarily unavailable</td>
+</tr>
+<tr>
+<td>BILLING_LOCK</td>
+<td>You have another active connection for financial operation to Reg.API</td>
+</tr>
+<tr>
+<td>DOMAIN_BAD_NAME</td>
+<td>Not valid name: <code>domain_name</code></td>
+</tr>
+<tr>
+<td>DOMAIN_BAD_NAME_ONLYDIGITS</td>
+<td>Domain registration, which name contains only numbers is not acceptable for the given TLD</td>
+</tr>
+<tr>
+<td>HAVE_MIXED_CODETABLES</td>
+<td>It is unacceptable to mix national and Latin letters in the domain name</td>
+</tr>
+<tr>
+<td>DOMAIN_BAD_TLD</td>
+<td>Domain registration with <code>tld</code> extension is not available</td>
+</tr>
+<tr>
+<td>TLD_DISABLED</td>
+<td>Domain registration with <code>tld</code> extension is disabled</td>
+</tr>
+<tr>
+<td>DOMAIN_NAME_MUSTBEENG</td>
+<td>National letters are unacceptable in the domain name for the given extension (<code>tld</code>)</td>
+</tr>
+<tr>
+<td>DOMAIN_NAME_MUSTBERUS</td>
+<td>Latin letters are unacceptable in the domain name for the given extension (<code>tld</code>)</td>
+</tr>
+<tr>
+<td>DOMAIN_ALREADY_EXISTS</td>
+<td>The domain already exists, check via whois.</td>
+</tr>
+<tr>
+<td>DOMAIN_INVALID_LENGTH</td>
+<td>Invalid length of the domain name, you have entered either too short or too long name</td>
+</tr>
+<tr>
+<td>DOMAIN_STOP_LIST</td>
+<td>Unacceptable name, this domain is reserved, or it’s a premium-domain, which is offered at a special price</td>
+</tr>
+<tr>
+<td>DOMAIN_STOP_PATTERN</td>
+<td>Unfortunately, it’s impossible to register the name (<code>domain_name</code>)</td>
+</tr>
+<tr>
+<td>FREE_DATE_IN_FUTURE</td>
+<td>Domain’s release date of <code>domain_name</code> will be in future, AFTER the next date of the mass domain release</td>
+</tr>
+<tr>
+<td>NO_DOMAINS_CHECKED</td>
+<td>You haven’t selected any domain for registration</td>
+</tr>
+<tr>
+<td>NO_CONTRACT</td>
+<td>Filing an application for pre-term domain name registration is not possible after release before signing your contract about domain registration</td>
+</tr>
+<tr>
+<td>INVALID_PUNYCODE_INPUT</td>
+<td>Incorrect punycode name (error at the process of coding into Punycode)</td>
+</tr>
+<tr>
+<td>CONNECTION_FAILED</td>
+<td>Unable to check status of the domain: Can not connect the server. Please, try again later.</td>
+</tr>
+<tr>
+<td>DOMAIN_ALREADY_ORDERED</td>
+<td>Domain name <code>domain_name</code> has been already ordered by you before, You can pay for it, and the application for registration shall be done.</td>
+</tr>
+<tr>
+<td>DOMAIN_EXPIRED</td>
+<td>Unfortunately, the period of domain delegation of <code>domain_name</code> either has expired or will expire in the nearest future</td>
+</tr>
+<tr>
+<td>DOMAIN_TOO_YOUNG</td>
+<td>Unfortunately, less than 60 days have passed from the moment of domain <code>domain_name</code> registration, try to transfer the domain later</td>
+</tr>
+<tr>
+<td>CANT_OBTAIN_EXPDATE</td>
+<td>Impossible to determine the date of the domain delegation of <code>domain_name</code></td>
+</tr>
+<tr>
+<td>DOMAIN_CLIENT_TRANSFER_PROHIBITED</td>
+<td>Domain <code>domain_name</code> is prohibited for transfer, contact the previous registrar to unlock the domain</td>
+</tr>
+<tr>
+<td>DOMAIN_TRANSFER_PROHIBITED_UNKNOWN</td>
+<td>Domain <code>domain_name</code> is prohibited for transfer by the upstream registrar, contact Technical Support for details</td>
+</tr>
+<tr>
+<td>DOMAIN_REGISTERED_VIA_DIRECTI</td>
+<td>Automatic transfer of the domain name <code>domain_name</code> within DirectI is prohibited</td>
+</tr>
+<tr>
+<td>NOT_FOUND_UNIQUE_REQUIRED_DATA</td>
+<td>The data for checking the uniqueness are not found: dname, servtype or user_id</td>
+</tr>
+<tr>
+<td>ORDER_ALREADY_PAYED</td>
+<td>Order on <code>dname</code> <code>servtype</code> is already payed</td>
+</tr>
+<tr>
+<td>DOUBLE_ORDER</td>
+<td>You already have not payed order on <code>dname</code> <code>servtype</code></td>
+</tr>
+<tr>
+<td>DOMAIN_ORDER_LOCKED</td>
+<td>The order of the domain is disabled since processing of other order for the same domain isn&#39;t completed yet</td>
+</tr>
+<tr>
+<td>UNAVAILABLE_DOMAIN_ZONE</td>
+<td><code>tld</code> is unavailable domain zone</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Errors at working with DNS servers</strong></td>
+</tr>
+<tr>
+<td>DOMAIN_IS_NOT_USE_REGRU_NSS</td>
+<td>This domain does not use the DNS-server of REG.RU</td>
+</tr>
+<tr>
+<td>REVERSE_ZONE_API_NOT_SUPPORTED</td>
+<td>Configuring of reverse zones are currently not supported</td>
+</tr>
+<tr>
+<td>ZONES_VARY</td>
+<td>The domains in the list have different TLD configurations</td>
+</tr>
+<tr>
+<td>IP_INVALID</td>
+<td>Error in IP address.</td>
+</tr>
+<tr>
+<td>SUBD_INVALID</td>
+<td>Invalid subdomain</td>
+</tr>
+<tr>
+<td>CONFLICT_CNAME</td>
+<td>It’s impossible to indicate CNAME logs for a single subdomain together with other logs</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Other errors</strong></td>
+</tr>
+<tr>
+<td>NO_SUCH_COMMAND</td>
+<td>Command <code>command_name</code> is not found</td>
+</tr>
+<tr>
+<td>HTTPS_ONLY</td>
+<td>Access to API via an unsecured interface (http) is prohibited! Please, use https.</td>
+</tr>
+<tr>
+<td>PARAMETER_MISSING</td>
+<td><code>param</code>(&#39;s) is (are) not found.</td>
+</tr>
+<tr>
+<td>PARAMETER_INCORRECT</td>
+<td><code>param</code> has incorrect format or data.</td>
+</tr>
+<tr>
+<td>NOT_ENOUGH_MONEY</td>
+<td>Not enough money at account for this operation.</td>
+</tr>
+<tr>
+<td>INTERNAL_ERROR</td>
+<td>Internal error: <code>error_details</code>, inform the developers.</td>
+</tr>
+<tr>
+<td>SERVICE_OPERATIONS_DISABLED</td>
+<td>Service operations are prohibited</td>
+</tr>
+<tr>
+<td>UNSUPPORTED_CURRENCY</td>
+<td>Currency is not supported in the given system</td>
+</tr>
+</tbody></table>
+
 <h2>Documentation</h2>
 
 <p>Actual documentation available at <a href="https://www.reg.com/support/help/API-version2">https://www.reg.com/support/help/API-version2</a></p>
@@ -357,7 +633,7 @@ open doc/index.html
 </div></div>
 
     <div id="footer">
-  Generated on Sat Oct  5 21:47:41 2013 by
+  Generated on Sun Oct  6 00:13:11 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
