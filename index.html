@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; 'reg.api2 0.0.4'
+    &mdash; 'reg.api2 0.0.5'
   
 </title>
 
@@ -128,7 +128,7 @@ Your default username: &quot;test&quot;, and You can change it with &quot;~/.reg
 
 <p>This section provides information that will help you to make you work with REG.API more productive and convenient.</p>
 
-<p>One of the most frequent problems our partners face when working with REG.API is exceeding the maximum request limit (1,200 requests per hour).</p>
+<p>One of the most frequent problems our partners face when working with REG.API is exceeding the maximum request limit (1,200 requests per hour for user/ip). Both limits are acting at the same time. If the limits has exceeded then REG.API sets the error code (depends on kind of) to <code>IP_EXCEEDED_ALLOWED_CONNECTION_RATE</code> or <code>ACCOUNT_EXCEEDED_ALLOWED_CONNECTION_RATE</code>, that raised by client as exception of <span class='object_link'><a href="RegApi2/ApiError.html" title="RegApi2::ApiError (class)">RegApi2::ApiError</a></span> class.</p>
 
 <p>The analysis of such situations showed that in most cases such problems are the results of improper use or misuse of REG.API due to bugs or design faults in the software used by partners.</p>
 
@@ -161,12 +161,19 @@ We advise you to store all domain- and service-related locally and address to RE
 <li>In case of connection failures the request can be repeated until it is executed (this significantly increases the system reliability).</li>
 <li>In case of request processing errors (if REG.RU returned an error code), you can fix the problem and repeat the request, while the customer will not get any error messages. You can solve the major part of your customers’ problems on your own without their participation.</li>
 </ul></li>
+<li><p>Use bulk operations whenever possible. A lot of methods support operations over lists of services and domains at once.</p></li>
 <li><p>It is a good practice to keep logs of all API request and responses. If a problem arises, logs will help you or our support engineers to efficiently locate and solve it.</p></li>
 </ol>
 
 <p>We hope that this information will be useful for you and that it will help you to optimize your work with REG.API.</p>
 
 <h2>REG.API 2.0 overview</h2>
+
+<h3>General interaction principles</h3>
+
+<p>Each call of a function is atomic and synchronous, i.e. all requests are independent. All operations are also synchronous: the result of an operation returns immediately, there are no any intermediate stages during execution of operations. The choice in favor of this interaction method was made to simplify the customers’ work flow with REG.API.</p>
+
+<p>Parallel processing of calls is available to requests not changing balance of the client on the account of REG.API provider.</p>
 
 <h3>Method accessibility</h3>
 
@@ -350,7 +357,7 @@ open doc/index.html
 </div></div>
 
     <div id="footer">
-  Generated on Thu Oct  3 18:31:20 2013 by
+  Generated on Sat Oct  5 21:47:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
