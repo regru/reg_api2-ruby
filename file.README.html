@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; 'reg.api2 0.0.6'
+    &mdash; 'reg.api2 0.0.7'
   
 </title>
 
@@ -123,6 +123,11 @@ Your default username: &quot;test&quot;, and You can change it with &quot;~/.reg
  =&gt; {&quot;name&quot;=&gt;&quot;test_folder_name&quot;, &quot;id&quot;=&gt;&quot;-1&quot;}
 1.9.3-p194 :002 &gt;
 </code></pre>
+
+<p>Console use test/test credentials by default, but you can assign new ones
+before any operations over REG.API through <span class='object_link'><a href="RegApi2.html" title="RegApi2 (module)">RegApi2</a></span> properties.</p>
+
+<p>Also console reads <code>~/.regapi2</code> configuration file if exists, to assign properties from. It knows about these properties in configuration file: <code>username</code>, <code>password</code>, <code>lang</code>, <code>pem</code>, <code>pem_password</code> and <code>ca_cert_path</code>.</p>
 
 <h2>Recommendations for effective use of REG.API</h2>
 
@@ -633,7 +638,7 @@ open doc/index.html
 </div></div>
 
     <div id="footer">
-  Generated on Sun Oct  6 15:41:40 2013 by
+  Generated on Sun Oct  6 16:32:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
