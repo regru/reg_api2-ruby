@@ -184,7 +184,6 @@ module RegApi2
     # @return [Object] Contracted response.
     # @raise [NetError]
     # @raise [ApiError]
-    # @raise [ContractError]
     def handle_response(defopts, res)
       raise NetError.new(res.body)  unless res.code == '200'
 

@@ -46,7 +46,7 @@ module RegApi2
         if value.to_s !~ opts[:re]
           raise RegApi2::ContractError.new(
             "Field #{key} mismatch regular expression: #{value}",
-            [ key ]
+            key
           )
         end
       end
@@ -57,6 +57,7 @@ module RegApi2
     # @param [Object] key Value to validate.
     # @param [Object] value Value to validate.
     # @param [Hash] opts opts with optional re field.
+    # @return [Object] Updated `value`
     def validate_iso_date key, value, opts
       if opts[:iso_date]
         return value.strftime("%Y-%m-%d")  if value.respond_to?(:strftime)
@@ -68,6 +69,7 @@ module RegApi2
     # @param [Object] key Value to validate.
     # @param [Object] value Value to validate.
     # @param [Hash] opts opts with optional ipaddr field.
+    # @return [String] Updated `value`
     def validate_ipaddr key, value, opts
       if opts[:ipaddr] == true && value.kind_of?(String)
         value = IPAddr.new(value)
@@ -75,24 +77,19 @@ module RegApi2
       value.to_s
     end
 
-    # Validates specified `form` with `required` and `optional` fields.
+    # Validates specified `form` for presence of all required fields.
     # @param [Hash] form Form to validate.
+    # @param [Hash] fields Fields to test.
+    # return void
     # @raise ContractError
-    def validate(form)
-      fields = fields_to_validate
-      return form  if fields.empty?
+    def validate_presence_of_required_fields form, fields
       absent_fields = []
       fields.each_pair do |key, opts|
         if !form.has_key?(key) || form[key].nil?
           if opts[:required]
             absent_fields << key
           end
-          next
         end
-
-        form[key] = validate_re key, form[key], opts
-        form[key] = validate_iso_date key, form[key], opts
-        form[key] = validate_ipaddr key, form[key], opts
       end
       unless absent_fields.empty?
         raise RegApi2::ContractError.new(
@@ -100,6 +97,27 @@ module RegApi2
           absent_fields
         )
       end
+      nil
+    end
+
+    # Validates specified `form` with `required` and `optional` fields.
+    # @param [Hash] form Form to validate.
+    # @return [Hash] Updated form.
+    # @raise ContractError
+    def validate(form)
+      fields = fields_to_validate
+      return form  if fields.empty?
+
+      validate_presence_of_required_fields form, fields
+
+      fields.each_pair do |key, opts|
+        next  if !form.has_key?(key) || form[key].nil?
+
+        form[key] = validate_re key, form[key], opts
+        form[key] = validate_iso_date key, form[key], opts
+        form[key] = validate_ipaddr key, form[key], opts
+      end
+
       form
     end
   end
