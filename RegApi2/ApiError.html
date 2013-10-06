@@ -122,7 +122,7 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#description-instance_method" title="#description (instance method)">- (Object) <strong>description</strong> </a>
+      <a href="#description-instance_method" title="#description (instance method)">- (String) <strong>description</strong> </a>
     
 
     
@@ -150,7 +150,7 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#params-instance_method" title="#params (instance method)">- (Object) <strong>params</strong> </a>
+      <a href="#params-instance_method" title="#params (instance method)">- (Hash) <strong>params</strong> </a>
     
 
     
@@ -277,19 +277,19 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <pre class="lines">
 
 
-36
-37
 38
 39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_code'>code</span><span class='comma'>,</span>  <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span>
   <span class='kw'>super</span> <span class='id identifier rubyid_code'>code</span>
   <span class='ivar'>@description</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>||</span>  <span class='lbrace'>{</span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -306,7 +306,7 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <div class="method_details first">
   <h3 class="signature first" id="description-instance_method">
   
-    - (<tt>Object</tt>) <strong>description</strong>  <span class="extras">(readonly)</span>
+    - (<tt>String</tt>) <strong>description</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -314,13 +314,30 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Localized error description.</p>
+    <p>Returns Localized error description.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Localized error description.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -328,12 +345,12 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='ivar'>@description</span>
@@ -348,7 +365,7 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <div class="method_details ">
   <h3 class="signature " id="params-instance_method">
   
-    - (<tt>Object</tt>) <strong>params</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Hash</tt>) <strong>params</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -356,13 +373,30 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Optional error params.</p>
+    <p>Returns Optional error params.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Optional error params.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -370,12 +404,12 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <pre class="lines">
 
 
-34
-35
-36</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_params'>params</span>
   <span class='ivar'>@params</span>
@@ -449,16 +483,16 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
       <pre class="lines">
 
 
-45
-46
 47
 48
 49
 50
-51</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_json'>from_json</span> <span class='id identifier rubyid_json'>json</span>
   <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -477,7 +511,7 @@ Please refer to <a href="../index.html#Common_error_codes" title="common error c
 </div>
 
     <div id="footer">
-  Generated on Sun Oct  6 15:34:19 2013 by
+  Generated on Sun Oct  6 15:41:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
