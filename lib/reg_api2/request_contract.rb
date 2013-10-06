@@ -85,10 +85,9 @@ module RegApi2
     def validate_presence_of_required_fields form, fields
       absent_fields = []
       fields.each_pair do |key, opts|
+        next  unless opts[:required]
         if !form.has_key?(key) || form[key].nil?
-          if opts[:required]
-            absent_fields << key
-          end
+          absent_fields << key
         end
       end
       unless absent_fields.empty?
