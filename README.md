@@ -45,6 +45,22 @@ RegApi2.service.nop(services: [
 ])
 ```
 
+or with including of {RegApi2} module:
+
+```ruby
+require "reg_api2"
+
+include RegApi2
+
+service.nop(services: [
+  { dname: "test.ru" },
+  { dname: "test.su", servtype: "srv_hosting_ispmgr" },
+  { service_id: 111111 },
+  { service_id: "22bug22" },
+  { surprise: "surprise.ru" }
+])
+```
+
 Other examples available as examples of concrete method calls.
 
 ### Console
