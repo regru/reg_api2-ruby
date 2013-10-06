@@ -60,6 +60,11 @@ Your default username: "test", and You can change it with "~/.regapi2".
 1.9.3-p194 :002 >
 ```
 
+Console use test/test credentials by default, but you can assign new ones
+before any operations over REG.API through {RegApi2} properties.
+
+Also console reads `~/.regapi2` configuration file if exists, to assign properties from. It knows about these properties in configuration file: `username`, `password`, `lang`, `pem`, `pem_password` and `ca_cert_path`.
+
 ## Recommendations for effective use of REG.API
 
 This section provides information that will help you to make you work with REG.API more productive and convenient.
