@@ -6,7 +6,7 @@
 <title>
   Exception: RegApi2::ApiError
   
-    &mdash; 'reg.api2 0.0.5'
+    &mdash; 'reg.api2 0.0.6'
   
 </title>
 
@@ -73,12 +73,12 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName">Exception</span>
+      <span class="inheritName">StandardError</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Exception</li>
+            <li class="next">StandardError</li>
           
             <li class="next">RegApi2::ApiError</li>
           
@@ -103,7 +103,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>API Error</p>
+    <p>API Error from REG.API provider.
+Please refer to <a href="../index.html#Common_error_codes" title="common error codes">common error codes</a>.</p>
 
 
   </div>
@@ -276,14 +277,14 @@
       <pre class="lines">
 
 
-33
-34
-35
 36
-37</pre>
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_code'>code</span><span class='comma'>,</span>  <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span>
   <span class='kw'>super</span> <span class='id identifier rubyid_code'>code</span>
@@ -327,12 +328,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='ivar'>@description</span>
@@ -369,12 +370,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_params'>params</span>
   <span class='ivar'>@params</span>
@@ -448,16 +449,16 @@
       <pre class="lines">
 
 
-42
-43
-44
 45
 46
 47
-48</pre>
+48
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_json'>from_json</span> <span class='id identifier rubyid_json'>json</span>
   <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -476,7 +477,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Oct  6 00:13:12 2013 by
+  Generated on Sun Oct  6 15:34:19 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

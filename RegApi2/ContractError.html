@@ -6,7 +6,7 @@
 <title>
   Exception: RegApi2::ContractError
   
-    &mdash; 'reg.api2 0.0.5'
+    &mdash; 'reg.api2 0.0.6'
   
 </title>
 
@@ -73,12 +73,12 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName">Exception</span>
+      <span class="inheritName">ArgumentError</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Exception</li>
+            <li class="next">ArgumentError</li>
           
             <li class="next">RegApi2::ContractError</li>
           
@@ -103,7 +103,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>API Contract Error</p>
+    <p>API Contract Error.
+Raised when input parameters doesn&#39;t pass Ruby client tests.</p>
 
 
   </div>
@@ -216,13 +217,13 @@
       <pre class="lines">
 
 
-18
-19
 20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='kw'>super</span> <span class='id identifier rubyid_message'>message</span>
@@ -265,12 +266,12 @@
       <pre class="lines">
 
 
-16
-17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fields'>fields</span>
   <span class='ivar'>@fields</span>
@@ -286,7 +287,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Oct  6 00:13:12 2013 by
+  Generated on Sun Oct  6 15:34:19 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
