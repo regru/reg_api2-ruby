@@ -15,18 +15,6 @@ require 'reg_api2/bill'
 require 'reg_api2/folder'
 require 'reg_api2/zone'
 
-# # REG.API v2
-# @example List of services by specified identifiers
-#  RegApi2.service.nop(services: [
-#    { dname:"test.ru" },
-#    { dname: "test.su", servtype: "srv_hosting_ispmgr" },
-#    { service_id: 111111 },
-#    { service_id: "22bug22" },
-#    { surprise: "surprise.ru" }
-#  ])
-#
-# ## RegApi2 module
-#
 # Provides r/w settings for API connection:
 #
 # * {RegApi2.username} - Your user name. `test` by default.
@@ -46,6 +34,16 @@ require 'reg_api2/zone'
 # * {RegApi2.zone} API category implemented as {RegApi2::Zone} methods.
 #
 # Please read {file:README.md} for API overview.
+#
+# @example List of services by specified identifiers
+#  RegApi2.service.nop(services: [
+#    { dname:"test.ru" },
+#    { dname: "test.su", servtype: "srv_hosting_ispmgr" },
+#    { service_id: 111111 },
+#    { service_id: "22bug22" },
+#    { surprise: "surprise.ru" }
+#  ])
+#
 
 module RegApi2
 
