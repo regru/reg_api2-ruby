@@ -75,11 +75,11 @@ module RegApi2
     # @option opts [String, Symbol] :servtype The type of the ordered service.
     # @option opts [Object] :period The period for which the service is ordered, the unit of measurement (year or month) depends on the type of the service being ordered. To learn about the measurement units used for each service, use the {#get_servtype_details} function.
     # @option opts [String] :user_servid Domain ID set by the user. Allowed symbols: digits (from 0 through 9), Latin letters (from a through f). Maximum length: 32 symbols. This ID cannot be generated automatically; if it is not defined upon service ordering, the field will be empty. Optional field.
-    # @option opts :point_of_sale See common payment parameters in {file:README.md}.
-    # @option opts :pay_type See common payment parameters in {file:README.md}.
-    # @option opts :ok_if_no_money See common payment parameters in {file:README.md}.
-    # @option opts :folder_name Defines the name of the folder, to which the services will be added (see the list of common folder identification parameters in {file:README.md}).
-    # @option opts :folder_id Defines the name of the folder, to which the services will be added (see the list of common folder identification parameters in {file:README.md}).
+    # @option opts :point_of_sale See {file:README.md#Common_payment_options common payment parameters}.
+    # @option opts :pay_type See {file:README.md#Common_payment_options common payment parameters}.
+    # @option opts :ok_if_no_money See See {file:README.md#Common_payment_options common payment parameters}.
+    # @option opts :folder_name Defines the name of the folder, to which the services will be added (see {file:README.md#Folder_identification_parameters folder identification parameters).
+    # @option opts :folder_id Defines the name of the folder, to which the services will be added (see {file:README.md#Folder_identification_parameters folder identification parameters).
     # @option opts [Boolean] :no_new_folder Dont't create non-existing folder; otherwise create if not exists.
     # @option opts [String] :comment An arbitrary text describing the order. Optional field.
     # @option opts [String] :admin_comment A comment for administrators. An arbitrary text describing the order. Optional field.
