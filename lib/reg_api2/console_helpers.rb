@@ -11,9 +11,17 @@ def try_lo_load_defaults
   if File.readable?(filename)
     IO.read(filename).split("\n").each do |line|
       line.strip!
-      props.each do |prop|
-        RegApi2.send("#{prop}=", $1)  if line =~ /\A\s*#{Regexp.escape(prop)}\s*\=(.+)\s*\z/;
+      next  if line =~ /\A\s*#/ # skip comments
+      if line !~ /\A\s*(\w+)\s*\=(.+)\s*\z/
+        $stderr.puts "#{filename}: We expect key=value string but got \"#{line}\""
+        exit 1
       end
+      name, value = $1, $2
+      unless props.include?(name)
+        $stderr.puts "#{filename}: Unknown name: \"#{name}\", we know only #{props.join(', ')}"
+        exit 1
+      end
+      RegApi2.send("#{name}=", value)
     end
   end
 
