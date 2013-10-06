@@ -78,8 +78,8 @@ module RegApi2
     # @option opts :point_of_sale See {file:README.md#Common_payment_options common payment parameters}.
     # @option opts :pay_type See {file:README.md#Common_payment_options common payment parameters}.
     # @option opts :ok_if_no_money See See {file:README.md#Common_payment_options common payment parameters}.
-    # @option opts :folder_name Defines the name of the folder, to which the services will be added (see {file:README.md#Folder_identification_parameters folder identification parameters).
-    # @option opts :folder_id Defines the name of the folder, to which the services will be added (see {file:README.md#Folder_identification_parameters folder identification parameters).
+    # @option opts :folder_name Defines the name of the folder, to which the services will be added (see {file:README.md#Folder_identification_parameters folder identification parameters}).
+    # @option opts :folder_id Defines the name of the folder, to which the services will be added (see {file:README.md#Folder_identification_parameters folder identification parameters}).
     # @option opts [Boolean] :no_new_folder Dont't create non-existing folder; otherwise create if not exists.
     # @option opts [String] :comment An arbitrary text describing the order. Optional field.
     # @option opts [String] :admin_comment A comment for administrators. An arbitrary text describing the order. Optional field.
