@@ -19,6 +19,8 @@ module RegApi2
 
     def initialize message, fields = []
       super message
+      fields = []  if fields.nil?
+      fields = [ fields ]  unless fields.kind_of?(Array)
       @fields = fields
     end
   end
