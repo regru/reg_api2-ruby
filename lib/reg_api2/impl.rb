@@ -5,12 +5,14 @@ require 'net/https'
 require 'yajl'
 
 module RegApi2
-  # Networking Error
-  class NetError < Exception
+  # Networking Error.
+  # Raised when response doesn't meet HTTP 200 OK status.
+  class NetError < IOError
   end
 
-  # API Contract Error
-  class ContractError < Exception
+  # API Contract Error.
+  # Raised when input parameters doesn't pass Ruby client tests.
+  class ContractError < ArgumentError
     # @!attribute [r] fields
     # Wrong fields.
     attr_reader :fields
@@ -21,8 +23,9 @@ module RegApi2
     end
   end
 
-  # API Error
-  class ApiError < Exception
+  # API Error from REG.API provider.
+  # Please refer to {file:README.md#Common_error_codes common error codes}.
+  class ApiError < StandardError
     # @!attribute [r] description
     # Localized error description.
     attr_reader :description
