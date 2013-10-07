@@ -111,6 +111,8 @@ module RegApi2
     # @param [Code] code_block Code block to be executed on every API request.
     # @yield [path, form] Request path and form to be sent.
     # @return [NilClass] nil
+    # @example Dump outcoming API requests to code block
+    #    RegApi2.dump_requests { |path, form| p path; p form }
     def dump_requests(to = nil, &code_block)
       if to
         self.dump_requests_to= to
@@ -136,6 +138,8 @@ module RegApi2
     # @param [Code] code_block Code block to be executed on every API response.
     # @yield [json] Response parsed JSON data to be handled.
     # @return [NilClass] nil
+    # @example Dump incoming API responses to `$stdout`
+    #    RegApi2.dump_responses :stdout
     def dump_responses(to = nil, &code_block)
       if to
         self.dump_responses_to= to

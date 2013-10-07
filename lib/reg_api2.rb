@@ -49,6 +49,8 @@ require 'reg_api2/zone'
 #    { surprise: "surprise.ru" }
 #  ])
 #
+# @example Dump incoming API responses to `$stderr`
+#    RegApi2.dump_responses :stderr
 
 module RegApi2
 
