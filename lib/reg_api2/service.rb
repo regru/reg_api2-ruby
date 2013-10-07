@@ -52,32 +52,29 @@ module RegApi2
 
     # @!method create(opts = {})
     # Use the function to order new services.
-    # `servtype` values are supported:
-    #
-    # | servtype | service type |
-    # | ---------|--------------|
-    # | srv_webfwd | web forwarding |
-    # | srv_parking | domain parking |
-    # | srv_dns_both | DNS support |
-    # | srv_hosting_ispmgr | ISPManager hosting |
-    # | srv_hosting_cpanel | CPanel hosting |
-    # | srv_hosting_plesk | PLesk hosting |
-    # | srv_ssl_certificate | SSL certificate |
-    # | srv_certificate | Domain certificate |
-    # | srv_voucher | Domain voucher |
-    # | srv_vps | VPS server |
-    # | srv_license_isp | ISP Manager license |
-    # | srv_addip | additional IP address |
-    # | srv_disk_space | additional disk space |
-    # | srv_antispam | advanced spam protection |
-    # | srv_dedicated | dedicated server |
-    # | srv_kvm | KVM access |
-    #
-    # Common payment options are allowed.
-    # folder_name or folder_id are allowed.
     # @param opts Options.
     # @option opts [String] :domain_name Name of the domain, for which the service is ordered.
     # @option opts [String, Symbol] :servtype The type of the ordered service.
+    #
+    #   | servtype | service type |
+    #   | ---------|--------------|
+    #   | srv_webfwd | web forwarding |
+    #   | srv_parking | domain parking |
+    #   | srv_dns_both | DNS support |
+    #   | srv_hosting_ispmgr | ISPManager hosting |
+    #   | srv_hosting_cpanel | CPanel hosting |
+    #   | srv_hosting_plesk | PLesk hosting |
+    #   | srv_ssl_certificate | SSL certificate |
+    #   | srv_certificate | Domain certificate |
+    #   | srv_voucher | Domain voucher |
+    #   | srv_vps | VPS server |
+    #   | srv_license_isp | ISP Manager license |
+    #   | srv_addip | additional IP address |
+    #   | srv_disk_space | additional disk space |
+    #   | srv_antispam | advanced spam protection |
+    #   | srv_dedicated | dedicated server |
+    #   | srv_kvm | KVM access |
+    #
     # @option opts [Object] :period The period for which the service is ordered, the unit of measurement (year or month) depends on the type of the service being ordered. To learn about the measurement units used for each service, use the {#get_servtype_details} function.
     # @option opts [String] :user_servid Domain ID set by the user. Allowed symbols: digits (from 0 through 9), Latin letters (from a through f). Maximum length: 32 symbols. This ID cannot be generated automatically; if it is not defined upon service ordering, the field will be empty. Optional field.
     # @option opts :point_of_sale See {file:README.md#Common_payment_options common payment parameters}.
@@ -99,29 +96,28 @@ module RegApi2
 
     # @!method delete(opts = {})
     # Removes the service.
-    # `servtype` values are supported:
-    #
-    # | servtype | service type |
-    # | ---------|--------------|
-    # | srv_hosting_ispmgr | ISPManager hosting |
-    # | srv_hosting_cpanel | CPanel hosting |
-    # | srv_hosting_plesk | PLesk hosting |
-    # | srv_addip | additional IP address |
-    # | srv_antispam | advanced spam protection |
-    # | srv_sitebuilder_plsk | SiteBuilder Plesk |
-    # | srv_vps | VPS server |
-    # | srv_license_isp | ISP Manager license |
-    # | srv_disk_space | additional disk space |
-    # | srv_dedicated | dedicated server |
-    # | srv_kvm | KVM access |
     # @param opts Options.
-    # @option opts [String, Symbol] :servtype Service type, which is to be removed.
-    # @return nil
+    # @option opts [String, Symbol] :servtype Service type, which is to be removed. These values are supported:
+    #
+    #   | servtype | service type |
+    #   | ---------|--------------|
+    #   | srv_hosting_ispmgr | ISPManager hosting |
+    #   | srv_hosting_cpanel | CPanel hosting |
+    #   | srv_hosting_plesk | PLesk hosting |
+    #   | srv_addip | additional IP address |
+    #   | srv_antispam | advanced spam protection |
+    #   | srv_sitebuilder_plsk | SiteBuilder Plesk |
+    #   | srv_vps | VPS server |
+    #   | srv_license_isp | ISP Manager license |
+    #   | srv_disk_space | additional disk space |
+    #   | srv_dedicated | dedicated server |
+    #   | srv_kvm | KVM access |
+    #
+    # @return [NilClass] nil
     # @note Accessibility: clients
     # @note Support of service lists: no
     # @example Removing of `srv_hosting_ispmgr` service.
     #    RegApi2.service.delete domain_name: 'test.ru', servtype: :srv_hosting_ispmgr
-
     define :delete, required: %w[ servtype ]
 
     # @!method get_info(opts = {})
