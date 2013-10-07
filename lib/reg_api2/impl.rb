@@ -76,7 +76,7 @@ module RegApi2
     # @return [String] X.509 certificate password (nil by default).
     attr_accessor :pem_password
     # @!attribute [rw] dump_requests_to
-    # @return [String,Symbol,Lambda] Where to dump outcoming API request (nil by default).
+    # @return [String,Symbol,Lambda] Where to dump outgoing API request (nil by default).
     #
     #    | Value | Dump to |
     #    | ----- | ------- |
@@ -98,7 +98,7 @@ module RegApi2
 
     private :dump_requests_to, :dump_responses_to
 
-    # Dumps outcoming API requests to given `to` or code block.
+    # Dumps outgoing API requests to given `to` or code block.
     # @param [String,Symbol,Lambda] to Where to dump incoming API response (nil by default).
     #
     #    | Value | Dump to |
@@ -111,7 +111,7 @@ module RegApi2
     # @param [Code] code_block Code block to be executed on every API request.
     # @yield [path, form] Request path and form to be sent.
     # @return [NilClass] nil
-    # @example Dump outcoming API requests to code block
+    # @example Dump outgoing API requests to code block
     #    RegApi2.dump_requests { |path, form| p path; p form }
     def dump_requests(to = nil, &code_block)
       if to
@@ -126,7 +126,7 @@ module RegApi2
     end
 
     # Dumps incoming API responses to given `to` or code block.
-    # @param [String,Symbol,Lambda] to Where to dump outcoming API response (nil by default).
+    # @param [String,Symbol,Lambda] to Where to dump outgoing API response (nil by default).
     #
     #    | Value | Dump to |
     #    | ----- | ------- |

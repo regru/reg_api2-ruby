@@ -35,7 +35,7 @@ require 'reg_api2/zone'
 #
 # Provides dump hooks:
 #
-# * {RegApi2.dump_requests} to dump outcoming API request forms.
+# * {RegApi2.dump_requests} to dump outgoing API request forms.
 # * {RegApi2.dump_responses} to dump incoming API responses.
 #
 # Please read {file:README.md} for API overview.
