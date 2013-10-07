@@ -209,6 +209,17 @@ module RegApi2
     # @!method get_bills(opts = {})
     # Use this function to get a list of invoices associated with the defined services.
     # @param opts Options.
+    # @return [Hash] List of invoices associated with the defined services.
+    #
+    #    | Field | Description |
+    #    | ----- | ----------- |
+    #    | services | A list of requested services. |
+    #    | bills | A list of IDs of invoices associated with this service. |
+    #
+    # @note Accessibility: partners
+    # @note Support of service lists: yes
+    # @example Get invoices and services for `qqq.ru` domain.
+    #    RegApi2.service.get_bills dname: "qqq.ru"
     define :get_bills
 
     # @!method set_autorenew_flag(opts = {})

@@ -62,4 +62,12 @@ describe RegApi2::Service do
       ans.map(&:server_id).each { |id| id.should be_kind_of Fixnum }
     end
   end
+
+  describe :get_bills do
+    it "should get list of services and bills" do
+      ans = RegApi2.service.get_bills dname: "qqq.ru"
+      ans.services.should be_kind_of Array
+      ans.bills.should be_nil
+    end
+  end
 end
