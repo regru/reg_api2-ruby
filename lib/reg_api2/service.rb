@@ -10,7 +10,7 @@ module RegApi2
     # @!method nop(opts = {})
     # Return list of specified services with its stats if specified.
     # @param opts Options.
-    # @option opts [Array] services
+    # @option opts [Array<Hash>] services List of services to be retrieved.
     # @return [Array<Hash>] List of specified services with its stats.
     # @note Accessibility: clients
     # @note Support of service lists: yes
