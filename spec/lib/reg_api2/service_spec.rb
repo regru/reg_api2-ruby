@@ -38,4 +38,11 @@ describe RegApi2::Service do
       ans.descr.should =~ /srv_hosting_ispmgr.+ordered/
     end
   end
+
+  describe :delete do
+    it "should remove srv_hosting_ispmgr service" do
+      ans = service.delete domain_name: 'test.ru', servtype: :srv_hosting_ispmgr
+      ans.should be_nil
+    end
+  end
 end

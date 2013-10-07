@@ -92,7 +92,27 @@ module RegApi2
 
     # @!method delete(opts = {})
     # Removes the service.
+    # `servtype` values are supported:
+    #
+    # | servtype | service type |
+    # | ---------|--------------|
+    # | srv_hosting_ispmgr | ISPManager hosting |
+    # | srv_hosting_cpanel | CPanel hosting |
+    # | srv_hosting_plesk | PLesk hosting |
+    # | srv_addip | additional IP address |
+    # | srv_antispam | advanced spam protection |
+    # | srv_sitebuilder_plsk | SiteBuilder Plesk |
+    # | srv_vps | VPS server |
+    # | srv_license_isp | ISP Manager license |
+    # | srv_disk_space | additional disk space |
+    # | srv_dedicated | dedicated server |
+    # | srv_kvm | KVM access |
     # @param opts Options.
+    # @option opts [String, Symbol] :servtype Service type, which is to be removed.
+    # @return nil
+    # @example Removing of `srv_hosting_ispmgr` service.
+    #    RegApi2.service.delete domain_name: 'test.ru', servtype: :srv_hosting_ispmgr
+
     define :delete, required: %w[ servtype ]
 
     # @!method get_info(opts = {})
