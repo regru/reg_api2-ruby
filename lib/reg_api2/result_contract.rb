@@ -18,6 +18,11 @@ module RegApi2
       undelegated_domains_cnt
       bill_id
       service_id
+      server_id
+      cpu_count
+      cpu_core
+      hdd_count
+      ram_count
     ].freeze
 
     # Fields that will be converted to {Float}.
@@ -27,6 +32,8 @@ module RegApi2
       total_amount
       payment
       total_payment
+      month_traf
+      price_retail
     ].freeze
 
     # Fields that will be converted to {Boolean}.

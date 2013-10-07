@@ -173,7 +173,28 @@ module RegApi2
     # @!method get_dedicated_server_list(opts = {})
     # Get the dedicated server list.
     # @param opts Options.
-    define :get_dedicated_server_list
+    # @return [Array<Hash>] List of dedicated servers. Each item of {RegApi2::SymHash} class contain these fields:
+    # 
+    #   | Field | Description |
+    #   |-------|-------------|
+    #   | server_id   | Unique server id
+    #   | cpu_content | Processor model
+    #   | cpu_count   | Processor count
+    #   | cpu_core    | Core count
+    #   | ram_content | RAM type
+    #   | ram_count   | RAM count
+    #   | ram_size    | RAM size
+    #   | hdd_content | HDD interface type
+    #   | hdd_count   | HDD count
+    #   | hdd_size    | HDD disk size
+    #   | month_traf  | Traffic, GB per month
+    #   | price_retail |   Rent per month
+    #
+    # @note Accessibility: clients
+    # @note Support of service lists: no
+    # @example Get list of dedicated servers
+    #    RegApi2.service.get_dedicated_server_list
+    define :get_dedicated_server_list, field: :server_list
 
     # @!method update(opts = {})
     # Service configuration.

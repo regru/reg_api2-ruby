@@ -54,4 +54,12 @@ describe RegApi2::Service do
       ans.map(&:service_id).each { |id| id.should be_kind_of Fixnum }
     end
   end
+
+  describe :get_dedicated_server_list do
+    it "should get list of dedicated servers" do
+      ans = RegApi2.service.get_dedicated_server_list
+      ans.should be_kind_of Array
+      ans.map(&:server_id).each { |id| id.should be_kind_of Fixnum }
+    end
+  end
 end
