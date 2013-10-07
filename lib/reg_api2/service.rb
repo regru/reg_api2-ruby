@@ -214,7 +214,7 @@ module RegApi2
     #    | Field | Description |
     #    | ----- | ----------- |
     #    | services | A list of requested services. |
-    #    | bills | A list of IDs of invoices associated with this service. |
+    #    | bills | A list of IDs of invoices associated with this service. May be nil. |
     #
     # @note Accessibility: partners
     # @note Support of service lists: yes
