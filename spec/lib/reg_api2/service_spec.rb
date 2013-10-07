@@ -45,4 +45,13 @@ describe RegApi2::Service do
       ans.should be_nil
     end
   end
+
+  describe :get_list do
+    it "should get list of domains" do
+      ans = service.get_list servtype: :domain
+      ans.should be_kind_of Array
+      ans.map(&:servtype).uniq.should == [ "domain"]
+      ans.map(&:service_id).each { |id| id.should be_kind_of Fixnum }
+    end
+  end
 end

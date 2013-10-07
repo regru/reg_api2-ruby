@@ -12,6 +12,8 @@ module RegApi2
     # @param opts Options.
     # @option opts [Array] services
     # @return [Hash("services" => [])]
+    # @note Accessibility: clients
+    # @note Support of service lists: yes
     # @example List of services by specified identifiers
     #  RegApi2.service.nop(services: [
     #    { dname:"test.ru" },
@@ -28,6 +30,8 @@ module RegApi2
     # @option opts [Boolean] :show_renew_data With this flag enabled the system will return the price of renewal (1/0). Optional field.
     # @option opts [String, Symbol] :currency Identifier of the currency in which the prices will be quoted: rur (default), uah, usd, eur. Optional field.
     # @return [Hash(currency, price_group, show_renew_data, prices)] Prices.
+    # @note Accessibility: everyone
+    # @note Support of service lists: no
     # @example Get prices.
     #    RegApi2.service.get_prices
     define :get_prices
@@ -40,6 +44,7 @@ module RegApi2
     # @option opts [String, Symbol] :subtype Service subtype.
     # @option opts [Boolean] :unroll_prices Show prices in expanded form.
     # @return [Array(Hash(commonname, ...))] Service type details.
+    # @note Accessibility: everyone
     # @example Get service type details.
     #    RegApi2.service.get_servtype_details servtype: :srv_hosting_ispmgr
     define :get_servtype_details
@@ -85,6 +90,8 @@ module RegApi2
     # @option opts [String] :admin_comment A comment for administrators. An arbitrary text describing the order. Optional field.
     # TODO: specific options.
     # @return [Hash(descr, service_id, ...)] Information about ordered service.
+    # @note Accessibility: everyone
+    # @note Support of service lists: no
     # @see #get_servtype_details
     # @example Create srv_hosting_ispmgr service.
     #    RegApi2.service.create dname: 'qqq.ru', servtype: :srv_hosting_ispmgr, period: 1, plan: 'Host-2-1209'
@@ -110,6 +117,8 @@ module RegApi2
     # @param opts Options.
     # @option opts [String, Symbol] :servtype Service type, which is to be removed.
     # @return nil
+    # @note Accessibility: clients
+    # @note Support of service lists: no
     # @example Removing of `srv_hosting_ispmgr` service.
     #    RegApi2.service.delete domain_name: 'test.ru', servtype: :srv_hosting_ispmgr
 
@@ -118,12 +127,35 @@ module RegApi2
     # @!method get_info(opts = {})
     # Use this function to obtain information about all services.
     # @param opts Options.
+    # @note Accessibility: clients
+    # @note Support of service lists: yes
     define :get_info
 
     # @!method get_list(opts = {})
     # Use this function to obtain a list of active services.
     # @param opts Options.
-    define :get_list
+    # @option opts [String,Symbol] :servtype Type of service. If nothing is defined, information about all types of services will be returned.
+    #
+    #    | Type   | Description |
+    #    |--------|-------------|
+    #    |domain | Domain|
+    #    |srv_webfwd | web forwarding|
+    #    |srv_parking | domain parking|
+    #    |srv_dns_both | DNS support|
+    #    |srv_hosting_ispmgr | ISPManager hosting|
+    #    |srv_hosting_cpanel | CPanel hosting|
+    #    |srv_hosting_plesk | Plesk hosting|
+    #    |srv_antispam | Extended spam protection|
+    #    |srv_vps | VPS server|
+    #    |srv_addip | Additional IP address|
+    #    |srv_license_isp | ISPManager license|
+    #    |srv_certificate | Domain certificate|
+    #    |srv_voucher | Domain voucher |
+    #
+    # @note Accessibility: clients
+    # @example Get list of domains.
+    #    RegApi2.service.get_list servtype: :domain
+    define :get_list, field: :services
 
     # @!method get_folders(opts = {})
     # Use this function to get the list of folders the service is associated with.
