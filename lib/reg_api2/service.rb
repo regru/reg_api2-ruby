@@ -152,6 +152,7 @@ module RegApi2
     #    |srv_certificate | Domain certificate|
     #    |srv_voucher | Domain voucher |
     #
+    # @return [Array<Hash>] List of service of specified `servtype`.
     # @note Accessibility: clients
     # @example Get list of domains.
     #    RegApi2.service.get_list servtype: :domain
