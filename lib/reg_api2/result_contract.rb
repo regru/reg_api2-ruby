@@ -17,6 +17,7 @@ module RegApi2
       renew_domains_get_ctrl_cnt
       undelegated_domains_cnt
       bill_id
+      service_id
     ].freeze
 
     # Fields that will be converted to {Float}.
