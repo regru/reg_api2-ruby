@@ -6,7 +6,7 @@
 <title>
   Class: RegApi2::ResultContract
   
-    &mdash; 'reg.api2 0.0.7'
+    &mdash; 'reg.api2 0.0.8'
   
 </title>
 
@@ -150,6 +150,12 @@ Waits for answer field and returns it only by default.</p>
 </span><span class='tstring_content'>  renew_domains_get_ctrl_cnt</span><span class='words_sep'>
 </span><span class='tstring_content'>  undelegated_domains_cnt</span><span class='words_sep'>
 </span><span class='tstring_content'>  bill_id</span><span class='words_sep'>
+</span><span class='tstring_content'>  service_id</span><span class='words_sep'>
+</span><span class='tstring_content'>  server_id</span><span class='words_sep'>
+</span><span class='tstring_content'>  cpu_count</span><span class='words_sep'>
+</span><span class='tstring_content'>  cpu_core</span><span class='words_sep'>
+</span><span class='tstring_content'>  hdd_count</span><span class='words_sep'>
+</span><span class='tstring_content'>  ram_count</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="FLOAT_FIELDS-constant" class="">FLOAT_FIELDS =
@@ -177,6 +183,8 @@ Waits for answer field and returns it only by default.</p>
 </span><span class='tstring_content'>  total_amount</span><span class='words_sep'>
 </span><span class='tstring_content'>  payment</span><span class='words_sep'>
 </span><span class='tstring_content'>  total_payment</span><span class='words_sep'>
+</span><span class='tstring_content'>  month_traf</span><span class='words_sep'>
+</span><span class='tstring_content'>  price_retail</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="BOOL_FIELDS-constant" class="">BOOL_FIELDS =
@@ -378,12 +386,12 @@ Waits for answer field and returns it only by default.</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@opts</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span>
@@ -442,12 +450,12 @@ Waits for answer field and returns it only by default.</p>
       <pre class="lines">
 
 
-39
-40
-41</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_opts'>opts</span>
   <span class='ivar'>@opts</span>
@@ -525,19 +533,19 @@ Waits for answer field and returns it only by default.</p>
       <pre class="lines">
 
 
-91
-92
-93
-94
-95
-96
-97
-98
 99
-100</pre>
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_answer'>answer</span>
@@ -624,17 +632,17 @@ Waits for answer field and returns it only by default.</p>
       <pre class="lines">
 
 
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+115
+116
+117
+118
+119
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_answer'>handle_answer</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_answer'>answer</span> <span class='op'>=</span> <span class='id identifier rubyid_convert'>convert</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
@@ -718,13 +726,13 @@ Result is unified using <span class='object_link'><a href="SymHash.html#from-cla
       <pre class="lines">
 
 
-50
-51
-52
-53</pre>
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/result_contract.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_result'>handle_result</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>SymHash</span><span class='period'>.</span><span class='id identifier rubyid_from'>from</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
@@ -740,7 +748,7 @@ Result is unified using <span class='object_link'><a href="SymHash.html#from-cla
 </div>
 
     <div id="footer">
-  Generated on Mon Oct  7 15:36:01 2013 by
+  Generated on Mon Oct  7 20:49:37 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
