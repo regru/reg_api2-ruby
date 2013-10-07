@@ -111,7 +111,6 @@ module RegApi2
     # @param [Code] code_block Code block to be executed on every API request.
     # @yield [path, form] Request path and form to be sent.
     # @return [NilClass] nil
-    # @see RegApi2#dump_requests_to
     def dump_requests(to = nil, &code_block)
       if to
         self.dump_requests_to= to
@@ -135,9 +134,8 @@ module RegApi2
     #    | lambda | Calls this lambda with incoming parsed JSON data |
     #
     # @param [Code] code_block Code block to be executed on every API response.
-    # @yield [json] esponse parsed JSON data to be handled.
+    # @yield [json] Response parsed JSON data to be handled.
     # @return [NilClass] nil
-    # @see RegApi2#dump_responses_to
     def dump_responses(to = nil, &code_block)
       if to
         self.dump_responses_to= to

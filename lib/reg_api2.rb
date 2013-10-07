@@ -33,6 +33,11 @@ require 'reg_api2/zone'
 # * {RegApi2.folder} API category implemented as {RegApi2::Folder} methods.
 # * {RegApi2.zone} API category implemented as {RegApi2::Zone} methods.
 #
+# Provides dump hooks:
+#
+# * {RegApi2.dump_requests} to dump outcoming API request forms.
+# * {RegApi2.dump_responses} to dump incoming API responses.
+#
 # Please read {file:README.md} for API overview.
 #
 # @example List of services by specified identifiers
