@@ -75,6 +75,80 @@ module RegApi2
     # @!attribute [rw] pem_password
     # @return [String] X.509 certificate password (nil by default).
     attr_accessor :pem_password
+    # @!attribute [rw] dump_requests_to
+    # @return [String,Symbol,Lambda] Where to dump outcoming API request (nil by default).
+    #
+    #    | Value | Dump to |
+    #    | ----- | ------- |
+    #    | nil | Nothing |
+    #    | :stdout, "stdout" | $stdout |
+    #    | :stderr, "stderr" | $stderr |
+    #    | lambda | Calls this lambda with requested path and form hash |
+    attr_accessor :dump_requests_to
+    # @!attribute [rw] dump_responses_to
+    # @return [String,Symbol,Lambda] Where to dump incoming API response (nil by default).
+    #
+    #    | Value | Dump to |
+    #    | ----- | ------- |
+    #    | nil | Nothing |
+    #    | :stdout, "stdout" | $stdout |
+    #    | :stderr, "stderr" | $stderr |
+    #    | lambda | Calls this lambda with incoming parsed JSON data |
+    attr_accessor :dump_responses_to
+
+    private :dump_requests_to, :dump_responses_to
+
+    # Dumps outcoming API requests to given `to` or code block.
+    # @param [String,Symbol,Lambda] to Where to dump incoming API response (nil by default).
+    #
+    #    | Value | Dump to |
+    #    | ----- | ------- |
+    #    | nil | Nothing |
+    #    | :stdout, "stdout" | $stdout |
+    #    | :stderr, "stderr" | $stderr |
+    #    | lambda | Calls this lambda with requested path and form hash |
+    #
+    # @param [Code] code_block Code block to be executed on every API request.
+    # @yield [path, form] Request path and form to be sent.
+    # @return [NilClass] nil
+    # @see RegApi2#dump_requests_to
+    def dump_requests(to = nil, &code_block)
+      if to
+        self.dump_requests_to= to
+        return nil
+      end
+      if block_given?
+        self.dump_requests_to= code_block
+        return nil
+      end
+      self.dump_requests_to= nil
+    end
+
+    # Dumps incoming API responses to given `to` or code block.
+    # @param [String,Symbol,Lambda] to Where to dump outcoming API response (nil by default).
+    #
+    #    | Value | Dump to |
+    #    | ----- | ------- |
+    #    | nil | Nothing |
+    #    | :stdout, "stdout" | $stdout |
+    #    | :stderr, "stderr" | $stderr |
+    #    | lambda | Calls this lambda with incoming parsed JSON data |
+    #
+    # @param [Code] code_block Code block to be executed on every API response.
+    # @yield [json] esponse parsed JSON data to be handled.
+    # @return [NilClass] nil
+    # @see RegApi2#dump_responses_to
+    def dump_responses(to = nil, &code_block)
+      if to
+        self.dump_responses_to= to
+        return nil
+      end
+      if block_given?
+        self.dump_responses_to= code_block
+        return nil
+      end
+      self.dump_responses_to= nil
+    end
 
     # Default IO encoding
     DEFAULT_IO_ENCODING = 'utf-8'
@@ -144,12 +218,38 @@ module RegApi2
     # @param [Hash] form
     # @return void
     def form_to_be_sent(path, form)
+      case dump_requests_to
+      when :stderr, "stderr"
+        $stderr.puts "RegApi2.Request:\n#{path}\n#{form}"
+      when :stdout, "stdout"
+        $stdout.puts "RegApi2.Request:\n#{path}\n#{form}"
+      when Proc
+        dump_requests_to.call(path, form)
+      when nil
+        ;
+      else
+        raise ArgumentError.new( "Bad dump_requests_to field: #{dump_requests_to.inspect}" )
+      end
+      nil
     end
 
     # Placeholder to inspect got response.
     # @param [Net::HTTPResponse] response
     # @return void
     def got_response(response)
+      case dump_responses_to
+      when :stderr, "stderr"
+        $stderr.puts "RegApi2.Response:\n#{response}"
+      when :stdout, "stdout"
+        $stdout.puts "RegApi2.Response:\n#{response}"
+      when Proc
+        dump_responses_to.call(response)
+      when nil
+        ;
+      else
+        raise ArgumentError.new( "Bad dump_responses_to field: #{dump_responses_to.inspect}" )
+      end
+      nil
     end
 
     # Gets form data for POST request
@@ -188,6 +288,8 @@ module RegApi2
       raise NetError.new(res.body)  unless res.code == '200'
 
       json = Yajl::Parser.parse(res.body)
+      got_response(json)
+
       raise ApiError.from_json(json)  if json['result'] == 'error'
 
       res_contract = RegApi2::ResultContract.new(defopts)
@@ -212,7 +314,6 @@ module RegApi2
 
       req.set_form_data(form)
       res = http.request(req)
-      got_response(res)
 
       handle_response(defopts, res)
     end
