@@ -11,7 +11,7 @@ module RegApi2
     # Return list of specified services with its stats if specified.
     # @param opts Options.
     # @option opts [Array] services
-    # @return [Hash("services" => [])]
+    # @return [Array<Hash>] List of specified services with its stats.
     # @note Accessibility: clients
     # @note Support of service lists: yes
     # @example List of services by specified identifiers
@@ -22,7 +22,7 @@ module RegApi2
     #    { service_id: "22bug22" },
     #    { surprise: "surprise.ru" }
     #  ])
-    define :nop
+    define :nop, field: :services
 
     # @!method get_prices(opts = {})
     # Get services registration/renewal prices.

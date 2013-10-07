@@ -12,7 +12,7 @@ describe RegApi2::Service do
         { service_id: "22bug22" },
         { surprise: "surprise.ru" }
       ])
-      ans.services.map do |rec|
+      ans.map do |rec|
         rec.result == 'success' ? rec.dname : rec.error_code
       end.sort.should == %w[ INVALID_SERVICE_ID NO_DOMAIN test.ru test.su test12347.ru ]
     end
