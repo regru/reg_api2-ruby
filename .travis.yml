@@ -1,7 +1,12 @@
-notifications:
-  recipients:
-    - akzhan.abdulin@gmail.com
+language: ruby
 rvm:
+  - jruby-19mode
+  - rbx-19mode
+  - 1.9.2
+  - 1.9.3
+  - 2.0.0
+rvm:
+  - rbx-19mode
   - 1.9.2
   - 1.9.3
   - 2.0.0
