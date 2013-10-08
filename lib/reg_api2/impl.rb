@@ -114,15 +114,11 @@ module RegApi2
     # @example Dump outgoing API requests to code block
     #    RegApi2.dump_requests { |path, form| p path; p form }
     def dump_requests(to = nil, &code_block)
-      if to
-        self.dump_requests_to= to
-        return nil
+      if to.nil? && block_given?
+        to = code_block
       end
-      if block_given?
-        self.dump_requests_to= code_block
-        return nil
-      end
-      self.dump_requests_to= nil
+      self.dump_requests_to = to
+      nil
     end
 
     # Dumps incoming API responses to given `to` or code block.
@@ -141,15 +137,10 @@ module RegApi2
     # @example Dump incoming API responses to `$stdout`
     #    RegApi2.dump_responses :stdout
     def dump_responses(to = nil, &code_block)
-      if to
-        self.dump_responses_to= to
-        return nil
+      if to.nil? && block_given?
+        to = code_block
       end
-      if block_given?
-        self.dump_responses_to= code_block
-        return nil
-      end
-      self.dump_responses_to= nil
+      self.dump_responses_to = to
     end
 
     # Default IO encoding
