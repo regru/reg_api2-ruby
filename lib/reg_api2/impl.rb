@@ -141,6 +141,7 @@ module RegApi2
         to = code_block
       end
       self.dump_responses_to = to
+      nil
     end
 
     # Default IO encoding
