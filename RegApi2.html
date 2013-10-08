@@ -6,7 +6,7 @@
 <title>
   Module: RegApi2
   
-    &mdash; 'reg.api2 0.0.8'
+    &mdash; 'reg.api2 0.0.9'
   
 </title>
 
@@ -110,6 +110,13 @@
 <li><span class='object_link'><a href="#zone-class_method" title="RegApi2.zone (method)">RegApi2.zone</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Zone.html" title="RegApi2::Zone (module)">Zone</a></span> methods.</li>
 </ul>
 
+<p>Provides dump hooks:</p>
+
+<ul>
+<li><span class='object_link'><a href="#dump_requests-class_method" title="RegApi2.dump_requests (method)">RegApi2.dump_requests</a></span> to dump outgoing API request forms.</li>
+<li><span class='object_link'><a href="#dump_responses-class_method" title="RegApi2.dump_responses (method)">RegApi2.dump_responses</a></span> to dump incoming API responses.</li>
+</ul>
+
 <p>Please read <a href="index.html" title="README">README</a> for API overview.</p>
 
 
@@ -131,6 +138,12 @@
   <span class='lbrace'>{</span> <span class='label'>service_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>22bug22</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
   <span class='lbrace'>{</span> <span class='label'>surprise:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>surprise.ru</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
 <span class='rbracket'>]</span><span class='rparen'>)</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'><p>Dump incoming API responses to <code>$stderr</code></p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_dump_responses'>dump_responses</span> <span class='symbol'>:stderr</span></code></pre>
     
   </div>
 
@@ -210,7 +223,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.8</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.9</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -242,6 +255,62 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Path to certification authority certificate (nil by default).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_requests_to%3D-class_method" title="dump_requests_to= (class method)">+ (String, ...) <strong>dump_requests_to</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+      <span class="note title writeonly">writeonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Where to dump outgoing API request (nil by default).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_responses_to%3D-class_method" title="dump_responses_to= (class method)">+ (String, ...) <strong>dump_responses_to</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+      <span class="note title writeonly">writeonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Where to dump incoming API response (nil by default).</p>
 </div></span>
   
 </li>
@@ -526,6 +595,52 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Shortcut for <span class='object_link'><a href="RegApi2/Domain.html" title="RegApi2::Domain (module)">Domain</a></span> methods.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_requests-class_method" title="dump_requests (class method)">+ (NilClass) <strong>dump_requests</strong>(to = nil, &amp;code_block) {|path, form| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Dumps outgoing API requests to given <code>to</code> or code block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_responses-class_method" title="dump_responses (class method)">+ (NilClass) <strong>dump_responses</strong>(to = nil, &amp;code_block) {|json| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Dumps incoming API responses to given <code>to</code> or code block.</p>
 </div></span>
   
 </li>
@@ -821,6 +936,220 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ca_cert_path'>ca_cert_path</span>
   <span class='ivar'>@ca_cert_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="dump_requests_to-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="dump_requests_to=-class_method">
+  
+    + (<tt>String</tt>, ...) <strong>dump_requests_to=</strong>(value) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns Where to dump outgoing API request (nil by default).</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Dump to</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nil</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>:stdout, &quot;stdout&quot;</td>
+<td>$stdout</td>
+</tr>
+<tr>
+<td>:stderr, &quot;stderr&quot;</td>
+<td>$stderr</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>Calls this lambda with requested path and form hash</td>
+</tr>
+</tbody></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>, <tt>Lambda</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Where to dump outgoing API request (nil by default).</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Dump to</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nil</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>:stdout, &quot;stdout&quot;</td>
+<td>$stdout</td>
+</tr>
+<tr>
+<td>:stderr, &quot;stderr&quot;</td>
+<td>$stderr</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>Calls this lambda with requested path and form hash</td>
+</tr>
+</tbody></table>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span>
+  <span class='ivar'>@dump_requests_to</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="dump_responses_to-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="dump_responses_to=-class_method">
+  
+    + (<tt>String</tt>, ...) <strong>dump_responses_to=</strong>(value) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns Where to dump incoming API response (nil by default).</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Dump to</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nil</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>:stdout, &quot;stdout&quot;</td>
+<td>$stdout</td>
+</tr>
+<tr>
+<td>:stderr, &quot;stderr&quot;</td>
+<td>$stderr</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>Calls this lambda with incoming parsed JSON data</td>
+</tr>
+</tbody></table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>, <tt>Lambda</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Where to dump incoming API response (nil by default).</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Dump to</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nil</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>:stdout, &quot;stdout&quot;</td>
+<td>$stdout</td>
+</tr>
+<tr>
+<td>:stderr, &quot;stderr&quot;</td>
+<td>$stderr</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>Calls this lambda with incoming parsed JSON data</td>
+</tr>
+</tbody></table>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span>
+  <span class='ivar'>@dump_responses_to</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1230,10 +1559,10 @@
       <pre class="lines">
 
 
-77</pre>
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bill'>bill</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Bill</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1298,14 +1627,14 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-136
-137
-138
-139
-140</pre>
+212
+213
+214
+215
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clear_http'>clear_http</span>
   <span class='kw'>return</span> <span class='kw'>nil</span>  <span class='kw'>unless</span> <span class='ivar'>@http</span>
@@ -1359,10 +1688,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-53</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_common'>common</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Common</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1419,19 +1748,19 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121</pre>
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_http'>create_http</span>
   <span class='id identifier rubyid__http'>_http</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1490,12 +1819,334 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-59</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_domain'>domain</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Domain</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dump_requests-class_method">
+  
+    + (<tt>NilClass</tt>) <strong>dump_requests</strong>(to = nil, &amp;code_block) {|path, form| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Dumps outgoing API requests to given <code>to</code> or code block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Dump outgoing API requests to code block</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_dump_requests'>dump_requests</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_path'>path</span><span class='semicolon'>;</span> <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_form'>form</span> <span class='rbrace'>}</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>to</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>, <tt>Lambda</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Where to dump incoming API response (nil by default).</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Dump to</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nil</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>:stdout, &quot;stdout&quot;</td>
+<td>$stdout</td>
+</tr>
+<tr>
+<td>:stderr, &quot;stderr&quot;</td>
+<td>$stderr</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>Calls this lambda with requested path and form hash</td>
+</tr>
+</tbody></table>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>code_block</span>
+      
+      
+        <span class='type'>(<tt>Code</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Code block to be executed on every API request.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>path</tt>, <tt>form</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Request path and form to be sent.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NilClass</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>nil</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 116</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dump_requests'>dump_requests</span><span class='lparen'>(</span><span class='id identifier rubyid_to'>to</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_code_block'>code_block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_to'>to</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span><span class='op'>=</span> <span class='id identifier rubyid_to'>to</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span><span class='op'>=</span> <span class='id identifier rubyid_code_block'>code_block</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span><span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dump_responses-class_method">
+  
+    + (<tt>NilClass</tt>) <strong>dump_responses</strong>(to = nil, &amp;code_block) {|json| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Dumps incoming API responses to given <code>to</code> or code block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Dump incoming API responses to <code>$stdout</code></p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_dump_responses'>dump_responses</span> <span class='symbol'>:stdout</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>to</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>, <tt>Lambda</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Where to dump outgoing API response (nil by default).</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Dump to</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nil</td>
+<td>Nothing</td>
+</tr>
+<tr>
+<td>:stdout, &quot;stdout&quot;</td>
+<td>$stdout</td>
+</tr>
+<tr>
+<td>:stderr, &quot;stderr&quot;</td>
+<td>$stderr</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>Calls this lambda with incoming parsed JSON data</td>
+</tr>
+</tbody></table>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>code_block</span>
+      
+      
+        <span class='type'>(<tt>Code</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Code block to be executed on every API response.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>json</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Response parsed JSON data to be handled.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NilClass</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>nil</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dump_responses'>dump_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_to'>to</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_code_block'>code_block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_to'>to</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span><span class='op'>=</span> <span class='id identifier rubyid_to'>to</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span><span class='op'>=</span> <span class='id identifier rubyid_code_block'>code_block</span>
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span><span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1543,10 +2194,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-83</pre>
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_folder'>folder</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Folder</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1622,13 +2273,39 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-146
-147</pre>
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 222</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_form_to_be_sent'>form_to_be_sent</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span>
+  <span class='kw'>when</span> <span class='symbol'>:stderr</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stderr</span><span class='tstring_end'>&quot;</span></span>
+    <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RegApi2.Request:\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_form'>form</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='symbol'>:stdout</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdout</span><span class='tstring_end'>&quot;</span></span>
+    <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RegApi2.Request:\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_form'>form</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='const'>Proc</span>
+    <span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='kw'>nil</span>
+    <span class='semicolon'>;</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad dump_requests_to field: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1716,29 +2393,29 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179</pre>
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_form_data'>get_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='comment'># HACK: REG.API doesn't know about utf-8.
@@ -1822,13 +2499,39 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-152
-153</pre>
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 241</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_got_response'>got_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span>
+  <span class='kw'>when</span> <span class='symbol'>:stderr</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stderr</span><span class='tstring_end'>&quot;</span></span>
+    <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RegApi2.Response:\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_response'>response</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='symbol'>:stdout</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdout</span><span class='tstring_end'>&quot;</span></span>
+    <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RegApi2.Response:\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_response'>response</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='const'>Proc</span>
+    <span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='kw'>nil</span>
+    <span class='semicolon'>;</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad dump_responses_to field: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1929,23 +2632,27 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-187
-188
-189
-190
-191
-192
-193
-194
-195</pre>
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 289</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NetError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>200</span><span class='tstring_end'>'</span></span>
 
   <span class='id identifier rubyid_json'>json</span> <span class='op'>=</span> <span class='const'>Yajl</span><span class='op'>::</span><span class='const'>Parser</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_got_response'>got_response</span><span class='lparen'>(</span><span class='id identifier rubyid_json'>json</span><span class='rparen'>)</span>
+
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ApiError</span><span class='period'>.</span><span class='id identifier rubyid_from_json'>from_json</span><span class='lparen'>(</span><span class='id identifier rubyid_json'>json</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id identifier rubyid_json'>json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>result</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
 
   <span class='id identifier rubyid_res_contract'>res_contract</span> <span class='op'>=</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>ResultContract</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='rparen'>)</span>
@@ -2007,12 +2714,12 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-127
-128
-129</pre>
+203
+204
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 203</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_http'>http</span>
   <span class='ivar'>@http</span> <span class='op'>||=</span> <span class='id identifier rubyid_create_http'>create_http</span>
@@ -2145,22 +2852,21 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218</pre>
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 310</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_make_action'>make_action</span> <span class='id identifier rubyid_category'>category</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -2171,7 +2877,6 @@ Also finishes any started HTTP session.</p>
 
   <span class='id identifier rubyid_req'>req</span><span class='period'>.</span><span class='id identifier rubyid_set_form_data'>set_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_req'>req</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_got_response'>got_response</span><span class='lparen'>(</span><span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -2222,10 +2927,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-71</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Service</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2275,10 +2980,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-65</pre>
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user'>user</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>User</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2328,10 +3033,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-89</pre>
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_zone'>zone</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Zone</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2344,7 +3049,7 @@ Also finishes any started HTTP session.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Oct  7 20:49:36 2013 by
+  Generated on Tue Oct  8 13:00:04 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
