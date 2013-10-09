@@ -225,36 +225,53 @@ module RegApi2
     # @!method set_autorenew_flag(opts = {})
     # Enables or disables automatic service renewal.
     # @param opts Options.
-    define :set_autorenew_flag
+     # @return [NilClass] nil
+    # @note Accessibility: clients
+    # @note Support of service lists: no
+   define :set_autorenew_flag
 
     # @!method suspend(opts = {})
     # Use this function to suspend services (for domains – suspend delegation).
     # @param opts Options.
+    # @return [NilClass] nil
+    # @note Accessibility: clients
+    # @note Support of service lists: no
     define :suspend
 
     # @!method resume(opts = {})
     # Use this function to resume services (for domains – resume domain delegation).
     # @param opts Options.
+    # @return [NilClass] nil
+    # @note Accessibility: clients
+    # @note Support of service lists: no
     define :resume
 
     # @!method get_depreciated_period(opts = {})
     # Use this function to calculate the number of periods till the service expiration date.
     # @param opts Options.
+    # @note Accessibility: clients
+    # @note Support of service lists: no
     define :get_depreciated_period
 
     # @!method upgrade(opts = {})
     # This function upgrades service subtypes (rate plans). It can be used for changes of rate plans for virtual hosting ("srv_hosting_ispmgr"), VPS servers("srv_vps") and Additional Disk Space for VPS ("srv_disk_space").
     # @param opts Options.
+    # @note Accessibility: clients
+    # @note Support of service lists: no
     define :upgrade
 
     # @!method partcontrol_grant(opts = {})
     # You can use this function to grant a part of service management rights to other users.
     # @param opts Options.
+    # @note Accessibility: clients
+    # @note Support of service lists: no
     define :partcontrol_grant
 
     # @!method partcontrol_revoke(opts = {})
     # Use this function to stop granting service management rights to other.
     # @param opts Options.
+    # @note Accessibility: clients
+    # @note Support of service lists: no
     define :partcontrol_revoke
 
     # @!method resend_mail(opts = {})
@@ -262,7 +279,9 @@ module RegApi2
     # @param opts Options.
     # @option opts [Array] mailtype Email type: `approver_email` — approve ssl certificate order, `certificate_email` — certificate email.
     # @return [Hash(service_id, dname)]
-    # @example Resend mail.
+    # @note Accessibility: clients
+    # @note Support of service lists: no
+        # @example Resend mail.
     #    RegApi2.service.resend_mail servtype: :srv_ssl_certificate
     define :resend_mail
 
