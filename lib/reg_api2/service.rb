@@ -228,7 +228,7 @@ module RegApi2
      # @return [NilClass] nil
     # @note Accessibility: clients
     # @note Support of service lists: no
-   define :set_autorenew_flag
+    define :set_autorenew_flag
 
     # @!method suspend(opts = {})
     # Use this function to suspend services (for domains – suspend delegation).
