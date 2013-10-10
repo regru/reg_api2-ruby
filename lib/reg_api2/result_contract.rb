@@ -114,6 +114,7 @@ module RegApi2
     # @see #opts
     def handle_answer(answer)
       answer = convert(answer)
+      return nil  if answer.nil?
       field = opts[:field]
       if field
         answer = answer[field]

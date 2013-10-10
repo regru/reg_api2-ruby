@@ -14,11 +14,11 @@ describe RegApi2::Bill do
     end
 
     it "should return bill if specified" do
-      bill.nop(bill_id: 12345).bills.should have(1).bill
+      bill.nop(bill_id: 12345).should have(1).bill
     end
 
     it "should return bills if specified" do
-      bill.nop(bills: [ 12345, 12346 ]).bills.should have(2).bills
+      bill.nop(bills: [ 12345, 12346 ]).should have(2).bills
     end  
   end
 
@@ -28,7 +28,7 @@ describe RegApi2::Bill do
     end
 
     it "should return something real" do
-      bill.get_not_payed.bills.should have(1).bill
+      bill.get_not_payed.should have(1).bill
     end
   end
 
@@ -41,7 +41,7 @@ describe RegApi2::Bill do
       bill.get_for_period(
         start_date: Date.new(2000, 1, 1),
         end_date: Date.new(2015, 1, 1)
-      ).bills.should have(1).bill
+      ).should have(1).bill
     end
   end
 
@@ -63,7 +63,7 @@ describe RegApi2::Bill do
         pay_type: :prepay,
         currency: :RUR,
         bills: [ 123456 ]
-      ).bills.should have(1).bill
+      ).should have(1).bill
     end
   end
 
@@ -71,7 +71,7 @@ describe RegApi2::Bill do
     it "should remove three bills if specified" do
       ans = bill.delete(
         bills: [ { bill_id: 12345 }, { bill_id: 12346 }, { bill_id: 12347 } ]
-      ).bills
+      )
       ans.map { |b| b.bill_id }.should == [ 12345, 12346, 12347 ]
       ans.each { |b| b.result.should == 'success' }
       ans.each { |b| b.status.should == 'deleted' }
