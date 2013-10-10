@@ -113,8 +113,8 @@ module RegApi2
     # @see #convert
     # @see #opts
     def handle_answer(answer)
-      answer = convert(answer)
       return nil  if answer.nil?
+      answer = convert(answer)
       field = opts[:field]
       if field
         answer = answer[field]
