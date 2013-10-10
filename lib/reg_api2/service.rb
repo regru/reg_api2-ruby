@@ -281,7 +281,7 @@ module RegApi2
     # @return [Hash(service_id, dname)]
     # @note Accessibility: clients
     # @note Support of service lists: no
-        # @example Resend mail.
+    # @example Resend mail.
     #    RegApi2.service.resend_mail servtype: :srv_ssl_certificate
     define :resend_mail
 
