@@ -19,6 +19,7 @@ module RegApi2
       bill_id
       service_id
       server_id
+      folder_id
       cpu_count
       cpu_core
       hdd_count
