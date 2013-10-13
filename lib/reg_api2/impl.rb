@@ -5,54 +5,6 @@ require 'net/https'
 require 'yajl'
 
 module RegApi2
-  # Networking Error.
-  # Raised when response doesn't meet HTTP 200 OK status.
-  class NetError < IOError
-  end
-
-  # API Contract Error.
-  # Raised when input parameters doesn't pass Ruby client tests.
-  class ContractError < ArgumentError
-    # @!attribute [r] fields
-    # @return [Array<String>] Wrong fields. 
-    attr_reader :fields
-
-    def initialize message, fields = []
-      super message
-      fields = []  if fields.nil?
-      fields = [ fields ]  unless fields.kind_of?(Array)
-      @fields = fields
-    end
-  end
-
-  # API Error from REG.API provider.
-  # Please refer to {file:README.md#Common_error_codes common error codes}.
-  class ApiError < StandardError
-    # @!attribute [r] description
-    # @return [String] Localized error description.
-    attr_reader :description
-    # @!attribute [r] params
-    # @return [Hash] Optional error params.
-    attr_reader :params
-
-    def initialize code,  description, params
-      super code
-      @description = description
-      @params = params ||  {}
-    end
-
-    # Extracts error arguments from specified json.
-    # @param [Hash] json
-    # @return [ApiError] Initialized error object.
-    def self.from_json json
-      new(
-        json['error_code'],
-        json['error_text'],
-        json['error_params']
-      )
-    end
-  end
-
   class << self
     # @!attribute [rw] username
     # @return [String] User name (`test` by default).

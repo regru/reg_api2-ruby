@@ -1,6 +1,10 @@
 # -*- encoding : utf-8 -*-
 require "reg_api2/version"
 
+require 'reg_api2/net_error'
+require 'reg_api2/contract_error'
+require 'reg_api2/api_error'
+
 require "reg_api2/request_contract"
 require "reg_api2/result_contract"
 
