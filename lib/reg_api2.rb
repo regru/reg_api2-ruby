@@ -100,4 +100,27 @@ module RegApi2
   def zone; RegApi2::Zone; end
   module_function :zone
 
+  class << self
+    # @!attribute [rw] username
+    # @return [String] User name (`test` by default).
+    attr_accessor :username
+    # @!attribute [rw] password
+    # @return [String] Password (`test` by default).
+    attr_accessor :password
+    # @!attribute [rw] io_encoding
+    # @return [String] IO encoding (`utf-8` by default).
+    attr_accessor :io_encoding
+    # @!attribute [rw] lang
+    # @return [String] Language (`en` by default).
+    attr_accessor :lang
+    # @!attribute [rw] ca_cert_path
+    # @return [String] Path to certification authority certificate (nil by default).
+    attr_accessor :ca_cert_path
+    # @!attribute [rw] pem
+    # @return [String] X.509 certificate (nil by default).
+    attr_accessor :pem
+    # @!attribute [rw] pem_password
+    # @return [String] X.509 certificate password (nil by default).
+    attr_accessor :pem_password
+  end
 end
