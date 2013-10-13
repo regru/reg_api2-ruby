@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RegApi2
   # API Contract Error.
   # Raised when input parameters doesn't pass Ruby client tests.

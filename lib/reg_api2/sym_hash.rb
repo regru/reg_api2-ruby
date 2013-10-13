@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RegApi2
   # Hash with indifferent access to its elements.
   # Also have no difference between {String} ans {Symbol} keys. 

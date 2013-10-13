@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RegApi2
   # API Error from REG.API provider.
   # Please refer to {file:README.md#Common_error_codes common error codes}.

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'reg_api2/entity/user'
 
 RegApi2::Entity::User.blueprint(:bad_login) do

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'reg_api2/entity/entity_base'
 
 module RegApi2
