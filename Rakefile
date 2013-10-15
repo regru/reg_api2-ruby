@@ -1,30 +1,19 @@
 require 'rake'
 require "bundler/gem_tasks"
+require 'rspec/core/rake_task'
+require 'yard'
 
 APP_ROOT = File.dirname(__FILE__).freeze
 
 lib = File.expand_path('lib', APP_ROOT)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'reg_api2/version'
 
-begin
-  require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new
 
-  RSpec::Core::RakeTask.new
-rescue LoadError
-  $stderr.puts "RSpec not available. Install it with: gem install rspec-core rspec-expectations"
+YARD::Rake::YardocTask.new do |yard|
+  yard.options << "--title='reg.api2 #{RegApi2::VERSION}'"
 end
 
 task :default => :spec
-
-begin
-  require 'yard'
-
-  YARD::Rake::YardocTask.new do |yard|
-
-    version = RegApi2::VERSION
-    yard.options << "--title='reg.api2 #{version}'"
-  end
-rescue LoadError
-  $stderr.puts "Please install YARD with: gem install yard"
-end
