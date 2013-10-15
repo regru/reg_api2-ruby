@@ -3,10 +3,10 @@ require "bundler/gem_tasks"
 require 'rspec/core/rake_task'
 require 'yard'
 
-APP_ROOT = File.dirname(__FILE__).freeze
+GEM_ROOT = File.dirname(__FILE__).freeze
 
-lib = File.expand_path('lib', APP_ROOT)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+lib_path = File.expand_path('lib', GEM_ROOT)
+$LOAD_PATH.unshift(lib_path)  unless $LOAD_PATH.include? lib_path
 
 require 'reg_api2/version'
 
