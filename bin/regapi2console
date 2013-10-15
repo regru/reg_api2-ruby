@@ -3,8 +3,8 @@
 begin
   require 'reg_api2/console'
 rescue LoadError # local run
-  APP_ROOT = File.expand_path('..', File.dirname(__FILE__)).freeze
-  lib = File.expand_path('lib', APP_ROOT)
-  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  LOCAL_GEM_ROOT = File.expand_path('..', File.dirname(__FILE__)).freeze
+  lib_path = File.expand_path('lib', LOCAL_GEM_ROOT)
+  $LOAD_PATH.unshift(lib_path)  unless $LOAD_PATH.include?(lib_path)
   require 'reg_api2/console'
 end
