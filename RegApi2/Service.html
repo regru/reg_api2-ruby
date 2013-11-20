@@ -147,7 +147,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">- (NilClass) <strong>delete</strong>(opts = {}) </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">- (void) <strong>delete</strong>(opts = {}) </a>
     
 
     
@@ -492,7 +492,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#resume-instance_method" title="#resume (instance method)">- (NilClass) <strong>resume</strong>(opts = {}) </a>
+      <a href="#resume-instance_method" title="#resume (instance method)">- (void) <strong>resume</strong>(opts = {}) </a>
     
 
     
@@ -538,7 +538,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#set_autorenew_flag-instance_method" title="#set_autorenew_flag (instance method)">- (Object) <strong>set_autorenew_flag</strong>(opts = {}) </a>
+      <a href="#set_autorenew_flag-instance_method" title="#set_autorenew_flag (instance method)">- (void) <strong>set_autorenew_flag</strong>(opts = {}) </a>
     
 
     
@@ -561,7 +561,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#suspend-instance_method" title="#suspend (instance method)">- (NilClass) <strong>suspend</strong>(opts = {}) </a>
+      <a href="#suspend-instance_method" title="#suspend (instance method)">- (void) <strong>suspend</strong>(opts = {}) </a>
     
 
     
@@ -981,7 +981,7 @@ TODO: specific options.</p>
       <div class="method_details ">
   <h3 class="signature " id="delete-instance_method">
   
-    - (<tt>NilClass</tt>) <strong>delete</strong>(opts = {}) 
+    - (<tt>void</tt>) <strong>delete</strong>(opts = {}) 
   
 
   
@@ -1002,7 +1002,7 @@ TODO: specific options.</p>
 </div>
   </div>
 
-<p>Removes the service.</p>
+<p class="note returns_void">This method returns an undefined value.</p><p>Removes the service.</p>
 
 
   </div>
@@ -1114,23 +1114,6 @@ TODO: specific options.</p>
     </ul>
   
 
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>NilClass</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>nil</p>
-</div>
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2558,7 +2541,7 @@ TODO: specific options.</p>
       <div class="method_details ">
   <h3 class="signature " id="resume-instance_method">
   
-    - (<tt>NilClass</tt>) <strong>resume</strong>(opts = {}) 
+    - (<tt>void</tt>) <strong>resume</strong>(opts = {}) 
   
 
   
@@ -2579,7 +2562,7 @@ TODO: specific options.</p>
 </div>
   </div>
 
-<p>Use this function to resume services (for domains – resume domain delegation).</p>
+<p class="note returns_void">This method returns an undefined value.</p><p>Use this function to resume services (for domains – resume domain delegation).</p>
 
 
   </div>
@@ -2607,23 +2590,6 @@ TODO: specific options.</p>
   
 </ul>
 
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>NilClass</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>nil</p>
-</div>
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2704,7 +2670,7 @@ TODO: specific options.</p>
       <div class="method_details ">
   <h3 class="signature " id="set_autorenew_flag-instance_method">
   
-    - (<tt>Object</tt>) <strong>set_autorenew_flag</strong>(opts = {}) 
+    - (<tt>void</tt>) <strong>set_autorenew_flag</strong>(opts = {}) 
   
 
   
@@ -2712,7 +2678,20 @@ TODO: specific options.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Enables or disables automatic service renewal.</p>
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Accessibility: clients</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Support of service lists: no</p>
+</div>
+  </div>
+
+<p class="note returns_void">This method returns an undefined value.</p><p>Enables or disables automatic service renewal.</p>
 
 
   </div>
@@ -2747,12 +2726,12 @@ TODO: specific options.</p>
       <pre class="lines">
 
 
-</pre>
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 225</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 231</span>
 
-</pre>
+<span class='id identifier rubyid_define'>define</span> <span class='symbol'>:set_autorenew_flag</span></pre>
     </td>
   </tr>
 </table>
@@ -2761,7 +2740,7 @@ TODO: specific options.</p>
       <div class="method_details ">
   <h3 class="signature " id="suspend-instance_method">
   
-    - (<tt>NilClass</tt>) <strong>suspend</strong>(opts = {}) 
+    - (<tt>void</tt>) <strong>suspend</strong>(opts = {}) 
   
 
   
@@ -2782,7 +2761,7 @@ TODO: specific options.</p>
 </div>
   </div>
 
-<p>Use this function to suspend services (for domains – suspend delegation).</p>
+<p class="note returns_void">This method returns an undefined value.</p><p>Use this function to suspend services (for domains – suspend delegation).</p>
 
 
   </div>
@@ -2810,23 +2789,6 @@ TODO: specific options.</p>
   
 </ul>
 
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>NilClass</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>nil</p>
-</div>
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -2977,7 +2939,7 @@ TODO: specific options.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Nov 20 08:53:02 2013 by
+  Generated on Wed Nov 20 09:07:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
