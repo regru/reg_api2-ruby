@@ -6,7 +6,7 @@
 <title>
   Module: RegApi2
   
-    &mdash; 'reg.api2 0.0.10'
+    &mdash; 'reg.api2 0.0.11'
   
 </title>
 
@@ -73,14 +73,18 @@
   
   
     
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="RegApi2/Action.html" title="RegApi2::Action (module)">Action</a></span></dd>
+      
+    
   
     
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/reg_api2.rb<span class="defines">,<br />
-  lib/reg_api2/impl.rb,<br /> lib/reg_api2/bill.rb,<br /> lib/reg_api2/zone.rb,<br /> lib/reg_api2/user.rb,<br /> lib/reg_api2/domain.rb,<br /> lib/reg_api2/folder.rb,<br /> lib/reg_api2/common.rb,<br /> lib/reg_api2/service.rb,<br /> lib/reg_api2/builder.rb,<br /> lib/reg_api2/version.rb,<br /> lib/reg_api2/console.rb,<br /> lib/reg_api2/sym_hash.rb,<br /> lib/reg_api2/entity/user.rb,<br /> lib/reg_api2/result_contract.rb,<br /> lib/reg_api2/request_contract.rb,<br /> lib/reg_api2/entity/entity_base.rb</span>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/reg_api2.rb<span class="defines">,<br />
+  lib/reg_api2/bill.rb,<br /> lib/reg_api2/zone.rb,<br /> lib/reg_api2/user.rb,<br /> lib/reg_api2/impl.rb,<br /> lib/reg_api2/folder.rb,<br /> lib/reg_api2/action.rb,<br /> lib/reg_api2/common.rb,<br /> lib/reg_api2/domain.rb,<br /> lib/reg_api2/version.rb,<br /> lib/reg_api2/builder.rb,<br /> lib/reg_api2/service.rb,<br /> lib/reg_api2/hosting.rb,<br /> lib/reg_api2/console.rb,<br /> lib/reg_api2/sym_hash.rb,<br /> lib/reg_api2/api_error.rb,<br /> lib/reg_api2/net_error.rb,<br /> lib/reg_api2/entity/user.rb,<br /> lib/reg_api2/contract_error.rb,<br /> lib/reg_api2/result_contract.rb,<br /> lib/reg_api2/request_contract.rb,<br /> lib/reg_api2/entity/entity_base.rb</span>
 </dd>
   
 </dl>
@@ -108,6 +112,7 @@
 <li><span class='object_link'><a href="#bill-class_method" title="RegApi2.bill (method)">RegApi2.bill</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span> methods.</li>
 <li><span class='object_link'><a href="#folder-class_method" title="RegApi2.folder (method)">RegApi2.folder</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Folder.html" title="RegApi2::Folder (module)">Folder</a></span> methods.</li>
 <li><span class='object_link'><a href="#zone-class_method" title="RegApi2.zone (method)">RegApi2.zone</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Zone.html" title="RegApi2::Zone (module)">Zone</a></span> methods.</li>
+<li><span class='object_link'><a href="#hosting-class_method" title="RegApi2.hosting (method)">RegApi2.hosting</a></span> API category implemented as <span class='object_link'><a href="RegApi2/Hosting.html" title="RegApi2::Hosting (module)">Hosting</a></span> methods.</li>
 </ul>
 
 <p>Provides dump hooks:</p>
@@ -152,7 +157,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span>, <span class='object_link'><a href="RegApi2/Builder.html" title="RegApi2::Builder (module)">Builder</a></span>, <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="RegApi2/Domain.html" title="RegApi2::Domain (module)">Domain</a></span>, <span class='object_link'><a href="RegApi2/Entity.html" title="RegApi2::Entity (module)">Entity</a></span>, <span class='object_link'><a href="RegApi2/Folder.html" title="RegApi2::Folder (module)">Folder</a></span>, <span class='object_link'><a href="RegApi2/Service.html" title="RegApi2::Service (module)">Service</a></span>, <span class='object_link'><a href="RegApi2/User.html" title="RegApi2::User (module)">User</a></span>, <span class='object_link'><a href="RegApi2/Zone.html" title="RegApi2::Zone (module)">Zone</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RegApi2/Action.html" title="RegApi2::Action (module)">Action</a></span>, <span class='object_link'><a href="RegApi2/Bill.html" title="RegApi2::Bill (module)">Bill</a></span>, <span class='object_link'><a href="RegApi2/Builder.html" title="RegApi2::Builder (module)">Builder</a></span>, <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span>, <span class='object_link'><a href="RegApi2/Domain.html" title="RegApi2::Domain (module)">Domain</a></span>, <span class='object_link'><a href="RegApi2/Entity.html" title="RegApi2::Entity (module)">Entity</a></span>, <span class='object_link'><a href="RegApi2/Folder.html" title="RegApi2::Folder (module)">Folder</a></span>, <span class='object_link'><a href="RegApi2/Hosting.html" title="RegApi2::Hosting (module)">Hosting</a></span>, <span class='object_link'><a href="RegApi2/Service.html" title="RegApi2::Service (module)">Service</a></span>, <span class='object_link'><a href="RegApi2/User.html" title="RegApi2::User (module)">User</a></span>, <span class='object_link'><a href="RegApi2/Zone.html" title="RegApi2::Zone (module)">Zone</a></span>
     
   
     
@@ -164,51 +169,6 @@
   <h2>Constant Summary</h2>
   
     <dl class="constants">
-      
-        <dt id="DEFAULT_IO_ENCODING-constant" class="">DEFAULT_IO_ENCODING =
-          <div class="docstring">
-  <div class="discussion">
-    <p>Default IO encoding</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>utf-8</span><span class='tstring_end'>'</span></span></pre></dd>
-      
-        <dt id="DEFAULT_LANG-constant" class="">DEFAULT_LANG =
-          <div class="docstring">
-  <div class="discussion">
-    <p>Default lang.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>en</span><span class='tstring_end'>'</span></span></pre></dd>
-      
-        <dt id="API_URI-constant" class="">API_URI =
-          <div class="docstring">
-  <div class="discussion">
-    <p>REG.API base URI</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://api.reg.ru/api/regru2</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre></dd>
       
         <dt id="VERSION-constant" class="">VERSION =
           <div class="docstring">
@@ -223,12 +183,18 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.10</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.11</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
 
 
+
+  
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="RegApi2/Action.html" title="RegApi2::Action (module)">Action</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="RegApi2/Action.html#API_URI-constant" title="RegApi2::Action::API_URI (constant)">Action::API_URI</a></span>, <span class='object_link'><a href="RegApi2/Action.html#DEFAULT_IO_ENCODING-constant" title="RegApi2::Action::DEFAULT_IO_ENCODING (constant)">Action::DEFAULT_IO_ENCODING</a></span>, <span class='object_link'><a href="RegApi2/Action.html#DEFAULT_LANG-constant" title="RegApi2::Action::DEFAULT_LANG (constant)">Action::DEFAULT_LANG</a></span>, <span class='object_link'><a href="RegApi2/Action.html#DEFAULT_PASSWORD-constant" title="RegApi2::Action::DEFAULT_PASSWORD (constant)">Action::DEFAULT_PASSWORD</a></span>, <span class='object_link'><a href="RegApi2/Action.html#DEFAULT_USERNAME-constant" title="RegApi2::Action::DEFAULT_USERNAME (constant)">Action::DEFAULT_USERNAME</a></span></p>
 
 
   <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -511,29 +477,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#clear_http-class_method" title="clear_http (class method)">+ (Object) <strong>clear_http</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Clears internal <code>http</code> singleton.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#common-class_method" title="common (class method)">+ (Module) <strong>common</strong> </a>
     
 
@@ -549,29 +492,6 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Shortcut for <span class='object_link'><a href="RegApi2/Common.html" title="RegApi2::Common (module)">Common</a></span> methods.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#create_http-class_method" title="create_http (class method)">+ (Net::HTTP) <strong>create_http</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Creates HTTPS handler.</p>
 </div></span>
   
 </li>
@@ -695,29 +615,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_form_data-class_method" title="get_form_data (class method)">+ (Hash) <strong>get_form_data</strong>(defopts, opts) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Gets form data for POST request.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#got_response-class_method" title="got_response (class method)">+ (Object) <strong>got_response</strong>(response) </a>
     
 
@@ -741,7 +638,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#handle_response-class_method" title="handle_response (class method)">+ (Object) <strong>handle_response</strong>(defopts, res) </a>
+      <a href="#hosting-class_method" title="hosting (class method)">+ (Module) <strong>hosting</strong> </a>
     
 
     
@@ -755,53 +652,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Handles response.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#http-class_method" title="http (class method)">+ (Net::HTTP) <strong>http</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Creates or gets HTTPS handler.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#make_action-class_method" title="make_action (class method)">+ (Hash) <strong>make_action</strong>(category, name, defopts, opts = {}) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Do actual call to REG.API using POST/JSON convention.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut for <span class='object_link'><a href="RegApi2/Hosting.html" title="RegApi2::Hosting (module)">Hosting</a></span> methods.</p>
 </div></span>
   
 </li>
@@ -880,6 +731,17 @@
   
 
 
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="RegApi2/Action.html" title="RegApi2::Action (module)">Action</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="RegApi2/Action.html#clear_http-instance_method" title="RegApi2::Action#clear_http (method)">clear_http</a></span>, <span class='object_link'><a href="RegApi2/Action.html#create_http-instance_method" title="RegApi2::Action#create_http (method)">create_http</a></span>, <span class='object_link'><a href="RegApi2/Action.html#get_form_data-instance_method" title="RegApi2::Action#get_form_data (method)">get_form_data</a></span>, <span class='object_link'><a href="RegApi2/Action.html#handle_response-instance_method" title="RegApi2::Action#handle_response (method)">handle_response</a></span>, <span class='object_link'><a href="RegApi2/Action.html#http-instance_method" title="RegApi2::Action#http (method)">http</a></span>, <span class='object_link'><a href="RegApi2/Action.html#make_action-instance_method" title="RegApi2::Action#make_action (method)">make_action</a></span></p>
+
   <div id="class_attr_details" class="attr_details">
     <h2>Class Attribute Details</h2>
     
@@ -927,12 +789,12 @@
       <pre class="lines">
 
 
-71
-72
-73</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ca_cert_path'>ca_cert_path</span>
   <span class='ivar'>@ca_cert_path</span>
@@ -1034,12 +896,12 @@
       <pre class="lines">
 
 
-87
-88
-89</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span>
   <span class='ivar'>@dump_requests_to</span>
@@ -1141,12 +1003,12 @@
       <pre class="lines">
 
 
-97
-98
-99</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span>
   <span class='ivar'>@dump_responses_to</span>
@@ -1200,12 +1062,12 @@
       <pre class="lines">
 
 
-65
-66
-67</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_io_encoding'>io_encoding</span>
   <span class='ivar'>@io_encoding</span>
@@ -1259,12 +1121,12 @@
       <pre class="lines">
 
 
-68
-69
-70</pre>
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lang'>lang</span>
   <span class='ivar'>@lang</span>
@@ -1318,12 +1180,12 @@
       <pre class="lines">
 
 
-62
-63
-64</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_password'>password</span>
   <span class='ivar'>@password</span>
@@ -1377,12 +1239,12 @@
       <pre class="lines">
 
 
-74
-75
-76</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pem'>pem</span>
   <span class='ivar'>@pem</span>
@@ -1436,12 +1298,12 @@
       <pre class="lines">
 
 
-77
-78
-79</pre>
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pem_password'>pem_password</span>
   <span class='ivar'>@pem_password</span>
@@ -1495,12 +1357,12 @@
       <pre class="lines">
 
 
-59
-60
-61</pre>
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 114</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_username'>username</span>
   <span class='ivar'>@username</span>
@@ -1559,88 +1421,12 @@
       <pre class="lines">
 
 
-84</pre>
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bill'>bill</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Bill</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="clear_http-class_method">
-  
-    + (<tt>Object</tt>) <strong>clear_http</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'><p>For testing purposes.</p>
-</div>
-  </div>
-
-<p>Clears internal <code>http</code> singleton.
-Also finishes any started HTTP session.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        
-        <div class='inline'><p>nil</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-  <p class="tag_title">See Also:</p>
-  <ul class="see">
-    
-      <li>#http</li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-204
-205
-206
-207
-208</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 204</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_clear_http'>clear_http</span>
-  <span class='kw'>return</span> <span class='kw'>nil</span>  <span class='kw'>unless</span> <span class='ivar'>@http</span>
-  <span class='ivar'>@http</span><span class='period'>.</span><span class='id identifier rubyid_finish'>finish</span>  <span class='kw'>if</span> <span class='ivar'>@http</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:started</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@http</span><span class='period'>.</span><span class='id identifier rubyid_started'>started</span>
-  <span class='ivar'>@http</span> <span class='op'>=</span> <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1688,90 +1474,12 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-60</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_common'>common</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Common</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="create_http-class_method">
-  
-    + (<tt>Net::HTTP</tt>) <strong>create_http</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Creates HTTPS handler.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Net::HTTP</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>HTTPS handler.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-  <p class="tag_title">See Also:</p>
-  <ul class="see">
-    
-      <li>#http</li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 180</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_create_http'>create_http</span>
-  <span class='id identifier rubyid__http'>_http</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='const'>API_URI</span><span class='period'>.</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> 
-    <span class='const'>API_URI</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>
-  <span class='rparen'>)</span>
-  <span class='id identifier rubyid__http'>_http</span><span class='period'>.</span><span class='id identifier rubyid_use_ssl'>use_ssl</span> <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='id identifier rubyid_apply_ca_cert_path'>apply_ca_cert_path</span><span class='lparen'>(</span><span class='id identifier rubyid__http'>_http</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_apply_pem'>apply_pem</span><span class='lparen'>(</span><span class='id identifier rubyid__http'>_http</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid__http'>_http</span>
-<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1819,10 +1527,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-66</pre>
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_domain'>domain</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Domain</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1960,16 +1668,16 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-116
-117
-118
-119
-120
-121
-122</pre>
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_requests'>dump_requests</span><span class='lparen'>(</span><span class='id identifier rubyid_to'>to</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_code_block'>code_block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_to'>to</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -2113,16 +1821,16 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-139
-140
-141
-142
-143
-144
-145</pre>
+89
+90
+91
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_responses'>dump_responses</span><span class='lparen'>(</span><span class='id identifier rubyid_to'>to</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_code_block'>code_block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_to'>to</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -2178,10 +1886,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-90</pre>
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_folder'>folder</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Folder</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2257,24 +1965,24 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228</pre>
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_form_to_be_sent'>form_to_be_sent</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span>
@@ -2290,136 +1998,6 @@ Also finishes any started HTTP session.</p>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bad dump_requests_to field: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dump_requests_to'>dump_requests_to</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rparen'>)</span>
   <span class='kw'>end</span>
   <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_form_data-class_method">
-  
-    + (<tt>Hash</tt>) <strong>get_form_data</strong>(defopts, opts) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Gets form data for POST request</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>defopts</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>opts</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Form data to be sent.</p>
-</div>
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="RegApi2/ContractError.html" title="RegApi2::ContractError (class)">ContractError</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 254</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_form_data'>get_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-  <span class='comment'># HACK: REG.API doesn't know about utf-8.
-</span>  <span class='id identifier rubyid_io_encoding'>io_encoding</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>utf8</span><span class='tstring_end'>'</span></span>  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_io_encoding'>io_encoding</span> <span class='op'>||</span> <span class='id identifier rubyid_io_encoding'>io_encoding</span> <span class='op'>==</span> <span class='const'>DEFAULT_IO_ENCODING</span>
-  <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_hash</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_req_contract'>req_contract</span> <span class='op'>=</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>RequestContract</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='id identifier rubyid_req_contract'>req_contract</span><span class='period'>.</span><span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_form'>form</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>username</span><span class='tstring_end'>'</span></span>          <span class='op'>=&gt;</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>test</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>password</span><span class='tstring_end'>'</span></span>          <span class='op'>=&gt;</span> <span class='id identifier rubyid_password'>password</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>test</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>io_encoding</span><span class='tstring_end'>'</span></span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_io_encoding'>io_encoding</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>lang</span><span class='tstring_end'>'</span></span>              <span class='op'>=&gt;</span> <span class='id identifier rubyid_lang'>lang</span> <span class='op'>||</span> <span class='const'>DEFAULT_LANG</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>output_format</span><span class='tstring_end'>'</span></span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>json</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>input_format</span><span class='tstring_end'>'</span></span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>json</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>show_input_params</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>input_data</span><span class='tstring_end'>'</span></span>        <span class='op'>=&gt;</span> <span class='const'>Yajl</span><span class='op'>::</span><span class='const'>Encoder</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-  <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_form'>form</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2483,24 +2061,24 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247</pre>
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 233</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_got_response'>got_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_dump_responses_to'>dump_responses_to</span>
@@ -2523,134 +2101,9 @@ Also finishes any started HTTP session.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="handle_response-class_method">
+  <h3 class="signature " id="hosting-class_method">
   
-    + (<tt>Object</tt>) <strong>handle_response</strong>(defopts, res) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Handles response</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>defopts</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>res</span>
-      
-      
-        <span class='type'>(<tt>Net::HTTPResponse</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>HTTP Response</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Object</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Contracted response.</p>
-</div>
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="RegApi2/NetError.html" title="RegApi2::NetError (class)">NetError</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="RegApi2/ApiError.html" title="RegApi2::ApiError (class)">ApiError</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 281</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NetError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>200</span><span class='tstring_end'>'</span></span>
-
-  <span class='id identifier rubyid_json'>json</span> <span class='op'>=</span> <span class='const'>Yajl</span><span class='op'>::</span><span class='const'>Parser</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_got_response'>got_response</span><span class='lparen'>(</span><span class='id identifier rubyid_json'>json</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ApiError</span><span class='period'>.</span><span class='id identifier rubyid_from_json'>from_json</span><span class='lparen'>(</span><span class='id identifier rubyid_json'>json</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id identifier rubyid_json'>json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>result</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
-
-  <span class='id identifier rubyid_res_contract'>res_contract</span> <span class='op'>=</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>ResultContract</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_res_contract'>res_contract</span><span class='period'>.</span><span class='id identifier rubyid_handle_result'>handle_result</span><span class='lparen'>(</span><span class='id identifier rubyid_json'>json</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="http-class_method">
-  
-    + (<tt>Net::HTTP</tt>) <strong>http</strong> 
+    + (<tt>Module</tt>) <strong>hosting</strong> 
   
 
   
@@ -2658,7 +2111,7 @@ Also finishes any started HTTP session.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Creates or gets HTTPS handler.</p>
+    <p>Shortcut for <span class='object_link'><a href="RegApi2/Hosting.html" title="RegApi2::Hosting (module)">Hosting</a></span> methods.</p>
 
 
   </div>
@@ -2671,160 +2124,13 @@ Also finishes any started HTTP session.</p>
     <li>
       
       
-        <span class='type'>(<tt>Net::HTTP</tt>)</span>
+        <span class='type'>(<tt>Module</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>HTTPS handler.</p>
+        <div class='inline'><p><span class='object_link'><a href="RegApi2/Hosting.html" title="RegApi2::Hosting (module)">Hosting</a></span></p>
 </div>
-      
-    </li>
-  
-</ul>
-
-  <p class="tag_title">See Also:</p>
-  <ul class="see">
-    
-      <li>#create_http</li>
-    
-      <li>#clear_http</li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-195
-196
-197</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 195</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_http'>http</span>
-  <span class='ivar'>@http</span> <span class='op'>||=</span> <span class='id identifier rubyid_create_http'>create_http</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="make_action-class_method">
-  
-    + (<tt>Hash</tt>) <strong>make_action</strong>(category, name, defopts, opts = {}) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Do actual call to REG.API using POST/JSON convention.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>category</span>
-      
-      
-        <span class='type'>(<tt>Symbol</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>name</span>
-      
-      
-        <span class='type'>(<tt>Symbol</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>defopts</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>opts</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Result answer field.</p>
-</div>
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="RegApi2/NetError.html" title="RegApi2::NetError (class)">NetError</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="RegApi2/ApiError.html" title="RegApi2::ApiError (class)">ApiError</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="RegApi2/ContractError.html" title="RegApi2::ContractError (class)">ContractError</a></span></tt>)</span>
-      
-      
       
     </li>
   
@@ -2836,34 +2142,12 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313</pre>
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 302</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 108</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_make_action'>make_action</span> <span class='id identifier rubyid_category'>category</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='id identifier rubyid_category'>category</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>API_URI</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>API_URI</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_category'>category</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rparen'>)</span>
-  <span class='id identifier rubyid_form'>form</span> <span class='op'>=</span> <span class='id identifier rubyid_get_form_data'>get_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_form_to_be_sent'>form_to_be_sent</span><span class='lparen'>(</span><span class='id identifier rubyid_req'>req</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_req'>req</span><span class='period'>.</span><span class='id identifier rubyid_set_form_data'>set_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_form'>form</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_req'>req</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_handle_response'>handle_response</span><span class='lparen'>(</span><span class='id identifier rubyid_defopts'>defopts</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_hosting'>hosting</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Hosting</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -2911,10 +2195,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-78</pre>
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_service'>service</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Service</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2964,10 +2248,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-72</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user'>user</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>User</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3017,10 +2301,10 @@ Also finishes any started HTTP session.</p>
       <pre class="lines">
 
 
-96</pre>
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_zone'>zone</span><span class='semicolon'>;</span> <span class='const'>RegApi2</span><span class='op'>::</span><span class='const'>Zone</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3033,7 +2317,7 @@ Also finishes any started HTTP session.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Oct 10 17:17:11 2013 by
+  Generated on Wed Nov 20 08:53:02 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

@@ -6,7 +6,7 @@
 <title>
   Class: RegApi2::Entity::EntityBase
   
-    &mdash; 'reg.api2 0.0.10'
+    &mdash; 'reg.api2 0.0.11'
   
 </title>
 
@@ -295,16 +295,16 @@ opts values are assigned to properties if exist.</p>
       <pre class="lines">
 
 
-48
 49
 50
 51
 52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_methods'>methods</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_public_instance_methods'>public_instance_methods</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>
@@ -363,7 +363,6 @@ opts values are assigned to properties if exist.</p>
       <pre class="lines">
 
 
-16
 17
 18
 19
@@ -372,10 +371,11 @@ opts values are assigned to properties if exist.</p>
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_property_names'>property_names</span>
   <span class='id identifier rubyid_methods'>methods</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_public_instance_methods'>public_instance_methods</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>
@@ -434,17 +434,17 @@ opts values are assigned to properties if exist.</p>
       <pre class="lines">
 
 
-29
 30
 31
 32
 33
 34
 35
-36</pre>
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_hash'>to_hash</span>
   <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -508,12 +508,12 @@ opts values are assigned to properties if exist.</p>
       <pre class="lines">
 
 
-41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/entity/entity_base.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_json'>to_json</span>
   <span class='const'>Yajl</span><span class='op'>::</span><span class='const'>Encoder</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span> <span class='id identifier rubyid_to_hash'>to_hash</span>
@@ -528,7 +528,7 @@ opts values are assigned to properties if exist.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Oct 10 17:17:12 2013 by
+  Generated on Wed Nov 20 08:53:03 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

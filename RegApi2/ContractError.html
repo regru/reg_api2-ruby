@@ -6,7 +6,7 @@
 <title>
   Exception: RegApi2::ContractError
   
-    &mdash; 'reg.api2 0.0.10'
+    &mdash; 'reg.api2 0.0.11'
   
 </title>
 
@@ -96,7 +96,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/reg_api2/impl.rb</dd>
+    <dd class="r2 last">lib/reg_api2/contract_error.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -217,15 +217,15 @@ Raised when input parameters doesn&#39;t pass Ruby client tests.</p>
       <pre class="lines">
 
 
-20
-21
-22
-23
-24
-25</pre>
+10
+11
+12
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/contract_error.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_fields'>fields</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='kw'>super</span> <span class='id identifier rubyid_message'>message</span>
@@ -287,12 +287,12 @@ Raised when input parameters doesn&#39;t pass Ruby client tests.</p>
       <pre class="lines">
 
 
-18
-19
-20</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/impl.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/contract_error.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fields'>fields</span>
   <span class='ivar'>@fields</span>
@@ -308,7 +308,7 @@ Raised when input parameters doesn&#39;t pass Ruby client tests.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Oct 10 17:17:12 2013 by
+  Generated on Wed Nov 20 08:53:03 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>

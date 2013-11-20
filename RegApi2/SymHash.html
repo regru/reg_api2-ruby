@@ -6,7 +6,7 @@
 <title>
   Class: RegApi2::SymHash
   
-    &mdash; 'reg.api2 0.0.10'
+    &mdash; 'reg.api2 0.0.11'
   
 </title>
 
@@ -340,7 +340,6 @@ Also have no difference between String ans Symbol keys.</p>
       <pre class="lines">
 
 
-51
 52
 53
 54
@@ -350,10 +349,11 @@ Also have no difference between String ans Symbol keys.</p>
 58
 59
 60
-61</pre>
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(.+)=\z</span><span class='regexp_end'>/</span></span>
@@ -420,7 +420,6 @@ Also have no difference between String ans Symbol keys.</p>
       <pre class="lines">
 
 
-8
 9
 10
 11
@@ -435,10 +434,11 @@ Also have no difference between String ans Symbol keys.</p>
 20
 21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from'>from</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_source'>source</span>
@@ -492,12 +492,12 @@ Also have no difference between String ans Symbol keys.</p>
       <pre class="lines">
 
 
-36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
@@ -532,12 +532,12 @@ Also have no difference between String ans Symbol keys.</p>
       <pre class="lines">
 
 
-41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_new_value'>new_value</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span><span class='op'>=</span><span class='id identifier rubyid_new_value'>new_value</span> <span class='op'>:</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_new_value'>new_value</span><span class='rparen'>)</span>
@@ -585,12 +585,12 @@ Also have no difference between String ans Symbol keys.</p>
       <pre class="lines">
 
 
-26
 27
-28</pre>
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
@@ -638,12 +638,12 @@ Also have no difference between String ans Symbol keys.</p>
       <pre class="lines">
 
 
-31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
@@ -691,12 +691,12 @@ Also have no difference between String ans Symbol keys.</p>
       <pre class="lines">
 
 
-46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/sym_hash.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='kw'>true</span>
@@ -711,7 +711,7 @@ Also have no difference between String ans Symbol keys.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Oct 10 17:17:12 2013 by
+  Generated on Wed Nov 20 08:53:03 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-1.9.3).
 </div>
