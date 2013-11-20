@@ -27,7 +27,7 @@ module RegApi2
 
     # @!method set_jelastic_refill_url(opts = {})
     # @param [Hash] opts
-    # @option opts [String] :url Jelastic refill URL.
+    # @option opts [String] :url Jelastic refill URL.  You can use the keywords `<service_id>` and `<email>`, which will be replaced with the identifier of service for balance refill, and the email address used for the Jelastic account registration.
     # Sets Jelastic refill URL for current reseller.
     # @return [void] Nothing.
     # @note Accessibility: partners
