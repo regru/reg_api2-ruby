@@ -45,7 +45,7 @@ RegApi2.service.nop(services: [
 ])
 ```
 
-or with including of {RegApi2} module:
+or with including of [RegApi2](http://regru.github.io/reg_api2-ruby/RegApi2.html) module:
 
 ```ruby
 require "reg_api2"
@@ -80,6 +80,19 @@ Console use test/test credentials by default, but you can assign new ones
 before any operations over REG.API through {RegApi2} properties.
 
 Also console reads `~/.regapi2` configuration file if exists, to assign properties from. It knows about these properties in configuration file: `username`, `password`, `lang`, `pem`, `pem_password` and `ca_cert_path`. Properties should be written in `key=value` format separated by newline.
+
+## API categories map
+
+Please follow these links to view documentation on methods of all known API categories:
+
+* [common](http://regru.github.io/reg_api2-ruby/RegApi2/Common.html).
+* [domain](http://regru.github.io/reg_api2-ruby/RegApi2/Domain.html).
+* [user](http://regru.github.io/reg_api2-ruby/RegApi2/User.html).
+* [service](http://regru.github.io/reg_api2-ruby/RegApi2/Service.html).
+* [bill](http://regru.github.io/reg_api2-ruby/RegApi2/Bill.html).
+* [folder](http://regru.github.io/reg_api2-ruby/RegApi2/Folder.html).
+* [zone](http://regru.github.io/reg_api2-ruby/RegApi2/Zone.html).
+* [hosting](http://regru.github.io/reg_api2-ruby/RegApi2/Hosting.html).
 
 ## Recommendations for effective use of REG.API
 
