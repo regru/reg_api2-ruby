@@ -24,7 +24,7 @@ module RegApi2
     # Creates a folder.
     # @param [Hash] opts
     # @option opts [String] :folder_name The name of the new folder.
-    # @return [nil] nil.
+    # @return [void] Nothing.
     # @note Support of service lists: no
     # @example Creation of folder
     #    RegApi2.folder.create folder_name: 'test_folder_name'
@@ -35,7 +35,7 @@ module RegApi2
     # @param [Hash] opts
     # @option opts [Fixnum] :folder_id Id of folder to remove.
     # @option opts [String] :folder_name The name of folder to remove.
-    # @return [nil] nil.
+    # @return [void] Nothing.
     # @note Support of service lists: no
     # @example Removing of folder by id
     #    RegApi2.folder.remove folder_id: 123456

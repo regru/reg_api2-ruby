@@ -13,7 +13,7 @@ module RegApi2
     # @!method nop
     # @param None
     # Accessibility testing.
-    # @return [NilClass] nil
+    # @return [void] Nothing.
     define :nop
 
     # @!method create(opts = {})

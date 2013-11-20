@@ -113,7 +113,7 @@ module RegApi2
     #   | srv_dedicated | dedicated server |
     #   | srv_kvm | KVM access |
     #
-    # @return [NilClass] nil
+    # @return [void] Nothing.
     # @note Accessibility: clients
     # @note Support of service lists: no
     # @example Removing of `srv_hosting_ispmgr` service.
@@ -225,7 +225,7 @@ module RegApi2
     # @!method set_autorenew_flag(opts = {})
     # Enables or disables automatic service renewal.
     # @param opts Options.
-     # @return [NilClass] nil
+    # @return [void] Nothing.
     # @note Accessibility: clients
     # @note Support of service lists: no
     define :set_autorenew_flag
@@ -233,7 +233,7 @@ module RegApi2
     # @!method suspend(opts = {})
     # Use this function to suspend services (for domains – suspend delegation).
     # @param opts Options.
-    # @return [NilClass] nil
+    # @return [void] Nothing.
     # @note Accessibility: clients
     # @note Support of service lists: no
     define :suspend
@@ -241,7 +241,7 @@ module RegApi2
     # @!method resume(opts = {})
     # Use this function to resume services (for domains – resume domain delegation).
     # @param opts Options.
-    # @return [NilClass] nil
+    # @return [void] Nothing.
     # @note Accessibility: clients
     # @note Support of service lists: no
     define :resume

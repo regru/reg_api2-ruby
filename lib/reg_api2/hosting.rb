@@ -10,7 +10,7 @@ module RegApi2
     # @!method nop(opts = {})
     # @param [Hash] opts
     # This function serves for testing purposes.
-    # @return [Hash(domains)] A list of domains. Domains that allow DNS zone management will have the “success” value in the “result” field, otherwise the “result” field will feature an error code explaining the error reason.
+    # @return [void] Nothing.
     # @note Accessibility: everyone
     # @example Test
     #    RegApi2.hosting.nop
@@ -29,6 +29,7 @@ module RegApi2
     # @param [Hash] opts
     # @option opts [String] :url Jelastic refill URL.
     # Sets Jelastic refill URL for current reseller.
+    # @return [void] Nothing.
     # @note Accessibility: partners
     # @example Typical usage
     #    RegApi2.set_jelastic_refill_url url: 'http://mysite.com?service_id=<service_id>&email=<email>'
