@@ -11,13 +11,13 @@ describe RegApi2::Hosting do
   end
 
   describe :get_jelastic_refill_url do
-    it "should return nil" do
+    it "should return \"https://test1.ru\"" do
       hosting.get_jelastic_refill_url.should == "https://test1.ru"
     end
   end
 
   describe :set_jelastic_refill_url do
-    it "should return nil" do
+    it "should return nil on success" do
       hosting.set_jelastic_refill_url(url: "http://ya.ru/").should be_nil
     end
   end
