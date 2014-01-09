@@ -288,7 +288,10 @@ module RegApi2
     # @!method refill(opts = {})
     # You can use this function to refill balance of you service. Only Jelastic (srv_jelastic) is supported at the moment.
     # @param opts Options.
-    # @option opts [Array] mailtype Email type: `approver_email` — approve ssl certificate order, `certificate_email` — certificate email.
+    # @option opts [Fixnum] service_id Service id to be refilled.
+    # @option opts [Number] amount Amount of the invoice.
+    # @option opts [String] currency Invoice currency (RUR, USD, EUR, UAH).
+    # @option opts [Boolean] ok_if_no_money Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting "change payment method" request via web interface. Return error if this flag not set and not enough funds to complete the operation.
     # @return [Hash(service_id, bill_id etc.)]
     # @note Accessibility: clients
     # @note Support of service lists: no
