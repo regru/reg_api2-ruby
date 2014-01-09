@@ -2459,13 +2459,49 @@ TODO: specific options.</p>
     <ul class="option">
       
         <li>
-          <span class="name">mailtype</span>
-          <span class="type">(<tt>Array</tt>)</span>
+          <span class="name">service_id</span>
+          <span class="type">(<tt>Fixnum</tt>)</span>
           <span class="default">
             
           </span>
           
-            &mdash; <div class='inline'><p>Email type: <code>approver_email</code> — approve ssl certificate order, <code>certificate_email</code> — certificate email.</p>
+            &mdash; <div class='inline'><p>Service id to be refilled.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">amount</span>
+          <span class="type">(<tt>Number</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Amount of the invoice.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">currency</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Invoice currency (RUR, USD, EUR, UAH).</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">ok_if_no_money</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Enable to create bill when not enough funds to complete the operation. In this case requested operation is stored in the system, however it will be processed after submitting &quot;change payment method&quot; request via web interface. Return error if this flag not set and not enough funds to complete the operation.</p>
 </div>
           
         </li>
@@ -2493,10 +2529,10 @@ TODO: specific options.</p>
       <pre class="lines">
 
 
-297</pre>
+300</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'lib/reg_api2/service.rb', line 300</span>
 
 <span class='id identifier rubyid_define'>define</span> <span class='symbol'>:refill</span></pre>
     </td>
@@ -3077,7 +3113,7 @@ TODO: specific options.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Jan  9 16:39:31 2014 by
+  Generated on Thu Jan  9 16:46:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-2.0.0).
 </div>
