@@ -57,7 +57,7 @@ describe RegApi2::Service do
 
   describe :get_dedicated_server_list do
     it "should get list of dedicated servers" do
-      ans = RegApi2.service.get_dedicated_server_list
+      ans = service.get_dedicated_server_list
       ans.should be_kind_of Array
       ans.map(&:server_id).each { |id| id.should be_kind_of Fixnum }
     end
@@ -65,9 +65,19 @@ describe RegApi2::Service do
 
   describe :get_bills do
     it "should get list of services and bills" do
-      ans = RegApi2.service.get_bills dname: "qqq.ru"
+      ans = service.get_bills dname: "qqq.ru"
       ans.services.should be_kind_of Array
       ans.bills.should be_nil
+    end
+  end
+
+  describe :refill do
+    it "should refill by service id" do
+      ans = service.refill service_id: 123456, amount: 10, currency: 'UAH'
+      ans.pay_notes.should include("success")
+      ans.pay_type.should == "prepay"
+      ans.service_id.should == 123456
+      ans.payment.should > 0
     end
   end
 end

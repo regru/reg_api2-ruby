@@ -285,6 +285,17 @@ module RegApi2
     #    RegApi2.service.resend_mail servtype: :srv_ssl_certificate
     define :resend_mail
 
+    # @!method refill(opts = {})
+    # You can use this function to refill balance of you service. Only Jelastic (srv_jelastic) is supported at the moment.
+    # @param opts Options.
+    # @option opts [Array] mailtype Email type: `approver_email` — approve ssl certificate order, `certificate_email` — certificate email.
+    # @return [Hash(service_id, bill_id etc.)]
+    # @note Accessibility: clients
+    # @note Support of service lists: no
+    # @example Refill by service id.
+    #    RegApi2.service.refill service_id: 123456, amount: 10, currency: 'UAH'
+    define :refill
+
     extend self
   end
 end
