@@ -6,7 +6,7 @@
 <title>
   Top Level Namespace
   
-    &mdash; 'reg.api2 0.0.11'
+    &mdash; &#39;reg.api2 0.0.11&#39;
   
 </title>
 
@@ -232,7 +232,7 @@
       <pre class="code"><span class="info file"># File 'lib/reg_api2/console_helpers.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_try_lo_load_defaults'>try_lo_load_defaults</span>
-  <span class='id identifier rubyid_filename'>filename</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HOME</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>/.regapi2</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_filename'>filename</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>HOME</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>/.regapi2</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_props'>props</span> <span class='op'>=</span> <span class='qwords_beg'>%w[ </span><span class='tstring_content'>username</span><span class='words_sep'> </span><span class='tstring_content'>password</span><span class='words_sep'> </span><span class='tstring_content'>lang</span><span class='words_sep'> </span><span class='tstring_content'>pem</span><span class='words_sep'> </span><span class='tstring_content'>pem_password</span><span class='words_sep'> </span><span class='tstring_content'>ca_cert_path</span><span class='words_sep'> ]</span>
 
   <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_readable?'>readable?</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
@@ -240,19 +240,19 @@
       <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip!'>strip!</span>
       <span class='kw'>next</span>  <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A\s*#</span><span class='regexp_end'>/</span></span> <span class='comment'># skip comments
 </span>      <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A\s*(\w+)\s*\=(.+)\s*\z</span><span class='regexp_end'>/</span></span>
-        <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='rbrace'>}</span><span class='tstring_content'>: We expect key=value string but got \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_line'>line</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+        <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='embexpr_end'>}</span><span class='tstring_content'>: We expect key=value string but got \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_line'>line</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
         <span class='id identifier rubyid_exit'>exit</span> <span class='int'>1</span>
       <span class='kw'>end</span>
       <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='backref'>$1</span><span class='comma'>,</span> <span class='backref'>$2</span>
       <span class='kw'>unless</span> <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-        <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='rbrace'>}</span><span class='tstring_content'>: Unknown name: \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;, we know only </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+        <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='embexpr_end'>}</span><span class='tstring_content'>: Unknown name: \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;, we know only </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>, </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
         <span class='id identifier rubyid_exit'>exit</span> <span class='int'>1</span>
       <span class='kw'>end</span>
-      <span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+      <span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your default username: \&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_username'>username</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;, and You can change it with \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your default username: \&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>RegApi2</span><span class='period'>.</span><span class='id identifier rubyid_username'>username</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;, and You can change it with \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;.</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -264,9 +264,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Nov 20 09:29:26 2013 by
+  Generated on Thu Jan  9 15:47:07 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7 (ruby-1.9.3).
+  0.8.7 (ruby-2.0.0).
 </div>
 
   </body>
