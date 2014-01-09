@@ -12,7 +12,7 @@ describe RegApi2::ResultContract do
   describe :handle_result do
     it "should return handle_answer" do
       expected = 'OOLOLLO'
-      mock(contract).handle_answer({}) { expected } 
+      expect(contract).to receive(:handle_answer).with({}).and_return(expected) 
       contract.handle_result({ "answer" => {} }).should == expected
     end
   end

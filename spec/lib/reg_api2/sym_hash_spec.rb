@@ -47,7 +47,7 @@ describe RegApi2::SymHash do
 
   describe :include? do
     it "should be has_key?" do
-      mock(hash).has_key?("what") { true }
+      allow(hash).to receive(:has_key?).with("what").and_return(true)
       hash.include?("what").should be_true
     end
   end

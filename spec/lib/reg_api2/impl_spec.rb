@@ -11,12 +11,12 @@ describe RegApi2 do
     end
 
     it "should #create_http at first call" do
-      mock(RegApi2).create_http { 45 }.times(1)
+      allow(RegApi2).to receive(:create_http).once.and_return(45)
       RegApi2.http.should == 45
     end
 
     it "should not #create_http at next call" do
-      mock(RegApi2).create_http { 45 }.times(1)
+      allow(RegApi2).to receive(:create_http).once.and_return(45)
       RegApi2.http.should == 45
       RegApi2.http.should == 45
     end
@@ -31,23 +31,19 @@ describe RegApi2 do
     end
 
     it "should use ca_cert_path if exists" do
-      any_instance_of(Net::HTTP) do |instance|
-        proxy(instance).verify_mode=(OpenSSL::SSL::VERIFY_PEER)
-        proxy(instance).ca_file=("file")
-      end
-      mock(RegApi2).ca_cert_path { "file" }.any_times
+      allow(RegApi2).to receive(:ca_cert_path).and_return("file")
       http = RegApi2.create_http
       http.verify_mode.should == OpenSSL::SSL::VERIFY_PEER
       http.ca_file.should == "file"
     end
 
     it "should use pem with pem_password" do
-      mock(RegApi2).pem { "pem" }.any_times
-      mock(RegApi2).pem_password { "pem_password" }.any_times
+      allow(RegApi2).to receive(:pem).and_return("pem")
+      allow(RegApi2).to receive(:pem_password).and_return("pem_password")
       pem = Object.new
       key = Object.new
-      mock(OpenSSL::X509::Certificate).new("pem") { pem }
-      mock(OpenSSL::PKey::RSA).new("pem", "pem_password") { key }
+      allow(OpenSSL::X509::Certificate).to receive(:new).with("pem").and_return(pem)
+      allow(OpenSSL::PKey::RSA).to receive(:new).with("pem", "pem_password").and_return(key)
 
       http = RegApi2.create_http
       http.cert.should == pem
@@ -55,12 +51,12 @@ describe RegApi2 do
     end
 
     it "should use pem without pem_password" do
-      mock(RegApi2).pem { "pem" }.any_times
-      mock(RegApi2).pem_password { nil }.any_times
+      allow(RegApi2).to receive(:pem).and_return("pem")
+      allow(RegApi2).to receive(:pem_password).and_return(nil)
       pem = Object.new
       key = Object.new
-      mock(OpenSSL::X509::Certificate).new("pem") { pem }
-      mock(OpenSSL::PKey::RSA).new("pem") { key }
+      allow(OpenSSL::X509::Certificate).to receive(:new).with("pem").and_return(pem)
+      allow(OpenSSL::PKey::RSA).to receive(:new).with("pem").and_return(key)
 
       http = RegApi2.create_http
       http.cert.should == pem
