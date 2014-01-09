@@ -1,5 +1,10 @@
 # Changes
 
+## Version 0.0.12
+
+* `service.refill` method.
+* rr mocks was replaced with rspec ones.
+
 ## Version 0.0.11
 
 * New API category: `hosting`.
