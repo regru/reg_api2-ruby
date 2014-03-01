@@ -30,4 +30,17 @@ describe RegApi2::Domain do
       ans.should be_kind_of(Array)
     end
   end
+
+  describe :get_deleted do
+    it "should return deleted domains" do
+      ans = domain.get_deleted(
+        tlds:         'ru',
+        deleted_from: '2013-10-01',
+        deleted_to:   '2013-11-01',
+        min_pr:       2,
+        min_cy:       1
+      )
+      ans.should be_kind_of(Array)
+    end
+  end
 end

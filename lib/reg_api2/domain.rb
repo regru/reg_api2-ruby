@@ -50,9 +50,18 @@ module RegApi2
 
     # @!method get_deleted(opts = {})
     # Get a list of deleted domains. The function is similar to the [Deleted Domains](https://www.reg.com/domain/new/freeing_domains) page.
+    # Maximum returned elements in list equals to 50000.
     # @param [Hash] opts Options.
     # @note Accessibility: partners
     # @note Support of service lists: no
+    # @example Typical usage
+    #   RegApi2.domain.get_deleted(
+    #       tlds:         'ru',
+    #       deleted_from: '2013-10-01',
+    #       deleted_to:   '2013-11-01',
+    #       min_pr:       2,
+    #       min_cy:       1
+    #   )
     define :get_deleted, field: :domains
 
     # @!method check(opts = {})
