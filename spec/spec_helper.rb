@@ -16,6 +16,9 @@ require 'faker'
 require 'machinist'
 require 'rspec/core'
 
+require 'i18n'
+I18n.enforce_available_locales = false
+
 require 'reg_api2'
 
 class RegApi2::Entity::EntityBase
