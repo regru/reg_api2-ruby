@@ -170,32 +170,32 @@ before any operations over REG.API through <span class='object_link'><a href="Re
 <p>The recommendations below will, on the one hand, allow you to preclude situations with excessive requests to REG.API leading to temporary blocking of user accounts, and, on the other hand, to reduce the load on RegRuSRS.</p>
 
 <ol>
-<li><p>We recommend you to send WHOIS requests (for the display of WHOIS data on your sites) not to REG.API, but directly to the WHOIS servers of the corresponding domain zones.</p>
+<li>We recommend you to send WHOIS requests (for the display of WHOIS data on your sites) not to REG.API, but directly to the WHOIS servers of the corresponding domain zones.</li>
+</ol>
 
-<p>The advantages of this approach are as follows:</p>
+<p>The advantages of this approach are as follows:
+  * The responses to WHOIS requests will arriver faster.
+  * You will get data directly from its source without mediation.
+  * The overall number of requests will decrease, thus the likelihood of blocking of your account due to excessive requests to REG.API decreases as well.</p>
 
-<ul>
-<li>The responses to WHOIS requests will arriver faster.</li>
-<li>You will get data directly from its source without mediation.</li>
-<li>The overall number of requests will decrease, thus the likelihood of blocking of your account due to excessive requests to REG.API decreases as well.</li>
-</ul>
+<p>We can offer you ready-to-use software solutions that will allow you to optimize your procedures of getting WHOIS data.</p>
 
-<p>We can offer you ready-to-use software solutions that will allow you to optimize your procedures of getting WHOIS data.</p></li>
+<ol>
 <li><p>We recommend you to use REG.API for placing orders or changing data rather than for obtaining data. The software employed by some of our partners either do not locally store domain-related data or store incomplete data. As a result this data is dynamically downloaded from our system with the help of such functions domain_list, service/get_info, domain/get_contacts, domain/get_nss, etc.
 We advise you to store all domain- and service-related locally and address to REG.API only when you want to change some data in the registry. This will ensure fast and reliable operation of your applications and minimize your dependency on the availability of our system.</p></li>
-<li><p>All data change requests should be performed asynchronously.</p>
+<li><p>All data change requests should be performed asynchronously.</p></li>
+</ol>
 
 <p>Some applications perform domain/service registration operations, as well as data change operations right at the moment of processing HTTP requests from clients. But if the execution of an API request fails for some reason (connection loss, exceeding of request limit, parallel request blocking), this request will get lost and the client will receive an error message.</p>
 
 <p>This mode of interaction is very unreliable and inconvenient for your customers.</p>
 
-<p>We recommend you to perform all service ordering/data changing requests asynchronously using the queue mechanism. In such a case:</p>
+<p>We recommend you to perform all service ordering/data changing requests asynchronously using the queue mechanism. In such a case:
+  * You will exclude the possibility of API request blockings (because only one API request is performed at a time).
+  * In case of connection failures the request can be repeated until it is executed (this significantly increases the system reliability).
+  * In case of request processing errors (if REG.RU returned an error code), you can fix the problem and repeat the request, while the customer will not get any error messages. You can solve the major part of your customers’ problems on your own without their participation.</p>
 
-<ul>
-<li>You will exclude the possibility of API request blockings (because only one API request is performed at a time).</li>
-<li>In case of connection failures the request can be repeated until it is executed (this significantly increases the system reliability).</li>
-<li>In case of request processing errors (if REG.RU returned an error code), you can fix the problem and repeat the request, while the customer will not get any error messages. You can solve the major part of your customers’ problems on your own without their participation.</li>
-</ul></li>
+<ol>
 <li><p>Use bulk operations whenever possible. A lot of methods support operations over lists of services and domains at once.</p></li>
 <li><p>It is a good practice to keep logs of all API request and responses. If a problem arises, logs will help you or our support engineers to efficiently locate and solve it.</p></li>
 </ol>
@@ -668,9 +668,9 @@ open doc/index.html
 </div></div>
 
     <div id="footer">
-  Generated on Thu Jan  9 16:46:49 2014 by
+  Generated on Sat Mar  1 15:39:28 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7 (ruby-2.0.0).
+  0.8.7.3 (ruby-2.1.0).
 </div>
 
   </body>
