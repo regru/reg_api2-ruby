@@ -280,7 +280,7 @@ Error code from REG.API raised by client as exception of {RegApi2::ApiError} cla
 
 ## Documentation
 
-Actual documentation available at https://www.reg.com/support/help/API-version2
+Actual documentation available at https://www.reg.com/support/help/api2
 
 For developers: Ruby client documentation can be accessed as:
 
