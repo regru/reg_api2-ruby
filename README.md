@@ -85,14 +85,16 @@ Also console reads `~/.regapi2` configuration file if exists, to assign properti
 
 Please follow these links to view documentation on methods of all known API categories:
 
-* [common](http://regru.github.io/reg_api2-ruby/RegApi2/Common.html).
-* [domain](http://regru.github.io/reg_api2-ruby/RegApi2/Domain.html).
-* [user](http://regru.github.io/reg_api2-ruby/RegApi2/User.html).
-* [service](http://regru.github.io/reg_api2-ruby/RegApi2/Service.html).
-* [bill](http://regru.github.io/reg_api2-ruby/RegApi2/Bill.html).
-* [folder](http://regru.github.io/reg_api2-ruby/RegApi2/Folder.html).
-* [zone](http://regru.github.io/reg_api2-ruby/RegApi2/Zone.html).
-* [hosting](http://regru.github.io/reg_api2-ruby/RegApi2/Hosting.html).
+| Category | Description |
+| -------- | ----------- |
+| [common](http://regru.github.io/reg_api2-ruby/RegApi2/Common.html) | Common ops |
+| [domain](http://regru.github.io/reg_api2-ruby/RegApi2/Domain.html) | Domain registration etc. |
+| [user](http://regru.github.io/reg_api2-ruby/RegApi2/User.html) | User creation etc. |
+| [service](http://regru.github.io/reg_api2-ruby/RegApi2/Service.html) | Generic service ops |
+| [bill](http://regru.github.io/reg_api2-ruby/RegApi2/Bill.html) | Billing |
+| [folder](http://regru.github.io/reg_api2-ruby/RegApi2/Folder.html) | Folders for services including domains |
+| [zone](http://regru.github.io/reg_api2-ruby/RegApi2/Zone.html) | Domain zone resource records (DNS) |
+| [hosting](http://regru.github.io/reg_api2-ruby/RegApi2/Hosting.html) | Jelastic hosting ops at now |
 
 ## Recommendations for effective use of REG.API
 
