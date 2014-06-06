@@ -19,6 +19,7 @@ require 'reg_api2/bill'
 require 'reg_api2/folder'
 require 'reg_api2/zone'
 require 'reg_api2/hosting'
+require 'reg_api2/shop'
 
 # Provides r/w settings for API connection:
 #
@@ -38,6 +39,7 @@ require 'reg_api2/hosting'
 # * {RegApi2.folder} API category implemented as {RegApi2::Folder} methods.
 # * {RegApi2.zone} API category implemented as {RegApi2::Zone} methods.
 # * {RegApi2.hosting} API category implemented as {RegApi2::Hosting} methods.
+# * {RegApi2.shop} API category implemented as {RegApi2::Shop} methods.
 #
 # Provides dump hooks:
 #
@@ -67,7 +69,7 @@ module RegApi2
   module_function :common
 
   # Shortcut for {RegApi2::Domain} methods.
-  # @return [Module] {RegApi2::Domain} 
+  # @return [Module] {RegApi2::Domain}
   # @api Shortcuts
   def domain; RegApi2::Domain; end
   module_function :domain
@@ -107,6 +109,12 @@ module RegApi2
   # @api Shortcuts
   def hosting; RegApi2::Hosting; end
   module_function :hosting
+
+  # Shortcut for {RegApi2::Shop} methods.
+  # @return [Module] {RegApi2::Shop}
+  # @api Shortcuts
+  def shop; RegApi2::Shop; end
+  module_function :shop
 
   class << self
     # @!attribute [rw] username
