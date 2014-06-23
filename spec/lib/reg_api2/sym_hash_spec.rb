@@ -36,7 +36,7 @@ describe RegApi2::SymHash do
 
     it "should return nil unless keypair present" do
       hash.absent_key.should be_nil
-    end 
+    end
   end
 
   describe :respond_to? do
@@ -48,7 +48,7 @@ describe RegApi2::SymHash do
   describe :include? do
     it "should be has_key?" do
       allow(hash).to receive(:has_key?).with("what").and_return(true)
-      hash.include?("what").should be_true
+      hash.include?("what").should be true
     end
   end
 
@@ -70,7 +70,7 @@ describe RegApi2::SymHash do
     it "should deeply clone structures with replacing hashes with SymHash" do
       res = RegApi2::SymHash.from([{a: 1}, {b: 2}, [ 1, 2, 3 ]])
       res.should be_kind_of(Array)
-      res.should have(3).elements
+      expect(res).to have_exactly(3).elements
       res.first.should be_kind_of(RegApi2::SymHash)
       res[1].should be_kind_of(RegApi2::SymHash)
       res.last.should_not be_kind_of(RegApi2::SymHash)

@@ -8,18 +8,18 @@ describe RegApi2::Bill do
     it "should raise nothing" do
       lambda { bill.nop }.should_not raise_error
     end
-    
+
     it "should return nil" do
       bill.nop.should be_nil
     end
 
     it "should return bill if specified" do
-      bill.nop(bill_id: 12345).should have(1).bill
+      expect(bill.nop(bill_id: 12345)).to have_exactly(1).bill
     end
 
     it "should return bills if specified" do
-      bill.nop(bills: [ 12345, 12346 ]).should have(2).bills
-    end  
+      expect(bill.nop(bills: [ 12345, 12346 ])).to have_exactly(2).bills
+    end
   end
 
   describe :get_not_payed do
@@ -28,7 +28,7 @@ describe RegApi2::Bill do
     end
 
     it "should return something real" do
-      bill.get_not_payed.should have(1).bill
+      expect(bill.get_not_payed).to have_exactly(1).bill
     end
   end
 
@@ -38,32 +38,32 @@ describe RegApi2::Bill do
     end
 
     it "should return something real" do
-      bill.get_for_period(
+      expect(bill.get_for_period(
         start_date: Date.new(2000, 1, 1),
         end_date: Date.new(2015, 1, 1)
-      ).should have(1).bill
+      )).to have_exactly(1).bill
     end
   end
 
   describe :change_pay_type do
     it "should raise if no currency given" do
       lambda { bill.change_pay_type(
-        pay_type: :prepay, 
-        bills: [ 123456 ] 
+        pay_type: :prepay,
+        bills: [ 123456 ]
       ) }.should raise_error RegApi2::ContractError
     end
     it "should raise if no pay_type given" do
       lambda { bill.change_pay_type(
-        currency: :RUR, 
+        currency: :RUR,
         bills: [ 123456 ]
       ) }.should raise_error RegApi2::ContractError
     end
     it "should raise nothing if ok" do
-      bill.change_pay_type(
+      expect(bill.change_pay_type(
         pay_type: :prepay,
         currency: :RUR,
         bills: [ 123456 ]
-      ).should have(1).bill
+      )).to have_exactly(1).bill
     end
   end
 

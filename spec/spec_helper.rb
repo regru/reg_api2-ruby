@@ -15,6 +15,7 @@ end
 require 'faker'
 require 'machinist'
 require 'rspec/core'
+require 'rspec/collection_matchers'
 
 require 'i18n'
 I18n.enforce_available_locales = false
@@ -26,7 +27,6 @@ class RegApi2::Entity::EntityBase
 end
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 
