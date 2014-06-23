@@ -95,6 +95,7 @@ Please follow these links to view documentation on methods of all known API cate
 | [folder](http://regru.github.io/reg_api2-ruby/RegApi2/Folder.html) | Folders for services including domains |
 | [zone](http://regru.github.io/reg_api2-ruby/RegApi2/Zone.html) | Domain zone resource records (DNS) |
 | [hosting](http://regru.github.io/reg_api2-ruby/RegApi2/Hosting.html) | Jelastic hosting ops at now |
+| [shop](http://regru.github.io/reg_api2-ruby/RegApi2/Shop.html) | Domain Shop management functions |
 
 ## Recommendations for effective use of REG.API
 
@@ -179,7 +180,7 @@ Identification by numeric service identifiers is the most reliable and quick met
 | | **Service identification by parent service ID, service type or subtype** |
 | uplink_service_id | ID of the parent service with which the required service is associated. |
 | servtype | Service type. For example, «srv_hosting_ispmgr» for hosting or «srv_webfwd» for the web-forwarding service. |
-| subtype | Service subtype. For example, «pro» for the ISP Manager Pro license. | 
+| subtype | Service subtype. For example, «pro» for the ISP Manager Pro license. |
 
 ### Service list identification parameters
 
