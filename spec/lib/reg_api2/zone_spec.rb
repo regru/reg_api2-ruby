@@ -8,13 +8,13 @@ describe RegApi2::Zone do
 
   describe :nop do
     it "should raise when no args" do
-      lambda { zone.nop }.should raise_error
+      expect { zone.nop }.to raise_error
     end
     
     it "should return domains if specified" do
       ans = zone.nop(domains: [ { dname: "test.ru" }, { dname: "test.com" } ])
-      ans.domains.map(&:servtype).should == [ 'domain', 'domain' ]
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:servtype)).to eq([ 'domain', 'domain' ])
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end  
   end
 
@@ -25,7 +25,7 @@ describe RegApi2::Zone do
         subdomain: '@',
         ipaddr: IPAddr.new("111.111.111.111")
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
 
     it "should understood ip addresses as strings too" do
@@ -34,7 +34,7 @@ describe RegApi2::Zone do
         subdomain: '*',
         ipaddr: "111.111.111.111"
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -45,7 +45,7 @@ describe RegApi2::Zone do
         subdomain: '@',
         ipaddr: IPAddr.new("aa11::a111:11aa:aaa1:aa1a")
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
 
     it "should understood ipv6 addresses as strings too" do
@@ -54,7 +54,7 @@ describe RegApi2::Zone do
         subdomain: '*',
         ipaddr: "aa11::a111:11aa:aaa1:aa1a"
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -65,7 +65,7 @@ describe RegApi2::Zone do
         subdomain: "mail",
         canonical_name: "mx10.test.ru"
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -76,7 +76,7 @@ describe RegApi2::Zone do
         subdomain: '@',
         mail_server: IPAddr.new("111.111.111.111")
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
 
     it "should understood mail servers as domains too" do
@@ -86,7 +86,7 @@ describe RegApi2::Zone do
         priority: 1,
         mail_server: "mail"
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -98,18 +98,18 @@ describe RegApi2::Zone do
         dns_server: "ns.test.ru",
         record_number: 10
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
 
     it "should check record number" do
-      lambda do
+      expect do
         zone.add_ns(
           domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
           subdomain: 'tt',
           dns_server: "ns.test.ru",
           record_number: 'fg'
         )
-      end.should raise_error RegApi2::ContractError
+      end.to raise_error RegApi2::ContractError
     end
   end
 
@@ -120,7 +120,7 @@ describe RegApi2::Zone do
         subdomain: 'mail',
         text: "testmail"
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -133,7 +133,7 @@ describe RegApi2::Zone do
         port: 5060,
         target: "sip.test.ru"
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -142,8 +142,8 @@ describe RegApi2::Zone do
       ans = zone.get_resource_records(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ]
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
-      ans.domains.map(&:rrs).should be_kind_of(Array)
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
+      expect(ans.domains.map(&:rrs)).to be_kind_of(Array)
     end
   end
 
@@ -153,8 +153,8 @@ describe RegApi2::Zone do
         { action: :add_alias, subdomain: "www", ipaddr: "11.22.33.44" },
         { action: :add_cname, subdomain: "@", canonical_name: "www.test.ru" }
       ]
-      ans.domains.map(&:result).should == [ 'success' ]
-      ans.domains.first.action_list.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success' ])
+      expect(ans.domains.first.action_list.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -165,7 +165,7 @@ describe RegApi2::Zone do
         ttl: "1d",
         minimum_ttl: "4h"
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -174,7 +174,7 @@ describe RegApi2::Zone do
       ans = zone.tune_forwarding(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -183,7 +183,7 @@ describe RegApi2::Zone do
       ans = zone.clear_forwarding(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -192,7 +192,7 @@ describe RegApi2::Zone do
       ans = zone.tune_parking(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -201,7 +201,7 @@ describe RegApi2::Zone do
       ans = zone.clear_parking(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -213,7 +213,7 @@ describe RegApi2::Zone do
         content: '111.111.111.111', 
         record_type: :A
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 
@@ -222,7 +222,7 @@ describe RegApi2::Zone do
       ans = zone.clear(
         domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
       )
-      ans.domains.map(&:result).should == [ 'success', 'success' ]
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
     end
   end
 end

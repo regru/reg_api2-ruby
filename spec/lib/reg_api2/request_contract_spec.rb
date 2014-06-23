@@ -10,10 +10,10 @@ describe RegApi2::RequestContract do
 
   describe :initialize do
     it "should assign opts" do
-      contract.opts.should == {
+      expect(contract.opts).to eq({
         required: %w[ a b ],
         optional: %w[ c d ]
-      }
+      })
     end
   end
 

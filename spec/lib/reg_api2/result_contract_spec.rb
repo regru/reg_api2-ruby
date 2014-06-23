@@ -5,7 +5,7 @@ describe RegApi2::ResultContract do
 
   describe :initialize do
     it "should assign opts" do
-      contract.opts.should == { a: 1, b: 4 }
+      expect(contract.opts).to eq({ a: 1, b: 4 })
     end
   end
 
@@ -13,18 +13,18 @@ describe RegApi2::ResultContract do
     it "should return handle_answer" do
       expected = 'OOLOLLO'
       expect(contract).to receive(:handle_answer).with({}).and_return(expected) 
-      contract.handle_result({ "answer" => {} }).should == expected
+      expect(contract.handle_result({ "answer" => {} })).to eq(expected)
     end
   end
 
   describe :handle_answer do
     it "should return specified value" do
-      contract.handle_answer("FX").should == "FX"
+      expect(contract.handle_answer("FX")).to eq("FX")
     end
 
     it "should return field value if exists" do
       contract = RegApi2::ResultContract.new(a:1, field: :a)
-      contract.handle_result({ answer: { "a" => "FX" } }).should == "FX"
+      expect(contract.handle_result({ answer: { "a" => "FX" } })).to eq("FX")
     end
   end
 
@@ -36,23 +36,23 @@ describe RegApi2::ResultContract do
         amount: "15",
         text: "2323" 
       })
-      ans.should == {
+      expect(ans).to eq({
         active_domains_cnt: 6,
         success: false,
         amount: 15.0,
         text: "2323"
-      }
+      })
       ans = contract.convert({
         success: "1",
       })
-      ans.should == {
+      expect(ans).to eq({
         success: true,
-      }
+      })
     end
 
     it "should proceed arrays too" do
       ans = contract.convert([ 1, 2, [ 1 ], { amount: "4543" } ])
-      ans.should == [ 1, 2, [ 1 ], { amount: 4543.0} ]
+      expect(ans).to eq([ 1, 2, [ 1 ], { amount: 4543.0} ])
     end
   end
 end

@@ -12,29 +12,29 @@ describe RegApi2 do
 
     it "should #create_http at first call" do
       allow(RegApi2).to receive(:create_http).once.and_return(45)
-      RegApi2.http.should == 45
+      expect(RegApi2.http).to eq(45)
     end
 
     it "should not #create_http at next call" do
       allow(RegApi2).to receive(:create_http).once.and_return(45)
-      RegApi2.http.should == 45
-      RegApi2.http.should == 45
+      expect(RegApi2.http).to eq(45)
+      expect(RegApi2.http).to eq(45)
     end
   end
 
   describe :create_http do
     it "should create Net::HTTP object" do
       http = RegApi2.create_http
-      http.should be_kind_of(Net::HTTP)
-      http.should be_use_ssl
-      http.verify_mode.should == OpenSSL::SSL::VERIFY_NONE
+      expect(http).to be_kind_of(Net::HTTP)
+      expect(http).to be_use_ssl
+      expect(http.verify_mode).to eq(OpenSSL::SSL::VERIFY_NONE)
     end
 
     it "should use ca_cert_path if exists" do
       allow(RegApi2).to receive(:ca_cert_path).and_return("file")
       http = RegApi2.create_http
-      http.verify_mode.should == OpenSSL::SSL::VERIFY_PEER
-      http.ca_file.should == "file"
+      expect(http.verify_mode).to eq(OpenSSL::SSL::VERIFY_PEER)
+      expect(http.ca_file).to eq("file")
     end
 
     it "should use pem with pem_password" do
@@ -46,8 +46,8 @@ describe RegApi2 do
       allow(OpenSSL::PKey::RSA).to receive(:new).with("pem", "pem_password").and_return(key)
 
       http = RegApi2.create_http
-      http.cert.should == pem
-      http.key.should  == key
+      expect(http.cert).to eq(pem)
+      expect(http.key).to  eq(key)
     end
 
     it "should use pem without pem_password" do
@@ -59,20 +59,20 @@ describe RegApi2 do
       allow(OpenSSL::PKey::RSA).to receive(:new).with("pem").and_return(key)
 
       http = RegApi2.create_http
-      http.cert.should == pem
-      http.key.should_not  be_nil
+      expect(http.cert).to eq(pem)
+      expect(http.key).not_to  be_nil
     end
   end
 
   describe :make_action do
 
     it "should raise ApiError with NO_SUCH_COMMAND code on absent command" do
-      lambda do
+      expect do
         RegApi2.make_action(:bad, :command, {}, {})
-      end.should raise_error RegApi2::ApiError
-      lambda do
+      end.to raise_error RegApi2::ApiError
+      expect do
         RegApi2.make_action(:bad, :command, {}, {})
-      end.should raise_error /NO_SUCH_COMMAND/
+      end.to raise_error /NO_SUCH_COMMAND/
     end
   end
 end

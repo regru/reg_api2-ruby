@@ -5,7 +5,7 @@ describe RegApi2::Domain do
 
   describe :nop do
     it "should raise nothing" do
-      lambda { domain.nop }.should_not raise_error
+      expect { domain.nop }.not_to raise_error
     end
 
     it "should return service id if domain exist"
@@ -19,15 +19,15 @@ describe RegApi2::Domain do
         show_update_data: true, 
         currency: :USD
       )
-      prices.should have_key(:price_group)
-      prices.currency.should == 'USD'
+      expect(prices).to have_key(:price_group)
+      expect(prices.currency).to eq('USD')
     end
   end
 
   describe :get_suggest do
     it "should return suggestions" do
       ans = domain.get_suggest word: 'house', additional_word: 'new', use_hyphen: false, tlds: [ :ru ]
-      ans.should be_kind_of(Array)
+      expect(ans).to be_kind_of(Array)
     end
   end
 
@@ -40,7 +40,7 @@ describe RegApi2::Domain do
         min_pr:       2,
         min_cy:       1
       )
-      ans.should be_kind_of(Array)
+      expect(ans).to be_kind_of(Array)
     end
   end
 end

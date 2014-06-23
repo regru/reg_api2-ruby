@@ -8,15 +8,15 @@ describe Testplate do
   let!(:plate) { Testplate.new(a: 4, b: 5) }
 
   it "should be initialized with hash" do
-    plate.a.should == 4
-    plate.b.should == 5
+    expect(plate.a).to eq(4)
+    expect(plate.b).to eq(5)
   end
 
   it "should return the hash" do
-    plate.to_hash.should == { a: 4, b: 5 }
+    expect(plate.to_hash).to eq({ a: 4, b: 5 })
   end
 
   it "should return json" do
-    plate.to_json.should =~ /^{.?"a":4/
+    expect(plate.to_json).to match(/^{.?"a":4/)
   end
 end

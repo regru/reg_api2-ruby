@@ -5,11 +5,11 @@ describe RegApi2::Shop do
 
   describe :nop do
     it "should raise nothing" do
-      lambda { shop.nop }.should_not raise_error
+      expect { shop.nop }.not_to raise_error
     end
 
     it "should return lot id if domain exist" do
-      RegApi2.shop.nop(dname: 'test.ru').should have_key( 'lot_id' )
+      expect(RegApi2.shop.nop(dname: 'test.ru')).to have_key( 'lot_id' )
     end
   end
 end

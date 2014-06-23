@@ -6,19 +6,19 @@ describe RegApi2::Hosting do
 
   describe :nop do
     it "should return nil" do
-      hosting.nop.should be_nil
+      expect(hosting.nop).to be_nil
     end
   end
 
   describe :get_jelastic_refill_url do
     it "should return \"https://test1.ru\"" do
-      hosting.get_jelastic_refill_url.should == "https://test1.ru"
+      expect(hosting.get_jelastic_refill_url).to eq("https://test1.ru")
     end
   end
 
   describe :set_jelastic_refill_url do
     it "should return nil on success" do
-      hosting.set_jelastic_refill_url(url: "http://ya.ru/").should be_nil
+      expect(hosting.set_jelastic_refill_url(url: "http://ya.ru/")).to be_nil
     end
   end
 

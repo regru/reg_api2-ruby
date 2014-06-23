@@ -6,11 +6,11 @@ describe RegApi2::Bill do
 
   describe :nop do
     it "should raise nothing" do
-      lambda { bill.nop }.should_not raise_error
+      expect { bill.nop }.not_to raise_error
     end
 
     it "should return nil" do
-      bill.nop.should be_nil
+      expect(bill.nop).to be_nil
     end
 
     it "should return bill if specified" do
@@ -24,7 +24,7 @@ describe RegApi2::Bill do
 
   describe :get_not_payed do
     it "should raise nothing" do
-      lambda { bill.get_not_payed }.should_not raise_error
+      expect { bill.get_not_payed }.not_to raise_error
     end
 
     it "should return something real" do
@@ -34,7 +34,7 @@ describe RegApi2::Bill do
 
   describe :get_for_period do
     it "should raise ContractError without dates" do
-      lambda { bill.get_for_period }.should raise_error RegApi2::ContractError
+      expect { bill.get_for_period }.to raise_error RegApi2::ContractError
     end
 
     it "should return something real" do
@@ -47,16 +47,16 @@ describe RegApi2::Bill do
 
   describe :change_pay_type do
     it "should raise if no currency given" do
-      lambda { bill.change_pay_type(
+      expect { bill.change_pay_type(
         pay_type: :prepay,
         bills: [ 123456 ]
-      ) }.should raise_error RegApi2::ContractError
+      ) }.to raise_error RegApi2::ContractError
     end
     it "should raise if no pay_type given" do
-      lambda { bill.change_pay_type(
+      expect { bill.change_pay_type(
         currency: :RUR,
         bills: [ 123456 ]
-      ) }.should raise_error RegApi2::ContractError
+      ) }.to raise_error RegApi2::ContractError
     end
     it "should raise nothing if ok" do
       expect(bill.change_pay_type(
@@ -72,9 +72,9 @@ describe RegApi2::Bill do
       ans = bill.delete(
         bills: [ { bill_id: 12345 }, { bill_id: 12346 }, { bill_id: 12347 } ]
       )
-      ans.map { |b| b.bill_id }.should == [ 12345, 12346, 12347 ]
-      ans.each { |b| b.result.should == 'success' }
-      ans.each { |b| b.status.should == 'deleted' }
+      expect(ans.map { |b| b.bill_id }).to eq([ 12345, 12346, 12347 ])
+      ans.each { |b| expect(b.result).to eq('success') }
+      ans.each { |b| expect(b.status).to eq('deleted') }
     end
   end
 end
