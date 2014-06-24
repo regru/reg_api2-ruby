@@ -15,13 +15,13 @@ module RegApi2
     # @return [String] lot identifier or nil.
     define :nop
 
-   # @!method add_lot
+    # @!method add_lot
     # @param opts Opts
     # adding lot/lots.
     # @return [void] Nothing.
     define :add_lot
 
-   # @!method add_lot
+    # @!method add_lot
     # @param opts Opts
     # Update lot/lots.
     # @return [void] Nothing.
