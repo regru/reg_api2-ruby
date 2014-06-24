@@ -22,4 +22,9 @@ describe RegApi2::Hosting do
     end
   end
 
+  describe :get_parallelswpb_constructor_url do
+    xit "should return \"https://test1.ru\"" do
+      expect(hosting.get_parallelswpb_constructor_url(service_id: 123456)).to eq("https://test1.ru")
+    end
+  end
 end

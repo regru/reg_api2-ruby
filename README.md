@@ -94,7 +94,7 @@ Please follow these links to view documentation on methods of all known API cate
 | [bill](http://regru.github.io/reg_api2-ruby/RegApi2/Bill.html) | Billing |
 | [folder](http://regru.github.io/reg_api2-ruby/RegApi2/Folder.html) | Folders for services including domains |
 | [zone](http://regru.github.io/reg_api2-ruby/RegApi2/Zone.html) | Domain zone resource records (DNS) |
-| [hosting](http://regru.github.io/reg_api2-ruby/RegApi2/Hosting.html) | Jelastic hosting ops at now |
+| [hosting](http://regru.github.io/reg_api2-ruby/RegApi2/Hosting.html) | Hosting management functions |
 | [shop](http://regru.github.io/reg_api2-ruby/RegApi2/Shop.html) | Domain Shop management functions |
 
 ## Recommendations for effective use of REG.API
