@@ -1,5 +1,14 @@
 # Changes
 
+## Version 0.0.15
+
+* `hosting.get_parallelswpb_constructor_url` method added.
+
+## Version 0.0.14
+
+* New API category: `shop`.
+* RSpec upgraded to version 3.
+
 ## Version 0.0.12
 
 * `service.refill` method.
@@ -14,4 +23,3 @@
 
 * Methods of `bill` category now returns array of bills directly instead of `{ 'bills' => [ ... ] }`.
 * Documentation updated.
-
