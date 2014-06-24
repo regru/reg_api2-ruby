@@ -21,7 +21,7 @@ module RegApi2
     # @return [void] Nothing.
     define :add_lot
 
-    # @!method add_lot
+    # @!method update_lot
     # @param opts Opts
     # Update lot/lots.
     # @return [void] Nothing.
