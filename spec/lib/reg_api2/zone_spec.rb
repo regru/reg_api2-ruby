@@ -10,12 +10,12 @@ describe RegApi2::Zone do
     it "should raise when no args" do
       expect { zone.nop }.to raise_error
     end
-    
+
     it "should return domains if specified" do
       ans = zone.nop(domains: [ { dname: "test.ru" }, { dname: "test.com" } ])
       expect(ans.domains.map(&:servtype)).to eq([ 'domain', 'domain' ])
       expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
-    end  
+    end
   end
 
   describe :add_alias do
@@ -137,6 +137,17 @@ describe RegApi2::Zone do
     end
   end
 
+  describe :add_spf do
+    it "should add SPF records" do
+      ans = zone.add_spf(
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '@',
+        text: "v=spf1 include:_spf.google.com ~all"
+      )
+      expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])
+    end
+  end
+
   describe :get_resource_records do
     it "should get resource records" do
       ans = zone.get_resource_records(
@@ -208,9 +219,9 @@ describe RegApi2::Zone do
   describe :remove_record do
     it "Should delete A record with 111.111.111.111 ip from @" do
       ans = zone.remove_record(
-        domains: [ { dname: "test.ru" }, { dname: "test.com" } ], 
-        subdomain: '@', 
-        content: '111.111.111.111', 
+        domains: [ { dname: "test.ru" }, { dname: "test.com" } ],
+        subdomain: '@',
+        content: '111.111.111.111',
         record_type: :A
       )
       expect(ans.domains.map(&:result)).to eq([ 'success', 'success' ])

@@ -111,6 +111,18 @@ module RegApi2
     #    RegApi2.zone.add_srv domains: [ { dname: "test.ru" }, { dname: "test.com" } ], service: "_sip._udp", priority: 0, port: 5060, target: "sip.test.ru"
     define :add_srv, required: { service: {}, priority: { re: /\A\d+\z/ }, target: {}, port: { re: /\A\d+\z/ } }, optional: { weight: { re: /\A\d+\z/ } }
 
+    # @!method add_spf(opts = {})
+    # @param [Hash] opts
+    # @option opts [String] :subdomain Subdomain name.
+    # @option opts [String] :text SPF record text.
+    # Creates a SPF (sender policy framework) resource record up to 512 octets in length.
+    # @return [Hash(domains)] A list of domains with results.
+    # @note Support of service lists: yes
+    # @note Accessibility: clients
+    # @example Create SPF record.
+    #    RegApi2.zone.add_spf domains: [ { dname: "test.ru" }, { dname: "test.com" } ], subdomain: "@", text: 'v=spf1 include:_spf.google.com ~all'
+    define :add_spf, required: { subdomain: {}, text: { re: /\Av=spf1/ } }
+
     # @!method get_resource_records(opts = {})
     # Use this fuction to get zone resource records for each domains.
     # @param [Hash] opts
