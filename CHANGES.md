@@ -1,5 +1,9 @@
 # Changes
 
+## Version 0.0.16
+
+* `zone.add_spf` method added.
+
 ## Version 0.0.15
 
 * `hosting.get_parallelswpb_constructor_url` method added.
